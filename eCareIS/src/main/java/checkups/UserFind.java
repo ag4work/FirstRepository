@@ -10,8 +10,10 @@ import service.UserServiceImpl;
  */
 public class UserFind {
     public static void main(String[] args) {
+
         UserService userService = new UserServiceImpl();
         User user = userService.findUserByEmail("iv@iv.com");
+        System.out.println(user.getContracts().size());
         if (user!=null){
             System.out.println(user);
         }

@@ -1,7 +1,7 @@
 package entity;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.util.Date;
 import java.util.Set;
 
 /**
@@ -53,6 +53,7 @@ public class User {
 
     @Basic
     @Column(name = "birthday")
+    @Temporal(TemporalType.DATE)
     public Date getBirthday() {
         return birthday;
     }
