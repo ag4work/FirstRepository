@@ -24,7 +24,7 @@ public class TariffServlet extends javax.servlet.http.HttpServlet {
         TariffDAO tariffDAO = new TariffDAOJDBCImpl();
         List<Tariff> tariffs = tariffDAO.findAll();
         request.setAttribute("tariffList",tariffs);
-        request.getRequestDispatcher("tariffs.jsp").forward(request,response);;
+        request.getRequestDispatcher("tariffs.jsp").forward(request,response);
 
     }
 }
