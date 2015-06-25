@@ -3,6 +3,7 @@ package controller;
 
 import entity.User;
 import service.UserService;
+import service.UserServiceGenericBasedImpl;
 import service.UserServiceImpl;
 
 import javax.servlet.ServletException;
@@ -43,7 +44,8 @@ public class AddUserServlet extends HttpServlet {
         user.setEmail(request.getParameter("email"));
         user.setPassword(request.getParameter("password"));
         user.setRole(Integer.parseInt(request.getParameter("role")));
-        UserService userService = new UserServiceImpl();
+
+        UserService userService = new UserServiceGenericBasedImpl();
         userService.addUser(user);
         response.sendRedirect("/users");
     }

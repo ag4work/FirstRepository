@@ -2,6 +2,7 @@ package controller;
 
 import entity.User;
 import service.UserService;
+import service.UserServiceGenericBasedImpl;
 import service.UserServiceImpl;
 
 import javax.servlet.ServletException;
@@ -20,7 +21,7 @@ public class UsersServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=utf-8");
-        UserService userService = new UserServiceImpl();
+        UserService userService = new UserServiceGenericBasedImpl();
         List<User> userList = userService.getAllUsers();
         request.setAttribute("userList", userList);
         request.getRequestDispatcher("users.jsp").forward(request,response);

@@ -67,7 +67,7 @@
             </td>
 
             <td>
-                    ${user.getContracts().size()}
+                    <%--${user.getContracts().size()}--%>
             </td>
 
 
