@@ -1,6 +1,6 @@
 package controller;
 
-import entity.User;
+import service.DTO.UserDTO;
 import service.UserService;
 import service.UserServiceGenericBasedImpl;
 import service.UserServiceImpl;
@@ -22,8 +22,8 @@ public class UsersServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=utf-8");
         UserService userService = new UserServiceGenericBasedImpl();
-        List<User> userList = userService.getAllUsers();
-        request.setAttribute("userList", userList);
+        List<UserDTO> userDTOList = userService.getAllUsers();
+        request.setAttribute("userList", userDTOList);
         request.getRequestDispatcher("users.jsp").forward(request,response);
     }
 

@@ -1,5 +1,7 @@
 package GenericBasedDAO;
 
+import org.apache.log4j.Logger;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
@@ -8,6 +10,7 @@ import java.util.List;
  * Created by Alexey on 25.06.2015.
  */
 public class GenericDAOImpl<T> implements  DAOOperations<T> {
+    Logger logger;
 
     private EntityManagerFactory emf = null;
 
@@ -16,6 +19,8 @@ public class GenericDAOImpl<T> implements  DAOOperations<T> {
     protected GenericDAOImpl(final Class<T> genericClass, EntityManagerFactory emf) {
         this.genericClass = genericClass;
         this.emf = emf;
+        logger = Logger.getLogger(genericClass);
+        logger.info("Generic"+genericClass+"DAO was created");
     }
 
     @Override
@@ -27,11 +32,13 @@ public class GenericDAOImpl<T> implements  DAOOperations<T> {
         List<T> entities = query.getResultList();
 
         em.close();
+        logger.info("getAll()");
         return entities;
     }
 
     @Override
     public T get(final Serializable id) {
+        logger.info("get() with id:" + id);
         EntityManager em = emf.createEntityManager();
 
         T entity = em.find(genericClass, id);
@@ -45,6 +52,7 @@ public class GenericDAOImpl<T> implements  DAOOperations<T> {
 
     @Override
     public void delete(final Serializable id) {
+        logger.info("delete() with id:" + id);
         EntityManager em = emf.createEntityManager();
         EntityTransaction transaction = null;
         try {
@@ -57,6 +65,7 @@ public class GenericDAOImpl<T> implements  DAOOperations<T> {
             }
             em.remove(entity);
             transaction.commit();
+            logger.info("get()");
         } catch (PersistenceException pex) {
             pex.printStackTrace();
             if (transaction != null) {
@@ -70,6 +79,7 @@ public class GenericDAOImpl<T> implements  DAOOperations<T> {
 
     @Override
     public T update(final T entity) {
+        logger.info("update():" + entity);
         EntityManager em = emf.createEntityManager();
         EntityTransaction transaction = null;
         T storedEntity = null;
@@ -90,6 +100,7 @@ public class GenericDAOImpl<T> implements  DAOOperations<T> {
 
     @Override
     public void add(T entity) {
+        logger.info("add():" + entity);
         EntityManager em = emf.createEntityManager();
         EntityTransaction transaction = null;
 

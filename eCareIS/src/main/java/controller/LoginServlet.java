@@ -17,6 +17,7 @@ import entity.Tariff;
 import entity.User;
 import service.ContractService;
 import service.ContractServiceImpl;
+import service.DTO.UserDTO;
 import service.UserService;
 import service.UserServiceImpl;
 
@@ -35,11 +36,11 @@ public class LoginServlet extends HttpServlet {
         String email = request.getParameter("email");
 
         UserService userService = new UserServiceImpl();
-        User user = userService.userWithEmailAndPasswordExists(email,password);
+        UserDTO userDTO = userService.userWithEmailAndPasswordExists(email,password);
 
         PrintWriter out = response.getWriter();
 
-        if (user!=null){
+        if (userDTO!=null){
 
             ContractService contractService = new ContractServiceImpl();
             List<Contract> contracts = contractService.getAllContracts();

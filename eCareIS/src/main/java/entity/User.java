@@ -20,6 +20,7 @@ public class User {
     private Integer role;
     private Set<Contract> contracts;
 
+
     @Id
     @Column(name = "user_id")
     @GeneratedValue

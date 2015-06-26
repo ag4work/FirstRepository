@@ -2,6 +2,7 @@ package controller;
 
 
 import entity.User;
+import service.DTO.UserDTO;
 import service.UserService;
 import service.UserServiceGenericBasedImpl;
 import service.UserServiceImpl;
@@ -25,28 +26,30 @@ public class AddUserServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf8");
-        User user = new User();
-        user.setName(request.getParameter("name"));
-        user.setLastname(request.getParameter("lastname"));
-        user.setAddress(request.getParameter("address"));
-        user.setPassport(request.getParameter("passport"));
+
+        UserDTO userDTO = new UserDTO();
+
+        userDTO.setName(request.getParameter("name"));
+        userDTO.setLastname(request.getParameter("lastname"));
+        userDTO.setAddress(request.getParameter("address"));
+        userDTO.setPassport(request.getParameter("passport"));
 
         DateFormat formatter1;
         formatter1 = new SimpleDateFormat("yyyy-mm-DD");
         Date userBirthday = null;
         try {
             userBirthday = (Date) formatter1.parse(request.getParameter("birthday"));
-            user.setBirthday(userBirthday);
+            userDTO.setBirthday(userBirthday);
         } catch (ParseException e) {
             e.printStackTrace();
         }
 
-        user.setEmail(request.getParameter("email"));
-        user.setPassword(request.getParameter("password"));
-        user.setRole(Integer.parseInt(request.getParameter("role")));
+        userDTO.setEmail(request.getParameter("email"));
+        userDTO.setPassword(request.getParameter("password"));
+        userDTO.setRole(Integer.parseInt(request.getParameter("role")));
 
         UserService userService = new UserServiceGenericBasedImpl();
-        userService.addUser(user);
+        userService.addUser(userDTO);
         response.sendRedirect("/users");
     }
 
