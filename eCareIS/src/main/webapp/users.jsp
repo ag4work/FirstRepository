@@ -1,95 +1,87 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Alexey
-  Date: 24.06.2015
-  Time: 13:00
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page language="java" contentType="text/html; charset=utf8"
-         pageEncoding="utf8"%>
-
+<%@ page language="java" contentType="text/html; charset=utf8" pageEncoding="utf8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 
 <!DOCTYPE html>
 
-
-<html>
+<%--<html lang="en">--%>
 <head>
-    <title>All user</title>
+    <title>eCare</title>
+    <meta charset="utf-8">
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
+
+
 <body>
 
-<table border="1">
-    <h3> All users</h3>
-    <thead>
-    <tr>
-        <td> Имя </td>
-        <td> Фамилия</td>
-        <td> Дата рождения</td>
-        <td> Пасспортные данные</td>
-        <td> Адрес</td>
-        <td> email</td>
-        <td> пароль</td>
-        <td> Роль</td>
-        <td> Контрактов</td>
-    </tr>
 
-    </thead>
-    <c:forEach var="user" items="${userList}">
-        <tr>
-            <td>
-                    ${user.name}
-            </td>
-            <td>
-                    ${user.lastname}
-            </td>
-            <td>
-                    ${user.birthday}
-            </td>
-            <td>
-                    ${user.passport}
-            </td>
-            <td>
-                    ${user.address}
-            </td>
-            <td>
-                    ${user.email}
-            </td>
+<%@ include file="headermenu.jsp" %>
 
-            <td>
-                    ${user.password}
-            </td>
+<div class="container-fluid">
+    <div class="row">
 
-            <td>
-                    ${user.role}
-            </td>
+        <br><br><br><br><br>
+        <div class="col-md-11 main" style="position:relative; ">
+            <table class="table table-striped">
+                <h3> All users</h3>
+                <thead>
+                <tr>
+                    <td> Имя </td>
+                    <td> Фамилия</td>
+                    <td> Дата рождения</td>
+                    <td> Пасспортные данные</td>
+                    <td> Адрес</td>
+                    <td> email</td>
+                    <td> пароль</td>
+                    <td> Роль</td>
+                    <td> Контрактов</td>
+                </tr>
 
-            <td>
-                    <%--${user.getContracts().size()}--%>
-            </td>
+                </thead>
+                <c:forEach var="user" items="${userList}">
+                    <tr>
+                        <td>
+                                ${user.name}
+                        </td>
+                        <td>
+                                ${user.lastname}
+                        </td>
+                        <td>
+                                ${user.birthday}
+                        </td>
+                        <td>
+                                ${user.passport}
+                        </td>
+                        <td>
+                                ${user.address}
+                        </td>
+                        <td>
+                                ${user.email}
+                        </td>
 
+                        <td>
+                                ${user.password}
+                        </td>
 
-        </tr>
-    </c:forEach>
-</table>
+                        <td>
+                                ${user.role}
+                        </td>
 
-<h3> Добавить пользователя </h3>
-<form name="test" method="post" action="/addUser">
-
-    <p> Имя </p> <input type="text" name="name">
-    <p> Фамилия</p> <input type="text" name="lastname">
-    <p> Дата рождения</p> <input type="text" name="birthday">
-    <p> Пасспортные данные</p> <input type="text" name="passport">
-    <p> Адрес</p> <input type="text" name="address">
-    <p> email</p> <input type="text" name="email">
-    <p> пароль</p> <input type="text" name="password">
-    <p> Роль</p> <input type="text" name="role">
+                        <td>
+                                <%--${user.getContracts().size()}--%>
+                        </td>
 
 
-    <p><input type="submit" value="Отправить">
-        <input type="reset" value="Очистить"></p>
-</form>
+                    </tr>
+                </c:forEach>
+            </table>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>

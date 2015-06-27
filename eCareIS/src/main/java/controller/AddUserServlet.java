@@ -17,6 +17,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by Alexey on 24.06.2015.
@@ -46,12 +47,16 @@ public class AddUserServlet extends HttpServlet {
 
         userDTO.setEmail(request.getParameter("email"));
         userDTO.setPassword(request.getParameter("password"));
-        userDTO.setRole(Integer.parseInt(request.getParameter("role")));
+        userDTO.setRole(Integer.parseInt(request.getParameter("usertype")));
 
         UserService userService = new UserServiceGenericBasedImpl();
         userService.addUser(userDTO);
         response.sendRedirect("/users");
     }
 
-
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.setContentType("text/html;charset=utf-8");
+        req.getRequestDispatcher("createuser.jsp").forward(req,resp);
+    }
 }
