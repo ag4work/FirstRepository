@@ -2,6 +2,7 @@ package controller;
 
 import DAO.EntityManagerFactorySingleton;
 import org.apache.log4j.Logger;
+import utils.ValidationUtil;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -16,7 +17,8 @@ public class StartAndDestroyServletContextListener implements ServletContextList
     public void contextInitialized(ServletContextEvent sce) {
 
         logger.info("Servlet context initialization");
-        EntityManagerFactorySingleton.getInstance();
+        EntityManagerFactorySingleton.getInstance(); //initialise here
+        ValidationUtil.getValidatorInstance(); //initialise here
     }
 
     @Override

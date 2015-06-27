@@ -27,6 +27,9 @@
 
         <br><br><br>
         <div class="col-md-6 col-md-offset-3 main" style="position:relative; ">
+
+            <%@ include file="message.jsp" %>
+
             <h2>Зарегестрировать нового пользователя</h2> <br>
 
             <form role="form" method="post" action="/addUser">
@@ -40,7 +43,7 @@
                 </div>
                 <div class="form-group">
                     <label for="birthday">Дата рождения:</label>
-                    <input name="birthday" type="text" class="form-control" id="birthday" placeholder="Введите дату рождения">
+                    <input name="birthday" type="text" class="form-control" id="birthday" placeholder="YYYY-MM-DD">
                 </div>
 
                 <div class="form-group">

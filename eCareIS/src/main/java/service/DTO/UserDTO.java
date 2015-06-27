@@ -3,6 +3,9 @@ package service.DTO;
 
 import entity.User;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.util.Date;
 import java.util.Set;
 
@@ -10,15 +13,44 @@ import java.util.Set;
  * Created by Alexey on 23.06.2015.
  */
 public class UserDTO {
+
     private Integer userId;
+
+    @NotNull(message = "Имя должно быть задано.")
+    @Size(min = 2, max = 30, message = "Длина имени должна быть от 2 до 30 букв.")
     private String name;
+
+    @NotNull(message= "Фамилия должна быть задана.")
+    @Size(min = 2, max = 30, message="Длина фамилии должна быть от 2 до 30 букв.")
     private String lastname;
+
+    @NotNull(message="Дата рождения должна быть задана.")
+    @Pattern(regexp = "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$",
+            message = "Дата введена неверно.")
     private Date birthday;
+
+    @NotNull(message= "Паспортные данные должны быть заданы.")
+    @Size(min = 6, max = 110, message="Длина паспортных данных должна быть от 6 до 110 букв.")
     private String passport;
+
+    @NotNull(message= "Адрес должен быть задан.")
+    @Size(min = 2, max = 110, message="Длина адреса должна быть от 2 до 110 букв.")
     private String address;
+    @NotNull(message="Имэйл должен быть задан")
+    @Pattern(regexp = "^(?:[a-zA-Z0-9_'^&/+-])+(?:\\.(?:[a-zA-Z0-9_'^&/+-])+)" +
+            "*@(?:(?:\\[?(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))\\.)" +
+            "{3}(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\]?)|(?:[a-zA-Z0-9-]+\\.)" +
+            "+(?:[a-zA-Z]){2,}\\.?)$",
+            message = "Заданный email не может существовать.")
     private String email;
+
+    @NotNull(message= "Пароль должен быть задан.")
+    @Size(min = 3, max = 25, message="Длина пароля должна быть от 3 до 40 букв.")
     private String password;
-    private Integer role;
+
+//    @NotNull(message= "Категория пользователя должна быть задана")
+//    @Size(min = 1, max = 1, message="Категория ползователя: либо 0, либо 1")
+    private int role;
 //    private Set<Contract> contracts;
 
 
