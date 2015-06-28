@@ -24,7 +24,7 @@
 <div class="container-fluid">
     <div class="row">
 
-        <br><br><br><br><br>
+        <br><br>
         <div class="col-md-11 main" style="position:relative; ">
             <table class="table table-striped">
                 <h3> All users</h3>

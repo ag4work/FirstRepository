@@ -24,33 +24,75 @@
 
 
 <body>
-<body>
-<% if (request.getParameter("BadEmailPassword") != null) {%>
-<p> Authorization failed.</p> <br>
-<%}%>
-<%=  request.getParameter("BadEmailPassword")%>
-<p > hello</p>
-<form action="/login" method="get">
-  email <input name="email"> <br>
-  Пароль <input name="password"> <br>
-  <input type="submit" value="Sign in">
-</form>
+<%--<% if (request.getParameter("BadEmailPassword") != null) {%>--%>
+<%--<p> Authorization failed.</p> <br>--%>
+<%--<%}%>--%>
+<%--<%=  request.getParameter("BadEmailPassword")%>--%>
+<%--<p > hello</p>--%>
+<%--<form action="/login" method="get">--%>
+<%--email <input name="email"> <br>--%>
+<%--Пароль <input name="password"> <br>--%>
+<%--<input type="submit" value="Sign in">--%>
+<%--</form>--%>
+
 <div class="container">
-  <h2>Vertical (basic) form</h2>
-  <form role="form">
-    <div class="form-group">
-      <label for="email">Email:</label>
-      <input type="email" class="form-control" id="email" placeholder="Enter email">
+
+    <br><br><br><br><br><br>
+
+  <%@ include file="WEB-INF/pages/message.jsp" %>
+  <div class = "row">
+
+    <div class="col-md-4 col-md-offset-4">
+      <div class="editing-form">
+        <ul class="nav nav-tabs">
+          <li class="active"><a data-toggle="tab" href="#home">Вход для сотрудников</a></li>
+          <li><a data-toggle="tab" href="#menu1">Вход для клиентов</a></li>
+        </ul>
+
+        <br>
+        <div class="tab-content">
+
+          <div id="home" class="tab-pane fade in active">
+
+            <form role="form" method="post" action="/staffLogin">
+              <div class="form-group">
+                <label for="email">Email:</label>
+                <input name="email" type="email" class="form-control" id="email" placeholder="Введите e-mail">
+              </div>
+              <div class="form-group">
+                <label for="pwd2">Password:</label>
+                <input name="password" type="password" class="form-control" id="pwd2" placeholder="Введите пароль">
+              </div>
+              <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+          </div>
+
+
+          <div id="menu1" class="tab-pane fade">
+            <form role="form" method="post" action="/clientLogin">
+              <div class="form-group">
+                <label for="phonenumber">Номер телефона:</label>
+                <input name="phonenumber" type="phonenumber" class="form-control" id="phonenumber" placeholder="Введите номер телефона (10 цифр)">
+              </div>
+
+              <div class="form-group">
+                <label for="pwd1">Password:</label>
+                <input name="password" type="password" class="form-control" id="pwd1" placeholder="Введите пароль">
+              </div>
+
+              <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+
     </div>
-    <div class="form-group">
-      <label for="pwd">Password:</label>
-      <input type="password" class="form-control" id="pwd" placeholder="Enter password">
-    </div>
-    <div class="checkbox">
-      <label><input type="checkbox"> Remember me</label>
-    </div>
-    <button type="submit" class="btn btn-default">Submit</button>
-  </form>
+  </div>
+
 </div>
+
+
 </body>
 </html>

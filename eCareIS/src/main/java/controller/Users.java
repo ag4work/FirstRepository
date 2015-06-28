@@ -16,7 +16,7 @@ import java.util.List;
 /**
  * Created by Alexey on 24.06.2015.
  */
-@WebServlet(name = "Users", urlPatterns = "/users")
+@WebServlet(name = "Users", urlPatterns = "/users.sec")
 public class Users extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -24,7 +24,11 @@ public class Users extends HttpServlet {
         UserService userService = new UserServiceGenericBasedImpl();
         List<UserDTO> userDTOList = userService.getAllUsers();
         request.setAttribute("userList", userDTOList);
-        request.getRequestDispatcher("users.jsp").forward(request,response);
+        request.getRequestDispatcher("WEB-INF/pages/users.jsp").forward(request,response);
     }
 
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        doGet(req, resp);
+    }
 }

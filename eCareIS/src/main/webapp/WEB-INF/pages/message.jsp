@@ -18,13 +18,13 @@
   </c:if>
 
   <c:if test="${!empty infoText}">
-    <p class="alert alert-info" style="padding: 20px;">
+    <p class="alert alert-info" style="padding: 10px;">
         ${infoText}
     </p>
   </c:if>
 
   <c:if test="${!empty errorText}">
-    <p class="alert alert-danger" style="padding: 20px;">
+    <p class="alert alert-danger" style="padding: 10px;">
         ${errorText}
     </p>
   </c:if>

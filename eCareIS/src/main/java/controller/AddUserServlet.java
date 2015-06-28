@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * Created by Alexey on 24.06.2015.
  */
-@WebServlet(name = "AddUserServlet", urlPatterns = "/addUser")
+@WebServlet(name = "AddUserServlet", urlPatterns = "/addUser.sec")
 public class AddUserServlet extends HttpServlet {
     Logger logger = Logger.getLogger(AddUserServlet.class);
 
@@ -72,7 +72,7 @@ public class AddUserServlet extends HttpServlet {
         if (!errorMessages.isEmpty()) {
             request.setAttribute("errorText", errorMessages);
             response.setContentType("text/html;charset=utf-8");
-            request.getRequestDispatcher("createuser.jsp").forward(request,response);
+            request.getRequestDispatcher("WEB-INF/pages/createuser.jsp").forward(request,response);
             return;
         } else {
             try {
@@ -87,14 +87,14 @@ public class AddUserServlet extends HttpServlet {
 
             }
             response.setContentType("text/html;charset=utf-8");
-            request.getRequestDispatcher("createuser.jsp").forward(request, response);
+            request.getRequestDispatcher("WEB-INF/pages/createuser.jsp").forward(request, response);
         }
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html;charset=utf-8");
-        req.getRequestDispatcher("createuser.jsp").forward(req,resp);
+        req.getRequestDispatcher("WEB-INF/pages/createuser.jsp").forward(req,resp);
     }
 
 

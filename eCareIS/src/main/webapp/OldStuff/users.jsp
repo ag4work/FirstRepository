@@ -76,7 +76,7 @@
 </table>
 
 <h3> Добавить пользователя </h3>
-<form name="test" method="post" action="/addUser">
+<form name="test" method="post" action="/addUser.sec">
 
     <p> Имя </p> <input type="text" name="name">
     <p> Фамилия</p> <input type="text" name="lastname">

@@ -25,14 +25,14 @@
 <div class="container-fluid">
     <div class="row">
 
-        <br><br><br>
+
         <div class="col-md-6 col-md-offset-3 main" style="position:relative; ">
 
             <%@ include file="message.jsp" %>
 
             <h2>Зарегестрировать нового пользователя</h2> <br>
 
-            <form role="form" method="post" action="/addUser">
+            <form role="form" method="post" action="/addUser.sec">
                 <div class="form-group">
                     <label for="name">Имя:</label>
                     <input name="name" type="text" class="form-control" id="name" placeholder="Введите имя">
