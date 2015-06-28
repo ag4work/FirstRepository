@@ -31,6 +31,11 @@ public class User {
             message = "заданный имэйл не может существовать")
     String email;
 
+    @NotNull(message="Дата рождения должна быть задана.")
+    @Pattern(regexp = "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$",
+            message = "Дата введена неверно.")
+    String date;
+
     @Override
     public String toString() {
         return String.format("firstname: [%s], lastname: [%s], email: [%s]",

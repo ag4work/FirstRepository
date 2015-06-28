@@ -2,10 +2,12 @@ package controller;
 
 
 import entity.User;
+import org.apache.log4j.Logger;
 import service.DTO.UserDTO;
 import service.UserService;
 import service.UserServiceGenericBasedImpl;
 import service.UserServiceImpl;
+import utils.DateValidationUtilString;
 import utils.ValidationUtil;
 
 import javax.servlet.ServletException;
@@ -28,50 +30,62 @@ import java.util.List;
  */
 @WebServlet(name = "AddUserServlet", urlPatterns = "/addUser")
 public class AddUserServlet extends HttpServlet {
+    Logger logger = Logger.getLogger(AddUserServlet.class);
 
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf8");
-
-        // TODO: make that a singleton
-        ValidatorFactory vf = Validation.buildDefaultValidatorFactory();
-        Validator validator = vf.getValidator();
 
         String name = request.getParameter("name");
 
         UserDTO userDTO = new UserDTO();
 
         userDTO.setName(request.getParameter("name"));
-
-
-
         userDTO.setLastname(request.getParameter("lastname"));
         userDTO.setAddress(request.getParameter("address"));
         userDTO.setPassport(request.getParameter("passport"));
 
-        DateFormat formatter1;
-        formatter1 = new SimpleDateFormat("yyyy-mm-DD");
-        Date userBirthday = null;
-        try {
-            userBirthday = (Date) formatter1.parse(request.getParameter("birthday"));
-            userDTO.setBirthday(userBirthday);
-        } catch (ParseException e) {
-            e.printStackTrace();
+        String inputedDateString = request.getParameter("birthday");
+        if (inputedDateString!=null) {
+            DateFormat dateFormatter;
+            dateFormatter = new SimpleDateFormat("yyyy-mm-DD");
+            Date userBirthday;
+            try {
+                userBirthday = (Date) dateFormatter.parse(inputedDateString);
+                userDTO.setBirthday(userBirthday);
+            } catch (ParseException e) {
+                //   e.printStackTrace();
+                logger.error(e);
+            }
+        } else {
+            userDTO.setBirthday(null);  // that will be handled by validator
         }
+
+
 
         userDTO.setEmail(request.getParameter("email"));
         userDTO.setPassword(request.getParameter("password"));
         userDTO.setRole(Integer.parseInt(request.getParameter("usertype")));
-        String errorMessages = ValidationUtil.validateResult(userDTO);
+        String errorMessages = ValidationUtil.validateResult(userDTO) +
+                ValidationUtil.validateResult(new DateValidationUtilString(inputedDateString));
+
         if (!errorMessages.isEmpty()) {
             request.setAttribute("errorText", errorMessages);
             response.setContentType("text/html;charset=utf-8");
             request.getRequestDispatcher("createuser.jsp").forward(request,response);
             return;
         } else {
-            UserService userService = new UserServiceGenericBasedImpl();
-            userService.addUser(userDTO);
-//           response.sendRedirect("/users");
-            request.setAttribute("successText", "Пользователь успешно добавлен");
+            try {
+                UserService userService = new UserServiceGenericBasedImpl();
+                userService.addUser(userDTO);
+                request.setAttribute("successText", "Пользователь успешно добавлен");
+            }
+            catch (Exception e) {
+                logger.error(e);
+                request.setAttribute("errorText", "Пользователя добавить не удалось." +
+                        "Проблема вскоре будет решена");
+
+            }
             response.setContentType("text/html;charset=utf-8");
             request.getRequestDispatcher("createuser.jsp").forward(request, response);
         }
@@ -82,4 +96,7 @@ public class AddUserServlet extends HttpServlet {
         resp.setContentType("text/html;charset=utf-8");
         req.getRequestDispatcher("createuser.jsp").forward(req,resp);
     }
+
+
+
 }

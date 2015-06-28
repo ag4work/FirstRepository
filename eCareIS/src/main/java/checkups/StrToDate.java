@@ -13,5 +13,6 @@ public class StrToDate {
         DateFormat formatter1;
         formatter1 = new SimpleDateFormat("yyyy-mm-DD");
         System.out.println((Date)formatter1.parse("2011-12-25"));
+
     }
 }
