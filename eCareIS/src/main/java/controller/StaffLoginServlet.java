@@ -36,12 +36,13 @@ public class StaffLoginServlet extends HttpServlet {
         if (userDTO!=null){
             HttpSession session = request.getSession();
             session.setAttribute("userName", userDTO.getName());
-            request.getRequestDispatcher("/users.sec").forward(request,response);
+            response.sendRedirect("users.sec");
+//            request.getRequestDispatcher("/users.sec").forward(request,response);
         }
         else{
             //out.println("Such user was not found");
             request.setAttribute("errorText","Пользователя с такими паролем и логином не существует");
-            request.getRequestDispatcher("login.jsp").forward(request, response);
+            request.getRequestDispatcher("/login.jsp").forward(request, response);
         }
 
     }
@@ -50,7 +51,7 @@ public class StaffLoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html;charset=utf-8");
-        req.getRequestDispatcher("login.jsp").forward(req, resp);
+        req.getRequestDispatcher("/login.jsp").forward(req, resp);
     }
 
 

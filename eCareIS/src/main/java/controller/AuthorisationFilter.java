@@ -31,11 +31,11 @@ public class AuthorisationFilter implements Filter {
 
         if (session==null) {
             logger.info("Request denied: no session");
-            response.sendRedirect("/staffLogin");
+            response.sendRedirect("staffLogin");
         } else {
             if (session.getAttribute("userName") == null) {
                 logger.info("Request denied: authorisation failed");
-                response.sendRedirect("/staffLogin");
+                response.sendRedirect("staffLogin");
             } else {
                 chain.doFilter(req, resp);
             }

@@ -8,7 +8,7 @@
 <%@ page language="java" contentType="text/html; charset=utf8"  pageEncoding="utf8"%>
 
 <div align="right">
-<form  method="get" action="/staffLogout.sec">
+<form  method="get" action="staffLogout.sec">
 <button type="submit" class="btn btn-default">Logout</button>
 </form>
 </div>
@@ -23,8 +23,8 @@
         <!--<li class="active"><a href="#">Users</a></li>-->
         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Users <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="/users.sec">All users</a></li>
-            <li><a href="/addUser.sec">Register new user</a></li>
+            <li><a href="users.sec">All users</a></li>
+            <li><a href="addUser.sec">Register new user</a></li>
           </ul>
         </li>
         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Contracts <span class="caret"></span></a>

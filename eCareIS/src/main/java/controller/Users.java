@@ -24,7 +24,7 @@ public class Users extends HttpServlet {
         UserService userService = new UserServiceGenericBasedImpl();
         List<UserDTO> userDTOList = userService.getAllUsers();
         request.setAttribute("userList", userDTOList);
-        request.getRequestDispatcher("WEB-INF/pages/users.jsp").forward(request,response);
+        request.getRequestDispatcher("/WEB-INF/pages/users.jsp").forward(request,response);
     }
 
     @Override

@@ -54,7 +54,7 @@
 
           <div id="home" class="tab-pane fade in active">
 
-            <form role="form" method="post" action="/staffLogin">
+            <form role="form" method="post" action="staffLogin">
               <div class="form-group">
                 <label for="email">Email:</label>
                 <input name="email" type="email" class="form-control" id="email" placeholder="Введите e-mail">
@@ -69,7 +69,7 @@
 
 
           <div id="menu1" class="tab-pane fade">
-            <form role="form" method="post" action="/clientLogin">
+            <form role="form" method="post" action="clientLogin">
               <div class="form-group">
                 <label for="phonenumber">Номер телефона:</label>
                 <input name="phonenumber" type="phonenumber" class="form-control" id="phonenumber" placeholder="Введите номер телефона (10 цифр)">
