@@ -3,6 +3,7 @@ package controller;
 import DAO.TariffDAO;
 import DAO.TariffDAOJDBCImpl;
 import entity.Tariff;
+import org.apache.log4j.Logger;
 
 import javax.servlet.annotation.WebServlet;
 import java.io.IOException;
@@ -16,15 +17,16 @@ import java.util.List;
 @WebServlet("/t")
 public class TariffServlet extends javax.servlet.http.HttpServlet {
 
+Logger logger = Logger.getLogger(TariffServlet.class);
 
     protected void doGet(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
         response.setContentType("text/html;charset=utf-8");
         PrintWriter out = response.getWriter();
-        out.println("<p> sdfs </p>");
         TariffDAO tariffDAO = new TariffDAOJDBCImpl();
         List<Tariff> tariffs = tariffDAO.findAll();
         request.setAttribute("tariffList",tariffs);
-        request.getRequestDispatcher("tariffs.jsp").forward(request,response);
+        logger.info(tariffs);
+        request.getRequestDispatcher("WEB-INF/pages/tariffs.jsp").forward(request,response);
 
     }
 }

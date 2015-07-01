@@ -30,18 +30,19 @@
                 <h3> All users</h3>
                 <thead>
                 <tr>
-                    <td> Имя </td>
-                    <td> Фамилия</td>
-                    <td> Дата рождения</td>
-                    <td> Пасспортные данные</td>
-                    <td> Адрес</td>
-                    <td> email</td>
-                    <td> пароль</td>
-                    <td> Роль</td>
-                    <td> Контрактов</td>
+                    <th> Имя </td>
+                    <th> Фамилия</td>
+                    <th> Дата рождения</td>
+                    <th> Пасспортные данные</td>
+                    <th> Адрес</td>
+                    <th> email</td>
+                    <th> пароль</td>
+                    <th> Роль</td>
+                    <th> Контрактов</td>
                 </tr>
 
                 </thead>
+                <tbody>
                 <c:forEach var="user" items="${userList}">
                     <tr>
                         <td>
@@ -73,11 +74,19 @@
 
                         <td>
                                 <%--${user.getContracts().size()}--%>
+
+                        </td>
+                        <td>
+                            <form class="formButton" action="phonenumber_choosenew.sec" method="post">
+                                <input type="hidden" name="id" value="${user.userId}"/>
+                                <input type="submit" class="btn btn-link btn-xs" value="Добавить номер"/>
+                            </form>
                         </td>
 
 
                     </tr>
                 </c:forEach>
+                </tbody>
             </table>
         </div>
     </div>

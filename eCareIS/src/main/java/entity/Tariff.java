@@ -54,4 +54,13 @@ public class Tariff {
         result = 31 * result + price;
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "Tariff{" +
+                "tariffId=" + tariffId +
+                ", title='" + title + '\'' +
+                ", price=" + price +
+                '}';
+    }
 }

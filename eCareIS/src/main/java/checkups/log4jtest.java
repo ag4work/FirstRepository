@@ -25,6 +25,7 @@ public class log4jtest {
         static void doLog(){
             logger.info("info from A class");
             logger.error("Error message from  class A");
+            logger.debug("Debug message from  class A");
         }
     }
 }

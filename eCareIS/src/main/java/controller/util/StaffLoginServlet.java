@@ -1,11 +1,8 @@
-package controller;
+package controller.util;
 
 import entity.Contract;
-import service.ContractService;
-import service.ContractServiceImpl;
+import service.*;
 import service.DTO.UserDTO;
-import service.UserService;
-import service.UserServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -20,17 +17,20 @@ import java.util.List;
 /**
  * Created by Alexey on 28.06.2015.
  */
+
+
 @WebServlet(name = "StaffLoginServlet", urlPatterns = "/staffLogin")
 public class StaffLoginServlet extends HttpServlet {
+
+    final String loginPageURL = "/login.jsp";
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=utf-8");
-    //    response.getWriter().println("sdfsdfsd");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
-        UserService userService = new UserServiceImpl();
+        UserService userService = new UserServiceGenericBasedImpl();
         UserDTO userDTO = userService.userWithEmailAndPasswordExists(email,password);
 
         if (userDTO!=null){
@@ -40,9 +40,8 @@ public class StaffLoginServlet extends HttpServlet {
 //            request.getRequestDispatcher("/users.sec").forward(request,response);
         }
         else{
-            //out.println("Such user was not found");
             request.setAttribute("errorText","Пользователя с такими паролем и логином не существует");
-            request.getRequestDispatcher("/login.jsp").forward(request, response);
+            request.getRequestDispatcher(loginPageURL).forward(request, response);
         }
 
     }
@@ -51,7 +50,7 @@ public class StaffLoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html;charset=utf-8");
-        req.getRequestDispatcher("/login.jsp").forward(req, resp);
+        req.getRequestDispatcher(loginPageURL).forward(req, resp);
     }
 
 

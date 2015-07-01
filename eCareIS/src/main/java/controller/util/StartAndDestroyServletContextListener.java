@@ -1,4 +1,4 @@
-package controller;
+package controller.util;
 
 import DAO.EntityManagerFactorySingleton;
 import org.apache.log4j.Logger;
@@ -6,7 +6,6 @@ import utils.ValidationUtil;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
-import java.util.Date;
 
 /**
  * Created by Alexey on 24.06.2015.

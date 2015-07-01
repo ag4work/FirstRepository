@@ -15,13 +15,16 @@ import java.io.PrintWriter;
 /**
  * Created by Alexey on 11.06.2015.
  */
-@WebServlet("/addTariff")
+@WebServlet(name = "Tariffs", urlPatterns = "/Tariffs.sec")
 public class addTariff extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        response.setContentType("text/html;charset=windows-1251");
-        PrintWriter out = response.getWriter();
-        //request.setCharacterEncoding("Cp1251");
         request.setCharacterEncoding("utf8");
+
+
+
+
+
+        PrintWriter out = response.getWriter();
 
         int price = Integer.parseInt(request.getParameter("price"));
         //out.println(request.getParameter("name"));
