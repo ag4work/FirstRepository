@@ -1,6 +1,6 @@
 package checkups;
 
-import DAO.*;
+
 import entity.Contract;
 import entity.User;
 
@@ -16,13 +16,13 @@ public class PersistenceBasicTest {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("EcarePU");
         EntityManager em = emf.createEntityManager();
 
-        ContractDAO contractDAO = new ContractDAOImpl(emf);
-
-        Contract contract1 = contractDAO.getById(1);
-        contract1.setContractId(null);
-        contractDAO.add(contract1);
-//        System.out.println(contractDAO.getById(1));
-
-        emf.close();
+//        ContractDAO contractDAO = new ContractDAOImpl(emf);
+//
+//        Contract contract1 = contractDAO.getById(1);
+//        contract1.setContractId(null);
+//        contractDAO.add(contract1);
+////        System.out.println(contractDAO.getById(1));
+//
+//        emf.close();
     }
 }

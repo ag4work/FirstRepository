@@ -1,8 +1,10 @@
 package controller;
 
-import DAO.TariffDAO;
-import DAO.TariffDAOJDBCImpl;
+
+import GenericBasedDAO.TariffDAO;
+import GenericBasedDAO.TariffDAOImpl;
 import entity.Tariff;
+import utils.EntityManagerFactorySingleton;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -29,11 +31,11 @@ public class addTariff extends HttpServlet {
         int price = Integer.parseInt(request.getParameter("price"));
         //out.println(request.getParameter("name"));
 
-        TariffDAO tariffDAO = new TariffDAOJDBCImpl();
+        TariffDAO tariffDAO = new TariffDAOImpl(EntityManagerFactorySingleton.getInstance());
         Tariff tariff = new Tariff();
         tariff.setTitle(request.getParameter("title"));
         tariff.setPrice(price);
-        tariffDAO.create(tariff);
+        tariffDAO.add(tariff);
 
         response.sendRedirect("/t");
 //        out.println(trainName+"  "+seats);

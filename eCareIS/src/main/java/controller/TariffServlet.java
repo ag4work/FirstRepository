@@ -1,9 +1,11 @@
 package controller;
 
-import DAO.TariffDAO;
-import DAO.TariffDAOJDBCImpl;
+
+import GenericBasedDAO.TariffDAO;
+import GenericBasedDAO.TariffDAOImpl;
 import entity.Tariff;
 import org.apache.log4j.Logger;
+import utils.EntityManagerFactorySingleton;
 
 import javax.servlet.annotation.WebServlet;
 import java.io.IOException;
@@ -22,8 +24,8 @@ Logger logger = Logger.getLogger(TariffServlet.class);
     protected void doGet(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
         response.setContentType("text/html;charset=utf-8");
         PrintWriter out = response.getWriter();
-        TariffDAO tariffDAO = new TariffDAOJDBCImpl();
-        List<Tariff> tariffs = tariffDAO.findAll();
+        TariffDAO tariffDAO = new TariffDAOImpl(EntityManagerFactorySingleton.getInstance());
+        List<Tariff> tariffs = tariffDAO.getAll();
         request.setAttribute("tariffList",tariffs);
         logger.info(tariffs);
         request.getRequestDispatcher("WEB-INF/pages/tariffs.jsp").forward(request,response);

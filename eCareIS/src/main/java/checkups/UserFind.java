@@ -1,11 +1,11 @@
 package checkups;
 
-import DAO.EntityManagerFactorySingleton;
 import entity.User;
 import service.DTO.UserDTO;
 import service.UserService;
 import service.UserServiceGenericBasedImpl;
 import service.UserServiceImpl;
+import utils.EntityManagerFactorySingleton;
 
 /**
  * Created by Alexey on 24.06.2015.

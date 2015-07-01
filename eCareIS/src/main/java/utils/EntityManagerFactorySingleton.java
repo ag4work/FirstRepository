@@ -1,12 +1,14 @@
-package DAO;
+package utils;
 
-import javax.persistence.EntityManager;
+/**
+ * Created by Alexey on 01.07.2015.
+ */
+
+
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-/**
- * Created by Alexey on 24.06.2015.
- */
+
 public class EntityManagerFactorySingleton {
 
     private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("EcarePU");

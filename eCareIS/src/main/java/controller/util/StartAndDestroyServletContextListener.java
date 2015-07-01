@@ -1,7 +1,7 @@
 package controller.util;
 
-import DAO.EntityManagerFactorySingleton;
 import org.apache.log4j.Logger;
+import utils.EntityManagerFactorySingleton;
 import utils.ValidationUtil;
 
 import javax.servlet.ServletContextEvent;

@@ -1,10 +1,11 @@
 package service;
 
-import DAO.EntityManagerFactorySingleton;
-import DAO.UserDAO;
-import DAO.UserDAOImpl;
+
+import GenericBasedDAO.UserDAO;
+import GenericBasedDAO.UserDAOImpl;
 import entity.User;
 import service.DTO.UserDTO;
+import utils.EntityManagerFactorySingleton;
 import utils.UserMapper;
 
 import java.util.ArrayList;

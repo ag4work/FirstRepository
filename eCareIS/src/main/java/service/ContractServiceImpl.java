@@ -1,9 +1,10 @@
 package service;
 
-import DAO.ContractDAO;
-import DAO.ContractDAOImpl;
-import DAO.EntityManagerFactorySingleton;
+
+import GenericBasedDAO.ContractDAO;
+import GenericBasedDAO.ContractDAOImpl;
 import entity.Contract;
+import utils.EntityManagerFactorySingleton;
 
 import java.util.List;
 
@@ -15,7 +16,7 @@ public class ContractServiceImpl implements ContractService{
 
     @Override
     public Contract getContract(Integer id) {
-        return contractDAO.getById(id);
+        return contractDAO.get(id);
     }
 
     @Override
