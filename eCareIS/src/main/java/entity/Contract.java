@@ -1,23 +1,24 @@
 package entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
- * Created by Alexey on 23.06.2015.
+ * Created by Alexey on 01.07.2015.
  */
 @Entity
 public class Contract {
     private Integer contractId;
     private Long phoneNumber;
-    private Integer tariffId;
-    private Boolean blocked;
-    private Boolean blockedByStaff;
+    private Byte blocked;
+    private Byte blockedByStaff;
     private Integer balance;
-    private User user;
+    private Tariff tariffByTariffId;
+    private User userByClientId;
+    private List<Option> chosenOption;
 
     @Id
     @Column(name = "contract_id")
-    @GeneratedValue
     public Integer getContractId() {
         return contractId;
     }
@@ -37,32 +38,22 @@ public class Contract {
     }
 
     @Basic
-    @Column(name = "tariff_id")
-    public Integer getTariffId() {
-        return tariffId;
-    }
-
-    public void setTariffId(Integer tariffId) {
-        this.tariffId = tariffId;
-    }
-
-    @Basic
     @Column(name = "blocked")
-    public Boolean getBlocked() {
+    public Byte getBlocked() {
         return blocked;
     }
 
-    public void setBlocked(Boolean blocked) {
+    public void setBlocked(Byte blocked) {
         this.blocked = blocked;
     }
 
     @Basic
     @Column(name = "blocked_by_staff")
-    public Boolean getBlockedByStaff() {
+    public Byte getBlockedByStaff() {
         return blockedByStaff;
     }
 
-    public void setBlockedByStaff(Boolean blockedByStaff) {
+    public void setBlockedByStaff(Byte blockedByStaff) {
         this.blockedByStaff = blockedByStaff;
     }
 
@@ -90,7 +81,6 @@ public class Contract {
         if (contractId != null ? !contractId.equals(contract.contractId) : contract.contractId != null) return false;
         if (phoneNumber != null ? !phoneNumber.equals(contract.phoneNumber) : contract.phoneNumber != null)
             return false;
-        if (tariffId != null ? !tariffId.equals(contract.tariffId) : contract.tariffId != null) return false;
 
         return true;
     }
@@ -99,7 +89,6 @@ public class Contract {
     public int hashCode() {
         int result = contractId != null ? contractId.hashCode() : 0;
         result = 31 * result + (phoneNumber != null ? phoneNumber.hashCode() : 0);
-        result = 31 * result + (tariffId != null ? tariffId.hashCode() : 0);
         result = 31 * result + (blocked != null ? blocked.hashCode() : 0);
         result = 31 * result + (blockedByStaff != null ? blockedByStaff.hashCode() : 0);
         result = 31 * result + (balance != null ? balance.hashCode() : 0);
@@ -107,24 +96,39 @@ public class Contract {
     }
 
     @ManyToOne
-    @JoinColumn(name = "client_id", referencedColumnName = "user_id")
-    public User getUser() {
-        return user;
+    @JoinColumn(name = "tariff_id", referencedColumnName = "tariff_id")
+    public Tariff getTariffByTariffId() {
+        return tariffByTariffId;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setTariffByTariffId(Tariff tariffByTariffId) {
+        this.tariffByTariffId = tariffByTariffId;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "client_id", referencedColumnName = "user_id")
+    public User getUserByClientId() {
+        return userByClientId;
+    }
+
+    public void setUserByClientId(User userByClientId) {
+        this.userByClientId = userByClientId;
+    }
+
+    @ManyToMany
+    @JoinTable(name = "contract_chosen_option", catalog = "ecareis", schema = "", joinColumns = @JoinColumn(name = "contract_id", referencedColumnName = "contract_id"), inverseJoinColumns = @JoinColumn(name = "chosen_option_id", referencedColumnName = "option_id"))
+    public List<Option> getChosenOption() {
+        return chosenOption;
+    }
+
+    public void setChosenOption(List<Option> chosenOption) {
+        this.chosenOption = chosenOption;
     }
 
     @Override
     public String toString() {
         return "Contract{" +
-                "contractId=" + contractId +
-                ", phoneNumber=" + phoneNumber +
-                ", tariffId=" + tariffId +
-                ", blocked=" + blocked +
-                ", blockedByStaff=" + blockedByStaff +
-                ", balance=" + balance +
+                "phoneNumber=" + phoneNumber +
                 '}';
     }
 }

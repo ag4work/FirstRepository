@@ -2,10 +2,10 @@ package entity;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.Set;
+import java.util.List;
 
 /**
- * Created by Alexey on 23.06.2015.
+ * Created by Alexey on 01.07.2015.
  */
 @Entity
 public class User {
@@ -18,12 +18,10 @@ public class User {
     private String email;
     private String password;
     private Integer role;
-    private Set<Contract> contracts;
-
+    private List<Contract> contractOfUser;
 
     @Id
     @Column(name = "user_id")
-    @GeneratedValue
     public Integer getUserId() {
         return userId;
     }
@@ -147,28 +145,21 @@ public class User {
         return result;
     }
 
-    @OneToMany(mappedBy = "user")
-    public Set<Contract> getContracts() {
-        return contracts;
+    @OneToMany(mappedBy = "userByClientId")
+    public List<Contract> getContractOfUser() {
+        return contractOfUser;
     }
 
-    public void setContracts(Set<Contract> contracts) {
-        this.contracts = contracts;
+    public void setContractOfUser(List<Contract> contractOfUser) {
+        this.contractOfUser = contractOfUser;
     }
 
     @Override
     public String toString() {
         return "User{" +
-                "userId=" + userId +
-                ", name='" + name + '\'' +
+                "name='" + name + '\'' +
                 ", lastname='" + lastname + '\'' +
-                ", birthday=" + birthday +
-                ", passport='" + passport + '\'' +
-                ", address='" + address + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", role=" + role +
-                ", contracts=" + contracts +
+                ", userId=" + userId +
                 '}';
     }
 }

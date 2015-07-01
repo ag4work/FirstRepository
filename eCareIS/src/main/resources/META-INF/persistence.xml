@@ -4,6 +4,8 @@
     <persistence-unit name="EcarePU" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
         <class>entity.Contract</class>
+        <class>entity.Tariff</class>
+        <class>entity.Option</class>
         <class>entity.User</class>
         <validation-mode>AUTO</validation-mode>
         <properties>
