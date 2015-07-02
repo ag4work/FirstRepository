@@ -24,7 +24,7 @@ public class PhonenumberChooseNew extends HttpServlet {
 //        request.setAttribute("userList", userDTOList);
         String id = (String)request.getParameter("id");
         logger.info("id = " + id);
-        request.setAttribute("id",id);
+        request.setAttribute("userId",id);
         request.getRequestDispatcher("WEB-INF/pages/phonenumber_choose.jsp").forward(request, response);
 
     }

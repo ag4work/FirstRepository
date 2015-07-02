@@ -6,7 +6,6 @@ import org.apache.log4j.Logger;
 import service.DTO.UserDTO;
 import service.UserService;
 import service.UserServiceGenericBasedImpl;
-import service.UserServiceImpl;
 import utils.DateValidationUtilString;
 import utils.ValidationUtil;
 
@@ -63,9 +62,6 @@ public class AddUserServlet extends HttpServlet {
         } else {
             userDTO.setBirthday(null);  // that will be handled by validator
         }
-
-
-
         userDTO.setEmail(request.getParameter("email"));
         userDTO.setPassword(request.getParameter("password"));
         userDTO.setRole(Integer.parseInt(request.getParameter("usertype")));

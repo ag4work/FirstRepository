@@ -9,6 +9,8 @@ import java.util.List;
  * Created by Alexey on 24.06.2015.
  */
 public interface UserService {
+
+    public UserDTO getUserById(Integer userId);
     public UserDTO findUserByEmail(String email);
     public UserDTO userWithEmailAndPasswordExists(String email, String password);
     public List<UserDTO> getAllUsers();

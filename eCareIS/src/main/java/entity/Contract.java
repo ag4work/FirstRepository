@@ -10,14 +10,15 @@ import java.util.List;
 public class Contract {
     private Integer contractId;
     private Long phoneNumber;
-    private Byte blocked;
-    private Byte blockedByStaff;
+    private Boolean blocked;
+    private Boolean blockedByStaff;
     private Integer balance;
     private Tariff tariffByTariffId;
     private User userByClientId;
     private List<Option> chosenOption;
 
     @Id
+    @GeneratedValue
     @Column(name = "contract_id")
     public Integer getContractId() {
         return contractId;
@@ -39,21 +40,21 @@ public class Contract {
 
     @Basic
     @Column(name = "blocked")
-    public Byte getBlocked() {
+    public Boolean getBlocked() {
         return blocked;
     }
 
-    public void setBlocked(Byte blocked) {
+    public void setBlocked(Boolean blocked) {
         this.blocked = blocked;
     }
 
     @Basic
     @Column(name = "blocked_by_staff")
-    public Byte getBlockedByStaff() {
+    public Boolean getBlockedByStaff() {
         return blockedByStaff;
     }
 
-    public void setBlockedByStaff(Byte blockedByStaff) {
+    public void setBlockedByStaff(Boolean blockedByStaff) {
         this.blockedByStaff = blockedByStaff;
     }
 

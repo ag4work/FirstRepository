@@ -21,6 +21,7 @@ public class Option {
     private List<Contract> contractByOptionId;
 
     @Id
+    @GeneratedValue
     @Column(name = "option_id")
     public Integer getOptionId() {
         return optionId;

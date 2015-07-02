@@ -17,7 +17,12 @@ import java.util.List;
  * Created by Alexey on 24.06.2015.
  */
 public class UserServiceGenericBasedImpl implements UserService{
+
     UserDAO userDAO = new UserDAOImpl(EntityManagerFactorySingleton.getInstance());
+
+    public UserDTO getUserById(Integer userId){
+        return UserMapper.EntityToDTO(userDAO.get(userId));
+    }
 
     public UserDTO findUserByEmail(String email){
         List<User> allUsers = userDAO.getAll();

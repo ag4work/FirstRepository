@@ -21,6 +21,7 @@ public class User {
     private List<Contract> contractOfUser;
 
     @Id
+    @GeneratedValue
     @Column(name = "user_id")
     public Integer getUserId() {
         return userId;

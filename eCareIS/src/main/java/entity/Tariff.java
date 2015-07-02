@@ -19,6 +19,7 @@ public class Tariff {
     private List<Option> possibleOption;
 
     @Id
+    @GeneratedValue
     @Column(name = "tariff_id")
     public Integer getTariffId() {
         return tariffId;

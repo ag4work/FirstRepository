@@ -3,7 +3,6 @@ package controller;
 import service.DTO.UserDTO;
 import service.UserService;
 import service.UserServiceGenericBasedImpl;
-import service.UserServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

@@ -7,4 +7,5 @@ package utils;
 public class Constants {
     public static final int ADMIN = 0;
     public static final int CLIENT = 1;
+    public static final int DEFAULT_TARIFF_ID = 1;
 }

@@ -4,7 +4,6 @@ import entity.User;
 import service.DTO.UserDTO;
 import service.UserService;
 import service.UserServiceGenericBasedImpl;
-import service.UserServiceImpl;
 import utils.EntityManagerFactorySingleton;
 
 /**
