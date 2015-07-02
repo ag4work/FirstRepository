@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `ecareis` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `ecareis`;
 -- MySQL dump 10.13  Distrib 5.6.23, for Win64 (x86_64)
 --
 -- Host: localhost    Database: ecareis
@@ -34,8 +32,10 @@ CREATE TABLE `contract` (
   `balance` int(11) DEFAULT NULL,
   PRIMARY KEY (`contract_id`),
   KEY `fk_user_idx` (`client_id`),
+  KEY `fk_tarif_idx` (`tariff_id`),
+  CONSTRAINT `fk_tarif` FOREIGN KEY (`tariff_id`) REFERENCES `tariff` (`tariff_id`) ON DELETE SET NULL ON UPDATE SET NULL,
   CONSTRAINT `fk_user` FOREIGN KEY (`client_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -44,7 +44,7 @@ CREATE TABLE `contract` (
 
 LOCK TABLES `contract` WRITE;
 /*!40000 ALTER TABLE `contract` DISABLE KEYS */;
-INSERT INTO `contract` VALUES (1,9111234567,1,1,0,0,100),(2,9219876543,1,1,1,1,50),(3,9311234568,1,2,0,0,100);
+INSERT INTO `contract` VALUES (1,9111234567,1,1,0,0,100),(2,9219876543,1,1,1,1,50),(3,9311234568,1,2,0,0,100),(4,9218971598,1,NULL,0,0,200),(5,9216321566,1,NULL,0,0,300),(6,9217412536,1,5,0,0,150);
 /*!40000 ALTER TABLE `contract` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -60,7 +60,7 @@ CREATE TABLE `contract_chosen_option` (
   `contract_id` int(11) DEFAULT NULL,
   `chosen_option_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -69,6 +69,7 @@ CREATE TABLE `contract_chosen_option` (
 
 LOCK TABLES `contract_chosen_option` WRITE;
 /*!40000 ALTER TABLE `contract_chosen_option` DISABLE KEYS */;
+INSERT INTO `contract_chosen_option` VALUES (1,1,3),(2,1,1);
 /*!40000 ALTER TABLE `contract_chosen_option` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -84,7 +85,7 @@ CREATE TABLE `dependent_option` (
   `src_option_id` int(11) DEFAULT NULL,
   `dependent_option_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -93,6 +94,7 @@ CREATE TABLE `dependent_option` (
 
 LOCK TABLES `dependent_option` WRITE;
 /*!40000 ALTER TABLE `dependent_option` DISABLE KEYS */;
+INSERT INTO `dependent_option` VALUES (1,1,6),(3,5,7),(4,2,6),(5,3,8),(6,4,8);
 /*!40000 ALTER TABLE `dependent_option` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -108,7 +110,7 @@ CREATE TABLE `inconsistent_option` (
   `src_option_id` int(11) DEFAULT NULL,
   `inconsistent_option_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -117,33 +119,34 @@ CREATE TABLE `inconsistent_option` (
 
 LOCK TABLES `inconsistent_option` WRITE;
 /*!40000 ALTER TABLE `inconsistent_option` DISABLE KEYS */;
+INSERT INTO `inconsistent_option` VALUES (1,1,2),(2,2,1),(3,3,4),(4,4,3);
 /*!40000 ALTER TABLE `inconsistent_option` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `option`
+-- Table structure for table `options`
 --
 
-DROP TABLE IF EXISTS `option`;
+DROP TABLE IF EXISTS `options`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `option` (
+CREATE TABLE `options` (
   `option_id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(45) DEFAULT NULL,
   `monthly_cost` int(11) DEFAULT NULL,
   `activation_charge` int(11) DEFAULT NULL,
   PRIMARY KEY (`option_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `option`
+-- Dumping data for table `options`
 --
 
-LOCK TABLES `option` WRITE;
-/*!40000 ALTER TABLE `option` DISABLE KEYS */;
-INSERT INTO `option` VALUES (1,'sms100',10,20),(2,'sms200',30,40),(3,'inet500',100,50),(4,'inet1000',200,100);
-/*!40000 ALTER TABLE `option` ENABLE KEYS */;
+LOCK TABLES `options` WRITE;
+/*!40000 ALTER TABLE `options` DISABLE KEYS */;
+INSERT INTO `options` VALUES (1,'sms100',10,20),(2,'sms200',30,40),(3,'inet500',100,50),(4,'inet1000',200,100),(5,'минуты100',100,50),(6,'SMS пакет',10,10),(7,'минуты - пакет',20,5),(8,'инет - пакет',15,10);
+/*!40000 ALTER TABLE `options` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -182,7 +185,8 @@ CREATE TABLE `tariff_possible_option` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `tariff_id` int(11) DEFAULT NULL,
   `possible_option_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `fk_tarif_idx` (`tariff_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -214,7 +218,7 @@ CREATE TABLE `user` (
   `password` varchar(45) DEFAULT NULL,
   `role` int(11) DEFAULT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -223,7 +227,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'Иван','Суслов','1989-12-24','1231131 УВД Петродворца','188537, Спб, пр. Героев 17, дом 11, кв. 12','iv@iv.com','111',0),(2,'Егор','Хохлов','1985-12-24','6234133 УВД Омска','646856, Омск, пр. Мира 8, дом 4, кв. 323','egor@omsk.ru','egor',0),(5,'Семен','Карпов','2000-01-24','1211213234, УВД Перми','121211, Пермь, ул. Говорова 3','sema@perm.ru','1111',1),(9,'фыв','Карпов','2010-01-24','1211213234, УВД Перми','121211, Пермь, ул. Говорова 3','iv@iv.com','1111',1),(10,'Федор','Ершов','2010-01-01','1211213234, УВД Луги','548348, Луга, ул. Смирнова 8','fed@luga.ru','11111',0),(11,'fsdf1','asdfas1','2000-01-11','23231','asdfds1','sdfsaf@dasfds.ad1','111111',1),(12,'вап2','asd2','2010-01-22','1211213234, УВД Перми2','sdfs2','adfad@sdfdsf.com2','12312312',1);
+INSERT INTO `user` VALUES (1,'Иван','Суслов','1989-12-24','1231131 УВД Петродворца','188537, Спб, пр. Героев 17, дом 11, кв. 12','iv@iv.com','111',0),(2,'Егор','Хохлов','1985-12-24','6234133 УВД Омска','646856, Омск, пр. Мира 8, дом 4, кв. 323','egor@omsk.ru','egor',0),(5,'Семен','Карпов','2000-01-24','1211213234, УВД Перми','121211, Пермь, ул. Говорова 3','sema@perm.ru','1111',1),(9,'фыв','Карпов','2010-01-24','1211213234, УВД Перми','121211, Пермь, ул. Говорова 3','iv@iv.com','1111',1),(10,'Федор','Ершов','2010-01-01','1211213234, УВД Луги','548348, Луга, ул. Смирнова 8','fed@luga.ru','11111',0),(11,'fsdf1','asdfas1','2000-01-11','23231','asdfds1','sdfsaf@dasfds.ad1','111111',1),(12,'вап2','asd2','2010-01-22','1211213234, УВД Перми2','sdfs2','adfad@sdfdsf.com2','12312312',1),(13,'Семен','go','2010-01-03','1211213233, УВД Новгорода','Новгород дом','nov@nov.ru','novpassw',1),(14,'Семен1','Карпов1','2010-01-24','1211213234, УВД Перми1','121211, Пермь, ул. Говорова 1','ag1@ag1.ru','1111',1),(15,'Таня','Г','2010-01-24','2323','Piter Bolsh 6','ag@ag.ru','111',1),(19,'вап','',NULL,'','','ag@ag.ru','111',1),(20,'werwe','werwer','1964-01-31','sdfsdfsd','121211, Пермь, ул. Говорова 3','ag@ag.ru','111',1),(21,'sdfds','dsfdsf','1782-01-12','sdfsdfdsf','sdfdsf','ag@ag.ru','111',1),(22,'ket','kete','2015-06-28','1211213234, УВД Луги','548348, Луга, ул. Смирнова 8','ag@ag.ru','111',1),(23,'Коля','Вахрапов','1990-01-01','123456, Тверское УВД','123456, Тверь, улица Правды','kolya@tver.ru','123',1),(24,'Андрей','Столяров','1987-01-02','12345645, Выборгкий УВД от 12 марта 2009 года','987854, Выборг, ул. Ленина, дом 3','as@v.ru','111',0),(25,'Борис','Коло','1954-01-14','234324, серия номер','адрес такой-то','b@b.ru','222',1),(26,'Егор','Котов','1974-01-07','5665, серия21 номер12','Витебск, ул. Говорова, дом 7','egor@egor.ru','123',1);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -236,4 +240,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-06-25 14:18:06
+-- Dump completed on 2015-07-02 14:41:50
