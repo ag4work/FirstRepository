@@ -38,7 +38,7 @@ public class OptionMapper {
         optionDTO.setOptionId(option.getOptionId());
         optionDTO.setTitle(option.getTitle());
         optionDTO.setMonthlyCost(option.getMonthlyCost());
-        option.setActivationCharge(option.getActivationCharge());
+        optionDTO.setActivationCharge(option.getActivationCharge());
 
         return optionDTO;
     }
@@ -57,7 +57,7 @@ public class OptionMapper {
         return options;
     }
 
-    public static Set<OptionDTO> OptionSetToDTOSet(Set<Option> options){
+    public static Set<OptionDTO> EntitySetToDTOSet(Set<Option> options){
         if (options==null) return null;
         Set<OptionDTO> optionDTOs = new HashSet<OptionDTO>();
         for (Option option : options){

@@ -35,7 +35,7 @@
         </li>
         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Tariffs <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="t">All tariffs</a></li>
+            <li><a href="allTariffs.sec">All tariffs</a></li>
             <li><a href="#">New tariff</a></li>
           </ul>
         </li>

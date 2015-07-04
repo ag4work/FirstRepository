@@ -24,13 +24,14 @@ public class ContractServiceImpl implements ContractService{
     UserDAO userDAO = new UserDAOImpl(EntityManagerFactorySingleton.getInstance());
 
     @Override
-    public Contract getContract(Integer id) {
-        return contractDAO.get(id);
+    public ContractDTO getContract(Integer id) {
+        return ContractMapper.EntityToDTO(contractDAO.get(id));
     }
 
     @Override
-    public Set<Contract> getAllContracts() {
-        return new HashSet<Contract>(contractDAO.getAll());
+    public Set<ContractDTO> getAllContracts() {
+        return ContractMapper.EntitySetToDTOSet(
+                new HashSet<Contract>(contractDAO.getAll()));
     }
 
     @Override
@@ -50,4 +51,18 @@ public class ContractServiceImpl implements ContractService{
         Set<Contract> contracts = user.getContractOfUser();
         return ContractMapper.EntitySetToDTOSet(contracts);
     }
+
+    private static Long getFreeNumber(){
+        //TODO: make a check that the number is unique
+        return Constants.DEFAULT_PHONE_CODE*10000000L+(long)(Math.random()*10000000);
+    }
+
+    public Set<Long> getFreeNumberSet(int setSize){
+        Set<Long> freeNumberSet = new HashSet<Long>();
+        for (int i=0; i<setSize;i++){
+            freeNumberSet.add(getFreeNumber());
+        }
+        return freeNumberSet;
+    }
+
 }

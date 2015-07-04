@@ -3,7 +3,8 @@ package service.DTO;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 
-import java.util.List;
+import java.util.Set;
+
 
 /**
  * Created by Alexey on 02.07.2015.
@@ -15,8 +16,8 @@ public class TariffDTO {
     @Length(min = 1, max = 50, message = "Длина названия тарифа должна составлять от 1 до 45 символов")
     private String title;
     private Integer price;
-    private List<ContractDTO> contractHasThisTariff;
-    private List<OptionDTO> possibleOption;
+    private Set<ContractDTO> contractHasThisTariff;
+    private Set<OptionDTO> possibleOption;
 
     public TariffDTO() {
     }
@@ -45,19 +46,19 @@ public class TariffDTO {
         this.price = price;
     }
 
-    public List<ContractDTO> getContractHasThisTariff() {
+    public Set<ContractDTO> getContractHasThisTariff() {
         return contractHasThisTariff;
     }
 
-    public void setContractHasThisTariff(List<ContractDTO> contractHasThisTariff) {
+    public void setContractHasThisTariff(Set<ContractDTO> contractHasThisTariff) {
         this.contractHasThisTariff = contractHasThisTariff;
     }
 
-    public List<OptionDTO> getPossibleOption() {
+    public Set<OptionDTO> getPossibleOption() {
         return possibleOption;
     }
 
-    public void setPossibleOption(List<OptionDTO> possibleOption) {
+    public void setPossibleOption(Set<OptionDTO> possibleOption) {
         this.possibleOption = possibleOption;
     }
 

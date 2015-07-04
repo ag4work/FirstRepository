@@ -69,7 +69,7 @@ public class Tariff {
         return result;
     }
 
-    @OneToMany(mappedBy = "tariff")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "tariff")
     public Set<Contract> getContractHasThisTariff() {
         return contractHasThisTariff;
     }
@@ -78,7 +78,7 @@ public class Tariff {
         this.contractHasThisTariff = contractHasThisTariff;
     }
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "tariff_possible_option", catalog = "ecareis", schema = "", joinColumns = @JoinColumn(name = "tariff_id", referencedColumnName = "tariff_id"), inverseJoinColumns = @JoinColumn(name = "possible_option_id", referencedColumnName = "option_id"))
     public Set<Option> getPossibleOption() {
         return possibleOption;

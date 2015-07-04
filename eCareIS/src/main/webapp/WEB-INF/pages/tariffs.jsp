@@ -24,8 +24,37 @@
 <div class="container-fluid">
   <div class="row">
 
+    <div class="col-md-5 main" style="position:relative; ">
+      <H3> Создать новый тариф:</H3>
+
+      <form role="form" method="post" action="addTariff.sec">
+        <div class="form-group">
+          <label for="title">Название тарифа:</label>
+          <input name="title" type="text" class="form-control" id="title" placeholder="Введите название тарифа">
+        </div>
+
+        <div class="form-group">
+          <label for="price">Абонентская плата:</label>
+          <input name="price" type="text" class="form-control" id="price" placeholder="Абонентская плата">
+        </div>
+
+        <div class="control-buttons">
+          <button type="submit" class="btn btn-primary">Создать новый тариф</button>
+        </div>
+
+        <input type="hidden" name="command" value="addTariff"/>
+      </form>
+
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+
     <br><br>
     <div class="col-md-11 main" style="position:relative; ">
+      <H3> Список существующих тарифов:</H3>
       <table class="table table-striped">
         <%--<h3> All users</h3>--%>
         <thead>
@@ -38,7 +67,7 @@
 
         </thead>
         <tbody>
-        <c:forEach  var="tariff" items="${tariffList}">
+        <c:forEach  var="tariff" items="${tariffs}">
           <tr>
 
             <td>
@@ -51,7 +80,7 @@
 
             <td>
               <form class="formButton" action="Tariffs.sec" method="post">
-                <input type="hidden" name="id" value="${tariff.tariffId}"/>
+                <input type="hidden" name="tariffId" value="${tariff.tariffId}"/>
                 <input type="hidden" name="command" value="delete"/>
                 <input type="submit" class="btn btn-link btn-xs" value="Удалить"/>
               </form>
@@ -59,7 +88,7 @@
 
             <td>
               <form class="formButton" action="Tariffs.sec" method="post">
-                <input type="hidden" name="id" value="${tariff.tariffId}"/>
+                <input type="hidden" name="tariffId" value="${tariff.tariffId}"/>
                 <input type="hidden" name="command" value="editTariffOption"/>
                 <input type="submit" class="btn btn-link btn-xs" value="Редактировать опции"/>
               </form>

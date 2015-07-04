@@ -11,16 +11,16 @@ public class TariffMapper {
 //    private Set<Contract> contractHasThisTariff;
 //    private Set<Option> possibleOption;
 
-public static Tariff DTOToEntity(TariffDTO tariffDTO){
-    if (tariffDTO ==null) return null;
-    Tariff tariff = new Tariff();
+    public static Tariff DTOToEntity(TariffDTO tariffDTO){
+        if (tariffDTO ==null) return null;
+        Tariff tariff = new Tariff();
 
-    tariff.setTariffId(tariffDTO.getTariffId());
-    tariff.setTitle(tariffDTO.getTitle());
-    tariff.setPrice(tariffDTO.getPrice());
+        tariff.setTariffId(tariffDTO.getTariffId());
+        tariff.setTitle(tariffDTO.getTitle());
+        tariff.setPrice(tariffDTO.getPrice());
 
-    return tariff;
-}
+        return tariff;
+    }
 
     public static TariffDTO EntityToDTO(Tariff tariff){
         if (tariff ==null) return null;
@@ -32,4 +32,16 @@ public static Tariff DTOToEntity(TariffDTO tariffDTO){
 
         return tariffDTO;
     }
+
+    public static TariffDTO EntityToDTOWithSets(Tariff tariff){
+        TariffDTO tariffDTO = EntityToDTO(tariff);
+        tariffDTO.setContractHasThisTariff(
+                ContractMapper.EntitySetToDTOSet(
+                        tariff.getContractHasThisTariff()));
+        tariffDTO.setPossibleOption(OptionMapper.EntitySetToDTOSet(
+                tariff.getPossibleOption()));
+        return tariffDTO;
+    }
+
+
 }
