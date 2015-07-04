@@ -1,6 +1,6 @@
 package service.DTO;
 
-import java.util.List;
+import java.util.Set;
 
 /**
  * Created by Alexey on 02.07.2015.
@@ -11,13 +11,12 @@ public class OptionDTO {
     private String title;
     private Integer monthlyCost;
     private Integer activationCharge;
-    private List<OptionDTO> dependentOption;
-    private List<OptionDTO> inconsistentOption;
-    private List<TariffDTO> tariffHasThisOption;
-    private List<ContractDTO> contractByOptionId;
+    private Set<OptionDTO> dependentOption;
+    private Set<OptionDTO> inconsistentOption;
+    private Set<TariffDTO> tariffHasThisOption;
+    private Set<ContractDTO> contracts;
 
-    public OptionDTO(Integer optionId) {
-        this.optionId = optionId;
+    public OptionDTO() {
     }
 
     public Integer getOptionId() {
@@ -52,36 +51,36 @@ public class OptionDTO {
         this.activationCharge = activationCharge;
     }
 
-    public List<OptionDTO> getDependentOption() {
+    public Set<OptionDTO> getDependentOption() {
         return dependentOption;
     }
 
-    public void setDependentOption(List<OptionDTO> dependentOption) {
+    public void setDependentOption(Set<OptionDTO> dependentOption) {
         this.dependentOption = dependentOption;
     }
 
-    public List<OptionDTO> getInconsistentOption() {
+    public Set<OptionDTO> getInconsistentOption() {
         return inconsistentOption;
     }
 
-    public void setInconsistentOption(List<OptionDTO> inconsistentOption) {
+    public void setInconsistentOption(Set<OptionDTO> inconsistentOption) {
         this.inconsistentOption = inconsistentOption;
     }
 
-    public List<TariffDTO> getTariffHasThisOption() {
+    public Set<TariffDTO> getTariffHasThisOption() {
         return tariffHasThisOption;
     }
 
-    public void setTariffHasThisOption(List<TariffDTO> tariffHasThisOption) {
+    public void setTariffHasThisOption(Set<TariffDTO> tariffHasThisOption) {
         this.tariffHasThisOption = tariffHasThisOption;
     }
 
-    public List<ContractDTO> getContractByOptionId() {
-        return contractByOptionId;
+    public Set<ContractDTO> getContracts() {
+        return contracts;
     }
 
-    public void setContractByOptionId(List<ContractDTO> contractByOptionId) {
-        this.contractByOptionId = contractByOptionId;
+    public void setContracts(Set<ContractDTO> contracts) {
+        this.contracts = contracts;
     }
 
     @Override

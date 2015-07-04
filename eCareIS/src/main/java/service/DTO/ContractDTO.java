@@ -10,8 +10,8 @@ public class ContractDTO {
     private Boolean blocked;
     private Boolean blockedByStaff;
     private Integer balance;
-    private TariffDTO tariffByTariffId;
-    private UserDTO userByClientId;
+    private TariffDTO tariffDTO;
+    private UserDTO userDTO;
     private List<OptionDTO> chosenOption;
 
     public ContractDTO() {
@@ -57,20 +57,20 @@ public class ContractDTO {
         this.balance = balance;
     }
 
-    public TariffDTO getTariffByTariffId() {
-        return tariffByTariffId;
+    public TariffDTO getTariffDTO() {
+        return tariffDTO;
     }
 
-    public void setTariffByTariffId(TariffDTO tariffByTariffId) {
-        this.tariffByTariffId = tariffByTariffId;
+    public void setTariffDTO(TariffDTO tariffDTO) {
+        this.tariffDTO = tariffDTO;
     }
 
-    public UserDTO getUserByClientId() {
-        return userByClientId;
+    public UserDTO getUserDTO() {
+        return userDTO;
     }
 
-    public void setUserByClientId(UserDTO userByClientId) {
-        this.userByClientId = userByClientId;
+    public void setUserDTO(UserDTO userDTO) {
+        this.userDTO = userDTO;
     }
 
     public List<OptionDTO> getChosenOption() {

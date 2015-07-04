@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf8" pageEncoding="utf8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <!DOCTYPE html>
 
@@ -73,7 +74,13 @@
                         </td>
 
                         <td>
-                                <%--${user.getContracts().size()}--%>
+                            <c:if test="${fn:length(user.contracts) gt 0}">
+                                <form class="formButton" action="showUserContracts.sec" method="post">
+                                    <input type="hidden" name="userId" value="${user.userId}"/>
+                                    <input type="hidden" name="command" value="showUserContracts"/>
+                                    <input type="submit" class="btn btn-link btn-xs" value="${fn:length(user.contracts)}"/>
+                                </form>
+                            </c:if>
 
                         </td>
                         <td>

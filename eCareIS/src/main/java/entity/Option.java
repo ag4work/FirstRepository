@@ -3,7 +3,7 @@ package entity;
 
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.Set;
 
 /**
  * Created by Alexey on 01.07.2015.
@@ -15,10 +15,10 @@ public class Option {
     private String title;
     private Integer monthlyCost;
     private Integer activationCharge;
-    private List<Option> dependentOption;
-    private List<Option> inconsistentOption;
-    private List<Tariff> tariffHasThisOption;
-    private List<Contract> contractByOptionId;
+    private Set<Option> dependentOption;
+    private Set<Option> inconsistentOption;
+    private Set<Tariff> tariffHasThisOption;
+    private Set<Contract> contracts;
 
     @Id
     @GeneratedValue
@@ -88,40 +88,40 @@ public class Option {
 
     @ManyToMany
     @JoinTable(name = "dependent_option", catalog = "ecareis", schema = "", joinColumns = @JoinColumn(name = "src_option_id", referencedColumnName = "option_id"), inverseJoinColumns = @JoinColumn(name = "dependent_option_id", referencedColumnName = "option_id"))
-    public List<Option> getDependentOption() {
+    public Set<Option> getDependentOption() {
         return dependentOption;
     }
 
-    public void setDependentOption(List<Option> dependentOption) {
+    public void setDependentOption(Set<Option> dependentOption) {
         this.dependentOption = dependentOption;
     }
 
     @ManyToMany
     @JoinTable(name = "inconsistent_option", catalog = "ecareis", schema = "", joinColumns = @JoinColumn(name = "src_option_id", referencedColumnName = "option_id"), inverseJoinColumns = @JoinColumn(name = "inconsistent_option_id", referencedColumnName = "option_id"))
-    public List<Option> getInconsistentOption() {
+    public Set<Option> getInconsistentOption() {
         return inconsistentOption;
     }
 
-    public void setInconsistentOption(List<Option> inconsistentOption) {
+    public void setInconsistentOption(Set<Option> inconsistentOption) {
         this.inconsistentOption = inconsistentOption;
     }
 
     @ManyToMany(mappedBy = "possibleOption")
-    public List<Tariff> getTariffHasThisOption() {
+    public Set<Tariff> getTariffHasThisOption() {
         return tariffHasThisOption;
     }
 
-    public void setTariffHasThisOption(List<Tariff> tariffHasThisOption) {
+    public void setTariffHasThisOption(Set<Tariff> tariffHasThisOption) {
         this.tariffHasThisOption = tariffHasThisOption;
     }
 
     @ManyToMany(mappedBy = "chosenOption")
-    public List<Contract> getContractByOptionId() {
-        return contractByOptionId;
+    public Set<Contract> getContracts() {
+        return contracts;
     }
 
-    public void setContractByOptionId(List<Contract> contractByOptionId) {
-        this.contractByOptionId = contractByOptionId;
+    public void setContracts(Set<Contract> contracts) {
+        this.contracts = contracts;
     }
 
     @Override

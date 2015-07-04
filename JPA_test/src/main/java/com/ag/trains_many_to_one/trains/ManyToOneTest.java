@@ -21,7 +21,7 @@ public class ManyToOneTest {
         //em.remove(em.find(Passenger.class,13));
       //  em.remove(em.find(Ticket.class,1));
         Passenger passengerMaryl =  em.find(Passenger.class, 6);
-        Ticket someTicket = createTicket(new Date(), 1, passengerMaryl);
+        Ticket someTicket = createTicket(new Date(), 1, null);
         passengerMaryl.getTickets().add(someTicket);
         em.getTransaction().commit();
 

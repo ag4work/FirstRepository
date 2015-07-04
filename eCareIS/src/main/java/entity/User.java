@@ -2,7 +2,7 @@ package entity;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
+import java.util.Set;
 
 /**
  * Created by Alexey on 01.07.2015.
@@ -18,7 +18,7 @@ public class User {
     private String email;
     private String password;
     private Integer role;
-    private List<Contract> contractOfUser;
+    private Set<Contract> contractOfUser;
 
     @Id
     @GeneratedValue
@@ -146,12 +146,12 @@ public class User {
         return result;
     }
 
-    @OneToMany(mappedBy = "userByClientId")
-    public List<Contract> getContractOfUser() {
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
+    public Set<Contract> getContractOfUser() {
         return contractOfUser;
     }
 
-    public void setContractOfUser(List<Contract> contractOfUser) {
+    public void setContractOfUser(Set<Contract> contractOfUser) {
         this.contractOfUser = contractOfUser;
     }
 

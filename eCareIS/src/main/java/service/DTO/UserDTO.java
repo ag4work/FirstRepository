@@ -1,8 +1,6 @@
 package service.DTO;
 
 
-import entity.User;
-
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -49,7 +47,8 @@ public class UserDTO {
 //    @NotNull(message= "Категория пользователя должна быть задана")
 //    @Size(min = 1, max = 1, message="Категория ползователя: либо 0, либо 1")
     private int role;
-//    private Set<Contract> contracts;
+
+    private Set<ContractDTO> contracts;
 
 
     public UserDTO() {
@@ -140,6 +139,14 @@ public class UserDTO {
 
     public void setRole(Integer role) {
         this.role = role;
+    }
+
+    public void setContracts(Set<ContractDTO> contracts) {
+        this.contracts = contracts;
+    }
+
+    public Set<ContractDTO> getContracts() {
+        return contracts;
     }
 
     @Override

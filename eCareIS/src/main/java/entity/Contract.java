@@ -1,7 +1,7 @@
 package entity;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.Set;
 
 /**
  * Created by Alexey on 01.07.2015.
@@ -13,9 +13,9 @@ public class Contract {
     private Boolean blocked;
     private Boolean blockedByStaff;
     private Integer balance;
-    private Tariff tariffByTariffId;
-    private User userByClientId;
-    private List<Option> chosenOption;
+    private Tariff tariff;
+    private User user;
+    private Set<Option> chosenOption;
 
     @Id
     @GeneratedValue
@@ -98,31 +98,31 @@ public class Contract {
 
     @ManyToOne
     @JoinColumn(name = "tariff_id", referencedColumnName = "tariff_id")
-    public Tariff getTariffByTariffId() {
-        return tariffByTariffId;
+    public Tariff getTariff() {
+        return tariff;
     }
 
-    public void setTariffByTariffId(Tariff tariffByTariffId) {
-        this.tariffByTariffId = tariffByTariffId;
+    public void setTariff(Tariff tariff) {
+        this.tariff = tariff;
     }
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "client_id", referencedColumnName = "user_id")
-    public User getUserByClientId() {
-        return userByClientId;
+    public User getUser() {
+        return user;
     }
 
-    public void setUserByClientId(User userByClientId) {
-        this.userByClientId = userByClientId;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @ManyToMany
     @JoinTable(name = "contract_chosen_option", catalog = "ecareis", schema = "", joinColumns = @JoinColumn(name = "contract_id", referencedColumnName = "contract_id"), inverseJoinColumns = @JoinColumn(name = "chosen_option_id", referencedColumnName = "option_id"))
-    public List<Option> getChosenOption() {
+    public Set<Option> getChosenOption() {
         return chosenOption;
     }
 
-    public void setChosenOption(List<Option> chosenOption) {
+    public void setChosenOption(Set<Option> chosenOption) {
         this.chosenOption = chosenOption;
     }
 
@@ -132,4 +132,6 @@ public class Contract {
                 "phoneNumber=" + phoneNumber +
                 '}';
     }
+
+
 }

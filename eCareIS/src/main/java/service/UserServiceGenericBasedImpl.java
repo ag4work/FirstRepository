@@ -7,7 +7,7 @@ import GenericBasedDAO.UserDAOImpl;
 import entity.User;
 import service.DTO.UserDTO;
 import utils.EntityManagerFactorySingleton;
-import utils.UserMapper;
+import utils.Mappers.UserMapper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,7 +48,7 @@ public class UserServiceGenericBasedImpl implements UserService{
     public List<UserDTO> getAllUsers() {
         List<UserDTO> userDTOs = new ArrayList<UserDTO>();
         for (User user : userDAO.getAll()){
-            userDTOs.add(UserMapper.EntityToDTO(user));
+            userDTOs.add(UserMapper.EntityToDTOWithSet(user));
         }
         return userDTOs;
     }

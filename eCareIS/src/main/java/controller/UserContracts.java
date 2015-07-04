@@ -1,6 +1,6 @@
 package controller;
 
-
+import org.apache.log4j.Logger;
 import service.ContractService;
 import service.ContractServiceImpl;
 import service.DTO.ContractDTO;
@@ -14,29 +14,27 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Set;
 
 /**
- * Created by Alexey on 02.07.2015.
+ * Created by Alexey on 03.07.2015.
  */
-@WebServlet(name = "ContractAddNew.sec", urlPatterns = "/addContract.sec")
-public class ContractAddNewsec extends HttpServlet {
+@WebServlet(name = "UserContracts", urlPatterns = "/showUserContracts.sec")
+public class UserContracts extends HttpServlet {
+    Logger logger = Logger.getLogger(UserContracts.class);
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=utf-8");
-        ContractDTO contractDTO = new ContractDTO();
-        UserService userService = new UserServiceGenericBasedImpl();
-
+        //ContractService contractService = new ContractServiceImpl();
         Integer userId = Integer.parseInt(request.getParameter("userId"));
-        UserDTO  userDTO = userService.getUserById(userId);
-        contractDTO.setUserDTO(userDTO);
-
-        Integer balance = Integer.parseInt(request.getParameter("initialbalance"));
-        contractDTO.setBalance(balance);
-        Long phoneNum = Long.parseLong(request.getParameter("phoneNumber"));
-        contractDTO.setPhoneNumber(phoneNum);
-
+        UserService userService = new UserServiceGenericBasedImpl();
+        UserDTO userDTO = userService.getUserById(userId);
         ContractService contractService = new ContractServiceImpl();
-        contractService.add(contractDTO);
-        response.sendRedirect("users.sec");
+        Set<ContractDTO> contractDTOs = contractService.getContractsByUserId(userId);
+        request.setAttribute("contractSet", contractDTOs);
+        request.setAttribute("user", userDTO);
+        request.getRequestDispatcher("WEB-INF/pages/clientContracts.jsp").forward(request,response);
+
 
     }
 

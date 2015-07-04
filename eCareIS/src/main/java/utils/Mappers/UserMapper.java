@@ -1,4 +1,4 @@
-package utils;
+package utils.Mappers;
 
 import entity.User;
 import service.DTO.UserDTO;
@@ -22,7 +22,6 @@ public class UserMapper {
         user.setEmail(userDTO.getEmail());
         user.setPassword(userDTO.getPassword());
         user.setRole(userDTO.getRole());
-
         return user;
     }
 
@@ -30,7 +29,6 @@ public class UserMapper {
         if (user==null) return null;
 
         UserDTO userDTO = new UserDTO();
-
         userDTO.setUserId(user.getUserId());
         userDTO.setName(user.getName());
         userDTO.setLastname(user.getLastname());
@@ -40,8 +38,15 @@ public class UserMapper {
         userDTO.setEmail(user.getEmail());
         userDTO.setPassword(user.getPassword());
         userDTO.setRole(user.getRole());
-
         return userDTO;
     }
+
+    public static UserDTO EntityToDTOWithSet(User user){
+        if (user==null) return null;
+        UserDTO userDTO = EntityToDTO(user);
+        userDTO.setContracts(ContractMapper.EntitySetToDTOSet(user.getContractOfUser()));
+        return userDTO;
+    }
+
 
 }

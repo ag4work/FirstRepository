@@ -2,10 +2,8 @@ package entity;
 
 
 
-import entity.Option;
-
 import javax.persistence.*;
-import java.util.List;
+import java.util.Set;
 
 /**
  * Created by Alexey on 01.07.2015.
@@ -15,8 +13,8 @@ public class Tariff {
     private Integer tariffId;
     private String title;
     private Integer price;
-    private List<Contract> contractHasThisTariff;
-    private List<Option> possibleOption;
+    private Set<Contract> contractHasThisTariff;
+    private Set<Option> possibleOption;
 
     @Id
     @GeneratedValue
@@ -71,22 +69,22 @@ public class Tariff {
         return result;
     }
 
-    @OneToMany(mappedBy = "tariffByTariffId")
-    public List<Contract> getContractHasThisTariff() {
+    @OneToMany(mappedBy = "tariff")
+    public Set<Contract> getContractHasThisTariff() {
         return contractHasThisTariff;
     }
 
-    public void setContractHasThisTariff(List<Contract> contractHasThisTariff) {
+    public void setContractHasThisTariff(Set<Contract> contractHasThisTariff) {
         this.contractHasThisTariff = contractHasThisTariff;
     }
 
     @ManyToMany
     @JoinTable(name = "tariff_possible_option", catalog = "ecareis", schema = "", joinColumns = @JoinColumn(name = "tariff_id", referencedColumnName = "tariff_id"), inverseJoinColumns = @JoinColumn(name = "possible_option_id", referencedColumnName = "option_id"))
-    public List<Option> getPossibleOption() {
+    public Set<Option> getPossibleOption() {
         return possibleOption;
     }
 
-    public void setPossibleOption(List<Option> possibleOption) {
+    public void setPossibleOption(Set<Option> possibleOption) {
         this.possibleOption = possibleOption;
     }
 

@@ -18,13 +18,19 @@ import java.util.List;
  */
 @WebServlet(name = "PhonenumberChooseNew", urlPatterns = "/phonenumber_choosenew.sec")
 public class PhonenumberChooseNew extends HttpServlet {
+    UserService userService = new UserServiceGenericBasedImpl();
     Logger logger = Logger.getLogger(PhonenumberChooseNew.class);
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=utf-8");
 //        request.setAttribute("userList", userDTOList);
-        String id = (String)request.getParameter("id");
-        logger.info("id = " + id);
-        request.setAttribute("userId",id);
+
+//
+        String stringUserId = request.getParameter("id");
+        Integer userId = Integer.parseInt(stringUserId);
+        userService.getUserById(userId);
+
+        logger.info("id = " + stringUserId);
+        request.setAttribute("userId",userId);
         request.getRequestDispatcher("WEB-INF/pages/phonenumber_choose.jsp").forward(request, response);
 
     }
