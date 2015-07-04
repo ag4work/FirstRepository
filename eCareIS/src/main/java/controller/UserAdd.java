@@ -28,9 +28,9 @@ import java.util.List;
  * Created by Alexey on 24.06.2015.
  */
 @WebServlet(name = "AddUserServlet", urlPatterns = "/addUser.sec")
-public class AddUserServlet extends HttpServlet {
+public class UserAdd extends HttpServlet {
 
-    Logger logger = Logger.getLogger(AddUserServlet.class);
+    Logger logger = Logger.getLogger(UserAdd.class);
 
     final String createUserJSPURL = "WEB-INF/pages/createuser.jsp";
 

@@ -1,5 +1,6 @@
 package service.DTO;
-import java.util.List;
+
+import java.util.Set;
 
 /**
  * Created by Alexey on 02.07.2015.
@@ -12,7 +13,7 @@ public class ContractDTO {
     private Integer balance;
     private TariffDTO tariffDTO;
     private UserDTO userDTO;
-    private List<OptionDTO> chosenOption;
+    private Set<OptionDTO> chosenOption;
 
     public ContractDTO() {
     }
@@ -73,11 +74,11 @@ public class ContractDTO {
         this.userDTO = userDTO;
     }
 
-    public List<OptionDTO> getChosenOption() {
+    public Set<OptionDTO> getChosenOption() {
         return chosenOption;
     }
 
-    public void setChosenOption(List<OptionDTO> chosenOption) {
+    public void setChosenOption(Set<OptionDTO> chosenOption) {
         this.chosenOption = chosenOption;
     }
 

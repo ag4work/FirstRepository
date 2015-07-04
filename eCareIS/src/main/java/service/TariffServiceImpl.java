@@ -1,7 +1,7 @@
 package service;
 
-import GenericBasedDAO.TariffDAO;
-import GenericBasedDAO.TariffDAOImpl;
+import DAO.TariffDAO;
+import DAO.TariffDAOImpl;
 import entity.Tariff;
 import service.DTO.TariffDTO;
 import utils.EntityManagerFactorySingleton;

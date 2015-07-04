@@ -41,7 +41,7 @@
         </li>
         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Options <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">All options</a></li>
+            <li><a href="allOptions.sec">All options</a></li>
             <li><a href="#">New option</a></li>
           </ul>
         </li>

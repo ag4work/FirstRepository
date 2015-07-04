@@ -25,8 +25,6 @@ public class TariffShowAll extends javax.servlet.http.HttpServlet {
 
     protected void doGet(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
         response.setContentType("text/html;charset=utf-8");
-        PrintWriter out = response.getWriter();
-
         Set<TariffDTO> tariffDTOs = tariffService.getAllTariffs();
         request.setAttribute("tariffs", tariffDTOs);
         request.getRequestDispatcher("WEB-INF/pages/tariffs.jsp").forward(request,response);

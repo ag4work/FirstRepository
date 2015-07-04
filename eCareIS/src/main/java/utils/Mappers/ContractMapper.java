@@ -47,6 +47,17 @@ public class ContractMapper {
 //        private List<OptionDTO> chosenOption;
          return contractDTO;
     }
+
+    public static ContractDTO EntityToDTOWithSet(Contract contract){
+        if (contract==null) return null;
+        ContractDTO contractDTO = EntityToDTO(contract);
+        contractDTO.setChosenOption(OptionMapper.EntitySetToDTOSet(
+                contract.getChosenOption()));
+        return contractDTO;
+    }
+
+
+
     public static Set<ContractDTO> EntitySetToDTOSet(Set<Contract> contracts){
         if (contracts==null) return null;
 

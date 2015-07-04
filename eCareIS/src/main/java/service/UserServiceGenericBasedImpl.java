@@ -2,8 +2,8 @@ package service;
 
 
 
-import GenericBasedDAO.UserDAO;
-import GenericBasedDAO.UserDAOImpl;
+import DAO.UserDAO;
+import DAO.UserDAOImpl;
 import entity.User;
 import service.DTO.UserDTO;
 import utils.EntityManagerFactorySingleton;
@@ -21,14 +21,14 @@ public class UserServiceGenericBasedImpl implements UserService{
     UserDAO userDAO = new UserDAOImpl(EntityManagerFactorySingleton.getInstance());
 
     public UserDTO getUserById(Integer userId){
-        return UserMapper.EntityToDTO(userDAO.get(userId));
+        return UserMapper.EntityToDTOWithSet(userDAO.get(userId));
     }
 
     public UserDTO findUserByEmail(String email){
         List<User> allUsers = userDAO.getAll();
         for (User user : allUsers){
             if (user.getEmail().equals(email)) {
-                return UserMapper.EntityToDTO(user);
+                return UserMapper.EntityToDTOWithSet(user);
             }
         }
         return null;

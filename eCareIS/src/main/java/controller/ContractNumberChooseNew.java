@@ -20,11 +20,11 @@ import java.util.List;
  * Created by Alexey on 01.07.2015.
  */
 @WebServlet(name = "PhonenumberChooseNew", urlPatterns = "/phonenumber_choosenew.sec")
-public class PhonenumberChooseNew extends HttpServlet {
+public class ContractNumberChooseNew extends HttpServlet {
 
     UserService userService = new UserServiceGenericBasedImpl();
     ContractService contractService = new ContractServiceImpl();
-    Logger logger = Logger.getLogger(PhonenumberChooseNew.class);
+    Logger logger = Logger.getLogger(ContractNumberChooseNew.class);
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=utf-8");

@@ -1,4 +1,4 @@
-package GenericBasedDAO;
+package DAO;
 
 import entity.User;
 import org.apache.log4j.Logger;

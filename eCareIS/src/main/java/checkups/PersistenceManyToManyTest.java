@@ -1,22 +1,14 @@
 package checkups;
 
 
-import GenericBasedDAO.ContractDAO;
-import GenericBasedDAO.ContractDAOImpl;
-import GenericBasedDAO.UserDAO;
-import GenericBasedDAO.UserDAOImpl;
 import entity.Contract;
 import entity.Option;
 import entity.Tariff;
 import entity.User;
-import service.UserService;
-import service.UserServiceGenericBasedImpl;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import java.util.Collections;
-import java.util.List;
 import java.util.Set;
 
 /**

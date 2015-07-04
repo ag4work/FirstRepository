@@ -1,7 +1,7 @@
 package service;
 
 
-import GenericBasedDAO.*;
+import DAO.*;
 import entity.Contract;
 import entity.User;
 import service.DTO.ContractDTO;
@@ -11,7 +11,6 @@ import utils.EntityManagerFactorySingleton;
 
 import java.util.Collections;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 

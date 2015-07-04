@@ -43,6 +43,17 @@ public class OptionMapper {
         return optionDTO;
     }
 
+    public static OptionDTO EntityToDTOWithSet(Option option){
+        if (option == null) return null;
+        OptionDTO optionDTO = EntityToDTO(option);
+        optionDTO.setDependentOption(OptionMapper.EntitySetToDTOSet(
+                option.getDependentOption()));
+        optionDTO.setInconsistentOption(OptionMapper.EntitySetToDTOSet(
+                option.getInconsistentOption()));
+        return optionDTO;
+
+    }
+
 //    public static Option DTOToEntityWithSets(OptionDTO optionDTO) {
 //        if (optionDTO == null) return null;
 //        Option option = DTOToEntity(optionDTO);
@@ -65,6 +76,7 @@ public class OptionMapper {
         }
         return optionDTOs;
     }
+
 
 
 }

@@ -16,7 +16,7 @@ import java.util.List;
  * Created by Alexey on 24.06.2015.
  */
 @WebServlet(name = "Users", urlPatterns = "/users.sec")
-public class Users extends HttpServlet {
+public class UserShowAll extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=utf-8");
