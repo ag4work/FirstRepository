@@ -60,6 +60,7 @@
     <br><br>
     <div class="col-md-11 main" style="position:relative; ">
       <H3> Список существующих опция:</H3>
+
       <table class="table table-striped">
         <%--<h3> All users</h3>--%>
         <thead>
@@ -109,6 +110,7 @@
         </c:forEach>
         </tbody>
       </table>
+
     </div>
   </div>
 </div>

@@ -24,7 +24,7 @@ public class ContractServiceImpl implements ContractService{
 
     @Override
     public ContractDTO getContract(Integer id) {
-        return ContractMapper.EntityToDTO(contractDAO.get(id));
+        return ContractMapper.EntityToDTOWithSet(contractDAO.get(id));
     }
 
     @Override

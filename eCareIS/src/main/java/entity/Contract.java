@@ -68,34 +68,6 @@ public class Contract {
         this.balance = balance;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Contract contract = (Contract) o;
-
-        if (balance != null ? !balance.equals(contract.balance) : contract.balance != null) return false;
-        if (blocked != null ? !blocked.equals(contract.blocked) : contract.blocked != null) return false;
-        if (blockedByStaff != null ? !blockedByStaff.equals(contract.blockedByStaff) : contract.blockedByStaff != null)
-            return false;
-        if (contractId != null ? !contractId.equals(contract.contractId) : contract.contractId != null) return false;
-        if (phoneNumber != null ? !phoneNumber.equals(contract.phoneNumber) : contract.phoneNumber != null)
-            return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = contractId != null ? contractId.hashCode() : 0;
-        result = 31 * result + (phoneNumber != null ? phoneNumber.hashCode() : 0);
-        result = 31 * result + (blocked != null ? blocked.hashCode() : 0);
-        result = 31 * result + (blockedByStaff != null ? blockedByStaff.hashCode() : 0);
-        result = 31 * result + (balance != null ? balance.hashCode() : 0);
-        return result;
-    }
-
     @ManyToOne
     @JoinColumn(name = "tariff_id", referencedColumnName = "tariff_id")
     public Tariff getTariff() {
@@ -133,5 +105,20 @@ public class Contract {
                 '}';
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
 
+        Contract contract = (Contract) o;
+
+        if (!phoneNumber.equals(contract.phoneNumber)) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        return phoneNumber.hashCode();
+    }
 }

@@ -90,4 +90,21 @@ public class OptionDTO {
                 ", title='" + title + '\'' +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        OptionDTO optionDTO = (OptionDTO) o;
+
+        if (!title.equals(optionDTO.title)) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        return title.hashCode();
+    }
 }

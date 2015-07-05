@@ -3,6 +3,7 @@ package service.DTO;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 
+import java.util.Collections;
 import java.util.Set;
 
 
@@ -55,6 +56,7 @@ public class TariffDTO {
     }
 
     public Set<OptionDTO> getPossibleOption() {
+        if (possibleOption==null) return Collections.EMPTY_SET;
         return possibleOption;
     }
 
@@ -68,5 +70,22 @@ public class TariffDTO {
                 "title='" + title + '\'' +
                 ", tariffId=" + tariffId +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        TariffDTO tariffDTO = (TariffDTO) o;
+
+        if (!title.equals(tariffDTO.title)) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        return title.hashCode();
     }
 }

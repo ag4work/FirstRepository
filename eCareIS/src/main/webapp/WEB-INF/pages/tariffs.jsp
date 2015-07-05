@@ -87,7 +87,7 @@
             </td>
 
             <td>
-              <form class="formButton" action="Tariffs.sec" method="post">
+              <form class="formButton" action="TariffPossibleOptions.sec" method="post">
                 <input type="hidden" name="tariffId" value="${tariff.tariffId}"/>
                 <input type="hidden" name="command" value="editTariffOption"/>
                 <input type="submit" class="btn btn-link btn-xs" value="Редактировать опции"/>

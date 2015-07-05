@@ -89,4 +89,21 @@ public class ContractDTO {
                 ", phoneNumber=" + phoneNumber +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        ContractDTO that = (ContractDTO) o;
+
+        if (!phoneNumber.equals(that.phoneNumber)) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        return phoneNumber.hashCode();
+    }
 }

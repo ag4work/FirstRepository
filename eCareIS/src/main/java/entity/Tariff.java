@@ -47,28 +47,6 @@ public class Tariff {
         this.price = price;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Tariff tariff = (Tariff) o;
-
-        if (price != null ? !price.equals(tariff.price) : tariff.price != null) return false;
-        if (tariffId != null ? !tariffId.equals(tariff.tariffId) : tariff.tariffId != null) return false;
-        if (title != null ? !title.equals(tariff.title) : tariff.title != null) return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = tariffId != null ? tariffId.hashCode() : 0;
-        result = 31 * result + (title != null ? title.hashCode() : 0);
-        result = 31 * result + (price != null ? price.hashCode() : 0);
-        return result;
-    }
-
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "tariff")
     public Set<Contract> getContractHasThisTariff() {
         return contractHasThisTariff;
@@ -94,5 +72,22 @@ public class Tariff {
                 "title='" + title + '\'' +
                 ", tariffId=" + tariffId +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Tariff tariff = (Tariff) o;
+
+        if (!title.equals(tariff.title)) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        return title.hashCode();
     }
 }

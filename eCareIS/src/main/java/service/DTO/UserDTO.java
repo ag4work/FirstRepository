@@ -157,4 +157,26 @@ public class UserDTO {
                 ", lastname='" + lastname + '\'' +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        UserDTO userDTO = (UserDTO) o;
+
+        if (!birthday.equals(userDTO.birthday)) return false;
+        if (!lastname.equals(userDTO.lastname)) return false;
+        if (!name.equals(userDTO.name)) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = name.hashCode();
+        result = 31 * result + lastname.hashCode();
+        result = 31 * result + birthday.hashCode();
+        return result;
+    }
 }
