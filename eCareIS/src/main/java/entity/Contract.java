@@ -8,6 +8,7 @@ import java.util.Set;
  */
 @Entity
 public class Contract {
+
     private Integer contractId;
     private Long phoneNumber;
     private Boolean blocked;
@@ -88,7 +89,7 @@ public class Contract {
         this.user = user;
     }
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "contract_chosen_option", catalog = "ecareis", schema = "", joinColumns = @JoinColumn(name = "contract_id", referencedColumnName = "contract_id"), inverseJoinColumns = @JoinColumn(name = "chosen_option_id", referencedColumnName = "option_id"))
     public Set<Option> getChosenOption() {
         return chosenOption;
@@ -105,6 +106,23 @@ public class Contract {
                 '}';
     }
 
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//
+//        Contract contract = (Contract) o;
+//
+//        if (!phoneNumber.equals(contract.phoneNumber)) return false;
+//
+//        return true;
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//        return phoneNumber.hashCode();
+//    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -112,13 +130,14 @@ public class Contract {
 
         Contract contract = (Contract) o;
 
-        if (!phoneNumber.equals(contract.phoneNumber)) return false;
+        if (phoneNumber != null ? !phoneNumber.equals(contract.phoneNumber) : contract.phoneNumber != null)
+            return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        return phoneNumber.hashCode();
+        return phoneNumber != null ? phoneNumber.hashCode() : 0;
     }
 }

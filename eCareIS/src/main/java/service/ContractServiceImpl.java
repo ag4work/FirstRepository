@@ -64,4 +64,30 @@ public class ContractServiceImpl implements ContractService{
         return freeNumberSet;
     }
 
+    @Override
+    public void blockByStaff(Integer contractId) {
+        Contract contract = contractDAO.get(contractId);
+        contract.setBlocked(true);
+        contract.setBlockedByStaff(true);
+        contractDAO.update(contract);
+    }
+
+    @Override
+    public void unblockByStaff(Integer contractId) {
+        Contract contract = contractDAO.get(contractId);
+        contract.setBlocked(false);
+        contract.setBlockedByStaff(false);
+        contractDAO.update(contract);
+    }
+
+    @Override
+    public ContractDTO getContractByPhonenumber(Long phonenumber) {
+        Set<Contract> contracts = new HashSet<Contract>(contractDAO.getAll());
+        for (Contract contract : contracts){
+            if (contract.getPhoneNumber().equals(phonenumber))
+                return ContractMapper.EntityToDTOWithSet(contract);
+        }
+        return null;
+    }
+
 }

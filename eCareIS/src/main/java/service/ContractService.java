@@ -14,6 +14,9 @@ public interface ContractService {
     public void add(ContractDTO contractDto);
     public Set<ContractDTO> getContractsByUserId(Integer userId);
     public Set<Long> getFreeNumberSet(int setSize);
+    public void blockByStaff(Integer contractId);
+    public void unblockByStaff(Integer contractId);
+    public  ContractDTO getContractByPhonenumber(Long phonenumber);
 
 
 }

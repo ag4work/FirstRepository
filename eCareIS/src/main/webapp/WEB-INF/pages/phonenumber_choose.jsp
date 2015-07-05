@@ -25,11 +25,11 @@
     <div class="row">
         <div class="col-md-3" style="position:relative; ">
             <H2> ${user.name} ${user.lastname} </H2>
-            <h3> ${user.birthday} </h1>
+            <h3> ${user.birthday} </h3>
         </div>
 
         <div class="col-md-3">
-            <h3>Выберете номер телефона</h2>
+            <h3>Выберете номер телефона</h3>
             <form role="form" action="addContract.sec" method="post">
                 <div class="form-group">
                     <label for="sel1">Choose phonenumber from the list:</label>

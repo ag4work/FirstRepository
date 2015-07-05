@@ -57,16 +57,6 @@
                         </td>
 
 
-                        <%--<td>--%>
-                            <%--<c:if test="${fn:length(user.contracts) gt 0}">--%>
-                                <%--<form class="formButton" action="showUserContracts.sec" method="post">--%>
-                                    <%--<input type="hidden" name="userId" value="${user.userId}"/>--%>
-                                    <%--<input type="hidden" name="command" value="showUserContracts"/>--%>
-                                    <%--<input type="submit" class="btn btn-link btn-xs" value="${fn:length(user.contracts)}"/>--%>
-                                <%--</form>--%>
-                            <%--</c:if>--%>
-
-                        <%--</td>--%>
                         <td>
                             <form class="formButton" action="contractEdit.sec" method="post">
                                 <input type="hidden" name="id" value="${contractId}"/>

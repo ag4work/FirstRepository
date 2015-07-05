@@ -29,7 +29,7 @@
         </li>
         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Contracts <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">All contracts</a></li>
+            <li><a href="contracts.sec">All contracts</a></li>
             <li><a href="#">Register new user</a></li>
           </ul>
         </li>
