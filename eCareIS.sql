@@ -36,8 +36,8 @@ CREATE TABLE `contract` (
   KEY `fk_user_idx` (`client_id`),
   KEY `fk_tarif_idx` (`tariff_id`),
   CONSTRAINT `fk_tarif` FOREIGN KEY (`tariff_id`) REFERENCES `tariff` (`tariff_id`) ON DELETE SET NULL ON UPDATE SET NULL,
-  CONSTRAINT `fk_user` FOREIGN KEY (`client_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+  CONSTRAINT `fk_user` FOREIGN KEY (`client_id`) REFERENCES `user` (`user_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -46,7 +46,7 @@ CREATE TABLE `contract` (
 
 LOCK TABLES `contract` WRITE;
 /*!40000 ALTER TABLE `contract` DISABLE KEYS */;
-INSERT INTO `contract` VALUES (1,9111234567,1,1,0,0,100),(2,9219876543,1,1,1,1,50),(3,9311234568,1,2,0,0,100),(4,9218971598,1,NULL,0,0,200),(5,9216321566,1,NULL,0,0,300),(6,9217412536,1,5,0,0,150);
+INSERT INTO `contract` VALUES (1,9111234567,1,1,0,0,100),(2,9219876543,2,1,1,1,50),(3,9213297654,1,2,0,0,100),(6,9214512789,2,27,0,0,150),(7,9213578545,1,1,0,0,200),(8,9217985689,2,1,1,1,1),(9,9216487645,1,1,1,1,1),(10,9214975489,1,1,0,0,1),(11,9215976215,1,1,1,1,1),(12,9217321566,1,2,0,0,300),(13,9213497548,1,5,0,0,500),(14,9216288578,1,9,0,0,500),(15,9218218974,1,10,0,0,350),(16,9218321566,1,2,1,1,10),(17,9217427124,1,2,0,0,222);
 /*!40000 ALTER TABLE `contract` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -138,7 +138,7 @@ CREATE TABLE `options` (
   `monthly_cost` int(11) DEFAULT NULL,
   `activation_charge` int(11) DEFAULT NULL,
   PRIMARY KEY (`option_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -147,7 +147,7 @@ CREATE TABLE `options` (
 
 LOCK TABLES `options` WRITE;
 /*!40000 ALTER TABLE `options` DISABLE KEYS */;
-INSERT INTO `options` VALUES (1,'sms100',10,20),(2,'sms200',30,40),(3,'inet500',100,50),(4,'inet1000',200,100),(5,'минуты100',100,50),(6,'SMS пакет',10,10),(7,'минуты - пакет',20,5),(8,'инет - пакет',15,10);
+INSERT INTO `options` VALUES (1,'sms100',10,20),(2,'sms200',30,40),(3,'inet500',100,50),(4,'inet1000',200,100),(5,'минуты100',100,50),(6,'SMS пакет',10,10),(7,'минуты - пакет',20,5),(8,'инет - пакет',15,10),(9,'Ночью бесплатно',123,28);
 /*!40000 ALTER TABLE `options` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -163,7 +163,7 @@ CREATE TABLE `tariff` (
   `title` varchar(45) DEFAULT NULL,
   `price` int(11) DEFAULT NULL,
   PRIMARY KEY (`tariff_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -172,7 +172,7 @@ CREATE TABLE `tariff` (
 
 LOCK TABLES `tariff` WRITE;
 /*!40000 ALTER TABLE `tariff` DISABLE KEYS */;
-INSERT INTO `tariff` VALUES (1,'коннект',100),(2,'безлимит звонки',2000),(3,'оптима',500),(4,'all inclusive',10000);
+INSERT INTO `tariff` VALUES (1,'Базовый',100),(2,'безлимит звонки',2000),(6,'dfgdg',12),(7,'СуперТариф',200000),(8,'Безлимитный Интернет',NULL);
 /*!40000 ALTER TABLE `tariff` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -189,7 +189,7 @@ CREATE TABLE `tariff_possible_option` (
   `possible_option_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_tarif_idx` (`tariff_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -198,7 +198,7 @@ CREATE TABLE `tariff_possible_option` (
 
 LOCK TABLES `tariff_possible_option` WRITE;
 /*!40000 ALTER TABLE `tariff_possible_option` DISABLE KEYS */;
-INSERT INTO `tariff_possible_option` VALUES (1,1,1),(2,1,2),(3,2,3),(4,2,4),(5,3,1),(6,3,2),(7,3,3),(8,3,4);
+INSERT INTO `tariff_possible_option` VALUES (2,1,2),(3,2,3),(4,2,4),(12,1,1);
 /*!40000 ALTER TABLE `tariff_possible_option` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -220,7 +220,7 @@ CREATE TABLE `user` (
   `password` varchar(45) DEFAULT NULL,
   `role` int(11) DEFAULT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -229,7 +229,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'Иван','Суслов','1989-12-24','1231131 УВД Петродворца','188537, Спб, пр. Героев 17, дом 11, кв. 12','iv@iv.com','111',0),(2,'Егор','Хохлов','1985-12-24','6234133 УВД Омска','646856, Омск, пр. Мира 8, дом 4, кв. 323','egor@omsk.ru','egor',0),(5,'Семен','Карпов','2000-01-24','1211213234, УВД Перми','121211, Пермь, ул. Говорова 3','sema@perm.ru','1111',1),(9,'фыв','Карпов','2010-01-24','1211213234, УВД Перми','121211, Пермь, ул. Говорова 3','iv@iv.com','1111',1),(10,'Федор','Ершов','2010-01-01','1211213234, УВД Луги','548348, Луга, ул. Смирнова 8','fed@luga.ru','11111',0),(11,'fsdf1','asdfas1','2000-01-11','23231','asdfds1','sdfsaf@dasfds.ad1','111111',1),(12,'вап2','asd2','2010-01-22','1211213234, УВД Перми2','sdfs2','adfad@sdfdsf.com2','12312312',1),(13,'Семен','go','2010-01-03','1211213233, УВД Новгорода','Новгород дом','nov@nov.ru','novpassw',1),(14,'Семен1','Карпов1','2010-01-24','1211213234, УВД Перми1','121211, Пермь, ул. Говорова 1','ag1@ag1.ru','1111',1),(15,'Таня','Г','2010-01-24','2323','Piter Bolsh 6','ag@ag.ru','111',1),(19,'вап','',NULL,'','','ag@ag.ru','111',1),(20,'werwe','werwer','1964-01-31','sdfsdfsd','121211, Пермь, ул. Говорова 3','ag@ag.ru','111',1),(21,'sdfds','dsfdsf','1782-01-12','sdfsdfdsf','sdfdsf','ag@ag.ru','111',1),(22,'ket','kete','2015-06-28','1211213234, УВД Луги','548348, Луга, ул. Смирнова 8','ag@ag.ru','111',1),(23,'Коля','Вахрапов','1990-01-01','123456, Тверское УВД','123456, Тверь, улица Правды','kolya@tver.ru','123',1),(24,'Андрей','Столяров','1987-01-02','12345645, Выборгкий УВД от 12 марта 2009 года','987854, Выборг, ул. Ленина, дом 3','as@v.ru','111',0),(25,'Борис','Коло','1954-01-14','234324, серия номер','адрес такой-то','b@b.ru','222',1),(26,'Егор','Котов','1974-01-07','5665, серия21 номер12','Витебск, ул. Говорова, дом 7','egor@egor.ru','123',1);
+INSERT INTO `user` VALUES (1,'Иван','Суслов','1989-12-24','1231131 УВД Петродворца','188537, Спб, пр. Героев 17, дом 11, кв. 12','iv@iv.com','111',0),(2,'Егор','Хохлов','1985-12-24','6234133 УВД Омска','646856, Омск, пр. Мира 8, дом 4, кв. 323','egor@omsk.ru','egor',0),(5,'Семен','Карпов','2000-01-24','1211213234, УВД Перми','121211, Пермь, ул. Говорова 3','sema@perm.ru','1111',1),(9,'фыв','Карпов','2010-01-24','1211213234, УВД Перми','121211, Пермь, ул. Говорова 3','iv@iv.com','1111',1),(10,'Федор','Ершов','2010-01-01','1211213234, УВД Луги','548348, Луга, ул. Смирнова 8','fed@luga.ru','11111',0),(11,'fsdf1','asdfas1','2000-01-11','23231','asdfds1','sdfsaf@dasfds.ad1','111111',1),(12,'вап2','asd2','2010-01-22','1211213234, УВД Перми2','sdfs2','adfad@sdfdsf.com2','12312312',1),(13,'Семен','go','2010-01-03','1211213233, УВД Новгорода','Новгород дом','nov@nov.ru','novpassw',1),(14,'Семен1','Карпов1','2010-01-24','1211213234, УВД Перми1','121211, Пермь, ул. Говорова 1','ag1@ag1.ru','1111',1),(15,'Таня','Г','2010-01-24','2323','Piter Bolsh 6','ag@ag.ru','111',1),(19,'вап','',NULL,'','','ag@ag.ru','111',1),(20,'werwe','werwer','1964-01-31','sdfsdfsd','121211, Пермь, ул. Говорова 3','ag@ag.ru','111',1),(21,'sdfds','dsfdsf','1782-01-12','sdfsdfdsf','sdfdsf','ag@ag.ru','111',1),(22,'ket','kete','2015-06-28','1211213234, УВД Луги','548348, Луга, ул. Смирнова 8','ag@ag.ru','111',1),(23,'Коля','Вахрапов','1990-01-01','123456, Тверское УВД','123456, Тверь, улица Правды','kolya@tver.ru','123',1),(24,'Андрей','Столяров','1987-01-02','12345645, Выборгкий УВД от 12 марта 2009 года','987854, Выборг, ул. Ленина, дом 3','as@v.ru','111',0),(25,'Борис','Коло','1954-01-14','234324, серия номер','адрес такой-то','b@b.ru','222',1),(26,'Егор','Котов','1974-01-07','5665, серия21 номер12','Витебск, ул. Говорова, дом 7','egor@egor.ru','123',1),(27,'Тимофей','Данилов','1974-01-13','9874561, серия 12 номер23','Гатчина, ул. Петрова, дом 12','ag@ag.ru','111',1);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -242,4 +242,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-07-02 14:51:19
+-- Dump completed on 2015-07-06 13:22:49
