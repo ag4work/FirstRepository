@@ -7,7 +7,10 @@ import service.TariffService;
 import service.TariffServiceImpl;
 import utils.EntityManagerFactorySingleton;
 
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -28,7 +31,11 @@ public class TariffShowAll extends javax.servlet.http.HttpServlet {
         Set<TariffDTO> tariffDTOs = tariffService.getAllTariffs();
         request.setAttribute("tariffs", tariffDTOs);
         request.getRequestDispatcher("WEB-INF/pages/tariffs.jsp").forward(request,response);
+    }
 
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        doGet(req,resp);
     }
 }
 

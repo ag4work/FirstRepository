@@ -1,5 +1,6 @@
 package service;
 
+import entity.Contract;
 import service.DTO.ContractDTO;
 
 import java.util.List;
@@ -16,7 +17,6 @@ public interface ContractService {
     public Set<Long> getFreeNumberSet(int setSize);
     public void blockByStaff(Integer contractId);
     public void unblockByStaff(Integer contractId);
-    public  ContractDTO getContractByPhonenumber(Long phonenumber);
-
-
+    public ContractDTO getContractByPhonenumber(Long phonenumber);
+    public Set<ContractDTO> getContractsByTariff(Integer tariffId);
 }

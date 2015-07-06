@@ -66,6 +66,5 @@ public class ContractMapper {
             contractDTOs.add(ContractMapper.EntityToDTO(contract));
         }
         return contractDTOs;
-
     }
 }

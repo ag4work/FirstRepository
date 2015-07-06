@@ -1,12 +1,11 @@
 package service;
 
-import DAO.OptionDAO;
-import DAO.OptionDAOImpl;
-import DAO.TariffDAO;
-import DAO.TariffDAOImpl;
+import DAO.*;
+import entity.Contract;
 import entity.Option;
 import entity.Tariff;
 import service.DTO.TariffDTO;
+import utils.Constants;
 import utils.EntityManagerFactorySingleton;
 import utils.Mappers.TariffMapper;
 
@@ -19,6 +18,7 @@ import java.util.Set;
 public class TariffServiceImpl implements TariffService{
     TariffDAO tariffDAO = new TariffDAOImpl(EntityManagerFactorySingleton.getInstance());
     OptionDAO optionDAO = new OptionDAOImpl(EntityManagerFactorySingleton.getInstance());
+    ContractDAO contractDAO = new ContractDAOImpl(EntityManagerFactorySingleton.getInstance());
 
     @Override
     public TariffDTO getTariffById(Integer tariffId) {
@@ -54,5 +54,17 @@ public class TariffServiceImpl implements TariffService{
         Tariff tariff = tariffDAO.get(tariffId);
         tariff.getPossibleOption().remove(option);
         tariffDAO.update(tariff);
+    }
+
+    @Override
+    public void removeTariffAndMoveContractsToBaseTariff(Integer tariffId) {
+        //todo make a check it is now a base tariff!
+        Tariff tariff = tariffDAO.get(tariffId);
+        Set<Contract> contractsHasThisTariff = tariff.getContractHasThisTariff();
+        tariffDAO.delete(tariffId);
+        for (Contract contract : contractsHasThisTariff) {
+            contract.setTariff(tariffDAO.get(Constants.DEFAULT_TARIFF_ID));
+            contractDAO.update(contract);
+        }
     }
 }

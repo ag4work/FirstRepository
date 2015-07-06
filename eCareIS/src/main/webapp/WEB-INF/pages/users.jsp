@@ -70,7 +70,13 @@
                         </td>
 
                         <td>
-                                ${user.role}
+                            <c:if test="${user.role == 0}">
+                                Сотрудник
+                            </c:if>
+                            <c:if test="${user.role == 1}">
+                                Клиент
+                            </c:if>
+
                         </td>
 
                         <td>

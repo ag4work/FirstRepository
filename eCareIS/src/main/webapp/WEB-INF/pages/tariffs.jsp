@@ -54,6 +54,7 @@
 
     <br><br>
     <div class="col-md-11 main" style="position:relative; ">
+      <%@ include file="message.jsp" %>
       <H3> Список существующих тарифов:</H3>
       <table class="table table-striped">
         <%--<h3> All users</h3>--%>
@@ -79,7 +80,7 @@
             </td>
 
             <td>
-              <form class="formButton" action="Tariffs.sec" method="post">
+              <form class="formButton" action="deleteTariff.sec" method="post">
                 <input type="hidden" name="tariffId" value="${tariff.tariffId}"/>
                 <input type="hidden" name="command" value="delete"/>
                 <input type="submit" class="btn btn-link btn-xs" value="Удалить"/>

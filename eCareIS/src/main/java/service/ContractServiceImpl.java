@@ -3,6 +3,7 @@ package service;
 
 import DAO.*;
 import entity.Contract;
+import entity.Tariff;
 import entity.User;
 import service.DTO.ContractDTO;
 import utils.Constants;
@@ -90,4 +91,13 @@ public class ContractServiceImpl implements ContractService{
         return null;
     }
 
+    @Override
+    public Set<ContractDTO> getContractsByTariff(Integer tariffId) {
+        Set<Contract> contracts = tariffDAO.get(tariffId).
+                getContractHasThisTariff();
+        if (contracts==null){
+            return Collections.EMPTY_SET;
+        }
+        return ContractMapper.EntitySetToDTOSet(contracts);
+    }
 }

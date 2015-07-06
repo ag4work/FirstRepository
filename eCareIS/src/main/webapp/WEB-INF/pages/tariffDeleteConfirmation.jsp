@@ -21,22 +21,41 @@
 
 
 <%@ include file="headermenu.jsp" %>
+<c:if test="${empty tariffDeleted}">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-5 main" style="position:relative; ">
+
+
+                <h4> Вы действительно хотите удалить тариф: "${tariff.title}" ? </h4>
+                <h5> Список контрактов, подключенных на данный тариф, приведен ниже. При
+                    удалении тарифа они будут переведены на тариф "Базовый".
+                </h5>
+                <form role="form" action="deleteTariff.sec" method="post">
+                    <div class="control-buttons">
+                        <button type="submit" class="btn btn-primary">Да, удалить.</button>
+                        <input type="hidden" name="command" value="deleteConfirmed"/>
+                        <input type="hidden" name="tariffId" value="${tariff.tariffId}"/>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</c:if>
 
 <div class="container-fluid">
     <div class="row">
 
         <br><br>
-        <div class="col-md-11 main" style="position:relative; ">
+        <div class="col-md-7 main" style="position:relative; ">
             <table class="table table-striped">
-                <h3> Пользователь</h3>
-                ${user.name} ${user.lastname} ${user.birthday}
-                <h3> Контракты пользователя</h3>
+                <%@ include file="message.jsp" %>
+                <h3> Контракты</h3>
                 <thead>
                 <tr>
                     <th> Номер телефона </th>
-                    <th> Баланс </th>
-                    <th> Тариф</th>
-                    <th> Статус</th>
+                    <th> ФИО </th>
+                    <th> Тариф </th>
                 </tr>
 
                 </thead>
@@ -46,29 +65,14 @@
                         <td>
                                 ${contract.phoneNumber}
                         </td>
+
                         <td>
-                                ${contract.balance}
+                                ${contract.userDTO.name} ${contract.userDTO.lastname}
                         </td>
+
                         <td>
                                 ${contract.tariffDTO.title}
                         </td>
-                        <td>
-                            <c:if test="${contract.blocked == false}">
-                                Online
-                            </c:if>
-                            <c:if test="${contract.blocked == true}">
-                                Заблокирован
-                            </c:if>
-                        </td>
-
-
-                        <td>
-                            <form class="formButton" action="contractEdit.sec" method="post">
-                                <input type="hidden" name="id" value="${contractId}"/>
-                                <input type="submit" class="btn btn-link btn-xs" value="Редактировать контракт"/>
-                            </form>
-                        </td>
-
 
                     </tr>
                 </c:forEach>
