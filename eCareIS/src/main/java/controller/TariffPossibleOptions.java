@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -29,12 +30,19 @@ public class TariffPossibleOptions extends HttpServlet {
         response.setContentType("text/html;charset=utf-8");
         Integer tariffId = Integer.parseInt(request.getParameter("tariffId"));
         TariffDTO tariffDTO = tariffService.getTariffById(tariffId);
-        Set<OptionDTO> optionDTOs = optionService.getAllOptions();
-        Set<OptionDTO> tariffPossibleOptions = tariffService.getTariffById(tariffId).getPossibleOption();
-        optionDTOs.removeAll(tariffPossibleOptions);
+        Set<OptionDTO> allOptions = optionService.getAllOptions();
+        Set<OptionDTO> tariffPossibleOptions = tariffService.
+                getTariffById(tariffId).getPossibleOption();
+        Set<OptionDTO> tariffPossibleOptionsWithSets = new HashSet<OptionDTO>();
+        for (OptionDTO optionDTOWithoutSets : tariffPossibleOptions){
+            tariffPossibleOptionsWithSets.add(optionService.getOptionById(
+                    optionDTOWithoutSets.getOptionId()));
+        }
 
-        request.setAttribute("tariffPossibleOptions", tariffPossibleOptions);
-        request.setAttribute("allOtherOptions", optionDTOs);
+        allOptions.removeAll(tariffPossibleOptionsWithSets);
+
+        request.setAttribute("tariffPossibleOptions", tariffPossibleOptionsWithSets);
+        request.setAttribute("allOtherOptions", allOptions);
         request.setAttribute("tariff", tariffDTO);
         request.getRequestDispatcher("WEB-INF/pages/tariffChoosePossibleOption.jsp").forward(request,response);
     }

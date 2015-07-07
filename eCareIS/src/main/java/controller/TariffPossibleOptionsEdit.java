@@ -33,7 +33,9 @@ public class TariffPossibleOptionsEdit extends HttpServlet {
             tariffService.addOptionAsPossibleForTariff(tariffId, optionId);
         }
         if (command.equals("remove")) {
-            tariffService.removeOptionAsPossibleForTariff(tariffId, optionId);
+            tariffService.
+                    removeOptionAndAllDependentOptionsTreeAsPossibleForTariff(
+                            tariffId, optionId);
         }
         request.getRequestDispatcher("TariffPossibleOptions.sec").forward(request,response);
     }

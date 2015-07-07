@@ -1,282 +1,555 @@
-2015-07-05 14:31:07 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
-2015-07-05 14:31:08 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
-2015-07-05 14:31:08 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
-2015-07-05 14:31:08 INFO  LogHelper:46 - HHH000204: Processing PersistenceUnitInfo [
+2015-07-07 13:09:26 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-07 13:09:26 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-07 13:09:26 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-07 13:09:27 INFO  LogHelper:46 - HHH000204: Processing PersistenceUnitInfo [
 	name: EcarePU
 	...]
-2015-07-05 14:31:08 INFO  Version:54 - HHH000412: Hibernate Core {4.3.10.Final}
-2015-07-05 14:31:08 INFO  Environment:239 - HHH000206: hibernate.properties not found
-2015-07-05 14:31:08 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
-2015-07-05 14:31:09 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
-2015-07-05 14:31:09 WARN  DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
-2015-07-05 14:31:10 INFO  DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/ecareis]
-2015-07-05 14:31:10 INFO  DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
-2015-07-05 14:31:10 INFO  DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
-2015-07-05 14:31:10 INFO  DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
-2015-07-05 14:31:12 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
-2015-07-05 14:31:12 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
-2015-07-05 14:31:12 INFO  Version:27 - HV000001: Hibernate Validator 5.1.3.Final
-2015-07-05 14:31:14 INFO  Tariff:23 - Genericclass entity.TariffDAO was created
-2015-07-05 14:31:14 INFO  UserDAOImpl:18 - TariffDAOImpl(generic extended) object created
-2015-07-05 14:31:14 INFO  Option:23 - Genericclass entity.OptionDAO was created
-2015-07-05 14:31:14 INFO  UserDAOImpl:19 - TariffDAOImpl(generic extended) object created
-2015-07-05 14:31:14 INFO  Option:41 - get() with id:1
-2015-07-05 14:31:15 INFO  Tariff:41 - get() with id:1
-2015-07-05 14:31:15 INFO  Tariff:82 - update():Tariff{title='коннект', tariffId=1}
-2015-07-05 14:39:11 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
-2015-07-05 14:39:11 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
-2015-07-05 14:39:11 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
-2015-07-05 14:39:12 INFO  LogHelper:46 - HHH000204: Processing PersistenceUnitInfo [
+2015-07-07 13:09:27 INFO  Version:54 - HHH000412: Hibernate Core {4.3.10.Final}
+2015-07-07 13:09:27 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2015-07-07 13:09:27 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-07-07 13:09:29 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-07-07 13:09:30 WARN  DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-07-07 13:09:30 INFO  DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/ecareis]
+2015-07-07 13:09:30 INFO  DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-07-07 13:09:30 INFO  DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-07-07 13:09:30 INFO  DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-07-07 13:09:31 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2015-07-07 13:09:32 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-07-07 13:09:32 INFO  Version:27 - HV000001: Hibernate Validator 5.1.3.Final
+2015-07-07 13:09:34 INFO  Option:23 - Genericclass entity.OptionDAO was created
+2015-07-07 13:09:34 INFO  UserDAOImpl:19 - TariffDAOImpl(generic extended) object created
+2015-07-07 13:09:34 INFO  Option:41 - get() with id:6
+2015-07-07 13:11:52 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-07 13:11:52 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-07 13:11:52 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-07 13:11:53 INFO  LogHelper:46 - HHH000204: Processing PersistenceUnitInfo [
 	name: EcarePU
 	...]
-2015-07-05 14:39:12 INFO  Version:54 - HHH000412: Hibernate Core {4.3.10.Final}
-2015-07-05 14:39:12 INFO  Environment:239 - HHH000206: hibernate.properties not found
-2015-07-05 14:39:12 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
-2015-07-05 14:39:14 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
-2015-07-05 14:39:14 WARN  DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
-2015-07-05 14:39:14 INFO  DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/ecareis]
-2015-07-05 14:39:14 INFO  DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
-2015-07-05 14:39:14 INFO  DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
-2015-07-05 14:39:14 INFO  DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
-2015-07-05 14:39:16 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
-2015-07-05 14:39:16 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
-2015-07-05 14:39:16 INFO  Version:27 - HV000001: Hibernate Validator 5.1.3.Final
-2015-07-05 14:39:18 INFO  Tariff:23 - Genericclass entity.TariffDAO was created
-2015-07-05 14:39:18 INFO  UserDAOImpl:18 - TariffDAOImpl(generic extended) object created
-2015-07-05 14:39:18 INFO  Option:23 - Genericclass entity.OptionDAO was created
-2015-07-05 14:39:18 INFO  UserDAOImpl:19 - TariffDAOImpl(generic extended) object created
-2015-07-05 14:39:18 INFO  Tariff:41 - get() with id:1
-2015-07-05 14:40:17 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
-2015-07-05 14:40:17 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
-2015-07-05 14:40:18 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
-2015-07-05 14:40:18 INFO  LogHelper:46 - HHH000204: Processing PersistenceUnitInfo [
+2015-07-07 13:11:53 INFO  Version:54 - HHH000412: Hibernate Core {4.3.10.Final}
+2015-07-07 13:11:53 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2015-07-07 13:11:53 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-07-07 13:11:55 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-07-07 13:11:55 WARN  DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-07-07 13:11:55 INFO  DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/ecareis]
+2015-07-07 13:11:55 INFO  DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-07-07 13:11:55 INFO  DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-07-07 13:11:55 INFO  DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-07-07 13:11:56 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2015-07-07 13:11:57 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-07-07 13:11:58 INFO  Version:27 - HV000001: Hibernate Validator 5.1.3.Final
+2015-07-07 13:12:00 INFO  Option:23 - Genericclass entity.OptionDAO was created
+2015-07-07 13:12:00 INFO  UserDAOImpl:19 - TariffDAOImpl(generic extended) object created
+2015-07-07 13:12:00 INFO  Option:41 - get() with id:6
+2015-07-07 13:19:19 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-07 13:19:19 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-07 13:19:19 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-07 13:19:19 INFO  LogHelper:46 - HHH000204: Processing PersistenceUnitInfo [
 	name: EcarePU
 	...]
-2015-07-05 14:40:18 INFO  Version:54 - HHH000412: Hibernate Core {4.3.10.Final}
-2015-07-05 14:40:18 INFO  Environment:239 - HHH000206: hibernate.properties not found
-2015-07-05 14:40:18 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
-2015-07-05 14:40:19 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
-2015-07-05 14:40:20 WARN  DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
-2015-07-05 14:40:20 INFO  DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/ecareis]
-2015-07-05 14:40:20 INFO  DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
-2015-07-05 14:40:20 INFO  DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
-2015-07-05 14:40:20 INFO  DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
-2015-07-05 14:40:21 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
-2015-07-05 14:40:22 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
-2015-07-05 14:40:23 INFO  Version:27 - HV000001: Hibernate Validator 5.1.3.Final
-2015-07-05 14:40:25 INFO  Tariff:23 - Genericclass entity.TariffDAO was created
-2015-07-05 14:40:25 INFO  UserDAOImpl:18 - TariffDAOImpl(generic extended) object created
-2015-07-05 14:40:25 INFO  Option:23 - Genericclass entity.OptionDAO was created
-2015-07-05 14:40:25 INFO  UserDAOImpl:19 - TariffDAOImpl(generic extended) object created
-2015-07-05 14:40:25 INFO  Tariff:41 - get() with id:1
-2015-07-05 17:08:09 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
-2015-07-05 17:08:09 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
-2015-07-05 17:08:09 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
-2015-07-05 17:08:09 INFO  LogHelper:46 - HHH000204: Processing PersistenceUnitInfo [
+2015-07-07 13:19:20 INFO  Version:54 - HHH000412: Hibernate Core {4.3.10.Final}
+2015-07-07 13:19:20 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2015-07-07 13:19:20 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-07-07 13:19:21 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-07-07 13:19:21 WARN  DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-07-07 13:19:21 INFO  DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/ecareis]
+2015-07-07 13:19:21 INFO  DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-07-07 13:19:21 INFO  DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-07-07 13:19:21 INFO  DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-07-07 13:19:22 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2015-07-07 13:19:24 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-07-07 13:19:24 INFO  Version:27 - HV000001: Hibernate Validator 5.1.3.Final
+2015-07-07 13:19:26 INFO  Option:23 - Genericclass entity.OptionDAO was created
+2015-07-07 13:19:26 INFO  UserDAOImpl:19 - TariffDAOImpl(generic extended) object created
+2015-07-07 13:19:26 INFO  Option:41 - get() with id:6
+2015-07-07 13:19:26 INFO  Option:41 - get() with id:4
+2015-07-07 13:25:37 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-07 13:25:37 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-07 13:25:37 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-07 13:25:37 INFO  LogHelper:46 - HHH000204: Processing PersistenceUnitInfo [
 	name: EcarePU
 	...]
-2015-07-05 17:08:10 INFO  Version:54 - HHH000412: Hibernate Core {4.3.10.Final}
-2015-07-05 17:08:10 INFO  Environment:239 - HHH000206: hibernate.properties not found
-2015-07-05 17:08:10 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
-2015-07-05 17:08:11 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
-2015-07-05 17:08:11 WARN  DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
-2015-07-05 17:08:11 INFO  DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/ecareis]
-2015-07-05 17:08:11 INFO  DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
-2015-07-05 17:08:11 INFO  DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
-2015-07-05 17:08:11 INFO  DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
-2015-07-05 17:08:13 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
-2015-07-05 17:08:14 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
-2015-07-05 17:08:14 INFO  Version:27 - HV000001: Hibernate Validator 5.1.3.Final
-2015-07-05 17:08:16 INFO  Contract:23 - Genericclass entity.ContractDAO was created
-2015-07-05 17:08:16 INFO  UserDAOImpl:19 - TariffDAOImpl(generic extended) object created
-2015-07-05 17:08:16 INFO  Tariff:23 - Genericclass entity.TariffDAO was created
-2015-07-05 17:08:16 INFO  UserDAOImpl:18 - TariffDAOImpl(generic extended) object created
-2015-07-05 17:08:16 INFO  User:23 - Genericclass entity.UserDAO was created
-2015-07-05 17:08:16 INFO  UserDAOImpl:17 - UserDAOImpl(generic extended) object created
-2015-07-05 17:11:22 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
-2015-07-05 17:11:22 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
-2015-07-05 17:11:22 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
-2015-07-05 17:11:23 INFO  LogHelper:46 - HHH000204: Processing PersistenceUnitInfo [
+2015-07-07 13:25:38 INFO  Version:54 - HHH000412: Hibernate Core {4.3.10.Final}
+2015-07-07 13:25:38 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2015-07-07 13:25:38 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-07-07 13:25:39 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-07-07 13:25:39 WARN  DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-07-07 13:25:39 INFO  DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/ecareis]
+2015-07-07 13:25:39 INFO  DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-07-07 13:25:39 INFO  DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-07-07 13:25:39 INFO  DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-07-07 13:25:41 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2015-07-07 13:25:42 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-07-07 13:25:42 INFO  Version:27 - HV000001: Hibernate Validator 5.1.3.Final
+2015-07-07 13:25:44 INFO  Option:23 - Genericclass entity.OptionDAO was created
+2015-07-07 13:25:44 INFO  UserDAOImpl:19 - TariffDAOImpl(generic extended) object created
+2015-07-07 13:25:44 INFO  Option:41 - get() with id:6
+2015-07-07 13:25:45 INFO  Option:41 - get() with id:4
+2015-07-07 14:13:41 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-07 14:13:41 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-07 14:13:41 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-07 14:13:42 INFO  LogHelper:46 - HHH000204: Processing PersistenceUnitInfo [
 	name: EcarePU
 	...]
-2015-07-05 17:11:23 INFO  Version:54 - HHH000412: Hibernate Core {4.3.10.Final}
-2015-07-05 17:11:23 INFO  Environment:239 - HHH000206: hibernate.properties not found
-2015-07-05 17:11:23 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
-2015-07-05 17:11:24 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
-2015-07-05 17:11:24 WARN  DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
-2015-07-05 17:11:24 INFO  DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/ecareis]
-2015-07-05 17:11:24 INFO  DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
-2015-07-05 17:11:24 INFO  DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
-2015-07-05 17:11:24 INFO  DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
-2015-07-05 17:11:26 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
-2015-07-05 17:11:27 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
-2015-07-05 17:11:28 INFO  Version:27 - HV000001: Hibernate Validator 5.1.3.Final
-2015-07-05 17:11:29 INFO  Contract:23 - Genericclass entity.ContractDAO was created
-2015-07-05 17:11:29 INFO  UserDAOImpl:19 - TariffDAOImpl(generic extended) object created
-2015-07-05 17:11:29 INFO  Tariff:23 - Genericclass entity.TariffDAO was created
-2015-07-05 17:11:29 INFO  UserDAOImpl:18 - TariffDAOImpl(generic extended) object created
-2015-07-05 17:11:29 INFO  User:23 - Genericclass entity.UserDAO was created
-2015-07-05 17:11:29 INFO  UserDAOImpl:17 - UserDAOImpl(generic extended) object created
-2015-07-05 17:13:01 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
-2015-07-05 17:13:01 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
-2015-07-05 17:13:01 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
-2015-07-05 17:13:01 INFO  LogHelper:46 - HHH000204: Processing PersistenceUnitInfo [
+2015-07-07 14:13:42 INFO  Version:54 - HHH000412: Hibernate Core {4.3.10.Final}
+2015-07-07 14:13:42 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2015-07-07 14:13:42 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-07-07 14:13:43 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-07-07 14:13:44 WARN  DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-07-07 14:13:44 INFO  DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/ecareis]
+2015-07-07 14:13:44 INFO  DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-07-07 14:13:44 INFO  DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-07-07 14:13:44 INFO  DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-07-07 14:13:46 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2015-07-07 14:13:46 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-07-07 14:13:47 INFO  Version:27 - HV000001: Hibernate Validator 5.1.3.Final
+2015-07-07 14:13:49 INFO  Option:23 - Genericclass entity.OptionDAO was created
+2015-07-07 14:13:49 INFO  UserDAOImpl:19 - TariffDAOImpl(generic extended) object created
+2015-07-07 14:13:49 INFO  Option:41 - get() with id:6
+2015-07-07 14:13:49 INFO  Option:41 - get() with id:4
+2015-07-07 14:15:49 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-07 14:15:49 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-07 14:15:49 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-07 14:15:49 INFO  LogHelper:46 - HHH000204: Processing PersistenceUnitInfo [
 	name: EcarePU
 	...]
-2015-07-05 17:13:02 INFO  Version:54 - HHH000412: Hibernate Core {4.3.10.Final}
-2015-07-05 17:13:02 INFO  Environment:239 - HHH000206: hibernate.properties not found
-2015-07-05 17:13:02 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
-2015-07-05 17:13:03 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
-2015-07-05 17:13:03 WARN  DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
-2015-07-05 17:13:03 INFO  DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/ecareis]
-2015-07-05 17:13:03 INFO  DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
-2015-07-05 17:13:03 INFO  DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
-2015-07-05 17:13:03 INFO  DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
-2015-07-05 17:13:04 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
-2015-07-05 17:13:06 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
-2015-07-05 17:13:06 INFO  Version:27 - HV000001: Hibernate Validator 5.1.3.Final
-2015-07-05 17:13:09 INFO  Contract:23 - Genericclass entity.ContractDAO was created
-2015-07-05 17:13:09 INFO  UserDAOImpl:19 - TariffDAOImpl(generic extended) object created
-2015-07-05 17:13:09 INFO  Tariff:23 - Genericclass entity.TariffDAO was created
-2015-07-05 17:13:09 INFO  UserDAOImpl:18 - TariffDAOImpl(generic extended) object created
-2015-07-05 17:13:09 INFO  User:23 - Genericclass entity.UserDAO was created
-2015-07-05 17:13:09 INFO  UserDAOImpl:17 - UserDAOImpl(generic extended) object created
-2015-07-05 17:20:19 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
-2015-07-05 17:20:19 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
-2015-07-05 17:20:19 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
-2015-07-05 17:20:20 INFO  LogHelper:46 - HHH000204: Processing PersistenceUnitInfo [
+2015-07-07 14:15:50 INFO  Version:54 - HHH000412: Hibernate Core {4.3.10.Final}
+2015-07-07 14:15:50 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2015-07-07 14:15:50 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-07-07 14:15:51 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-07-07 14:15:51 WARN  DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-07-07 14:15:51 INFO  DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/ecareis]
+2015-07-07 14:15:51 INFO  DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-07-07 14:15:51 INFO  DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-07-07 14:15:51 INFO  DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-07-07 14:15:53 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2015-07-07 14:15:54 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-07-07 14:15:54 INFO  Version:27 - HV000001: Hibernate Validator 5.1.3.Final
+2015-07-07 14:15:56 INFO  Option:23 - Genericclass entity.OptionDAO was created
+2015-07-07 14:15:56 INFO  UserDAOImpl:19 - TariffDAOImpl(generic extended) object created
+2015-07-07 14:15:56 INFO  Option:41 - get() with id:4
+2015-07-07 14:15:56 INFO  Option:41 - get() with id:6
+2015-07-07 16:44:51 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-07 16:44:51 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-07 16:44:51 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-07 16:44:51 INFO  LogHelper:46 - HHH000204: Processing PersistenceUnitInfo [
 	name: EcarePU
 	...]
-2015-07-05 17:20:20 INFO  Version:54 - HHH000412: Hibernate Core {4.3.10.Final}
-2015-07-05 17:20:20 INFO  Environment:239 - HHH000206: hibernate.properties not found
-2015-07-05 17:20:20 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
-2015-07-05 17:20:21 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
-2015-07-05 17:20:22 WARN  DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
-2015-07-05 17:20:22 INFO  DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/ecareis]
-2015-07-05 17:20:22 INFO  DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
-2015-07-05 17:20:22 INFO  DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
-2015-07-05 17:20:22 INFO  DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
-2015-07-05 17:20:24 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
-2015-07-05 17:20:25 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
-2015-07-05 17:20:25 INFO  Version:27 - HV000001: Hibernate Validator 5.1.3.Final
-2015-07-05 17:20:27 INFO  Contract:23 - Genericclass entity.ContractDAO was created
-2015-07-05 17:20:27 INFO  UserDAOImpl:19 - TariffDAOImpl(generic extended) object created
-2015-07-05 17:20:27 INFO  Tariff:23 - Genericclass entity.TariffDAO was created
-2015-07-05 17:20:27 INFO  UserDAOImpl:18 - TariffDAOImpl(generic extended) object created
-2015-07-05 17:20:27 INFO  User:23 - Genericclass entity.UserDAO was created
-2015-07-05 17:20:27 INFO  UserDAOImpl:17 - UserDAOImpl(generic extended) object created
-2015-07-05 17:24:00 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
-2015-07-05 17:24:00 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
-2015-07-05 17:24:00 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
-2015-07-05 17:24:00 INFO  LogHelper:46 - HHH000204: Processing PersistenceUnitInfo [
+2015-07-07 16:44:52 INFO  Version:54 - HHH000412: Hibernate Core {4.3.10.Final}
+2015-07-07 16:44:52 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2015-07-07 16:44:52 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-07-07 16:44:53 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-07-07 16:44:53 WARN  DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-07-07 16:44:53 INFO  DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/ecareis]
+2015-07-07 16:44:53 INFO  DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-07-07 16:44:53 INFO  DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-07-07 16:44:53 INFO  DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-07-07 16:44:55 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2015-07-07 16:44:56 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-07-07 16:44:56 INFO  Version:27 - HV000001: Hibernate Validator 5.1.3.Final
+2015-07-07 16:44:58 INFO  Option:23 - Genericclass entity.OptionDAO was created
+2015-07-07 16:44:58 INFO  UserDAOImpl:19 - TariffDAOImpl(generic extended) object created
+2015-07-07 16:44:58 INFO  Option:41 - get() with id:6
+2015-07-07 16:56:57 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-07 16:56:57 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-07 16:56:57 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-07 16:56:58 INFO  LogHelper:46 - HHH000204: Processing PersistenceUnitInfo [
 	name: EcarePU
 	...]
-2015-07-05 17:24:01 INFO  Version:54 - HHH000412: Hibernate Core {4.3.10.Final}
-2015-07-05 17:24:01 INFO  Environment:239 - HHH000206: hibernate.properties not found
-2015-07-05 17:24:01 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
-2015-07-05 17:24:02 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
-2015-07-05 17:24:02 WARN  DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
-2015-07-05 17:24:02 INFO  DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/ecareis]
-2015-07-05 17:24:02 INFO  DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
-2015-07-05 17:24:02 INFO  DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
-2015-07-05 17:24:02 INFO  DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
-2015-07-05 17:24:04 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
-2015-07-05 17:24:05 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
-2015-07-05 17:24:05 INFO  Version:27 - HV000001: Hibernate Validator 5.1.3.Final
-2015-07-05 17:24:07 INFO  Contract:23 - Genericclass entity.ContractDAO was created
-2015-07-05 17:24:07 INFO  UserDAOImpl:19 - TariffDAOImpl(generic extended) object created
-2015-07-05 17:27:19 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
-2015-07-05 17:27:19 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
-2015-07-05 17:27:19 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
-2015-07-05 17:27:20 INFO  LogHelper:46 - HHH000204: Processing PersistenceUnitInfo [
+2015-07-07 16:56:58 INFO  Version:54 - HHH000412: Hibernate Core {4.3.10.Final}
+2015-07-07 16:56:58 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2015-07-07 16:56:58 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-07-07 16:56:59 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-07-07 16:56:59 WARN  DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-07-07 16:56:59 INFO  DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/ecareis]
+2015-07-07 16:56:59 INFO  DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-07-07 16:56:59 INFO  DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-07-07 16:56:59 INFO  DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-07-07 16:57:02 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2015-07-07 16:57:03 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-07-07 16:57:03 INFO  Version:27 - HV000001: Hibernate Validator 5.1.3.Final
+2015-07-07 16:57:04 INFO  Option:23 - Genericclass entity.OptionDAO was created
+2015-07-07 16:57:04 INFO  UserDAOImpl:19 - TariffDAOImpl(generic extended) object created
+2015-07-07 16:57:04 INFO  Option:41 - get() with id:7
+2015-07-07 16:57:05 INFO  OptionServiceImpl$OptionServiceUtil:66 - getting AllDependentOptionTree for optionId7
+2015-07-07 16:57:20 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-07 16:57:20 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-07 16:57:20 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-07 16:57:20 INFO  LogHelper:46 - HHH000204: Processing PersistenceUnitInfo [
 	name: EcarePU
 	...]
-2015-07-05 17:27:20 INFO  Version:54 - HHH000412: Hibernate Core {4.3.10.Final}
-2015-07-05 17:27:20 INFO  Environment:239 - HHH000206: hibernate.properties not found
-2015-07-05 17:27:20 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
-2015-07-05 17:27:21 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
-2015-07-05 17:27:21 WARN  DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
-2015-07-05 17:27:21 INFO  DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/ecareis]
-2015-07-05 17:27:21 INFO  DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
-2015-07-05 17:27:21 INFO  DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
-2015-07-05 17:27:21 INFO  DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
-2015-07-05 17:27:24 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
-2015-07-05 17:27:24 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
-2015-07-05 17:27:25 INFO  Version:27 - HV000001: Hibernate Validator 5.1.3.Final
-2015-07-05 17:27:26 INFO  Contract:23 - Genericclass entity.ContractDAO was created
-2015-07-05 17:27:26 INFO  UserDAOImpl:19 - TariffDAOImpl(generic extended) object created
-2015-07-05 17:29:59 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
-2015-07-05 17:29:59 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
-2015-07-05 17:29:59 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
-2015-07-05 17:30:00 INFO  LogHelper:46 - HHH000204: Processing PersistenceUnitInfo [
+2015-07-07 16:57:21 INFO  Version:54 - HHH000412: Hibernate Core {4.3.10.Final}
+2015-07-07 16:57:21 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2015-07-07 16:57:21 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-07-07 16:57:22 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-07-07 16:57:22 WARN  DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-07-07 16:57:22 INFO  DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/ecareis]
+2015-07-07 16:57:22 INFO  DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-07-07 16:57:22 INFO  DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-07-07 16:57:22 INFO  DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-07-07 16:57:23 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2015-07-07 16:57:24 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-07-07 16:57:25 INFO  Version:27 - HV000001: Hibernate Validator 5.1.3.Final
+2015-07-07 16:57:27 INFO  Option:23 - Genericclass entity.OptionDAO was created
+2015-07-07 16:57:27 INFO  UserDAOImpl:19 - TariffDAOImpl(generic extended) object created
+2015-07-07 16:57:27 INFO  Option:41 - get() with id:5
+2015-07-07 16:57:27 INFO  OptionServiceImpl$OptionServiceUtil:66 - getting AllDependentOptionTree for optionId5
+2015-07-07 17:02:04 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-07 17:02:04 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-07 17:02:04 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-07 17:02:04 INFO  LogHelper:46 - HHH000204: Processing PersistenceUnitInfo [
 	name: EcarePU
 	...]
-2015-07-05 17:30:00 INFO  Version:54 - HHH000412: Hibernate Core {4.3.10.Final}
-2015-07-05 17:30:00 INFO  Environment:239 - HHH000206: hibernate.properties not found
-2015-07-05 17:30:00 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
-2015-07-05 17:30:02 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
-2015-07-05 17:30:02 WARN  DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
-2015-07-05 17:30:02 INFO  DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/ecareis]
-2015-07-05 17:30:02 INFO  DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
-2015-07-05 17:30:02 INFO  DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
-2015-07-05 17:30:02 INFO  DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
-2015-07-05 17:30:05 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
-2015-07-05 17:30:05 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
-2015-07-05 17:30:06 INFO  Version:27 - HV000001: Hibernate Validator 5.1.3.Final
-2015-07-05 17:30:08 INFO  Contract:23 - Genericclass entity.ContractDAO was created
-2015-07-05 17:30:08 INFO  UserDAOImpl:19 - TariffDAOImpl(generic extended) object created
-2015-07-05 17:35:34 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
-2015-07-05 17:35:34 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
-2015-07-05 17:35:34 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
-2015-07-05 17:35:35 INFO  LogHelper:46 - HHH000204: Processing PersistenceUnitInfo [
+2015-07-07 17:02:04 INFO  Version:54 - HHH000412: Hibernate Core {4.3.10.Final}
+2015-07-07 17:02:04 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2015-07-07 17:02:04 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-07-07 17:02:05 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-07-07 17:02:05 WARN  DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-07-07 17:02:05 INFO  DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/ecareis]
+2015-07-07 17:02:05 INFO  DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-07-07 17:02:05 INFO  DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-07-07 17:02:05 INFO  DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-07-07 17:02:06 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2015-07-07 17:02:07 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-07-07 17:02:08 INFO  Version:27 - HV000001: Hibernate Validator 5.1.3.Final
+2015-07-07 17:02:10 INFO  Option:23 - Genericclass entity.OptionDAO was created
+2015-07-07 17:02:10 INFO  UserDAOImpl:19 - TariffDAOImpl(generic extended) object created
+2015-07-07 17:02:10 INFO  Option:41 - get() with id:6
+2015-07-07 17:02:11 INFO  OptionServiceImpl$OptionServiceUtil:66 - getting AllDependentOptionTree for optionId6
+2015-07-07 17:02:11 WARN  OptionServiceImpl$OptionServiceUtil:56 - Cycle on dependent options. We've come again to option with id:1
+2015-07-07 17:02:11 WARN  OptionServiceImpl$OptionServiceUtil:56 - Cycle on dependent options. We've come again to option with id:2
+2015-07-07 17:05:24 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-07 17:05:24 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-07 17:05:24 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-07 17:05:24 INFO  LogHelper:46 - HHH000204: Processing PersistenceUnitInfo [
 	name: EcarePU
 	...]
-2015-07-05 17:35:35 INFO  Version:54 - HHH000412: Hibernate Core {4.3.10.Final}
-2015-07-05 17:35:35 INFO  Environment:239 - HHH000206: hibernate.properties not found
-2015-07-05 17:35:35 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
-2015-07-05 17:35:36 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
-2015-07-05 17:35:36 WARN  DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
-2015-07-05 17:35:36 INFO  DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/ecareis]
-2015-07-05 17:35:36 INFO  DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
-2015-07-05 17:35:36 INFO  DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
-2015-07-05 17:35:36 INFO  DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
-2015-07-05 17:35:39 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
-2015-07-05 17:35:39 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
-2015-07-05 17:35:40 INFO  Version:27 - HV000001: Hibernate Validator 5.1.3.Final
-2015-07-05 17:43:40 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
-2015-07-05 17:43:40 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
-2015-07-05 17:43:40 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
-2015-07-05 17:43:40 INFO  LogHelper:46 - HHH000204: Processing PersistenceUnitInfo [
+2015-07-07 17:05:25 INFO  Version:54 - HHH000412: Hibernate Core {4.3.10.Final}
+2015-07-07 17:05:25 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2015-07-07 17:05:25 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-07-07 17:05:26 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-07-07 17:05:26 WARN  DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-07-07 17:05:26 INFO  DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/ecareis]
+2015-07-07 17:05:26 INFO  DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-07-07 17:05:26 INFO  DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-07-07 17:05:26 INFO  DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-07-07 17:05:27 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2015-07-07 17:05:28 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-07-07 17:05:29 INFO  Version:27 - HV000001: Hibernate Validator 5.1.3.Final
+2015-07-07 17:05:31 INFO  Option:23 - Genericclass entity.OptionDAO was created
+2015-07-07 17:05:31 INFO  UserDAOImpl:19 - TariffDAOImpl(generic extended) object created
+2015-07-07 17:05:31 INFO  Option:41 - get() with id:6
+2015-07-07 17:05:31 INFO  OptionServiceImpl$OptionServiceUtil:67 - getting AllDependentOptionTree for optionId6
+2015-07-07 17:05:31 WARN  OptionServiceImpl$OptionServiceUtil:57 - Cycle on dependent options. We've come again to option with id:1
+2015-07-07 17:05:31 WARN  OptionServiceImpl$OptionServiceUtil:57 - Cycle on dependent options. We've come again to option with id:2
+2015-07-07 17:05:56 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-07 17:05:56 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-07 17:05:56 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-07 17:05:57 INFO  LogHelper:46 - HHH000204: Processing PersistenceUnitInfo [
 	name: EcarePU
 	...]
-2015-07-05 17:43:41 INFO  Version:54 - HHH000412: Hibernate Core {4.3.10.Final}
-2015-07-05 17:43:41 INFO  Environment:239 - HHH000206: hibernate.properties not found
-2015-07-05 17:43:41 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
-2015-07-05 17:43:42 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
-2015-07-05 17:43:42 WARN  DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
-2015-07-05 17:43:42 INFO  DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/ecareis]
-2015-07-05 17:43:42 INFO  DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
-2015-07-05 17:43:42 INFO  DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
-2015-07-05 17:43:42 INFO  DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
-2015-07-05 17:43:44 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
-2015-07-05 17:43:45 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
-2015-07-05 17:43:45 INFO  Version:27 - HV000001: Hibernate Validator 5.1.3.Final
-2015-07-05 17:46:15 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
-2015-07-05 17:46:15 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
-2015-07-05 17:46:15 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
-2015-07-05 17:46:15 INFO  LogHelper:46 - HHH000204: Processing PersistenceUnitInfo [
+2015-07-07 17:05:57 INFO  Version:54 - HHH000412: Hibernate Core {4.3.10.Final}
+2015-07-07 17:05:57 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2015-07-07 17:05:57 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-07-07 17:05:58 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-07-07 17:05:58 WARN  DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-07-07 17:05:58 INFO  DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/ecareis]
+2015-07-07 17:05:58 INFO  DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-07-07 17:05:58 INFO  DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-07-07 17:05:58 INFO  DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-07-07 17:06:00 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2015-07-07 17:06:01 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-07-07 17:06:01 INFO  Version:27 - HV000001: Hibernate Validator 5.1.3.Final
+2015-07-07 17:06:04 INFO  Option:23 - Genericclass entity.OptionDAO was created
+2015-07-07 17:06:04 INFO  UserDAOImpl:19 - TariffDAOImpl(generic extended) object created
+2015-07-07 17:06:04 INFO  Option:41 - get() with id:6
+2015-07-07 17:06:04 INFO  OptionServiceImpl$OptionServiceUtil:67 - getting AllDependentOptionTree for optionId6
+2015-07-07 17:06:04 INFO  OptionServiceImpl$OptionServiceUtil:51 - 6
+2015-07-07 17:06:04 INFO  OptionServiceImpl$OptionServiceUtil:51 - 1
+2015-07-07 17:06:04 WARN  OptionServiceImpl$OptionServiceUtil:57 - Cycle on dependent options. We've come again to option with id:1
+2015-07-07 17:06:04 INFO  OptionServiceImpl$OptionServiceUtil:51 - 2
+2015-07-07 17:06:04 WARN  OptionServiceImpl$OptionServiceUtil:57 - Cycle on dependent options. We've come again to option with id:2
+2015-07-07 17:11:40 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-07 17:11:40 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-07 17:11:40 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-07 17:11:41 INFO  LogHelper:46 - HHH000204: Processing PersistenceUnitInfo [
 	name: EcarePU
 	...]
-2015-07-05 17:46:15 INFO  Version:54 - HHH000412: Hibernate Core {4.3.10.Final}
-2015-07-05 17:46:15 INFO  Environment:239 - HHH000206: hibernate.properties not found
-2015-07-05 17:46:15 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
-2015-07-05 17:46:16 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
-2015-07-05 17:46:17 WARN  DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
-2015-07-05 17:46:17 INFO  DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/ecareis]
-2015-07-05 17:46:17 INFO  DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
-2015-07-05 17:46:17 INFO  DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
-2015-07-05 17:46:17 INFO  DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
-2015-07-05 17:46:18 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
-2015-07-05 17:46:19 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
-2015-07-05 17:46:19 INFO  Version:27 - HV000001: Hibernate Validator 5.1.3.Final
-2015-07-05 17:46:23 INFO  DriverManagerConnectionProviderImpl:281 - HHH000030: Cleaning up connection pool [jdbc:mysql://localhost:3306/ecareis]
+2015-07-07 17:11:41 INFO  Version:54 - HHH000412: Hibernate Core {4.3.10.Final}
+2015-07-07 17:11:41 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2015-07-07 17:11:41 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-07-07 17:11:43 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-07-07 17:11:43 WARN  DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-07-07 17:11:43 INFO  DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/ecareis]
+2015-07-07 17:11:43 INFO  DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-07-07 17:11:43 INFO  DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-07-07 17:11:43 INFO  DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-07-07 17:11:45 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2015-07-07 17:11:45 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-07-07 17:11:46 INFO  Version:27 - HV000001: Hibernate Validator 5.1.3.Final
+2015-07-07 17:11:47 INFO  Option:23 - Genericclass entity.OptionDAO was created
+2015-07-07 17:11:47 INFO  UserDAOImpl:19 - TariffDAOImpl(generic extended) object created
+2015-07-07 17:11:47 INFO  Option:41 - get() with id:6
+2015-07-07 17:11:48 INFO  OptionServiceImpl$OptionServiceUtil:67 - getting AllDependentOptionTree for optionId6
+2015-07-07 17:11:48 INFO  OptionServiceImpl$OptionServiceUtil:51 - 6
+2015-07-07 17:11:48 INFO  OptionServiceImpl$OptionServiceUtil:51 - 1
+2015-07-07 17:11:48 INFO  OptionServiceImpl$OptionServiceUtil:51 - 11
+2015-07-07 17:11:48 INFO  OptionServiceImpl$OptionServiceUtil:51 - 2
+2015-07-07 17:11:48 INFO  OptionServiceImpl$OptionServiceUtil:51 - 8
+2015-07-07 17:11:48 INFO  OptionServiceImpl$OptionServiceUtil:51 - 4
+2015-07-07 17:11:48 INFO  OptionServiceImpl$OptionServiceUtil:51 - 3
+2015-07-07 17:12:42 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-07 17:12:42 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-07 17:12:42 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-07 17:12:43 INFO  LogHelper:46 - HHH000204: Processing PersistenceUnitInfo [
+	name: EcarePU
+	...]
+2015-07-07 17:12:43 INFO  Version:54 - HHH000412: Hibernate Core {4.3.10.Final}
+2015-07-07 17:12:43 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2015-07-07 17:12:43 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-07-07 17:12:44 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-07-07 17:12:44 WARN  DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-07-07 17:12:44 INFO  DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/ecareis]
+2015-07-07 17:12:44 INFO  DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-07-07 17:12:44 INFO  DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-07-07 17:12:44 INFO  DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-07-07 17:12:47 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2015-07-07 17:12:47 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-07-07 17:12:48 INFO  Version:27 - HV000001: Hibernate Validator 5.1.3.Final
+2015-07-07 17:12:50 INFO  Option:23 - Genericclass entity.OptionDAO was created
+2015-07-07 17:12:50 INFO  UserDAOImpl:19 - TariffDAOImpl(generic extended) object created
+2015-07-07 17:12:50 INFO  Option:41 - get() with id:6
+2015-07-07 17:12:50 INFO  OptionServiceImpl$OptionServiceUtil:67 - getting AllDependentOptionTree for optionId6
+2015-07-07 17:12:50 INFO  OptionServiceImpl$OptionServiceUtil:51 - 6
+2015-07-07 17:12:50 INFO  OptionServiceImpl$OptionServiceUtil:51 - 1
+2015-07-07 17:12:50 INFO  OptionServiceImpl$OptionServiceUtil:51 - 11
+2015-07-07 17:12:50 INFO  OptionServiceImpl$OptionServiceUtil:51 - 2
+2015-07-07 17:12:50 INFO  OptionServiceImpl$OptionServiceUtil:51 - 8
+2015-07-07 17:12:50 INFO  OptionServiceImpl$OptionServiceUtil:51 - 4
+2015-07-07 17:12:50 INFO  OptionServiceImpl$OptionServiceUtil:51 - 3
+2015-07-07 17:12:50 INFO  OptionServiceImpl$OptionServiceUtil:51 - 7
+2015-07-07 17:12:50 INFO  OptionServiceImpl$OptionServiceUtil:51 - 5
+2015-07-07 17:13:35 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-07 17:13:35 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-07 17:13:35 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-07 17:13:36 INFO  LogHelper:46 - HHH000204: Processing PersistenceUnitInfo [
+	name: EcarePU
+	...]
+2015-07-07 17:13:36 INFO  Version:54 - HHH000412: Hibernate Core {4.3.10.Final}
+2015-07-07 17:13:36 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2015-07-07 17:13:36 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-07-07 17:13:37 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-07-07 17:13:37 WARN  DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-07-07 17:13:37 INFO  DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/ecareis]
+2015-07-07 17:13:37 INFO  DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-07-07 17:13:37 INFO  DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-07-07 17:13:37 INFO  DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-07-07 17:13:40 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2015-07-07 17:13:41 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-07-07 17:13:41 INFO  Version:27 - HV000001: Hibernate Validator 5.1.3.Final
+2015-07-07 17:13:43 INFO  Option:23 - Genericclass entity.OptionDAO was created
+2015-07-07 17:13:43 INFO  UserDAOImpl:19 - TariffDAOImpl(generic extended) object created
+2015-07-07 17:13:43 INFO  Option:41 - get() with id:6
+2015-07-07 17:13:43 INFO  OptionServiceImpl$OptionServiceUtil:67 - getting AllDependentOptionTree for optionId6
+2015-07-07 17:13:43 INFO  OptionServiceImpl$OptionServiceUtil:51 - 6
+2015-07-07 17:13:43 INFO  OptionServiceImpl$OptionServiceUtil:51 - 1
+2015-07-07 17:13:43 INFO  OptionServiceImpl$OptionServiceUtil:51 - 11
+2015-07-07 17:13:43 INFO  OptionServiceImpl$OptionServiceUtil:51 - 2
+2015-07-07 17:13:43 INFO  OptionServiceImpl$OptionServiceUtil:51 - 8
+2015-07-07 17:13:43 INFO  OptionServiceImpl$OptionServiceUtil:51 - 4
+2015-07-07 17:13:43 INFO  OptionServiceImpl$OptionServiceUtil:51 - 3
+2015-07-07 17:13:43 INFO  OptionServiceImpl$OptionServiceUtil:51 - 6
+2015-07-07 17:13:43 WARN  OptionServiceImpl$OptionServiceUtil:57 - Cycle on dependent options. We've come again to option with id:6
+2015-07-07 17:14:39 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-07 17:14:39 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-07 17:14:39 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-07 17:14:39 INFO  LogHelper:46 - HHH000204: Processing PersistenceUnitInfo [
+	name: EcarePU
+	...]
+2015-07-07 17:14:40 INFO  Version:54 - HHH000412: Hibernate Core {4.3.10.Final}
+2015-07-07 17:14:40 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2015-07-07 17:14:40 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-07-07 17:14:41 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-07-07 17:14:41 WARN  DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-07-07 17:14:41 INFO  DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/ecareis]
+2015-07-07 17:14:41 INFO  DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-07-07 17:14:41 INFO  DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-07-07 17:14:41 INFO  DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-07-07 17:14:43 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2015-07-07 17:14:44 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-07-07 17:14:44 INFO  Version:27 - HV000001: Hibernate Validator 5.1.3.Final
+2015-07-07 17:14:46 INFO  Option:23 - Genericclass entity.OptionDAO was created
+2015-07-07 17:14:46 INFO  UserDAOImpl:19 - TariffDAOImpl(generic extended) object created
+2015-07-07 17:14:46 INFO  Option:41 - get() with id:6
+2015-07-07 17:14:47 INFO  OptionServiceImpl$OptionServiceUtil:67 - getting AllDependentOptionTree for optionId6
+2015-07-07 17:14:47 INFO  OptionServiceImpl$OptionServiceUtil:51 - 6
+2015-07-07 17:14:47 INFO  OptionServiceImpl$OptionServiceUtil:51 - 1
+2015-07-07 17:14:47 INFO  OptionServiceImpl$OptionServiceUtil:51 - 11
+2015-07-07 17:14:47 INFO  OptionServiceImpl$OptionServiceUtil:51 - 2
+2015-07-07 17:14:47 INFO  OptionServiceImpl$OptionServiceUtil:51 - 8
+2015-07-07 17:14:47 INFO  OptionServiceImpl$OptionServiceUtil:51 - 4
+2015-07-07 17:14:47 INFO  OptionServiceImpl$OptionServiceUtil:51 - 3
+2015-07-07 17:14:47 INFO  OptionServiceImpl$OptionServiceUtil:51 - 6
+2015-07-07 17:14:47 WARN  OptionServiceImpl$OptionServiceUtil:57 - Cycle on dependent options. We've come again to option with id:6
+2015-07-07 17:14:47 INFO  Option:41 - get() with id:6
+2015-07-07 17:14:47 INFO  OptionServiceImpl$OptionServiceUtil:67 - getting AllDependentOptionTree for optionId6
+2015-07-07 17:14:47 INFO  OptionServiceImpl$OptionServiceUtil:51 - 6
+2015-07-07 17:14:47 INFO  OptionServiceImpl$OptionServiceUtil:51 - 1
+2015-07-07 17:14:47 INFO  OptionServiceImpl$OptionServiceUtil:51 - 11
+2015-07-07 17:14:47 INFO  OptionServiceImpl$OptionServiceUtil:51 - 2
+2015-07-07 17:14:47 INFO  OptionServiceImpl$OptionServiceUtil:51 - 8
+2015-07-07 17:14:47 INFO  OptionServiceImpl$OptionServiceUtil:51 - 4
+2015-07-07 17:14:47 INFO  OptionServiceImpl$OptionServiceUtil:51 - 3
+2015-07-07 17:14:47 INFO  OptionServiceImpl$OptionServiceUtil:51 - 6
+2015-07-07 17:14:47 WARN  OptionServiceImpl$OptionServiceUtil:57 - Cycle on dependent options. We've come again to option with id:6
+2015-07-07 17:26:06 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-07 17:26:06 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-07 17:26:06 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-07 17:26:06 INFO  LogHelper:46 - HHH000204: Processing PersistenceUnitInfo [
+	name: EcarePU
+	...]
+2015-07-07 17:26:07 INFO  Version:54 - HHH000412: Hibernate Core {4.3.10.Final}
+2015-07-07 17:26:07 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2015-07-07 17:26:07 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-07-07 17:26:08 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-07-07 17:26:08 WARN  DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-07-07 17:26:08 INFO  DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/ecareis]
+2015-07-07 17:26:08 INFO  DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-07-07 17:26:08 INFO  DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-07-07 17:26:08 INFO  DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-07-07 17:26:09 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2015-07-07 17:26:10 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-07-07 17:26:11 INFO  Version:27 - HV000001: Hibernate Validator 5.1.3.Final
+2015-07-07 17:26:13 INFO  Option:23 - Genericclass entity.OptionDAO was created
+2015-07-07 17:26:13 INFO  UserDAOImpl:19 - TariffDAOImpl(generic extended) object created
+2015-07-07 17:26:13 INFO  Option:41 - get() with id:6
+2015-07-07 17:26:14 INFO  OptionServiceImpl$OptionServiceUtil:68 - getting AllDependentOptionTree for optionId6
+2015-07-07 17:26:14 INFO  OptionServiceImpl$OptionServiceUtil:51 - 6
+2015-07-07 17:26:14 INFO  OptionServiceImpl$OptionServiceUtil:62 - [Option{title='SMS пакет', optionId=6}]
+2015-07-07 17:26:14 INFO  OptionServiceImpl$OptionServiceUtil:51 - 1
+2015-07-07 17:26:14 INFO  OptionServiceImpl$OptionServiceUtil:62 - [Option{title='SMS пакет', optionId=6}, Option{title='sms100', optionId=1}]
+2015-07-07 17:26:14 INFO  OptionServiceImpl$OptionServiceUtil:51 - 11
+2015-07-07 17:26:14 INFO  OptionServiceImpl$OptionServiceUtil:51 - 2
+2015-07-07 17:26:14 INFO  OptionServiceImpl$OptionServiceUtil:62 - [Option{title='SMS пакет', optionId=6}, Option{title='sms100', optionId=1}, Option{title='sms200', optionId=2}]
+2015-07-07 17:26:14 INFO  OptionServiceImpl$OptionServiceUtil:51 - 8
+2015-07-07 17:26:14 INFO  OptionServiceImpl$OptionServiceUtil:62 - [Option{title='SMS пакет', optionId=6}, Option{title='sms100', optionId=1}, Option{title='sms200', optionId=2}, Option{title='инет - пакет', optionId=8}]
+2015-07-07 17:26:14 INFO  OptionServiceImpl$OptionServiceUtil:51 - 4
+2015-07-07 17:26:14 INFO  OptionServiceImpl$OptionServiceUtil:51 - 3
+2015-07-07 17:26:14 INFO  OptionServiceImpl$OptionServiceUtil:62 - [Option{title='SMS пакет', optionId=6}, Option{title='inet500', optionId=3}, Option{title='sms100', optionId=1}, Option{title='sms200', optionId=2}, Option{title='инет - пакет', optionId=8}]
+2015-07-07 17:26:14 INFO  OptionServiceImpl$OptionServiceUtil:51 - 6
+2015-07-07 17:26:14 WARN  OptionServiceImpl$OptionServiceUtil:57 - Cycle on dependent options. We've come again to option with id:6
+2015-07-07 17:26:14 INFO  Option:41 - get() with id:6
+2015-07-07 17:26:14 INFO  OptionServiceImpl$OptionServiceUtil:68 - getting AllDependentOptionTree for optionId6
+2015-07-07 17:26:14 INFO  OptionServiceImpl$OptionServiceUtil:51 - 6
+2015-07-07 17:26:14 INFO  OptionServiceImpl$OptionServiceUtil:62 - [Option{title='SMS пакет', optionId=6}]
+2015-07-07 17:26:14 INFO  OptionServiceImpl$OptionServiceUtil:51 - 1
+2015-07-07 17:26:14 INFO  OptionServiceImpl$OptionServiceUtil:62 - [Option{title='SMS пакет', optionId=6}, Option{title='sms100', optionId=1}]
+2015-07-07 17:26:14 INFO  OptionServiceImpl$OptionServiceUtil:51 - 11
+2015-07-07 17:26:14 INFO  OptionServiceImpl$OptionServiceUtil:51 - 2
+2015-07-07 17:26:14 INFO  OptionServiceImpl$OptionServiceUtil:62 - [Option{title='SMS пакет', optionId=6}, Option{title='sms100', optionId=1}, Option{title='sms200', optionId=2}]
+2015-07-07 17:26:14 INFO  OptionServiceImpl$OptionServiceUtil:51 - 8
+2015-07-07 17:26:14 INFO  OptionServiceImpl$OptionServiceUtil:62 - [Option{title='SMS пакет', optionId=6}, Option{title='sms100', optionId=1}, Option{title='sms200', optionId=2}, Option{title='инет - пакет', optionId=8}]
+2015-07-07 17:26:14 INFO  OptionServiceImpl$OptionServiceUtil:51 - 4
+2015-07-07 17:26:14 INFO  OptionServiceImpl$OptionServiceUtil:51 - 3
+2015-07-07 17:26:14 INFO  OptionServiceImpl$OptionServiceUtil:62 - [Option{title='SMS пакет', optionId=6}, Option{title='inet500', optionId=3}, Option{title='sms100', optionId=1}, Option{title='sms200', optionId=2}, Option{title='инет - пакет', optionId=8}]
+2015-07-07 17:26:14 INFO  OptionServiceImpl$OptionServiceUtil:51 - 6
+2015-07-07 17:26:14 WARN  OptionServiceImpl$OptionServiceUtil:57 - Cycle on dependent options. We've come again to option with id:6
+2015-07-07 17:33:51 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-07 17:33:51 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-07 17:33:51 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-07 17:33:52 INFO  LogHelper:46 - HHH000204: Processing PersistenceUnitInfo [
+	name: EcarePU
+	...]
+2015-07-07 17:33:52 INFO  Version:54 - HHH000412: Hibernate Core {4.3.10.Final}
+2015-07-07 17:33:52 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2015-07-07 17:33:52 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-07-07 17:33:53 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-07-07 17:33:53 WARN  DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-07-07 17:33:54 INFO  DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/ecareis]
+2015-07-07 17:33:54 INFO  DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-07-07 17:33:54 INFO  DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-07-07 17:33:54 INFO  DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-07-07 17:33:55 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2015-07-07 17:33:56 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-07-07 17:33:56 INFO  Version:27 - HV000001: Hibernate Validator 5.1.3.Final
+2015-07-07 17:33:58 INFO  Option:23 - Genericclass entity.OptionDAO was created
+2015-07-07 17:33:58 INFO  UserDAOImpl:19 - TariffDAOImpl(generic extended) object created
+2015-07-07 17:33:58 INFO  Option:41 - get() with id:6
+2015-07-07 17:33:59 INFO  OptionServiceImpl$OptionServiceUtil:70 - getting AllDependentOptionTree for optionId6
+2015-07-07 17:33:59 INFO  OptionServiceImpl$OptionServiceUtil:52 - 6
+2015-07-07 17:33:59 INFO  OptionServiceImpl$OptionServiceUtil:59 - [Option{title='SMS пакет', optionId=6}]
+2015-07-07 17:33:59 INFO  OptionServiceImpl$OptionServiceUtil:52 - 1
+2015-07-07 17:33:59 INFO  OptionServiceImpl$OptionServiceUtil:59 - [Option{title='SMS пакет', optionId=6}, Option{title='sms100', optionId=1}]
+2015-07-07 17:33:59 INFO  OptionServiceImpl$OptionServiceUtil:52 - 11
+2015-07-07 17:33:59 INFO  OptionServiceImpl$OptionServiceUtil:59 - [Option{title='SMS пакет', optionId=6}, Option{title='sms100 Plus', optionId=11}, Option{title='sms100', optionId=1}]
+2015-07-07 17:33:59 INFO  OptionServiceImpl$OptionServiceUtil:52 - 2
+2015-07-07 17:33:59 INFO  OptionServiceImpl$OptionServiceUtil:59 - [Option{title='SMS пакет', optionId=6}, Option{title='sms100 Plus', optionId=11}, Option{title='sms100', optionId=1}, Option{title='sms200', optionId=2}]
+2015-07-07 17:33:59 INFO  OptionServiceImpl$OptionServiceUtil:52 - 8
+2015-07-07 17:33:59 INFO  OptionServiceImpl$OptionServiceUtil:59 - [Option{title='SMS пакет', optionId=6}, Option{title='sms100 Plus', optionId=11}, Option{title='sms100', optionId=1}, Option{title='sms200', optionId=2}, Option{title='инет - пакет', optionId=8}]
+2015-07-07 17:33:59 INFO  OptionServiceImpl$OptionServiceUtil:52 - 4
+2015-07-07 17:33:59 INFO  OptionServiceImpl$OptionServiceUtil:59 - [Option{title='SMS пакет', optionId=6}, Option{title='sms100 Plus', optionId=11}, Option{title='inet1000', optionId=4}, Option{title='sms100', optionId=1}, Option{title='sms200', optionId=2}, Option{title='инет - пакет', optionId=8}]
+2015-07-07 17:33:59 INFO  OptionServiceImpl$OptionServiceUtil:52 - 3
+2015-07-07 17:33:59 INFO  OptionServiceImpl$OptionServiceUtil:59 - [Option{title='SMS пакет', optionId=6}, Option{title='sms100 Plus', optionId=11}, Option{title='inet1000', optionId=4}, Option{title='inet500', optionId=3}, Option{title='sms100', optionId=1}, Option{title='sms200', optionId=2}, Option{title='инет - пакет', optionId=8}]
+2015-07-07 17:33:59 INFO  OptionServiceImpl$OptionServiceUtil:52 - 6
+2015-07-07 17:33:59 WARN  OptionServiceImpl$OptionServiceUtil:54 - Cycle on dependent options. We've come again to option with id:6
+2015-07-07 17:33:59 INFO  Option:41 - get() with id:6
+2015-07-07 17:33:59 INFO  OptionServiceImpl$OptionServiceUtil:70 - getting AllDependentOptionTree for optionId6
+2015-07-07 17:33:59 INFO  OptionServiceImpl$OptionServiceUtil:52 - 6
+2015-07-07 17:33:59 INFO  OptionServiceImpl$OptionServiceUtil:59 - [Option{title='SMS пакет', optionId=6}]
+2015-07-07 17:33:59 INFO  OptionServiceImpl$OptionServiceUtil:52 - 1
+2015-07-07 17:33:59 INFO  OptionServiceImpl$OptionServiceUtil:59 - [Option{title='SMS пакет', optionId=6}, Option{title='sms100', optionId=1}]
+2015-07-07 17:33:59 INFO  OptionServiceImpl$OptionServiceUtil:52 - 11
+2015-07-07 17:33:59 INFO  OptionServiceImpl$OptionServiceUtil:59 - [Option{title='SMS пакет', optionId=6}, Option{title='sms100 Plus', optionId=11}, Option{title='sms100', optionId=1}]
+2015-07-07 17:33:59 INFO  OptionServiceImpl$OptionServiceUtil:52 - 2
+2015-07-07 17:33:59 INFO  OptionServiceImpl$OptionServiceUtil:59 - [Option{title='SMS пакет', optionId=6}, Option{title='sms100 Plus', optionId=11}, Option{title='sms100', optionId=1}, Option{title='sms200', optionId=2}]
+2015-07-07 17:33:59 INFO  OptionServiceImpl$OptionServiceUtil:52 - 8
+2015-07-07 17:33:59 INFO  OptionServiceImpl$OptionServiceUtil:59 - [Option{title='SMS пакет', optionId=6}, Option{title='sms100 Plus', optionId=11}, Option{title='sms100', optionId=1}, Option{title='sms200', optionId=2}, Option{title='инет - пакет', optionId=8}]
+2015-07-07 17:33:59 INFO  OptionServiceImpl$OptionServiceUtil:52 - 4
+2015-07-07 17:33:59 INFO  OptionServiceImpl$OptionServiceUtil:59 - [Option{title='SMS пакет', optionId=6}, Option{title='sms100 Plus', optionId=11}, Option{title='inet1000', optionId=4}, Option{title='sms100', optionId=1}, Option{title='sms200', optionId=2}, Option{title='инет - пакет', optionId=8}]
+2015-07-07 17:33:59 INFO  OptionServiceImpl$OptionServiceUtil:52 - 3
+2015-07-07 17:33:59 INFO  OptionServiceImpl$OptionServiceUtil:59 - [Option{title='SMS пакет', optionId=6}, Option{title='sms100 Plus', optionId=11}, Option{title='inet1000', optionId=4}, Option{title='inet500', optionId=3}, Option{title='sms100', optionId=1}, Option{title='sms200', optionId=2}, Option{title='инет - пакет', optionId=8}]
+2015-07-07 17:33:59 INFO  OptionServiceImpl$OptionServiceUtil:52 - 6
+2015-07-07 17:33:59 WARN  OptionServiceImpl$OptionServiceUtil:54 - Cycle on dependent options. We've come again to option with id:6
+2015-07-07 17:34:39 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-07 17:34:39 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-07 17:34:39 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-07 17:34:39 INFO  LogHelper:46 - HHH000204: Processing PersistenceUnitInfo [
+	name: EcarePU
+	...]
+2015-07-07 17:34:40 INFO  Version:54 - HHH000412: Hibernate Core {4.3.10.Final}
+2015-07-07 17:34:40 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2015-07-07 17:34:40 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-07-07 17:34:41 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-07-07 17:34:41 WARN  DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-07-07 17:34:41 INFO  DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/ecareis]
+2015-07-07 17:34:41 INFO  DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-07-07 17:34:41 INFO  DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-07-07 17:34:41 INFO  DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-07-07 17:34:43 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2015-07-07 17:34:44 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-07-07 17:34:45 INFO  Version:27 - HV000001: Hibernate Validator 5.1.3.Final
+2015-07-07 17:34:46 INFO  Option:23 - Genericclass entity.OptionDAO was created
+2015-07-07 17:34:46 INFO  UserDAOImpl:19 - TariffDAOImpl(generic extended) object created
+2015-07-07 17:34:46 INFO  Option:41 - get() with id:12
+2015-07-07 17:47:07 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-07 17:47:07 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-07 17:47:07 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-07 17:47:08 INFO  LogHelper:46 - HHH000204: Processing PersistenceUnitInfo [
+	name: EcarePU
+	...]
+2015-07-07 17:47:08 INFO  Version:54 - HHH000412: Hibernate Core {4.3.10.Final}
+2015-07-07 17:47:08 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2015-07-07 17:47:08 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-07-07 17:47:09 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-07-07 17:47:09 WARN  DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-07-07 17:47:09 INFO  DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/ecareis]
+2015-07-07 17:47:09 INFO  DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-07-07 17:47:09 INFO  DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-07-07 17:47:09 INFO  DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-07-07 17:47:12 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2015-07-07 17:47:13 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-07-07 17:47:13 INFO  Version:27 - HV000001: Hibernate Validator 5.1.3.Final
+2015-07-07 17:47:15 INFO  Option:23 - Genericclass entity.OptionDAO was created
+2015-07-07 17:47:15 INFO  UserDAOImpl:19 - TariffDAOImpl(generic extended) object created
+2015-07-07 17:47:15 INFO  Option:41 - get() with id:3
+2015-07-07 17:47:15 INFO  OptionServiceImpl$OptionServiceUtil:102 - getting AllRequiredOptionTree for optionId3
+2015-07-07 17:47:15 WARN  OptionServiceImpl$OptionServiceUtil:86 - Cycle on required options. We've come again to option with id:3

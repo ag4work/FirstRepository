@@ -31,7 +31,7 @@
 <div class="container-fluid">
   <div class="row">
 
-    <div class="col-md-5 main" style="position:relative; ">
+    <div class="col-md-8 main" style="position:relative; ">
       <table class="table table-striped">
         <h3> Опции, возможные для подключения на тарифе</h3>
         <thead>
@@ -39,6 +39,7 @@
           <th> Название опции </th>
           <th> Ежемесячная плата </th>
           <th> Стоимость подключения </th>
+          <th> Зависимые опции </th>
           <th> Операция </th>
         </tr>
         </thead>
@@ -55,8 +56,16 @@
                 ${option.monthlyCost}
             </td>
 
+
             <td>
                 ${option.activationCharge}
+            </td>
+
+            <td>
+              <c:forEach  var="reqQption" items="${option.dependentOption}">
+                ${reqQption.title} <br>
+              </c:forEach>
+
             </td>
 
             <td>
@@ -80,6 +89,7 @@
           <th> Название опции </th>
           <th> Ежемесячная плата </th>
           <th> Стоимость подключения </th>
+          <th> Требуемые опции </th>
           <th> Операция </th>
         </tr>
         </thead>
@@ -99,6 +109,13 @@
             <td>
                 ${option.activationCharge}
             </td>
+
+            <td>
+              <c:forEach  var="reqQption" items="${option.requiredOption}">
+                ${reqQption.title} <br>
+              </c:forEach>
+            </td>
+
 
             <td>
               <form class="formButton" action="TariffPossibleOptionsEdit.sec" method="post">

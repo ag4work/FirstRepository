@@ -3,6 +3,7 @@ package utils.Mappers;
 import entity.Option;
 import service.DTO.OptionDTO;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,9 +13,11 @@ import java.util.Set;
 public class OptionMapper {
 
 //private Set<OptionDTO> dependentOption;
+//private Set<Option> requiredOption;
 //private Set<OptionDTO> inconsistentOption;
 //private Set<TariffDTO> tariffHasThisOption;
 //private Set<ContractDTO> contracts;
+
 
     public static Option DTOToEntity(OptionDTO optionDTO) {
 
@@ -50,6 +53,8 @@ public class OptionMapper {
                 option.getDependentOption()));
         optionDTO.setInconsistentOption(OptionMapper.EntitySetToDTOSet(
                 option.getInconsistentOption()));
+        optionDTO.setRequiredOption(OptionMapper.EntitySetToDTOSet(
+                option.getRequiredOption()));
         return optionDTO;
 
     }
@@ -69,13 +74,23 @@ public class OptionMapper {
     }
 
     public static Set<OptionDTO> EntitySetToDTOSet(Set<Option> options){
-        if (options==null) return null;
+        if (options==null) return Collections.EMPTY_SET;
         Set<OptionDTO> optionDTOs = new HashSet<OptionDTO>();
         for (Option option : options){
             optionDTOs.add(OptionMapper.EntityToDTO(option));
         }
         return optionDTOs;
     }
+
+    public static Set<OptionDTO> EntitySetToDTOSetWithSets(Set<Option> options){
+        if (options==null) return null;
+        Set<OptionDTO> optionDTOs = new HashSet<OptionDTO>();
+        for (Option option : options){
+            optionDTOs.add(OptionMapper.EntityToDTOWithSet(option));
+        }
+        return optionDTOs;
+    }
+
 
 
 

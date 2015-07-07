@@ -16,6 +16,7 @@ public class Option {
     private Integer monthlyCost;
     private Integer activationCharge;
     private Set<Option> dependentOption;
+    private Set<Option> requiredOption;
     private Set<Option> inconsistentOption;
     private Set<Tariff> tariffHasThisOption;
     private Set<Contract> contracts;
@@ -61,8 +62,10 @@ public class Option {
         this.activationCharge = activationCharge;
     }
 
-    @ManyToMany
-    @JoinTable(name = "dependent_option", catalog = "ecareis", schema = "", joinColumns = @JoinColumn(name = "src_option_id", referencedColumnName = "option_id"), inverseJoinColumns = @JoinColumn(name = "dependent_option_id", referencedColumnName = "option_id"))
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "dependent_option", catalog = "ecareis", schema = "",
+            joinColumns = @JoinColumn(name = "src_option_id", referencedColumnName = "option_id"),
+            inverseJoinColumns = @JoinColumn(name = "dependent_option_id", referencedColumnName = "option_id"))
     public Set<Option> getDependentOption() {
         return dependentOption;
     }
@@ -71,7 +74,19 @@ public class Option {
         this.dependentOption = dependentOption;
     }
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "dependent_option", catalog = "ecareis", schema = "",
+            joinColumns = @JoinColumn(name = "dependent_option_id", referencedColumnName = "option_id"),
+            inverseJoinColumns = @JoinColumn(name = "src_option_id", referencedColumnName = "option_id"))
+    public Set<Option> getRequiredOption() {
+        return requiredOption;
+    }
+
+    public void setRequiredOption(Set<Option> requiredOption) {
+        this.requiredOption = requiredOption;
+    }
+
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "inconsistent_option", catalog = "ecareis", schema = "", joinColumns = @JoinColumn(name = "src_option_id", referencedColumnName = "option_id"), inverseJoinColumns = @JoinColumn(name = "inconsistent_option_id", referencedColumnName = "option_id"))
     public Set<Option> getInconsistentOption() {
         return inconsistentOption;

@@ -11,6 +11,8 @@ public interface OptionService {
     public OptionDTO getOptionById(Integer optionId);
     public Set<OptionDTO> getAllOptions();
     public void addOption(OptionDTO optionDTO);
+    public Set<OptionDTO> getDependentOptionTree(Integer optionId);
+    public Set<OptionDTO> getRequiredOptionTree(Integer optionId);
 
 //    public TariffDTO getTariffById(Integer tariffId);
 //    public Set<TariffDTO> getAllTariffs();

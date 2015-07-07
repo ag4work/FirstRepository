@@ -12,6 +12,7 @@ public class OptionDTO {
     private Integer monthlyCost;
     private Integer activationCharge;
     private Set<OptionDTO> dependentOption;
+    private Set<OptionDTO> requiredOption;
     private Set<OptionDTO> inconsistentOption;
     private Set<TariffDTO> tariffHasThisOption;
     private Set<ContractDTO> contracts;
@@ -57,6 +58,14 @@ public class OptionDTO {
 
     public void setDependentOption(Set<OptionDTO> dependentOption) {
         this.dependentOption = dependentOption;
+    }
+
+    public Set<OptionDTO> getRequiredOption() {
+        return requiredOption;
+    }
+
+    public void setRequiredOption(Set<OptionDTO> requiredOption) {
+        this.requiredOption = requiredOption;
     }
 
     public Set<OptionDTO> getInconsistentOption() {

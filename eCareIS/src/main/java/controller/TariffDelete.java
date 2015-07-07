@@ -63,7 +63,6 @@ public class TariffDelete extends HttpServlet {
 
             request.setAttribute("contractSet", contractsByTariff);
             request.setAttribute("tariff", tariffDTO);
-
             request.getRequestDispatcher("WEB-INF/pages/tariffDeleteConfirmation.jsp").forward(request, response);
 
         }
