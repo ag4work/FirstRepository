@@ -2,6 +2,7 @@ package service;
 
 import entity.Contract;
 import service.DTO.ContractDTO;
+import service.DTO.OptionDTO;
 
 import java.util.List;
 import java.util.Set;
@@ -19,4 +20,5 @@ public interface ContractService {
     public void unblockByStaff(Integer contractId);
     public ContractDTO getContractByPhonenumber(Long phonenumber);
     public Set<ContractDTO> getContractsByTariff(Integer tariffId);
+    public void applyCart(Cart cart, Integer contractId);
 }

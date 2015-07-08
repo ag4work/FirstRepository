@@ -3,9 +3,11 @@ package service;
 
 import DAO.*;
 import entity.Contract;
+import entity.Option;
 import entity.Tariff;
 import entity.User;
 import service.DTO.ContractDTO;
+import service.DTO.OptionDTO;
 import utils.Constants;
 import utils.Mappers.ContractMapper;
 import utils.EntityManagerFactorySingleton;
@@ -22,7 +24,7 @@ public class ContractServiceImpl implements ContractService{
     ContractDAO contractDAO = new ContractDAOImpl(EntityManagerFactorySingleton.getInstance());
     TariffDAO tariffDAO = new TariffDAOImpl(EntityManagerFactorySingleton.getInstance());
     UserDAO userDAO = new UserDAOImpl(EntityManagerFactorySingleton.getInstance());
-
+    OptionDAO optionDAO = new OptionDAOImpl(EntityManagerFactorySingleton.getInstance());
     @Override
     public ContractDTO getContract(Integer id) {
         return ContractMapper.EntityToDTOWithSet(contractDAO.get(id));
@@ -100,4 +102,19 @@ public class ContractServiceImpl implements ContractService{
         }
         return ContractMapper.EntitySetToDTOSet(contracts);
     }
+
+    @Override
+    public void applyCart(Cart cart, Integer contractId) {
+        if (cart==null || contractId==null) return;
+        Contract contract = contractDAO.get(contractId);
+        Tariff newTariff = tariffDAO.get(cart.getTariffDTO().getTariffId());
+        contract.setTariff(newTariff);
+        contract.setBalance(contract.getBalance() - cart.getTotalPayment());
+        Set<Option> newContractOptions = new HashSet<Option>();
+        for (OptionDTO optionDTO : cart.getOptionDTOset())
+            newContractOptions.add(optionDAO.get(optionDTO.getOptionId()));
+        contract.setChosenOption(newContractOptions);
+        contractDAO.update(contract);
+    }
+
 }

@@ -13,10 +13,9 @@ public interface TariffService {
     public Set<TariffDTO> getAllTariffs();
     public void addTariff(TariffDTO tariffDTO);
     public void addOptionAsPossibleForTariff(Integer tariffId, Integer optionId);
+    void removeTariffAndMoveContractsToBaseTariff(Integer tariffId);
     public void removeOptionAndAllDependentOptionsTreeAsPossibleForTariff(
             Integer tariffId, Integer optionId);
-
-    void removeTariffAndMoveContractsToBaseTariff(Integer tariffId);
 //    public void removeTariff(Integer tariffId);
 
 }

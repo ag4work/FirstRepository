@@ -48,6 +48,33 @@ public class OptionServiceImpl implements OptionService {
                 OptionServiceUtil.getAllRequiredOptionTree(optionDAO.get(optionId)));
     }
 
+
+    public boolean isOptionsConsistentIncludingAllRequired(Integer optionId1, Integer optionId2) {
+        Option option1 = optionDAO.get(optionId1);
+        Option option2 = optionDAO.get(optionId2);
+        Set<Option> DepTree1 = OptionServiceUtil.
+                getAllRequiredOptionTree(option1);
+        Set<Option> DepTree2 = OptionServiceUtil.
+                getAllRequiredOptionTree(option2);
+        for (Option optCounter1: DepTree1){
+            for (Option optCounter2: DepTree2){
+                if (optCounter1.getInconsistentOption().
+                        contains(optCounter2)){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+
+    public boolean isOptionIncludingAllRequiredConsistentWithSet(Integer optionId, Set<OptionDTO> options) {
+        for (OptionDTO optionDTO: options)
+            if (!isOptionsConsistentIncludingAllRequired(optionId, optionDTO.getOptionId()))
+                return false;
+        return true;
+    }
+
     private final static class OptionServiceUtil{
         static Logger logger = Logger.getLogger(OptionServiceUtil.class);
 
@@ -106,4 +133,7 @@ public class OptionServiceImpl implements OptionService {
             return allRequiredOptionTree;
         }
     }
+
+
+
 }

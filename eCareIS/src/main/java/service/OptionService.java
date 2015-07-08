@@ -1,5 +1,6 @@
 package service;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import service.DTO.OptionDTO;
 import java.util.Set;
 
@@ -13,7 +14,11 @@ public interface OptionService {
     public void addOption(OptionDTO optionDTO);
     public Set<OptionDTO> getDependentOptionTree(Integer optionId);
     public Set<OptionDTO> getRequiredOptionTree(Integer optionId);
+    public boolean isOptionsConsistentIncludingAllRequired(Integer optionId1,Integer optionId2);
+    public boolean isOptionIncludingAllRequiredConsistentWithSet(Integer optionId,
+                                                                 Set<OptionDTO> options);
 
+//
 //    public TariffDTO getTariffById(Integer tariffId);
 //    public Set<TariffDTO> getAllTariffs();
 //    public void addTariff(TariffDTO tariffDTO);

@@ -98,8 +98,8 @@
             </td>
 
             <td>
-              <form class="formButton" action="setDepAndInconsistOptions.sec" method="post">
-                <input type="hidden" name="tariffId" value="${option.optionId}"/>
+              <form class="formButton" action="OptionsSetDepAndInconsistLists.sec" method="post">
+                <input type="hidden" name="optionId" value="${option.optionId}"/>
                 <input type="hidden" name="command" value="setDepAndInconsistOptions"/>
                 <input type="submit" class="btn btn-link btn-xs" value="Завис./несовм."/>
               </form>

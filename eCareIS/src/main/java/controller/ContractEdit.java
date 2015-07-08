@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -32,19 +33,47 @@ public class ContractEdit extends HttpServlet {
             contractDTO = contractService.getContract(contractId);
             request.setAttribute("contract", contractDTO);
         }
+        else
+        {
+            //TODO redirect to error page
+        }
 
         TariffService tariffService = new TariffServiceImpl();
         List<TariffDTO> tariffDTOs = new ArrayList<TariffDTO>(tariffService.getAllTariffs());
-        TariffDTO firstTariff;
-        if (tariffDTOs!=null && tariffDTOs.size()>0){
-            request.setAttribute("tariffs",tariffDTOs);
-            firstTariff = tariffDTOs.get(0);
-            Set<OptionDTO> firstTariffOptions = firstTariff.getPossibleOption();
-            Set<OptionDTO> optionsWithFullInfo = new HashSet<OptionDTO>();
-            for (OptionDTO option : firstTariffOptions){
-                optionsWithFullInfo.add(optionService.getOptionById(option.getOptionId()));
+
+        if (tariffDTOs.size()==0){
+            //TODO redirect to error page
+        }
+
+        String tariffIdString = request.getParameter("tariffId");
+        if (tariffIdString!=null){
+            //todo try catch here!
+            Integer chosenTariffId = Integer.parseInt(request.getParameter("tariffId"));
+
+            TariffDTO chosenTariffDTO = tariffService.getTariffById(chosenTariffId);
+            int chosenTariffDTOIndex = tariffDTOs.indexOf(chosenTariffDTO);
+            if (chosenTariffDTOIndex==-1){
+                //TODO redirect to error page
             }
-            request.setAttribute("chosenTariffOptions", optionsWithFullInfo);
+
+            TariffDTO tempForSWAP = tariffDTOs.get(0);
+            tariffDTOs.set(0,tariffDTOs.get(chosenTariffDTOIndex));
+            tariffDTOs.set(chosenTariffDTOIndex,tempForSWAP);
+        }
+
+        request.setAttribute("tariffs",tariffDTOs);
+        TariffDTO chosenTariff = tariffDTOs.get(0);
+
+        Set<OptionDTO> firstTariffOptions = chosenTariff.getPossibleOption();
+        Set<OptionDTO> optionsWithFullInfo = new HashSet<OptionDTO>();
+        for (OptionDTO option : firstTariffOptions){
+            optionsWithFullInfo.add(optionService.getOptionById(option.getOptionId()));
+        }
+        request.setAttribute("chosenTariffOptions", optionsWithFullInfo);
+        HttpSession session = request.getSession();
+        Cart cart = (Cart)session.getAttribute("cart");
+        if (cart!=null && !cart.getContractId().equals(contractId)){
+            session.removeAttribute("cart");
         }
         request.getRequestDispatcher("WEB-INF/pages/ContractEdit.jsp").forward(request,response);
     }
