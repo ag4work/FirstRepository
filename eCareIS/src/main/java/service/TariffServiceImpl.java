@@ -71,7 +71,6 @@ public class TariffServiceImpl implements TariffService{
 
     @Override
     public void removeTariffAndMoveContractsToBaseTariff(Integer tariffId) {
-//        TODO: delete all options connected to the contract
         if (tariffId==Constants.DEFAULT_TARIFF_ID){
             logger.warn("Attempt to delete default tariff");
             return;
@@ -81,6 +80,9 @@ public class TariffServiceImpl implements TariffService{
         tariffDAO.delete(tariffId);
         for (Contract contract : contractsHasThisTariff) {
             contract.setTariff(tariffDAO.get(Constants.DEFAULT_TARIFF_ID));
+            // TODO figure out - may be  just "=null" ?
+            Set<Option> contractOptions = new HashSet<Option>(contract.getChosenOption());
+            contract.getChosenOption().removeAll(contractOptions);
             contractDAO.update(contract);
         }
     }

@@ -100,7 +100,12 @@
                                     <input type="hidden" name="command" value="unblock"/>
                                     <input type="submit" class="btn btn-link btn-xs" value="Разблокировать"/>
                                 </form>
+
                             </c:if>
+                            <form class="formButton" action="contractEdit.sec" method="post">
+                                <input type="hidden" name="contractId" value="${contract.contractId}"/>
+                                <input type="submit" class="btn btn-link btn-xs" value="Редактировать контракт"/>
+                            </form>
 
                         </td>
 

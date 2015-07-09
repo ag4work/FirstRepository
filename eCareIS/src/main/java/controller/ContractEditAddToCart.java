@@ -48,9 +48,13 @@ public class ContractEditAddToCart extends HttpServlet {
                 cartService.addOptionWithAllRequired(optionDTO,cart);
             else
             {
-                request.setAttribute("errorText", "Выпытались добавить опцию " +
-                        "(вместе с обязательными для нее другими опциями), одна" +
-                        " из которых несовместима с опциями в корзине");
+                request.setAttribute("errorText", "You are trying to add an " +
+                        "option (with all dependencies), one of them are not" +
+                        "consistent with options placed in the shopping cart " +
+                                "already");
+//                request.setAttribute("errorText", "Выпытались добавить опцию " +
+//                        "(вместе с обязательными для нее другими опциями), одна" +
+//                        " из которых несовместима с опциями в корзине");
 
             }
         }

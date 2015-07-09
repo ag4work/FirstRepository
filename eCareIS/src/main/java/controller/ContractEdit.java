@@ -32,6 +32,9 @@ public class ContractEdit extends HttpServlet {
         if (contractId!=null){
             contractDTO = contractService.getContract(contractId);
             request.setAttribute("contract", contractDTO);
+            Set<OptionDTO> contractOptions =
+                    contractService.getContractOptionsWithSets(contractId);
+            request.setAttribute("contractOptions", contractOptions);
         }
         else
         {

@@ -11,6 +11,7 @@ import service.DTO.OptionDTO;
 import utils.Constants;
 import utils.Mappers.ContractMapper;
 import utils.EntityManagerFactorySingleton;
+import utils.Mappers.OptionMapper;
 
 import java.util.Collections;
 import java.util.HashSet;
@@ -25,6 +26,8 @@ public class ContractServiceImpl implements ContractService{
     TariffDAO tariffDAO = new TariffDAOImpl(EntityManagerFactorySingleton.getInstance());
     UserDAO userDAO = new UserDAOImpl(EntityManagerFactorySingleton.getInstance());
     OptionDAO optionDAO = new OptionDAOImpl(EntityManagerFactorySingleton.getInstance());
+    OptionService optionService = new OptionServiceImpl();
+
     @Override
     public ContractDTO getContract(Integer id) {
         return ContractMapper.EntityToDTOWithSet(contractDAO.get(id));
@@ -115,6 +118,24 @@ public class ContractServiceImpl implements ContractService{
             newContractOptions.add(optionDAO.get(optionDTO.getOptionId()));
         contract.setChosenOption(newContractOptions);
         contractDAO.update(contract);
+    }
+
+    @Override
+    public void removeOptionWithAllDependent(Integer optionId, Integer contractId) {
+        Set<OptionDTO> allDepOptions = optionService.getDependentOptionTree(optionId);
+        Set<Option> optionsToDelete = new HashSet<Option>();
+        for (OptionDTO optionDTO : allDepOptions)
+            optionsToDelete.add(optionDAO.get(optionDTO.getOptionId()));
+        Contract contract = contractDAO.get(contractId);
+        contract.getChosenOption().removeAll(optionsToDelete);
+        contractDAO.update(contract);
+    }
+
+    @Override
+    public Set<OptionDTO> getContractOptionsWithSets(Integer contractId) {
+        Contract contract = contractDAO.get(contractId);
+        return OptionMapper.EntitySetToDTOSetWithSets(
+                contract.getChosenOption());
     }
 
 }

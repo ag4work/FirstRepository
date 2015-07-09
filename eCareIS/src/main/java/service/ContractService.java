@@ -21,4 +21,6 @@ public interface ContractService {
     public ContractDTO getContractByPhonenumber(Long phonenumber);
     public Set<ContractDTO> getContractsByTariff(Integer tariffId);
     public void applyCart(Cart cart, Integer contractId);
+    public void removeOptionWithAllDependent(Integer optionId, Integer contractId);
+    public Set<OptionDTO> getContractOptionsWithSets(Integer contractId);
 }
