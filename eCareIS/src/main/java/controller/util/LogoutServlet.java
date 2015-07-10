@@ -11,7 +11,7 @@ import java.io.IOException;
 /**
  * Created by Alexey on 28.06.2015.
  */
-@WebServlet(name = "LogoutServlet", urlPatterns = "/staffLogout.sec")
+@WebServlet(name = "LogoutServlet", urlPatterns = "/logout")
 public class LogoutServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -21,7 +21,7 @@ public class LogoutServlet extends HttpServlet {
 
         HttpSession session = request.getSession();
         session.invalidate();
-        response.sendRedirect("staffLogin");
+        response.sendRedirect("login");
 
     }
 }

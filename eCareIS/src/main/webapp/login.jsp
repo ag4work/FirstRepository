@@ -54,7 +54,7 @@
 
           <div id="home" class="tab-pane fade in active">
 
-            <form role="form" method="post" action="staffLogin">
+            <form role="form" method="post" action="login">
               <div class="form-group">
                 <label for="email">Email:</label>
                 <input name="email" type="email" class="form-control" id="email" placeholder="Введите e-mail">
@@ -63,13 +63,14 @@
                 <label for="pwd2">Password:</label>
                 <input name="password" type="password" class="form-control" id="pwd2" placeholder="Введите пароль">
               </div>
+              <input type="hidden" name="command" value="staffLogin"/>
               <button type="submit" class="btn btn-default">Submit</button>
             </form>
           </div>
 
 
           <div id="menu1" class="tab-pane fade">
-            <form role="form" method="post" action="clientLogin">
+            <form role="form" method="post" action="login">
               <div class="form-group">
                 <label for="phonenumber">Номер телефона:</label>
                 <input name="phonenumber" type="phonenumber" class="form-control" id="phonenumber" placeholder="Введите номер телефона (10 цифр)">
@@ -79,7 +80,7 @@
                 <label for="pwd1">Password:</label>
                 <input name="password" type="password" class="form-control" id="pwd1" placeholder="Введите пароль">
               </div>
-
+              <input type="hidden" name="command" value="clientLogin"/>
               <button type="submit" class="btn btn-default">Submit</button>
             </form>
           </div>

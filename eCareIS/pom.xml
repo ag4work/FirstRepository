@@ -95,9 +95,31 @@
       <version>2.2.4</version>
     </dependency>
 
-  </dependencies>
+    <dependency>
+      <groupId>org.codehaus.sonar</groupId>
+      <artifactId>sonar-maven-plugin</artifactId>
+      <version> 5.1</version>
+    </dependency>
 
+  </dependencies>
   <build>
     <finalName>eCareIS</finalName>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.tomcat.maven</groupId>
+        <artifactId>tomcat7-maven-plugin</artifactId>
+        <version>2.2</version>
+        <configuration>
+          <url>http://localhost:8080/manager/text</url>
+          <server>TomcatServer</server>
+          <path>\eCareIS</path>
+        </configuration>
+      </plugin>
+    </plugins>
   </build>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
 </project>

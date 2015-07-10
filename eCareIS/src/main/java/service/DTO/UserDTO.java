@@ -158,6 +158,28 @@ public class UserDTO {
                 '}';
     }
 
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//
+//        UserDTO userDTO = (UserDTO) o;
+//
+//        if (!birthday.equals(userDTO.birthday)) return false;
+//        if (!lastname.equals(userDTO.lastname)) return false;
+//        if (!name.equals(userDTO.name)) return false;
+//
+//        return true;
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//        int result = name.hashCode();
+//        result = 31 * result + lastname.hashCode();
+//        result = 31 * result + birthday.hashCode();
+//        return result;
+//    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -165,18 +187,20 @@ public class UserDTO {
 
         UserDTO userDTO = (UserDTO) o;
 
-        if (!birthday.equals(userDTO.birthday)) return false;
-        if (!lastname.equals(userDTO.lastname)) return false;
-        if (!name.equals(userDTO.name)) return false;
+        if (birthday != null ? !birthday.equals(userDTO.birthday) : userDTO.birthday != null) return false;
+        if (lastname != null ? !lastname.equals(userDTO.lastname) : userDTO.lastname != null) return false;
+        if (name != null ? !name.equals(userDTO.name) : userDTO.name != null) return false;
+        if (passport != null ? !passport.equals(userDTO.passport) : userDTO.passport != null) return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        int result = name.hashCode();
-        result = 31 * result + lastname.hashCode();
-        result = 31 * result + birthday.hashCode();
+        int result = name != null ? name.hashCode() : 0;
+        result = 31 * result + (lastname != null ? lastname.hashCode() : 0);
+        result = 31 * result + (birthday != null ? birthday.hashCode() : 0);
+        result = 31 * result + (passport != null ? passport.hashCode() : 0);
         return result;
     }
 }

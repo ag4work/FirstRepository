@@ -23,4 +23,5 @@ public interface ContractService {
     public void applyCart(Cart cart, Integer contractId);
     public void removeOptionWithAllDependent(Integer optionId, Integer contractId);
     public Set<OptionDTO> getContractOptionsWithSets(Integer contractId);
+
 }

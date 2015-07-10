@@ -8,8 +8,8 @@
 <%@ page language="java" contentType="text/html; charset=utf8"  pageEncoding="utf8"%>
 
 <div align="right">
-<form  method="get" action="staffLogout.sec">
-<button type="submit" class="btn btn-default">Logout</button>
+<form  method="get" action="logout">
+<button type="submit" class="btn btn-default">logout</button>
 </form>
 </div>
 
