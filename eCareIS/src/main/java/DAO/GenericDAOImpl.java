@@ -65,8 +65,8 @@ public class GenericDAOImpl<T> implements  DAOOperations<T> {
             }
             em.remove(entity);
             transaction.commit();
-            logger.info("get()");
         } catch (PersistenceException pex) {
+            logger.warn(pex);
             pex.printStackTrace();
             if (transaction != null) {
                 transaction.rollback();
@@ -89,6 +89,7 @@ public class GenericDAOImpl<T> implements  DAOOperations<T> {
             storedEntity = em.merge(entity);
             transaction.commit();
         } catch (PersistenceException pex) {
+            logger.warn(pex);
             pex.printStackTrace();
             if (transaction != null)
                 transaction.rollback();
@@ -110,6 +111,7 @@ public class GenericDAOImpl<T> implements  DAOOperations<T> {
             em.persist(entity);
             transaction.commit();
         } catch (PersistenceException pex) {
+            logger.warn(pex);
             pex.printStackTrace();
             if (transaction != null)
                 transaction.rollback();

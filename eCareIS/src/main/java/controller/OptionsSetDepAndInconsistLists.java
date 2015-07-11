@@ -22,9 +22,16 @@ public class OptionsSetDepAndInconsistLists extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=utf-8");
         Integer optionId = Integer.parseInt(request.getParameter("optionId"));
-        Set<OptionDTO> options = optionService.getAllOptions();
-        request.setAttribute("currentOption", optionService.getOptionById(optionId));
-        request.setAttribute("options", options);
+        OptionDTO currentOption = optionService.getOptionById(optionId);
+        Set<OptionDTO> dependentOptions = currentOption.getDependentOption();
+        Set<OptionDTO> inconsistentOptions = currentOption.getInconsistentOption();
+        Set<OptionDTO> allOtherOptions = optionService.getAllOptions();
+        allOtherOptions.removeAll(dependentOptions);
+        allOtherOptions.remove(currentOption);
+        allOtherOptions.removeAll(inconsistentOptions);
+
+        request.setAttribute("currentOption", currentOption);
+        request.setAttribute("allOtherOptions", allOtherOptions);
         request.getRequestDispatcher("WEB-INF/pages/optionEdit.jsp").forward(request,response);
 
 

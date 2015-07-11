@@ -1,6 +1,9 @@
 package service;
 
 import com.sun.org.apache.xpath.internal.operations.Bool;
+import exceptions.CycleInOptionsDependencyException;
+import exceptions.InconsistentOptionDependency;
+import exceptions.OptionInconsistencyImpossibleException;
 import service.DTO.OptionDTO;
 import java.util.Set;
 
@@ -14,14 +17,15 @@ public interface OptionService {
     public void addOption(OptionDTO optionDTO);
     public Set<OptionDTO> getDependentOptionTree(Integer optionId);
     public Set<OptionDTO> getRequiredOptionTree(Integer optionId);
-    public boolean isOptionsConsistentIncludingAllRequired(Integer optionId1,Integer optionId2);
-    public boolean isOptionIncludingAllRequiredConsistentWithSet(Integer optionId,
-                                                                 Set<OptionDTO> options);
-
-//
-//    public TariffDTO getTariffById(Integer tariffId);
-//    public Set<TariffDTO> getAllTariffs();
-//    public void addTariff(TariffDTO tariffDTO);
-////    public void removeTariff(Integer tariffId);
+    public boolean isOptionsConsistentIncludingAllRequired(Integer optionId1,
+                                                           Integer optionId2);
+    public boolean isOptionIncludingAllRequiredConsistentWithSet(
+            Integer optionId, Set<OptionDTO> options);
+    public void delete(Integer optionId);
+    public void addDependency(Integer baseOptId, Integer dependentOptId) throws
+            InconsistentOptionDependency, CycleInOptionsDependencyException;
+    public void removeDependency(Integer baseOptionId, Integer dependentOptionId);
+    public void addInconsistency(Integer optionId1, Integer optionId2) throws OptionInconsistencyImpossibleException;
+    public void removeInconsistency(Integer optionId1, Integer optionId2);
 
 }

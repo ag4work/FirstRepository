@@ -20,7 +20,7 @@
 
 
 <%@ include file="headermenu.jsp" %>
-
+<%@ include file="message.jsp" %>
 <div class="container-fluid">
   <div class="row">
 
@@ -59,7 +59,7 @@
 
     <br><br>
     <div class="col-md-11 main" style="position:relative; ">
-      <H3> Список существующих опция:</H3>
+      <H3> Список существующих опций:</H3>
 
       <table class="table table-striped">
         <%--<h3> All users</h3>--%>
@@ -90,8 +90,8 @@
             </td>
 
             <td>
-              <form class="formButton" action="deleteOption.sec" method="post">
-                <input type="hidden" name="tariffId" value="${option.optionId}"/>
+              <form class="formButton" action="optionDelete.sec" method="post">
+                <input type="hidden" name="optionId" value="${option.optionId}"/>
                 <input type="hidden" name="command" value="delete"/>
                 <input type="submit" class="btn btn-link btn-xs" value="Удалить"/>
               </form>

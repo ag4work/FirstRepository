@@ -58,6 +58,7 @@
   <div class="row">
 
     <div class="col-md-12 main" style="position:relative; ">
+      <%@ include file="message.jsp" %>
       <H2> Изменение зависимых и несовместимых опций для опции "${currentOption.title}" </H2>
       <div class="col-md-6 main" style="position:relative; ">
         <H3> Список, которые не являются ни зависимымы, ни несовместимыми для "${currentOption.title}":</H3>
@@ -73,7 +74,7 @@
 
           </thead>
           <tbody>
-          <c:forEach  var="option" items="${options}">
+          <c:forEach  var="option" items="${allOtherOptions}">
             <tr>
 
               <td>
@@ -89,14 +90,14 @@
               </td>
 
               <td>
-                <form class="formButton" action="deleteOption.sec" method="post">
-                  <input type="hidden" name="tariffId" value="${option.optionId}"/>
-                  <input type="hidden" name="command" value="delete"/>
+                <form class="formButton" action="optionAddDependency.sec" method="post">
+                  <input type="hidden" name="optionId" value="${currentOption.optionId}"/>
+                  <input type="hidden" name="dependentOptionId" value="${option.optionId}"/>
                   <input type="submit" class="btn btn-link btn-xs" value="К зависимым"/>
                 </form>
-                <form class="formButton" action="deleteOption.sec" method="post">
-                  <input type="hidden" name="tariffId" value="${option.optionId}"/>
-                  <input type="hidden" name="command" value="delete"/>
+                <form class="formButton" action="optionAddInconsistency.sec" method="post">
+                  <input type="hidden" name="optionId" value="${currentOption.optionId}"/>
+                  <input type="hidden" name="inconsistentOptionId" value="${option.optionId}"/>
                   <input type="submit" class="btn btn-link btn-xs" value="К несовместимым"/>
                 </form>
               </td>
@@ -121,7 +122,7 @@
 
             </thead>
             <tbody>
-            <c:forEach  var="option" items="${options}">
+            <c:forEach  var="option" items="${currentOption.dependentOption}">
               <tr>
 
                 <td>
@@ -137,9 +138,9 @@
                 </td>
 
                 <td>
-                  <form class="formButton" action="deleteOption.sec" method="post">
-                    <input type="hidden" name="tariffId" value="${option.optionId}"/>
-                    <input type="hidden" name="command" value="delete"/>
+                  <form class="formButton" action="deleteOptionDependency.sec" method="post">
+                    <input type="hidden" name="optionId" value="${currentOption.optionId}"/>
+                    <input type="hidden" name="dependentOptionId" value="${option.optionId}"/>
                     <input type="submit" class="btn btn-link btn-xs" value="Убрать"/>
                   </form>
                 </td>
@@ -164,7 +165,7 @@
 
             </thead>
             <tbody>
-            <c:forEach  var="option" items="${options}">
+            <c:forEach  var="option" items="${currentOption.inconsistentOption}">
               <tr>
 
                 <td>
@@ -180,9 +181,9 @@
                 </td>
 
                 <td>
-                  <form class="formButton" action="deleteOption.sec" method="post">
-                    <input type="hidden" name="tariffId" value="${option.optionId}"/>
-                    <input type="hidden" name="command" value="delete"/>
+                  <form class="formButton" action="removeInconsistentOption.sec" method="post">
+                    <input type="hidden" name="optionId" value="${currentOption.optionId}"/>
+                    <input type="hidden" name="inconsistentOptionId" value="${option.optionId}"/>
                     <input type="submit" class="btn btn-link btn-xs" value="Убрать"/>
                   </form>
                 </td>

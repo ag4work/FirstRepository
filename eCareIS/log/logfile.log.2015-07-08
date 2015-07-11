@@ -1,0 +1,646 @@
+2015-07-08 21:27:36 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-08 21:27:36 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-08 21:27:36 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-08 21:27:36 INFO  LogHelper:46 - HHH000204: Processing PersistenceUnitInfo [
+	name: EcarePU
+	...]
+2015-07-08 21:27:36 INFO  Version:54 - HHH000412: Hibernate Core {4.3.10.Final}
+2015-07-08 21:27:36 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2015-07-08 21:27:36 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-07-08 21:27:38 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-07-08 21:27:38 WARN  DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-07-08 21:27:38 INFO  DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/ecareis]
+2015-07-08 21:27:38 INFO  DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-07-08 21:27:38 INFO  DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-07-08 21:27:38 INFO  DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-07-08 21:27:39 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2015-07-08 21:27:40 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-07-08 21:27:41 INFO  Version:27 - HV000001: Hibernate Validator 5.1.3.Final
+2015-07-08 21:27:44 INFO  Option:23 - Genericclass entity.OptionDAO was created
+2015-07-08 21:27:44 INFO  UserDAOImpl:19 - TariffDAOImpl(generic extended) object created
+2015-07-08 21:27:44 INFO  Option:41 - get() with id:1
+2015-07-08 21:27:44 INFO  Option:41 - get() with id:2
+2015-07-08 21:27:44 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId1
+2015-07-08 21:27:44 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId2
+2015-07-08 21:29:00 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-08 21:29:00 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-08 21:29:00 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-08 21:29:01 INFO  LogHelper:46 - HHH000204: Processing PersistenceUnitInfo [
+	name: EcarePU
+	...]
+2015-07-08 21:29:01 INFO  Version:54 - HHH000412: Hibernate Core {4.3.10.Final}
+2015-07-08 21:29:01 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2015-07-08 21:29:01 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-07-08 21:29:02 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-07-08 21:29:02 WARN  DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-07-08 21:29:02 INFO  DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/ecareis]
+2015-07-08 21:29:02 INFO  DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-07-08 21:29:02 INFO  DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-07-08 21:29:02 INFO  DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-07-08 21:29:05 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2015-07-08 21:29:05 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-07-08 21:29:05 INFO  Version:27 - HV000001: Hibernate Validator 5.1.3.Final
+2015-07-08 21:29:07 INFO  Option:23 - Genericclass entity.OptionDAO was created
+2015-07-08 21:29:07 INFO  UserDAOImpl:19 - TariffDAOImpl(generic extended) object created
+2015-07-08 21:29:07 INFO  Option:41 - get() with id:2
+2015-07-08 21:29:07 INFO  Option:41 - get() with id:4
+2015-07-08 21:29:07 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId2
+2015-07-08 21:29:07 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId4
+2015-07-08 21:32:53 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-08 21:32:53 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-08 21:32:53 WARN  HibernatePersistence:58 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-07-08 21:32:54 INFO  LogHelper:46 - HHH000204: Processing PersistenceUnitInfo [
+	name: EcarePU
+	...]
+2015-07-08 21:32:54 INFO  Version:54 - HHH000412: Hibernate Core {4.3.10.Final}
+2015-07-08 21:32:54 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2015-07-08 21:32:54 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-07-08 21:32:55 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-07-08 21:32:55 WARN  DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-07-08 21:32:55 INFO  DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/ecareis]
+2015-07-08 21:32:55 INFO  DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-07-08 21:32:55 INFO  DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-07-08 21:32:55 INFO  DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-07-08 21:32:57 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2015-07-08 21:32:59 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-07-08 21:32:59 INFO  Version:27 - HV000001: Hibernate Validator 5.1.3.Final
+2015-07-08 21:33:01 INFO  Option:23 - Genericclass entity.OptionDAO was created
+2015-07-08 21:33:01 INFO  UserDAOImpl:19 - TariffDAOImpl(generic extended) object created
+2015-07-08 21:33:02 INFO  Option:35 - getAll()
+2015-07-08 21:33:02 INFO  Option:35 - getAll()
+2015-07-08 21:33:02 INFO  Option:41 - get() with id:2
+2015-07-08 21:33:02 INFO  Option:41 - get() with id:2
+2015-07-08 21:33:02 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId2
+2015-07-08 21:33:02 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId2
+2015-07-08 21:33:02 INFO  Option:41 - get() with id:2
+2015-07-08 21:33:02 INFO  Option:41 - get() with id:1
+2015-07-08 21:33:02 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId2
+2015-07-08 21:33:02 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId1
+2015-07-08 21:33:02 INFO  Option:41 - get() with id:2
+2015-07-08 21:33:02 INFO  Option:41 - get() with id:11
+2015-07-08 21:33:02 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId2
+2015-07-08 21:33:02 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId11
+2015-07-08 21:33:02 INFO  Option:41 - get() with id:2
+2015-07-08 21:33:02 INFO  Option:41 - get() with id:9
+2015-07-08 21:33:02 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId2
+2015-07-08 21:33:02 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId9
+2015-07-08 21:33:02 INFO  Option:41 - get() with id:2
+2015-07-08 21:33:02 INFO  Option:41 - get() with id:5
+2015-07-08 21:33:02 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId2
+2015-07-08 21:33:02 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId5
+2015-07-08 21:33:02 INFO  Option:41 - get() with id:2
+2015-07-08 21:33:02 INFO  Option:41 - get() with id:6
+2015-07-08 21:33:02 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId2
+2015-07-08 21:33:02 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId6
+2015-07-08 21:33:02 INFO  Option:41 - get() with id:2
+2015-07-08 21:33:02 INFO  Option:41 - get() with id:7
+2015-07-08 21:33:02 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId2
+2015-07-08 21:33:02 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId7
+2015-07-08 21:33:02 INFO  Option:41 - get() with id:2
+2015-07-08 21:33:02 INFO  Option:41 - get() with id:8
+2015-07-08 21:33:02 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId2
+2015-07-08 21:33:02 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId8
+2015-07-08 21:33:02 INFO  Option:41 - get() with id:2
+2015-07-08 21:33:02 INFO  Option:41 - get() with id:4
+2015-07-08 21:33:02 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId2
+2015-07-08 21:33:02 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId4
+2015-07-08 21:33:02 INFO  Option:41 - get() with id:2
+2015-07-08 21:33:03 INFO  Option:41 - get() with id:12
+2015-07-08 21:33:03 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId2
+2015-07-08 21:33:03 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId12
+2015-07-08 21:33:03 INFO  Option:41 - get() with id:2
+2015-07-08 21:33:03 INFO  Option:41 - get() with id:3
+2015-07-08 21:33:03 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId2
+2015-07-08 21:33:03 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId3
+2015-07-08 21:33:03 INFO  Option:41 - get() with id:2
+2015-07-08 21:33:03 INFO  Option:41 - get() with id:10
+2015-07-08 21:33:03 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId2
+2015-07-08 21:33:03 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId10
+2015-07-08 21:33:03 INFO  Option:41 - get() with id:1
+2015-07-08 21:33:03 INFO  Option:41 - get() with id:2
+2015-07-08 21:33:03 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId1
+2015-07-08 21:33:03 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId2
+2015-07-08 21:33:03 INFO  Option:41 - get() with id:1
+2015-07-08 21:33:03 INFO  Option:41 - get() with id:1
+2015-07-08 21:33:03 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId1
+2015-07-08 21:33:03 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId1
+2015-07-08 21:33:03 INFO  Option:41 - get() with id:1
+2015-07-08 21:33:03 INFO  Option:41 - get() with id:11
+2015-07-08 21:33:03 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId1
+2015-07-08 21:33:03 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId11
+2015-07-08 21:33:03 INFO  Option:41 - get() with id:1
+2015-07-08 21:33:03 INFO  Option:41 - get() with id:9
+2015-07-08 21:33:03 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId1
+2015-07-08 21:33:03 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId9
+2015-07-08 21:33:03 INFO  Option:41 - get() with id:1
+2015-07-08 21:33:03 INFO  Option:41 - get() with id:5
+2015-07-08 21:33:03 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId1
+2015-07-08 21:33:03 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId5
+2015-07-08 21:33:03 INFO  Option:41 - get() with id:1
+2015-07-08 21:33:03 INFO  Option:41 - get() with id:6
+2015-07-08 21:33:03 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId1
+2015-07-08 21:33:03 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId6
+2015-07-08 21:33:03 INFO  Option:41 - get() with id:1
+2015-07-08 21:33:03 INFO  Option:41 - get() with id:7
+2015-07-08 21:33:03 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId1
+2015-07-08 21:33:03 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId7
+2015-07-08 21:33:03 INFO  Option:41 - get() with id:1
+2015-07-08 21:33:03 INFO  Option:41 - get() with id:8
+2015-07-08 21:33:03 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId1
+2015-07-08 21:33:03 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId8
+2015-07-08 21:33:03 INFO  Option:41 - get() with id:1
+2015-07-08 21:33:03 INFO  Option:41 - get() with id:4
+2015-07-08 21:33:03 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId1
+2015-07-08 21:33:03 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId4
+2015-07-08 21:33:03 INFO  Option:41 - get() with id:1
+2015-07-08 21:33:03 INFO  Option:41 - get() with id:12
+2015-07-08 21:33:03 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId1
+2015-07-08 21:33:03 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId12
+2015-07-08 21:33:03 INFO  Option:41 - get() with id:1
+2015-07-08 21:33:03 INFO  Option:41 - get() with id:3
+2015-07-08 21:33:03 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId1
+2015-07-08 21:33:03 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId3
+2015-07-08 21:33:03 INFO  Option:41 - get() with id:1
+2015-07-08 21:33:03 INFO  Option:41 - get() with id:10
+2015-07-08 21:33:03 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId1
+2015-07-08 21:33:03 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId10
+2015-07-08 21:33:03 INFO  Option:41 - get() with id:11
+2015-07-08 21:33:03 INFO  Option:41 - get() with id:2
+2015-07-08 21:33:03 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId11
+2015-07-08 21:33:03 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId2
+2015-07-08 21:33:03 INFO  Option:41 - get() with id:11
+2015-07-08 21:33:03 INFO  Option:41 - get() with id:1
+2015-07-08 21:33:04 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId11
+2015-07-08 21:33:04 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId1
+2015-07-08 21:33:04 INFO  Option:41 - get() with id:11
+2015-07-08 21:33:04 INFO  Option:41 - get() with id:11
+2015-07-08 21:33:04 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId11
+2015-07-08 21:33:04 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId11
+2015-07-08 21:33:04 INFO  Option:41 - get() with id:11
+2015-07-08 21:33:04 INFO  Option:41 - get() with id:9
+2015-07-08 21:33:04 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId11
+2015-07-08 21:33:04 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId9
+2015-07-08 21:33:04 INFO  Option:41 - get() with id:11
+2015-07-08 21:33:04 INFO  Option:41 - get() with id:5
+2015-07-08 21:33:04 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId11
+2015-07-08 21:33:04 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId5
+2015-07-08 21:33:04 INFO  Option:41 - get() with id:11
+2015-07-08 21:33:04 INFO  Option:41 - get() with id:6
+2015-07-08 21:33:04 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId11
+2015-07-08 21:33:04 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId6
+2015-07-08 21:33:04 INFO  Option:41 - get() with id:11
+2015-07-08 21:33:04 INFO  Option:41 - get() with id:7
+2015-07-08 21:33:04 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId11
+2015-07-08 21:33:04 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId7
+2015-07-08 21:33:04 INFO  Option:41 - get() with id:11
+2015-07-08 21:33:04 INFO  Option:41 - get() with id:8
+2015-07-08 21:33:04 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId11
+2015-07-08 21:33:04 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId8
+2015-07-08 21:33:04 INFO  Option:41 - get() with id:11
+2015-07-08 21:33:04 INFO  Option:41 - get() with id:4
+2015-07-08 21:33:04 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId11
+2015-07-08 21:33:04 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId4
+2015-07-08 21:33:04 INFO  Option:41 - get() with id:11
+2015-07-08 21:33:04 INFO  Option:41 - get() with id:12
+2015-07-08 21:33:04 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId11
+2015-07-08 21:33:04 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId12
+2015-07-08 21:33:04 INFO  Option:41 - get() with id:11
+2015-07-08 21:33:04 INFO  Option:41 - get() with id:3
+2015-07-08 21:33:04 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId11
+2015-07-08 21:33:04 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId3
+2015-07-08 21:33:04 INFO  Option:41 - get() with id:11
+2015-07-08 21:33:04 INFO  Option:41 - get() with id:10
+2015-07-08 21:33:04 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId11
+2015-07-08 21:33:04 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId10
+2015-07-08 21:33:04 INFO  Option:41 - get() with id:9
+2015-07-08 21:33:04 INFO  Option:41 - get() with id:2
+2015-07-08 21:33:04 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId9
+2015-07-08 21:33:04 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId2
+2015-07-08 21:33:04 INFO  Option:41 - get() with id:9
+2015-07-08 21:33:04 INFO  Option:41 - get() with id:1
+2015-07-08 21:33:04 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId9
+2015-07-08 21:33:04 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId1
+2015-07-08 21:33:04 INFO  Option:41 - get() with id:9
+2015-07-08 21:33:04 INFO  Option:41 - get() with id:11
+2015-07-08 21:33:04 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId9
+2015-07-08 21:33:04 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId11
+2015-07-08 21:33:04 INFO  Option:41 - get() with id:9
+2015-07-08 21:33:04 INFO  Option:41 - get() with id:9
+2015-07-08 21:33:04 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId9
+2015-07-08 21:33:04 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId9
+2015-07-08 21:33:04 INFO  Option:41 - get() with id:9
+2015-07-08 21:33:04 INFO  Option:41 - get() with id:5
+2015-07-08 21:33:04 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId9
+2015-07-08 21:33:04 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId5
+2015-07-08 21:33:04 INFO  Option:41 - get() with id:9
+2015-07-08 21:33:04 INFO  Option:41 - get() with id:6
+2015-07-08 21:33:04 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId9
+2015-07-08 21:33:04 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId6
+2015-07-08 21:33:04 INFO  Option:41 - get() with id:9
+2015-07-08 21:33:04 INFO  Option:41 - get() with id:7
+2015-07-08 21:33:04 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId9
+2015-07-08 21:33:04 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId7
+2015-07-08 21:33:04 INFO  Option:41 - get() with id:9
+2015-07-08 21:33:04 INFO  Option:41 - get() with id:8
+2015-07-08 21:33:04 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId9
+2015-07-08 21:33:04 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId8
+2015-07-08 21:33:04 INFO  Option:41 - get() with id:9
+2015-07-08 21:33:04 INFO  Option:41 - get() with id:4
+2015-07-08 21:33:04 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId9
+2015-07-08 21:33:04 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId4
+2015-07-08 21:33:04 INFO  Option:41 - get() with id:9
+2015-07-08 21:33:04 INFO  Option:41 - get() with id:12
+2015-07-08 21:33:04 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId9
+2015-07-08 21:33:04 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId12
+2015-07-08 21:33:04 INFO  Option:41 - get() with id:9
+2015-07-08 21:33:04 INFO  Option:41 - get() with id:3
+2015-07-08 21:33:04 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId9
+2015-07-08 21:33:04 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId3
+2015-07-08 21:33:04 INFO  Option:41 - get() with id:9
+2015-07-08 21:33:04 INFO  Option:41 - get() with id:10
+2015-07-08 21:33:04 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId9
+2015-07-08 21:33:04 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId10
+2015-07-08 21:33:04 INFO  Option:41 - get() with id:5
+2015-07-08 21:33:04 INFO  Option:41 - get() with id:2
+2015-07-08 21:33:04 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId5
+2015-07-08 21:33:04 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId2
+2015-07-08 21:33:04 INFO  Option:41 - get() with id:5
+2015-07-08 21:33:04 INFO  Option:41 - get() with id:1
+2015-07-08 21:33:04 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId5
+2015-07-08 21:33:04 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId1
+2015-07-08 21:33:04 INFO  Option:41 - get() with id:5
+2015-07-08 21:33:04 INFO  Option:41 - get() with id:11
+2015-07-08 21:33:04 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId5
+2015-07-08 21:33:04 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId11
+2015-07-08 21:33:04 INFO  Option:41 - get() with id:5
+2015-07-08 21:33:04 INFO  Option:41 - get() with id:9
+2015-07-08 21:33:04 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId5
+2015-07-08 21:33:04 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId9
+2015-07-08 21:33:04 INFO  Option:41 - get() with id:5
+2015-07-08 21:33:04 INFO  Option:41 - get() with id:5
+2015-07-08 21:33:04 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId5
+2015-07-08 21:33:04 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId5
+2015-07-08 21:33:04 INFO  Option:41 - get() with id:5
+2015-07-08 21:33:04 INFO  Option:41 - get() with id:6
+2015-07-08 21:33:04 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId5
+2015-07-08 21:33:04 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId6
+2015-07-08 21:33:04 INFO  Option:41 - get() with id:5
+2015-07-08 21:33:04 INFO  Option:41 - get() with id:7
+2015-07-08 21:33:04 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId5
+2015-07-08 21:33:04 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId7
+2015-07-08 21:33:04 INFO  Option:41 - get() with id:5
+2015-07-08 21:33:04 INFO  Option:41 - get() with id:8
+2015-07-08 21:33:04 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId5
+2015-07-08 21:33:04 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId8
+2015-07-08 21:33:04 INFO  Option:41 - get() with id:5
+2015-07-08 21:33:04 INFO  Option:41 - get() with id:4
+2015-07-08 21:33:05 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId5
+2015-07-08 21:33:05 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId4
+2015-07-08 21:33:05 INFO  Option:41 - get() with id:5
+2015-07-08 21:33:05 INFO  Option:41 - get() with id:12
+2015-07-08 21:33:05 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId5
+2015-07-08 21:33:05 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId12
+2015-07-08 21:33:05 INFO  Option:41 - get() with id:5
+2015-07-08 21:33:05 INFO  Option:41 - get() with id:3
+2015-07-08 21:33:05 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId5
+2015-07-08 21:33:05 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId3
+2015-07-08 21:33:05 INFO  Option:41 - get() with id:5
+2015-07-08 21:33:05 INFO  Option:41 - get() with id:10
+2015-07-08 21:33:05 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId5
+2015-07-08 21:33:05 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId10
+2015-07-08 21:33:05 INFO  Option:41 - get() with id:6
+2015-07-08 21:33:05 INFO  Option:41 - get() with id:2
+2015-07-08 21:33:05 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId6
+2015-07-08 21:33:05 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId2
+2015-07-08 21:33:05 INFO  Option:41 - get() with id:6
+2015-07-08 21:33:05 INFO  Option:41 - get() with id:1
+2015-07-08 21:33:05 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId6
+2015-07-08 21:33:05 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId1
+2015-07-08 21:33:05 INFO  Option:41 - get() with id:6
+2015-07-08 21:33:05 INFO  Option:41 - get() with id:11
+2015-07-08 21:33:05 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId6
+2015-07-08 21:33:05 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId11
+2015-07-08 21:33:05 INFO  Option:41 - get() with id:6
+2015-07-08 21:33:05 INFO  Option:41 - get() with id:9
+2015-07-08 21:33:05 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId6
+2015-07-08 21:33:05 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId9
+2015-07-08 21:33:05 INFO  Option:41 - get() with id:6
+2015-07-08 21:33:05 INFO  Option:41 - get() with id:5
+2015-07-08 21:33:05 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId6
+2015-07-08 21:33:05 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId5
+2015-07-08 21:33:05 INFO  Option:41 - get() with id:6
+2015-07-08 21:33:05 INFO  Option:41 - get() with id:6
+2015-07-08 21:33:05 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId6
+2015-07-08 21:33:05 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId6
+2015-07-08 21:33:05 INFO  Option:41 - get() with id:6
+2015-07-08 21:33:05 INFO  Option:41 - get() with id:7
+2015-07-08 21:33:05 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId6
+2015-07-08 21:33:05 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId7
+2015-07-08 21:33:05 INFO  Option:41 - get() with id:6
+2015-07-08 21:33:05 INFO  Option:41 - get() with id:8
+2015-07-08 21:33:05 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId6
+2015-07-08 21:33:05 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId8
+2015-07-08 21:33:05 INFO  Option:41 - get() with id:6
+2015-07-08 21:33:05 INFO  Option:41 - get() with id:4
+2015-07-08 21:33:05 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId6
+2015-07-08 21:33:05 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId4
+2015-07-08 21:33:05 INFO  Option:41 - get() with id:6
+2015-07-08 21:33:05 INFO  Option:41 - get() with id:12
+2015-07-08 21:33:05 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId6
+2015-07-08 21:33:05 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId12
+2015-07-08 21:33:05 INFO  Option:41 - get() with id:6
+2015-07-08 21:33:05 INFO  Option:41 - get() with id:3
+2015-07-08 21:33:05 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId6
+2015-07-08 21:33:05 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId3
+2015-07-08 21:33:05 INFO  Option:41 - get() with id:6
+2015-07-08 21:33:05 INFO  Option:41 - get() with id:10
+2015-07-08 21:33:05 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId6
+2015-07-08 21:33:05 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId10
+2015-07-08 21:33:05 INFO  Option:41 - get() with id:7
+2015-07-08 21:33:05 INFO  Option:41 - get() with id:2
+2015-07-08 21:33:05 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId7
+2015-07-08 21:33:05 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId2
+2015-07-08 21:33:05 INFO  Option:41 - get() with id:7
+2015-07-08 21:33:05 INFO  Option:41 - get() with id:1
+2015-07-08 21:33:05 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId7
+2015-07-08 21:33:05 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId1
+2015-07-08 21:33:05 INFO  Option:41 - get() with id:7
+2015-07-08 21:33:05 INFO  Option:41 - get() with id:11
+2015-07-08 21:33:05 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId7
+2015-07-08 21:33:05 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId11
+2015-07-08 21:33:05 INFO  Option:41 - get() with id:7
+2015-07-08 21:33:05 INFO  Option:41 - get() with id:9
+2015-07-08 21:33:05 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId7
+2015-07-08 21:33:05 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId9
+2015-07-08 21:33:05 INFO  Option:41 - get() with id:7
+2015-07-08 21:33:05 INFO  Option:41 - get() with id:5
+2015-07-08 21:33:05 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId7
+2015-07-08 21:33:05 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId5
+2015-07-08 21:33:05 INFO  Option:41 - get() with id:7
+2015-07-08 21:33:05 INFO  Option:41 - get() with id:6
+2015-07-08 21:33:05 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId7
+2015-07-08 21:33:05 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId6
+2015-07-08 21:33:05 INFO  Option:41 - get() with id:7
+2015-07-08 21:33:05 INFO  Option:41 - get() with id:7
+2015-07-08 21:33:05 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId7
+2015-07-08 21:33:05 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId7
+2015-07-08 21:33:05 INFO  Option:41 - get() with id:7
+2015-07-08 21:33:05 INFO  Option:41 - get() with id:8
+2015-07-08 21:33:05 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId7
+2015-07-08 21:33:05 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId8
+2015-07-08 21:33:05 INFO  Option:41 - get() with id:7
+2015-07-08 21:33:05 INFO  Option:41 - get() with id:4
+2015-07-08 21:33:05 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId7
+2015-07-08 21:33:05 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId4
+2015-07-08 21:33:05 INFO  Option:41 - get() with id:7
+2015-07-08 21:33:05 INFO  Option:41 - get() with id:12
+2015-07-08 21:33:05 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId7
+2015-07-08 21:33:05 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId12
+2015-07-08 21:33:05 INFO  Option:41 - get() with id:7
+2015-07-08 21:33:05 INFO  Option:41 - get() with id:3
+2015-07-08 21:33:05 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId7
+2015-07-08 21:33:05 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId3
+2015-07-08 21:33:05 INFO  Option:41 - get() with id:7
+2015-07-08 21:33:05 INFO  Option:41 - get() with id:10
+2015-07-08 21:33:05 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId7
+2015-07-08 21:33:05 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId10
+2015-07-08 21:33:05 INFO  Option:41 - get() with id:8
+2015-07-08 21:33:05 INFO  Option:41 - get() with id:2
+2015-07-08 21:33:05 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId8
+2015-07-08 21:33:05 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId2
+2015-07-08 21:33:05 INFO  Option:41 - get() with id:8
+2015-07-08 21:33:05 INFO  Option:41 - get() with id:1
+2015-07-08 21:33:05 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId8
+2015-07-08 21:33:05 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId1
+2015-07-08 21:33:05 INFO  Option:41 - get() with id:8
+2015-07-08 21:33:05 INFO  Option:41 - get() with id:11
+2015-07-08 21:33:06 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId8
+2015-07-08 21:33:06 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId11
+2015-07-08 21:33:06 INFO  Option:41 - get() with id:8
+2015-07-08 21:33:06 INFO  Option:41 - get() with id:9
+2015-07-08 21:33:06 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId8
+2015-07-08 21:33:06 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId9
+2015-07-08 21:33:06 INFO  Option:41 - get() with id:8
+2015-07-08 21:33:06 INFO  Option:41 - get() with id:5
+2015-07-08 21:33:06 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId8
+2015-07-08 21:33:06 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId5
+2015-07-08 21:33:06 INFO  Option:41 - get() with id:8
+2015-07-08 21:33:06 INFO  Option:41 - get() with id:6
+2015-07-08 21:33:06 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId8
+2015-07-08 21:33:06 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId6
+2015-07-08 21:33:06 INFO  Option:41 - get() with id:8
+2015-07-08 21:33:06 INFO  Option:41 - get() with id:7
+2015-07-08 21:33:06 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId8
+2015-07-08 21:33:06 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId7
+2015-07-08 21:33:06 INFO  Option:41 - get() with id:8
+2015-07-08 21:33:06 INFO  Option:41 - get() with id:8
+2015-07-08 21:33:06 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId8
+2015-07-08 21:33:06 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId8
+2015-07-08 21:33:06 INFO  Option:41 - get() with id:8
+2015-07-08 21:33:06 INFO  Option:41 - get() with id:4
+2015-07-08 21:33:06 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId8
+2015-07-08 21:33:06 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId4
+2015-07-08 21:33:06 INFO  Option:41 - get() with id:8
+2015-07-08 21:33:06 INFO  Option:41 - get() with id:12
+2015-07-08 21:33:06 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId8
+2015-07-08 21:33:06 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId12
+2015-07-08 21:33:06 INFO  Option:41 - get() with id:8
+2015-07-08 21:33:06 INFO  Option:41 - get() with id:3
+2015-07-08 21:33:06 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId8
+2015-07-08 21:33:06 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId3
+2015-07-08 21:33:06 INFO  Option:41 - get() with id:8
+2015-07-08 21:33:06 INFO  Option:41 - get() with id:10
+2015-07-08 21:33:06 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId8
+2015-07-08 21:33:06 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId10
+2015-07-08 21:33:06 INFO  Option:41 - get() with id:4
+2015-07-08 21:33:06 INFO  Option:41 - get() with id:2
+2015-07-08 21:33:06 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId4
+2015-07-08 21:33:06 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId2
+2015-07-08 21:33:06 INFO  Option:41 - get() with id:4
+2015-07-08 21:33:06 INFO  Option:41 - get() with id:1
+2015-07-08 21:33:06 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId4
+2015-07-08 21:33:06 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId1
+2015-07-08 21:33:06 INFO  Option:41 - get() with id:4
+2015-07-08 21:33:06 INFO  Option:41 - get() with id:11
+2015-07-08 21:33:06 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId4
+2015-07-08 21:33:06 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId11
+2015-07-08 21:33:06 INFO  Option:41 - get() with id:4
+2015-07-08 21:33:06 INFO  Option:41 - get() with id:9
+2015-07-08 21:33:06 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId4
+2015-07-08 21:33:06 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId9
+2015-07-08 21:33:06 INFO  Option:41 - get() with id:4
+2015-07-08 21:33:06 INFO  Option:41 - get() with id:5
+2015-07-08 21:33:06 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId4
+2015-07-08 21:33:06 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId5
+2015-07-08 21:33:06 INFO  Option:41 - get() with id:4
+2015-07-08 21:33:06 INFO  Option:41 - get() with id:6
+2015-07-08 21:33:06 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId4
+2015-07-08 21:33:06 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId6
+2015-07-08 21:33:06 INFO  Option:41 - get() with id:4
+2015-07-08 21:33:06 INFO  Option:41 - get() with id:7
+2015-07-08 21:33:06 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId4
+2015-07-08 21:33:06 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId7
+2015-07-08 21:33:06 INFO  Option:41 - get() with id:4
+2015-07-08 21:33:06 INFO  Option:41 - get() with id:8
+2015-07-08 21:33:06 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId4
+2015-07-08 21:33:06 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId8
+2015-07-08 21:33:06 INFO  Option:41 - get() with id:4
+2015-07-08 21:33:06 INFO  Option:41 - get() with id:4
+2015-07-08 21:33:06 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId4
+2015-07-08 21:33:06 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId4
+2015-07-08 21:33:06 INFO  Option:41 - get() with id:4
+2015-07-08 21:33:06 INFO  Option:41 - get() with id:12
+2015-07-08 21:33:06 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId4
+2015-07-08 21:33:06 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId12
+2015-07-08 21:33:06 INFO  Option:41 - get() with id:4
+2015-07-08 21:33:06 INFO  Option:41 - get() with id:3
+2015-07-08 21:33:06 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId4
+2015-07-08 21:33:06 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId3
+2015-07-08 21:33:06 INFO  Option:41 - get() with id:4
+2015-07-08 21:33:06 INFO  Option:41 - get() with id:10
+2015-07-08 21:33:06 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId4
+2015-07-08 21:33:06 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId10
+2015-07-08 21:33:06 INFO  Option:41 - get() with id:12
+2015-07-08 21:33:06 INFO  Option:41 - get() with id:2
+2015-07-08 21:33:06 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId12
+2015-07-08 21:33:06 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId2
+2015-07-08 21:33:06 INFO  Option:41 - get() with id:12
+2015-07-08 21:33:06 INFO  Option:41 - get() with id:1
+2015-07-08 21:33:06 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId12
+2015-07-08 21:33:06 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId1
+2015-07-08 21:33:06 INFO  Option:41 - get() with id:12
+2015-07-08 21:33:06 INFO  Option:41 - get() with id:11
+2015-07-08 21:33:06 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId12
+2015-07-08 21:33:06 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId11
+2015-07-08 21:33:06 INFO  Option:41 - get() with id:12
+2015-07-08 21:33:06 INFO  Option:41 - get() with id:9
+2015-07-08 21:33:06 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId12
+2015-07-08 21:33:06 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId9
+2015-07-08 21:33:06 INFO  Option:41 - get() with id:12
+2015-07-08 21:33:06 INFO  Option:41 - get() with id:5
+2015-07-08 21:33:06 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId12
+2015-07-08 21:33:06 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId5
+2015-07-08 21:33:06 INFO  Option:41 - get() with id:12
+2015-07-08 21:33:07 INFO  Option:41 - get() with id:6
+2015-07-08 21:33:07 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId12
+2015-07-08 21:33:07 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId6
+2015-07-08 21:33:07 INFO  Option:41 - get() with id:12
+2015-07-08 21:33:07 INFO  Option:41 - get() with id:7
+2015-07-08 21:33:07 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId12
+2015-07-08 21:33:07 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId7
+2015-07-08 21:33:07 INFO  Option:41 - get() with id:12
+2015-07-08 21:33:07 INFO  Option:41 - get() with id:8
+2015-07-08 21:33:07 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId12
+2015-07-08 21:33:07 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId8
+2015-07-08 21:33:07 INFO  Option:41 - get() with id:12
+2015-07-08 21:33:07 INFO  Option:41 - get() with id:4
+2015-07-08 21:33:07 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId12
+2015-07-08 21:33:07 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId4
+2015-07-08 21:33:07 INFO  Option:41 - get() with id:12
+2015-07-08 21:33:07 INFO  Option:41 - get() with id:12
+2015-07-08 21:33:07 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId12
+2015-07-08 21:33:07 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId12
+2015-07-08 21:33:07 INFO  Option:41 - get() with id:12
+2015-07-08 21:33:07 INFO  Option:41 - get() with id:3
+2015-07-08 21:33:07 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId12
+2015-07-08 21:33:07 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId3
+2015-07-08 21:33:07 INFO  Option:41 - get() with id:12
+2015-07-08 21:33:07 INFO  Option:41 - get() with id:10
+2015-07-08 21:33:07 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId12
+2015-07-08 21:33:07 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId10
+2015-07-08 21:33:07 INFO  Option:41 - get() with id:3
+2015-07-08 21:33:07 INFO  Option:41 - get() with id:2
+2015-07-08 21:33:07 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId3
+2015-07-08 21:33:07 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId2
+2015-07-08 21:33:07 INFO  Option:41 - get() with id:3
+2015-07-08 21:33:07 INFO  Option:41 - get() with id:1
+2015-07-08 21:33:07 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId3
+2015-07-08 21:33:07 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId1
+2015-07-08 21:33:07 INFO  Option:41 - get() with id:3
+2015-07-08 21:33:07 INFO  Option:41 - get() with id:11
+2015-07-08 21:33:07 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId3
+2015-07-08 21:33:07 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId11
+2015-07-08 21:33:07 INFO  Option:41 - get() with id:3
+2015-07-08 21:33:07 INFO  Option:41 - get() with id:9
+2015-07-08 21:33:07 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId3
+2015-07-08 21:33:07 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId9
+2015-07-08 21:33:07 INFO  Option:41 - get() with id:3
+2015-07-08 21:33:07 INFO  Option:41 - get() with id:5
+2015-07-08 21:33:07 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId3
+2015-07-08 21:33:07 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId5
+2015-07-08 21:33:07 INFO  Option:41 - get() with id:3
+2015-07-08 21:33:07 INFO  Option:41 - get() with id:6
+2015-07-08 21:33:07 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId3
+2015-07-08 21:33:07 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId6
+2015-07-08 21:33:07 INFO  Option:41 - get() with id:3
+2015-07-08 21:33:07 INFO  Option:41 - get() with id:7
+2015-07-08 21:33:07 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId3
+2015-07-08 21:33:07 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId7
+2015-07-08 21:33:07 INFO  Option:41 - get() with id:3
+2015-07-08 21:33:07 INFO  Option:41 - get() with id:8
+2015-07-08 21:33:07 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId3
+2015-07-08 21:33:07 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId8
+2015-07-08 21:33:07 INFO  Option:41 - get() with id:3
+2015-07-08 21:33:07 INFO  Option:41 - get() with id:4
+2015-07-08 21:33:07 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId3
+2015-07-08 21:33:07 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId4
+2015-07-08 21:33:07 INFO  Option:41 - get() with id:3
+2015-07-08 21:33:07 INFO  Option:41 - get() with id:12
+2015-07-08 21:33:07 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId3
+2015-07-08 21:33:07 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId12
+2015-07-08 21:33:07 INFO  Option:41 - get() with id:3
+2015-07-08 21:33:07 INFO  Option:41 - get() with id:3
+2015-07-08 21:33:07 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId3
+2015-07-08 21:33:07 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId3
+2015-07-08 21:33:07 INFO  Option:41 - get() with id:3
+2015-07-08 21:33:07 INFO  Option:41 - get() with id:10
+2015-07-08 21:33:08 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId3
+2015-07-08 21:33:08 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId10
+2015-07-08 21:33:08 INFO  Option:41 - get() with id:10
+2015-07-08 21:33:08 INFO  Option:41 - get() with id:2
+2015-07-08 21:33:08 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId10
+2015-07-08 21:33:08 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId2
+2015-07-08 21:33:08 INFO  Option:41 - get() with id:10
+2015-07-08 21:33:08 INFO  Option:41 - get() with id:1
+2015-07-08 21:33:08 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId10
+2015-07-08 21:33:08 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId1
+2015-07-08 21:33:08 INFO  Option:41 - get() with id:10
+2015-07-08 21:33:08 INFO  Option:41 - get() with id:11
+2015-07-08 21:33:08 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId10
+2015-07-08 21:33:08 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId11
+2015-07-08 21:33:08 INFO  Option:41 - get() with id:10
+2015-07-08 21:33:08 INFO  Option:41 - get() with id:9
+2015-07-08 21:33:08 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId10
+2015-07-08 21:33:08 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId9
+2015-07-08 21:33:08 INFO  Option:41 - get() with id:10
+2015-07-08 21:33:08 INFO  Option:41 - get() with id:5
+2015-07-08 21:33:08 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId10
+2015-07-08 21:33:08 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId5
+2015-07-08 21:33:08 INFO  Option:41 - get() with id:10
+2015-07-08 21:33:08 INFO  Option:41 - get() with id:6
+2015-07-08 21:33:08 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId10
+2015-07-08 21:33:08 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId6
+2015-07-08 21:33:08 INFO  Option:41 - get() with id:10
+2015-07-08 21:33:08 INFO  Option:41 - get() with id:7
+2015-07-08 21:33:08 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId10
+2015-07-08 21:33:08 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId7
+2015-07-08 21:33:08 INFO  Option:41 - get() with id:10
+2015-07-08 21:33:08 INFO  Option:41 - get() with id:8
+2015-07-08 21:33:08 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId10
+2015-07-08 21:33:08 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId8
+2015-07-08 21:33:08 INFO  Option:41 - get() with id:10
+2015-07-08 21:33:08 INFO  Option:41 - get() with id:4
+2015-07-08 21:33:08 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId10
+2015-07-08 21:33:08 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId4
+2015-07-08 21:33:08 INFO  Option:41 - get() with id:10
+2015-07-08 21:33:08 INFO  Option:41 - get() with id:12
+2015-07-08 21:33:08 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId10
+2015-07-08 21:33:08 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId12
+2015-07-08 21:33:08 INFO  Option:41 - get() with id:10
+2015-07-08 21:33:08 INFO  Option:41 - get() with id:3
+2015-07-08 21:33:08 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId10
+2015-07-08 21:33:08 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId3
+2015-07-08 21:33:08 INFO  Option:41 - get() with id:10
+2015-07-08 21:33:08 INFO  Option:41 - get() with id:10
+2015-07-08 21:33:08 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId10
+2015-07-08 21:33:08 INFO  OptionServiceImpl$OptionServiceUtil:95 - getting AllDependentOptionTree for optionId10

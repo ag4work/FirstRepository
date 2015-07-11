@@ -3,6 +3,9 @@ package service;
 import DAO.OptionDAO;
 import DAO.OptionDAOImpl;
 import entity.Option;
+import exceptions.CycleInOptionsDependencyException;
+import exceptions.InconsistentOptionDependency;
+import exceptions.OptionInconsistencyImpossibleException;
 import org.apache.log4j.Logger;
 import service.DTO.OptionDTO;
 import utils.EntityManagerFactorySingleton;
@@ -17,7 +20,7 @@ import java.util.Set;
 public class OptionServiceImpl implements OptionService {
 
     OptionDAO optionDAO = new OptionDAOImpl(EntityManagerFactorySingleton.getInstance());
-
+    Logger logger = Logger.getLogger(OptionServiceImpl.class);
     @Override
     public OptionDTO getOptionById(Integer optionId) {
         if (optionId==null) return null;
@@ -75,12 +78,166 @@ public class OptionServiceImpl implements OptionService {
         return true;
     }
 
+    @Override
+    public void delete(Integer optionId) {
+        optionDAO.delete(optionId);
+    }
+
+    @Override
+    public void removeDependency(Integer baseOptionId, Integer dependentOptionId) {
+        Option baseOption = optionDAO.get(baseOptionId);
+        Option dependentOption = optionDAO.get(dependentOptionId);
+        baseOption.getDependentOption().remove(dependentOption);
+        optionDAO.update(baseOption);
+    }
+
+    @Override
+    public void addInconsistency(Integer optionId1, Integer optionId2) throws OptionInconsistencyImpossibleException {
+        logger.info("addInconsistency, opt Ids:" + optionId1+" "+optionId2);
+        if (isInconsistencyPossible(optionId1,optionId2)){
+            Option option1 = optionDAO.get(optionId1);
+            Option option2 = optionDAO.get(optionId2);
+            option1.getInconsistentOption().add(option2);
+            option2.getInconsistentOption().add(option1);
+            optionDAO.update(option1);
+            optionDAO.update(option2);
+        }
+        else
+        {
+            logger.warn("Inconsistency can't be set due to existing dependency in trees");
+            throw new OptionInconsistencyImpossibleException();
+        }
+    }
+
+    @Override
+    public void removeInconsistency(Integer optionId1, Integer optionId2) {
+        Option option1 = optionDAO.get(optionId1);
+        Option option2 = optionDAO.get(optionId2);
+        option1.getInconsistentOption().remove(option2);
+        option2.getInconsistentOption().remove(option1);
+        optionDAO.update(option1);
+        optionDAO.update(option2);
+    }
+
+    /**
+     * Adding an option as dependent to another, base option
+     * @param baseOptId
+     * @param dependentOptId
+     * @return
+     */
+    @Override
+    public void addDependency(Integer baseOptId, Integer dependentOptId) throws InconsistentOptionDependency, CycleInOptionsDependencyException {
+        logger.info("addDependency, opt Ids:" + baseOptId+" "+dependentOptId);
+        if (!isAddingDependencyCouseACycle(baseOptId, dependentOptId)) {
+            if (optionDependencySetChecked(baseOptId,
+                    dependentOptId)) {
+                Option baseOption = optionDAO.get(baseOptId);
+                Option dependentOption = optionDAO.get(dependentOptId);
+                baseOption.getDependentOption().add(dependentOption);
+                optionDAO.update(baseOption);
+            }
+            else
+            {
+                logger.warn("dependency can't be set due to inconsistency in trees");
+                throw new InconsistentOptionDependency();
+            }
+        }
+        else
+        {
+            logger.warn("dependency can't be set due to it will cause a cycle");
+            throw new CycleInOptionsDependencyException();
+        }
+        logger.info("addDependency added successfully");
+    }
+
+    /**
+     * the method check for possibility to make two options inconsistent
+     * All you need for that is to check that there is no option
+     * that depends from option1 and option2 at the same time.
+     * In other words we get all depdendent option tree by first option
+     * as well as second option. Then we check that those two sets (or tree)
+     * don't intersect (e.g. they don't have common options)
+     * @param option1Id
+     * @param option2Id
+     * @return
+     */
+    public boolean isInconsistencyPossible(Integer option1Id, Integer option2Id){
+        Option option1 = optionDAO.get(option1Id);
+        Option option2 = optionDAO.get(option2Id);
+        Set<Option> opt1DependencyTree = OptionServiceUtil.
+                getAllDependentOptionTree(option1);
+        Set<Option> opt2DependencyTree = OptionServiceUtil.
+                getAllDependentOptionTree( option2);
+
+        for (Option opt1: opt1DependencyTree)
+            if (opt2DependencyTree.contains(opt1))
+                return false;
+        return true;
+    }
+
+    /**
+     * Check for possible cycles after  dependency
+     * Base idea of the check is to get all dependent options for
+     * given dependentOptId. And if that tree contains baseOptId
+     * there will be a cycle.
+     * This method is first of two checks before adding dependency
+     * between two options
+     * @param baseOptId
+     * @param dependentOptId
+     * @return
+     */
+    private boolean isAddingDependencyCouseACycle(Integer baseOptId, Integer dependentOptId){
+        OptionDTO baseOption = getOptionById(baseOptId);
+        Set<OptionDTO> dependentOptionsTreeForDependentOption =
+                getDependentOptionTree(dependentOptId);
+        return (dependentOptionsTreeForDependentOption.contains(baseOption));
+    }
+
+    /**
+     * Second and last method before adding two options dependency.
+     * Adding a dependency we need to union three trees.
+     * 1. required options for given base option - Set A
+     * 2. required options for given dependent option  - Set B
+     * 3. dependent options(yes!) for given dependent(yes!) option Set B'
+     * Then we need to check that each option from A is not inconsistent
+     * with each option from union B and B'
+     * @param baseOptId
+     * @param dependentOptId
+     * @return
+     */
+    private boolean optionDependencySetChecked(
+            Integer baseOptId, Integer dependentOptId){
+        Option baseOption = optionDAO.get(baseOptId);
+        Option dependentOption = optionDAO.get(dependentOptId);
+        Set<Option> baseReqTree = OptionServiceUtil.
+                getAllRequiredOptionTree(baseOption);
+        Set<Option> depOptAndDepTree = OptionServiceUtil.
+                getAllDependentOptionTree(dependentOption);
+        Set<Option> depOptAndReqTree = OptionServiceUtil.
+                getAllRequiredOptionTree(dependentOption);
+        Set<Option> unionOfTreesOfDependentOption = depOptAndDepTree;
+        unionOfTreesOfDependentOption.addAll(depOptAndReqTree);
+
+        for (Option opt1: baseReqTree)
+            for(Option opt2: unionOfTreesOfDependentOption)
+                if (opt1.getInconsistentOption().contains(opt2))
+                    return false;
+        return true;
+    }
+
+
+
     private final static class OptionServiceUtil{
         static Logger logger = Logger.getLogger(OptionServiceUtil.class);
 
         private static Set<Option> allDependentOptionTree;
         private static Set<Option> allRequiredOptionTree;
 
+        /**
+         * this method fills list above with all dependent options
+         * for given option
+         * @param option
+         */
         private static void addDependentOptions(Option option){
             if (option==null) return;
             if (allDependentOptionTree.contains(option)){
@@ -125,6 +282,7 @@ public class OptionServiceImpl implements OptionService {
                 addRequiredOptions(requiredOption);
             }
         }
+
         public static Set<Option> getAllRequiredOptionTree(Option option){
             logger.info("getting AllRequiredOptionTree for optionId" +
                     option.getOptionId());
@@ -132,6 +290,7 @@ public class OptionServiceImpl implements OptionService {
             addRequiredOptions(option);
             return allRequiredOptionTree;
         }
+
     }
 
 
