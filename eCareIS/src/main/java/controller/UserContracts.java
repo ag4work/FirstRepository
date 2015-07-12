@@ -22,14 +22,15 @@ import java.util.Set;
 @WebServlet(name = "UserContracts", urlPatterns = "/showUserContracts.sec")
 public class UserContracts extends HttpServlet {
     Logger logger = Logger.getLogger(UserContracts.class);
+    ContractService contractService = ContractServiceImpl.getInstance();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=utf-8");
         //ContractService contractService = new ContractServiceImpl();
         Integer userId = Integer.parseInt(request.getParameter("userId"));
-        UserService userService = new UserServiceGenericBasedImpl();
+        UserService userService = UserServiceGenericBasedImpl.getInstance();
         UserDTO userDTO = userService.getUserById(userId);
-        ContractService contractService = new ContractServiceImpl();
+
         Set<ContractDTO> contractDTOs = contractService.getContractsByUserId(userId);
         request.setAttribute("contractSet", contractDTOs);
         request.setAttribute("user", userDTO);

@@ -12,7 +12,7 @@ import java.util.Set;
  */
 public class OptionDependentTreeFindTest {
     public static void main(String[] args) {
-        OptionService optionService = new OptionServiceImpl();
+        OptionService optionService = OptionServiceImpl.getInstance();
 //        System.out.println(optionService.getDependentOptionTree(6));
 //        System.out.println(optionService.getDependentOptionTree(6).size());
         // System.out.println(optionService.getRequiredOptionTree(3));

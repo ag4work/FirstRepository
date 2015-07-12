@@ -24,7 +24,7 @@ import java.util.Set;
 public class TariffShowAll extends javax.servlet.http.HttpServlet {
 
     Logger logger = Logger.getLogger(TariffShowAll.class);
-    TariffService tariffService = new TariffServiceImpl();
+    TariffService tariffService = TariffServiceImpl.getInstance();
 
     protected void doGet(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
         response.setContentType("text/html;charset=utf-8");

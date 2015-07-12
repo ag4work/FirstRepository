@@ -25,8 +25,8 @@ import java.util.Set;
 @WebServlet(name = "TariffDelete", urlPatterns = "/deleteTariff.sec")
 public class TariffDelete extends HttpServlet {
     Logger logger = Logger.getLogger(TariffShowAll.class);
-    TariffService tariffService = new TariffServiceImpl();
-    ContractService contractService = new ContractServiceImpl();
+    TariffService tariffService = TariffServiceImpl.getInstance();
+    ContractService contractService = ContractServiceImpl.getInstance();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=utf-8");

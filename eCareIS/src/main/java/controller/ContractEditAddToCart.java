@@ -18,9 +18,9 @@ import java.io.IOException;
  */
 @WebServlet(name = "ContractEditAddToCart", urlPatterns = "/ContractEditAddToCart.sec")
 public class ContractEditAddToCart extends HttpServlet {
-    ContractService contractService = new ContractServiceImpl();
-    OptionService optionService = new OptionServiceImpl();
-    TariffService tariffService = new TariffServiceImpl();
+    ContractService contractService = ContractServiceImpl.getInstance();
+    OptionService optionService = OptionServiceImpl.getInstance();
+    TariffService tariffService = TariffServiceImpl.getInstance();
     CartService cartService = new CartService();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -20,10 +20,13 @@ import java.io.IOException;
  */
 @WebServlet(name = "ContractAddNew.sec", urlPatterns = "/addContract.sec")
 public class ContractAddNewsec extends HttpServlet {
+
+    ContractService contractService = ContractServiceImpl.getInstance();
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=utf-8");
         ContractDTO contractDTO = new ContractDTO();
-        UserService userService = new UserServiceGenericBasedImpl();
+        UserService userService = UserServiceGenericBasedImpl.getInstance();
 
         Integer userId = Integer.parseInt(request.getParameter("userId"));
         UserDTO  userDTO = userService.getUserById(userId);
@@ -34,7 +37,7 @@ public class ContractAddNewsec extends HttpServlet {
         Long phoneNum = Long.parseLong(request.getParameter("phoneNumber"));
         contractDTO.setPhoneNumber(phoneNum);
 
-        ContractService contractService = new ContractServiceImpl();
+
         contractService.add(contractDTO);
         response.sendRedirect("users.sec");
 

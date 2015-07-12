@@ -17,7 +17,7 @@ import java.io.IOException;
  */
 @WebServlet(name = "ContractEditPayForCart", urlPatterns = "/contractEditPayForCart.sec")
 public class ContractEditPayForCart extends HttpServlet {
-    ContractService contractService = new ContractServiceImpl();
+    ContractService contractService = ContractServiceImpl.getInstance();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=utf-8");

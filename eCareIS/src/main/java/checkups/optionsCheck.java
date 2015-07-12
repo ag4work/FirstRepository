@@ -14,7 +14,7 @@ import utils.EntityManagerFactorySingleton;
 public class optionsCheck {
     public static void main(String[] args) {
 //        OptionDAOTest();
-        OptionService optionService = new OptionServiceImpl();
+        OptionService optionService = OptionServiceImpl.getInstance();
         OptionDTO optionDTO = optionService.getOptionById(4);
         System.out.println(optionDTO.getDependentOption());
 

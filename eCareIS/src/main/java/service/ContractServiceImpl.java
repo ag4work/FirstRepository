@@ -27,7 +27,19 @@ public class ContractServiceImpl implements ContractService{
     TariffDAO tariffDAO = new TariffDAOImpl(EntityManagerFactorySingleton.getInstance());
     UserDAO userDAO = new UserDAOImpl(EntityManagerFactorySingleton.getInstance());
     OptionDAO optionDAO = new OptionDAOImpl(EntityManagerFactorySingleton.getInstance());
-    OptionService optionService = new OptionServiceImpl();
+    OptionService optionService = OptionServiceImpl.getInstance();
+
+
+    private ContractServiceImpl() {
+    }
+
+    private static class LazyHolder{
+        public static final ContractServiceImpl INSTANCE = new ContractServiceImpl();
+    }
+
+    public static ContractServiceImpl getInstance(){
+        return LazyHolder.INSTANCE;
+    }
 
     @Override
     public ContractDTO getContract(Integer id) {

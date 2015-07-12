@@ -20,7 +20,7 @@ import java.util.Set;
 public class OptionShowAll extends HttpServlet {
 
     Logger logger = Logger.getLogger(TariffShowAll.class);
-    OptionService optionService = new OptionServiceImpl();
+    OptionService optionService = OptionServiceImpl.getInstance();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request, response);

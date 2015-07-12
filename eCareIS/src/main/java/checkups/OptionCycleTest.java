@@ -15,7 +15,7 @@ import java.util.Set;
  */
 public class OptionCycleTest {
     public static void main(String[] args) {
-        OptionServiceImpl optionService = new OptionServiceImpl();
+        OptionServiceImpl optionService = OptionServiceImpl.getInstance();
     //    System.out.println(optionService.isAddingDependencyCouseACycle(19, 22));
 
         Set<OptionDTO> optionDTOSet = optionService.getAllOptions();

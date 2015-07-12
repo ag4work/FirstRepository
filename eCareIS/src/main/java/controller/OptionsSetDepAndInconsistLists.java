@@ -17,7 +17,7 @@ import java.util.Set;
  */
 @WebServlet(name = "OptionsSetDepAndInconsistLists", urlPatterns = "/OptionsSetDepAndInconsistLists.sec")
 public class OptionsSetDepAndInconsistLists extends HttpServlet {
-    OptionService optionService = new OptionServiceImpl();
+    OptionService optionService = OptionServiceImpl.getInstance();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=utf-8");

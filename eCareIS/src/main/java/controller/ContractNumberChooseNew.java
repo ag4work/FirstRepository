@@ -22,8 +22,8 @@ import java.util.List;
 @WebServlet(name = "PhonenumberChooseNew", urlPatterns = "/phonenumber_choosenew.sec")
 public class ContractNumberChooseNew extends HttpServlet {
 
-    UserService userService = new UserServiceGenericBasedImpl();
-    ContractService contractService = new ContractServiceImpl();
+    UserService userService = UserServiceGenericBasedImpl.getInstance();
+    ContractService contractService = ContractServiceImpl.getInstance();
     Logger logger = Logger.getLogger(ContractNumberChooseNew.class);
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

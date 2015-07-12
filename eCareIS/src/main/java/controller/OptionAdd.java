@@ -18,7 +18,7 @@ import java.io.IOException;
 @WebServlet(name = "OptionAdd", urlPatterns = "/addOption.sec")
 public class OptionAdd extends HttpServlet {
     Logger logger = Logger.getLogger(UserAdd.class);
-    OptionService optionService = new OptionServiceImpl();
+    OptionService optionService = OptionServiceImpl.getInstance();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf8");

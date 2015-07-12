@@ -20,7 +20,7 @@ import java.io.IOException;
  */
 @WebServlet(name = "ClientContractDashboard.sec", urlPatterns = "/clientContractDashboard.sec")
 public class ClientContractDashboard extends HttpServlet {
-    ContractService contractService = new ContractServiceImpl();
+    ContractService contractService = ContractServiceImpl.getInstance();
     Logger logger = Logger.getLogger(ClientContractDashboard.class);
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

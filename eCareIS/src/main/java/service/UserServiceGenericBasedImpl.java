@@ -20,6 +20,19 @@ public class UserServiceGenericBasedImpl implements UserService{
 
     UserDAO userDAO = new UserDAOImpl(EntityManagerFactorySingleton.getInstance());
 
+    private UserServiceGenericBasedImpl() {
+    }
+
+    private static class LazyHolder{
+        public static final UserServiceGenericBasedImpl INSTANCE = new UserServiceGenericBasedImpl();
+    }
+
+    public static UserServiceGenericBasedImpl getInstance(){
+        return LazyHolder.INSTANCE;
+    }
+
+
+
     public UserDTO getUserById(Integer userId){
         return UserMapper.EntityToDTOWithSet(userDAO.get(userId));
     }

@@ -22,8 +22,8 @@ import java.util.Set;
  */
 @WebServlet(name = "ContractEdit", urlPatterns = "/contractEdit.sec")
 public class ContractEdit extends HttpServlet {
-    ContractService contractService = new ContractServiceImpl();
-    OptionService optionService = new OptionServiceImpl();
+    ContractService contractService = ContractServiceImpl.getInstance();
+    OptionService optionService = OptionServiceImpl.getInstance();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=utf-8");
@@ -41,7 +41,7 @@ public class ContractEdit extends HttpServlet {
             //TODO redirect to error page
         }
 
-        TariffService tariffService = new TariffServiceImpl();
+        TariffService tariffService = TariffServiceImpl.getInstance();
         List<TariffDTO> tariffDTOs = new ArrayList<TariffDTO>(tariffService.getAllTariffs());
 
         if (tariffDTOs.size()==0){

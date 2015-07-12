@@ -20,7 +20,7 @@ public class UserShowAll extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=utf-8");
-        UserService userService = new UserServiceGenericBasedImpl();
+        UserService userService = UserServiceGenericBasedImpl.getInstance();
         List<UserDTO> userDTOList = userService.getAllUsers();
         request.setAttribute("userList", userDTOList);
         request.getRequestDispatcher("/WEB-INF/pages/users.jsp").forward(request,response);

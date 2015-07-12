@@ -25,7 +25,7 @@ import java.util.List;
 public class LoginServlet extends HttpServlet {
 
     final String loginPageURL = "/login.jsp";
-    ContractService contractService = new ContractServiceImpl();
+    ContractService contractService = ContractServiceImpl.getInstance();
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -41,7 +41,7 @@ public class LoginServlet extends HttpServlet {
             String password = request.getParameter("password");
             String email = request.getParameter("email");
             //todo make validation
-            UserService userService = new UserServiceGenericBasedImpl();
+            UserService userService = UserServiceGenericBasedImpl.getInstance();
             UserDTO userDTO = userService.userWithEmailAndPasswordExists(email,password);
             if (userDTO!=null && userDTO.getRole()== Constants.ADMIN){
                 HttpSession session = request.getSession();

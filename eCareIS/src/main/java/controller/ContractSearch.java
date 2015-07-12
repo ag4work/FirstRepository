@@ -19,7 +19,7 @@ import java.util.Set;
  */
 @WebServlet(name = "ContractSearch", urlPatterns = "/ContractSearch.sec")
 public class ContractSearch extends HttpServlet {
-    ContractService contractService = new ContractServiceImpl();
+    ContractService contractService = ContractServiceImpl.getInstance();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Long phoneNumber = Long.parseLong(request.getParameter("phoneNumber"));

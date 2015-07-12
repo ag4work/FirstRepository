@@ -76,7 +76,7 @@ public class UserAdd extends HttpServlet {
             return;
         } else {
             try {
-                UserService userService = new UserServiceGenericBasedImpl();
+                UserService userService = UserServiceGenericBasedImpl.getInstance();
                 userService.addUser(userDTO);
                 request.setAttribute("successText", "Пользователь успешно добавлен");
             }

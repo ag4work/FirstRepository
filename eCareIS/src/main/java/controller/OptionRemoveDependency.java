@@ -16,7 +16,7 @@ import java.io.IOException;
  */
 @WebServlet(name = "OptionRemoveDependency", urlPatterns = "/deleteOptionDependency.sec")
 public class OptionRemoveDependency extends HttpServlet {
-    OptionService optionService = new OptionServiceImpl();
+    OptionService optionService = OptionServiceImpl.getInstance();
     Logger logger = Logger.getLogger(OptionDelete.class);
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

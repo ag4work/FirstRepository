@@ -22,8 +22,21 @@ public class TariffServiceImpl implements TariffService{
     TariffDAO tariffDAO = new TariffDAOImpl(EntityManagerFactorySingleton.getInstance());
     OptionDAO optionDAO = new OptionDAOImpl(EntityManagerFactorySingleton.getInstance());
     ContractDAO contractDAO = new ContractDAOImpl(EntityManagerFactorySingleton.getInstance());
-    OptionService optionService = new OptionServiceImpl();
+    OptionService optionService = OptionServiceImpl.getInstance();
     Logger logger = Logger.getLogger(TariffServiceImpl.class);
+
+    private TariffServiceImpl() {
+    }
+
+    private static class LazyHolder{
+        public static final TariffServiceImpl INSTANCE = new TariffServiceImpl();
+    }
+
+    public static TariffServiceImpl getInstance(){
+        return LazyHolder.INSTANCE;
+    }
+
+
 
     @Override
     public TariffDTO getTariffById(Integer tariffId) {

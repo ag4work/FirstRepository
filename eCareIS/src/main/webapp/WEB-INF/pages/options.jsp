@@ -68,6 +68,9 @@
           <th> Название опции </th>
           <th> Ежемесячная плата </th>
           <th> Стоимость подключения </th>
+          <th> Требуемые опции</th>
+          <th> Зависимые опции</th>
+          <th> Несовместимые опции</th>
           <th> Удаление опции </th>
           <th> Выбрать зависимые и несовместимые опции </th>
         </tr>
@@ -88,6 +91,25 @@
             <td>
                 ${option.activationCharge}
             </td>
+
+            <td>
+              <c:forEach  var="reqQption" items="${option.requiredOption}">
+                ${reqQption.title} <br>
+              </c:forEach>
+            </td>
+
+            <td>
+              <c:forEach  var="depQption" items="${option.dependentOption}">
+                ${depQption.title} <br>
+              </c:forEach>
+            </td>
+
+            <td>
+              <c:forEach  var="inconsistentOption" items="${option.inconsistentOption}">
+                ${inconsistentOption.title} <br>
+              </c:forEach>
+            </td>
+
 
             <td>
               <form class="formButton" action="optionDelete.sec" method="post">

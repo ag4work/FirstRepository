@@ -20,7 +20,7 @@ import java.util.Set;
  * Created by Alexey on 05.07.2015.
  */
 public class PossOptionAddToTariffTest {
-    static  TariffService tariffService = new TariffServiceImpl();
+    static  TariffService tariffService = TariffServiceImpl.getInstance();
 
     public static void main(String[] args) {
         Integer tariffId = 1;

@@ -16,7 +16,7 @@ import java.io.IOException;
  */
 @WebServlet(name = "clientContractDashboardBlockUnblock",urlPatterns = "/clientContractDashboardBlockUnblock.sec")
 public class clientContractDashboardBlockUnblock extends HttpServlet {
-    ContractService contractService = new ContractServiceImpl();
+    ContractService contractService = ContractServiceImpl.getInstance();
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=utf-8");
         Integer contractId = Integer.parseInt(request.getParameter("contractId"));

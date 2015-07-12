@@ -12,7 +12,7 @@ import utils.EntityManagerFactorySingleton;
 public class UserFind {
     public static void main(String[] args) {
 
-        UserService userService = new UserServiceGenericBasedImpl();
+        UserService userService = UserServiceGenericBasedImpl.getInstance();
         UserDTO userDTO = userService.findUserByEmail("iv@iv.com");
 //        System.out.println(userDTO.getContracts().size());
         if (userDTO!=null){

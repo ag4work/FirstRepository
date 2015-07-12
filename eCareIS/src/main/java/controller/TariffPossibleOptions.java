@@ -23,8 +23,8 @@ import java.util.Set;
 @WebServlet(name = "TariffPossibleOptions", urlPatterns = "/TariffPossibleOptions.sec")
 public class TariffPossibleOptions extends HttpServlet {
     Logger logger = Logger.getLogger(TariffShowAll.class);
-    OptionService optionService = new OptionServiceImpl();
-    TariffService tariffService = new TariffServiceImpl();
+    OptionService optionService = OptionServiceImpl.getInstance();
+    TariffService tariffService = TariffServiceImpl.getInstance();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=utf-8");

@@ -20,7 +20,7 @@ import java.io.IOException;
 public class TariffAdd extends HttpServlet {
     Logger logger = Logger.getLogger(TariffAdd.class);
 
-    TariffService tariffService = new TariffServiceImpl();
+    TariffService tariffService = TariffServiceImpl.getInstance();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         logger.info("TariffAdd started working");

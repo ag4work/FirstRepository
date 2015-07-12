@@ -1,6 +1,5 @@
 package service;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import exceptions.CycleInOptionsDependencyException;
 import exceptions.InconsistentOptionDependency;
 import exceptions.OptionInconsistencyImpossibleException;
@@ -11,21 +10,57 @@ import java.util.Set;
  * Created by Alexey on 04.07.2015.
  */
 public interface OptionService {
+    /**
+     * return options by id.
+     * @param optionId optionId
+     * @return
+     */
+    OptionDTO getOptionById(Integer optionId);
 
-    public OptionDTO getOptionById(Integer optionId);
-    public Set<OptionDTO> getAllOptions();
-    public void addOption(OptionDTO optionDTO);
-    public Set<OptionDTO> getDependentOptionTree(Integer optionId);
-    public Set<OptionDTO> getRequiredOptionTree(Integer optionId);
-    public boolean isOptionsConsistentIncludingAllRequired(Integer optionId1,
+    /**
+     * returns all available options.
+     * @return set of options
+     */
+    Set<OptionDTO> getAllOptions();
+
+    /**
+     * add new option
+     * @param optionDTO optionDTO
+     */
+    void addOption(OptionDTO optionDTO);
+
+    /**
+     * returns the set of options which all dependent of
+     * given option. one by second, second by third and so on.
+     * @param optionId optionId
+     * @return set of options
+     */
+    Set<OptionDTO> getDependentOptionTree(Integer optionId);
+
+    /**
+     * The same as previos bu return set of  all required option
+     * Actually it is a tree of linked options
+     * @param optionId
+     * @return set of options
+     */
+    Set<OptionDTO> getRequiredOptionTree(Integer optionId);
+
+    /**
+     * check for two options Consistent Including their Required
+     * trees of options
+     * @param optionId1 optionId1
+     * @param optionId2 optionId2
+     * @return bool
+     */
+    boolean isOptionsConsistentIncludingAllRequired(Integer optionId1,
                                                            Integer optionId2);
-    public boolean isOptionIncludingAllRequiredConsistentWithSet(
+    boolean isOptionIncludingAllRequiredConsistentWithSet(
             Integer optionId, Set<OptionDTO> options);
-    public void delete(Integer optionId);
-    public void addDependency(Integer baseOptId, Integer dependentOptId) throws
+    void delete(Integer optionId);
+    void addDependency(Integer baseOptId, Integer dependentOptId) throws
             InconsistentOptionDependency, CycleInOptionsDependencyException;
-    public void removeDependency(Integer baseOptionId, Integer dependentOptionId);
-    public void addInconsistency(Integer optionId1, Integer optionId2) throws OptionInconsistencyImpossibleException;
-    public void removeInconsistency(Integer optionId1, Integer optionId2);
+    void removeDependency(Integer baseOptionId, Integer dependentOptionId);
+    void addInconsistency(Integer optionId1, Integer optionId2) throws OptionInconsistencyImpossibleException;
+    void removeInconsistency(Integer optionId1, Integer optionId2);
 
 }

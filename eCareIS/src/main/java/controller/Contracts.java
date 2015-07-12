@@ -17,7 +17,7 @@ import java.util.Set;
  */
 @WebServlet(name = "Contracts", urlPatterns = "/contracts.sec")
 public class Contracts extends HttpServlet {
-    ContractService contractService = new ContractServiceImpl();
+    ContractService contractService = ContractServiceImpl.getInstance();
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=utf-8");

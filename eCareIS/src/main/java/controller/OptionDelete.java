@@ -17,7 +17,7 @@ import java.io.IOException;
 @WebServlet(name = "OptionDelete", urlPatterns = "/optionDelete.sec")
 public class OptionDelete extends HttpServlet {
     Logger logger = Logger.getLogger(OptionDelete.class);
-    OptionService optionService = new OptionServiceImpl();
+    OptionService optionService = OptionServiceImpl.getInstance();
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf8");
         try {

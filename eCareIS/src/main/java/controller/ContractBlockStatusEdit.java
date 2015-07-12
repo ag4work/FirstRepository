@@ -15,7 +15,7 @@ import java.io.IOException;
  */
 @WebServlet(name = "contractBlockStatusEdit", urlPatterns = "/contractBlockStatusEdit.sec")
 public class ContractBlockStatusEdit extends HttpServlet {
-    ContractService contractService = new ContractServiceImpl();
+    ContractService contractService = ContractServiceImpl.getInstance();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=utf-8");
