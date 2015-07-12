@@ -20,6 +20,7 @@ public class OptionDelete extends HttpServlet {
     OptionService optionService = OptionServiceImpl.getInstance();
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf8");
+
         try {
             Integer optionId = Integer.parseInt(request.getParameter("optionId"));
             logger.info("try to delete option: "+optionId);
