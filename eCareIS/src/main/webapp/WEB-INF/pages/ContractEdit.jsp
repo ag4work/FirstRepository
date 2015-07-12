@@ -17,9 +17,10 @@
 
 
 <body>
+<%-- 0  means that is --%>
+  <%@ include file="headermenu.jsp" %>
 
 
-<%@ include file="headermenu.jsp" %>
 <%--<div class="container-fluid">--%>
 <%--<div class="row">--%>
 <%--<div class="col-md-5 main" style="position:relative; ">--%>

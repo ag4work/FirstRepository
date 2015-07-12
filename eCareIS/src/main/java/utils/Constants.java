@@ -13,7 +13,9 @@ public class Constants {
     public static final String SESSION_USER_INFO_STR = "sessionUserInfo";
     public static final String[] URLS_ALLOWED_FOR_CLIENT = {"contractEdit.sec",
             "ContractEditAddToCart.sec","contractEditPayForCart.sec",
-            "ContractEditRemoveOption.sec","clientContractDashboard.sec"};
-    public static final String[] URLS_ALLOWED_FOR_BLOCKED_BY_STUFF_CLIENT =
-            {"contractEdit.sec","clientContractDashboard.sec"};
+            "ContractEditRemoveOption.sec","clientContractDashboard.sec",
+            "clientContractDashboardBlockUnblock.sec"};
+    public static final String[] URLS_ALLOWED_FOR_BLOCKED_CLIENT =
+            {"contractEdit.sec","clientContractDashboard.sec","clientContractDashboardBlockUnblock.sec"};
+
 }

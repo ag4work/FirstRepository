@@ -1,6 +1,7 @@
 package service;
 
 import entity.Contract;
+import exceptions.BlockedByStaffException;
 import service.DTO.ContractDTO;
 import service.DTO.OptionDTO;
 
@@ -18,6 +19,8 @@ public interface ContractService {
     public Set<Long> getFreeNumberSet(int setSize);
     public void blockByStaff(Integer contractId);
     public void unblockByStaff(Integer contractId);
+    public void blockByClient(Integer contractId);
+    public void unblockByClient(Integer contractId) throws BlockedByStaffException;
     public ContractDTO getContractByPhonenumber(Long phonenumber);
     public Set<ContractDTO> getContractsByTariff(Integer tariffId);
     public void applyCart(Cart cart, Integer contractId);

@@ -86,7 +86,7 @@ public class AuthorisationFilter implements Filter {
                             logger.info("Session and request contractId are the same");
                         }
                         ContractDTO contractDTO = contractService.getContract(sessContractId);
-                        if (!contractDTO.getBlockedByStaff()){
+                        if (!contractDTO.getBlocked()){
                                logger.info("Client is not blocked and was passed");
                                chain.doFilter(req, resp);
                         }
@@ -94,13 +94,13 @@ public class AuthorisationFilter implements Filter {
                         {
                             logger.warn("Client is blocked by staff");
                             if (isUrlAllowedForBlocked(uri)){
-                                logger.info("Client Passed! Url is allowed for blocked by staff client");
+                                logger.info("Client Passed! Url is allowed for blocked client");
                                 chain.doFilter(req, resp);
                             }
                             else {
-                                logger.warn("Url is not allowed for blocked by staff client. Access denied.");
+                                logger.warn("Url is not allowed for blocked client. Access denied.");
 //                                response.sendRedirect("accdenied.jsp");
-                                request.setAttribute("errorText","Ваш контракт заблокирован оператором. Запрашиваемая операция недоступна.");
+                                request.setAttribute("errorText","Ваш контракт заблокирован. Запрашиваемая операция недоступна.");
                                 request.getRequestDispatcher("accdenied.jsp").forward(request, response);
 
                             }
@@ -128,7 +128,7 @@ public class AuthorisationFilter implements Filter {
     }
 
     public static  boolean isUrlAllowedForBlocked(String url){
-        for (String allowedString : Constants.URLS_ALLOWED_FOR_BLOCKED_BY_STUFF_CLIENT){
+        for (String allowedString : Constants.URLS_ALLOWED_FOR_BLOCKED_CLIENT){
             if (url.contains(allowedString)) return true;
         }
         return false;

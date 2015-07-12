@@ -17,7 +17,7 @@
 
 
 <body>
-
+<%@ include file="headermenu.jsp" %>
 
 <%--<%@ include file="headermenu.jsp" %>--%>
 <%--<div class="container-fluid">--%>
@@ -27,11 +27,7 @@
 <%--</div>--%>
 <%--</div>--%>
 <%--</div>--%>
-<div align="right">
-  <form  method="get" action="logout">
-    <button type="submit" class="btn btn-default">Logout</button>
-  </form>
-</div>
+
 
 <div class="container-fluid">
   <div class="row">
@@ -39,19 +35,53 @@
     <div class="col-md-4 main" style="position:relative; ">
       <div>
         <h3> Информация о контракте клиента:</h3>
+        <div>
+          <h3> Контракт:</h3>
+          <h4>${contract.userDTO.name} ${contract.userDTO.lastname} <br></h4>
+          <h4> Номер телефона: ${contract.phoneNumber} <br> </h4>
+          <h4> Баланс: ${contract.balance} руб. <br> </h4>
+          <c:if test="${contract.blocked == true}">
+
+            <c:if test="${contract.blockedByStaff== true}">
+              Заблокирован сотрудником компании.
+              Вы не можете снять блокировку.
+            </c:if>
+
+            <c:if test="${contract.blockedByStaff== false}">
+              Заблокирован клиентом
+              <form class="formButton" action="clientContractDashboardBlockUnblock.sec" method="post">
+                <input type="hidden" name="contractId" value="${contract.contractId}"/>
+                <input type="hidden" name="command" value="unblock"/>
+                <input type="submit" class="btn btn-link btn-xs" value="Разблокировать"/>
+              </form>
+            </c:if>
+
+          </c:if>
+
+          <c:if test="${contract.blocked == false}">
+            Online
+            <form class="formButton" action="clientContractDashboardBlockUnblock.sec" method="post">
+              <input type="hidden" name="contractId" value="${contract.contractId}"/>
+              <input type="hidden" name="command" value="block"/>
+              <input type="submit" class="btn btn-link btn-xs" value="Блокировать"/>
+            </form>
+          </c:if>
+
+        </div>
+
         <form class="formButton" action="contractEdit.sec" method="post">
           <input type="hidden" name="contractId" value="${contract.contractId}"/>
           <input type="submit" class="btn btn-link btn-xs" value="Редактировать контракт"/>
         </form>
 
-      <%--<h4>${contract.userDTO.name} ${contract.userDTO.lastname} <br></h4>--%>
+        <%--<h4>${contract.userDTO.name} ${contract.userDTO.lastname} <br></h4>--%>
         <%--<h4> Номер телефона: ${contract.phoneNumber} <br> </h4>--%>
         <%--<h4> Баланс: ${contract.balance} руб. <br> </h4>--%>
         <%--<h4> Тариф: "${contract.tariffDTO.title}" <br> </h4>--%>
 
         <%--<form class="formButton" action="contractEdit.sec" method="post">--%>
-          <%--<input type="hidden" name="contractId" value="${contract.contractId}"/>--%>
-          <%--<input type="submit" class="btn btn-link btn-xs" value="Редактировать контракт"/>--%>
+        <%--<input type="hidden" name="contractId" value="${contract.contractId}"/>--%>
+        <%--<input type="submit" class="btn btn-link btn-xs" value="Редактировать контракт"/>--%>
         <%--</form>--%>
 
       </div>

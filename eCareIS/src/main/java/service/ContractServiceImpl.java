@@ -6,6 +6,7 @@ import entity.Contract;
 import entity.Option;
 import entity.Tariff;
 import entity.User;
+import exceptions.BlockedByStaffException;
 import service.DTO.ContractDTO;
 import service.DTO.OptionDTO;
 import utils.Constants;
@@ -83,6 +84,23 @@ public class ContractServiceImpl implements ContractService{
         Contract contract = contractDAO.get(contractId);
         contract.setBlocked(false);
         contract.setBlockedByStaff(false);
+        contractDAO.update(contract);
+    }
+
+    @Override
+    public void blockByClient(Integer contractId){
+        Contract contract = contractDAO.get(contractId);
+        contract.setBlocked(true);
+        contractDAO.update(contract);
+    }
+
+    @Override
+    public void unblockByClient(Integer contractId) throws BlockedByStaffException {
+        Contract contract = contractDAO.get(contractId);
+        if (contract.getBlockedByStaff()){
+            throw new BlockedByStaffException();
+        }
+        contract.setBlocked(false);
         contractDAO.update(contract);
     }
 
