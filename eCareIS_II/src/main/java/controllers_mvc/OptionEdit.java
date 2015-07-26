@@ -12,6 +12,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import service.DTO.OptionDTO;
 import service.OptionService;
 
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.Set;
 
 @Controller
@@ -23,16 +27,31 @@ public class OptionEdit {
     Logger logger = Logger.getLogger(OptionList.class);
 
     @RequestMapping(value = "{optionId}", method = RequestMethod.GET)
-    public String removeOption(@PathVariable("optionId") Integer optionId, Model model) {
-        OptionDTO currentOption = optionService.getOptionById(optionId);
-        Set<OptionDTO> dependentOptions = currentOption.getDependentOption();
-        Set<OptionDTO> inconsistentOptions = currentOption.getInconsistentOption();
-        Set<OptionDTO> allOtherOptions = optionService.getAllOptions();
-        allOtherOptions.removeAll(dependentOptions);
-        allOtherOptions.remove(currentOption);
-        allOtherOptions.removeAll(inconsistentOptions);
-        model.addAttribute("currentOption", currentOption);
-        model.addAttribute("allOtherOptions", allOtherOptions);
-        return "optionEdit";
+    public String optionEdit(@PathVariable("optionId") Integer optionId,
+                               Model model,RedirectAttributes redirectAttributes ) {
+
+        OptionDTO currentOption;
+        try{
+            currentOption = optionService.getOptionById(optionId);
+
+            Set<OptionDTO> dependentOptions = currentOption.getDependentOption();
+            Set<OptionDTO> inconsistentOptions = currentOption.getInconsistentOption();
+            Set<OptionDTO> allOtherOptions = optionService.getAllOptions();
+            allOtherOptions.removeAll(dependentOptions);
+            allOtherOptions.remove(currentOption);
+            allOtherOptions.removeAll(inconsistentOptions);
+            model.addAttribute("currentOption", currentOption);
+            model.addAttribute("allOtherOptions", allOtherOptions);
+            return "optionEdit";
+
+        } catch (Exception e) {
+            logger.warn("something went wrong while trying to delete option id:" + optionId );
+            logger.warn(e);
+            redirectAttributes.addFlashAttribute("errorText", "Скорее всего запрашиваемой опции не существует.");
+            return "redirect:/options";
+
+        }
+
     }
+
 }

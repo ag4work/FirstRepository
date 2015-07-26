@@ -21,6 +21,7 @@
 
 
 <%@ include file="headermenu.jsp" %>
+<%@ include file="message.jsp" %>
 
 <div class="container-fluid">
     <div class="row">
@@ -81,11 +82,15 @@
 
                         <td>
                             <c:if test="${fn:length(user.contracts) gt 0}">
-                                <form class="formButton" action="showUserContracts.sec" method="post">
-                                    <input type="hidden" name="userId" value="${user.userId}"/>
-                                    <input type="hidden" name="command" value="showUserContracts"/>
-                                    <input type="submit" class="btn btn-link btn-xs" value="${fn:length(user.contracts)}"/>
-                                </form>
+                                <a class="btn btn-info btn-xs"
+                                   href="${pageContext.request.contextPath}/users/${user.userId}/contracts/">
+                                        ${fn:length(user.contracts)}
+
+                                <%--<form class="formButton" action="showUserContracts.sec" method="post">--%>
+                                    <%--<input type="hidden" name="userId" value="${user.userId}"/>--%>
+                                    <%--<input type="hidden" name="command" value="showUserContracts"/>--%>
+                                    <%--<input type="submit" class="btn btn-link btn-xs" value="${fn:length(user.contracts)}"/>--%>
+                                <%--</form>--%>
                             </c:if>
 
                         </td>

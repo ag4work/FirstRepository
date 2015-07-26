@@ -35,8 +35,6 @@ public class UserContracts extends HttpServlet {
         request.setAttribute("contractSet", contractDTOs);
         request.setAttribute("user", userDTO);
         request.getRequestDispatcher("WEB-INF/pages/clientContracts.jsp").forward(request,response);
-
-
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
