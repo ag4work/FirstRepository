@@ -83,7 +83,7 @@
                         <td>
                             <c:if test="${fn:length(user.contracts) gt 0}">
                                 <a class="btn btn-info btn-xs"
-                                   href="${pageContext.request.contextPath}/users/${user.userId}/contracts/">
+                                   href="${pageContext.request.contextPath}/app/users/${user.userId}/contracts/">
                                         ${fn:length(user.contracts)}
 
                                 <%--<form class="formButton" action="showUserContracts.sec" method="post">--%>

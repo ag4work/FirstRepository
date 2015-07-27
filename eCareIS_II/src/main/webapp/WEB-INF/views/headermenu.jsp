@@ -8,7 +8,7 @@
 <%@ page language="java" contentType="text/html; charset=utf8"  pageEncoding="utf8"%>
 
 <div align="right">
-  <form  method="get" action="logout">
+  <form  method="get" action="${pageContext.request.contextPath}/logout">
     <button type="submit" class="btn btn-default">logout</button>
   </form>
 

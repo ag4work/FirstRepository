@@ -22,7 +22,7 @@ import java.util.Set;
  */
 
 @Controller
-@RequestMapping("/users")
+@RequestMapping("/app/users")
 public class UserController {
     Logger logger = Logger.getLogger(UserController.class);
     @Autowired
@@ -51,11 +51,11 @@ public class UserController {
             logger.warn("EntityNotFoundException, userid:" + userId );
             logger.warn(e);
             redirectAttributes.addFlashAttribute("errorText", "Пользователь с таким идентификатором не существует.");
-            return "redirect:/users";
+            return "redirect:/app/users";
         } catch (Exception e) {
             redirectAttributes.addFlashAttribute("errorText", "При просмотре контрактов пользователя что-то пошло не так :(");
             logger.warn(e);
-            return "redirect:/users";
+            return "redirect:/app/users";
         }
 
     }
