@@ -31,7 +31,7 @@
     <div class="col-md-5 main" style="position:relative; ">
       <H3> Создать новую опцию:</H3>
 
-      <sf:form role="form" method="post" modelAttribute="newOption" action="${pageContext.request.contextPath}/options/add">
+      <sf:form role="form" method="post" modelAttribute="newOption" action="${pageContext.request.contextPath}/app/options/add">
         <%--<sf:errors path="*" cssClass="bg-danger" element="p"/>--%>
         <div class="form-group">
           <sf:label path="title">Название опции:</sf:label>
@@ -120,7 +120,7 @@
 
             <td>
               <a class="btn btn-danger btn-xs"
-                 href="${pageContext.request.contextPath}/options/remove/${option.optionId}">
+                 href="${pageContext.request.contextPath}/app/options/remove/${option.optionId}">
                 Удалить
               </a>
 
@@ -132,16 +132,16 @@
             </td>
 
             <td>
-              <a class="btn btn-info btn-xs"
-                 href="${pageContext.request.contextPath}/options/edit/${option.optionId}">
-                Завис./несовм.
-              </a>
+              <%--<a class="btn btn-info btn-xs"--%>
+                 <%--href="${pageContext.request.contextPath}/app/options/edit/${option.optionId}">--%>
+                <%--Завис./несовм.--%>
+              <%--</a>--%>
 
-            <%--<form class="formButton" action="OptionsSetDepAndInconsistLists.sec" method="post">--%>
-                <%--<input type="hidden" name="optionId" value="${option.optionId}"/>--%>
+            <form class="formButton" action="${pageContext.request.contextPath}/app/options/edit/" method="post">
+                <input type="hidden" name="optionId" value="${option.optionId}"/>
                 <%--<input type="hidden" name="command" value="setDepAndInconsistOptions"/>--%>
-                <%--<input type="submit" class="btn btn-link btn-xs" value="Завис./несовм."/>--%>
-              <%--</form>--%>
+                <input type="submit" class="btn btn-info btn-xs" value="Завис./несовм."/>
+              </form>
             </td>
 
 

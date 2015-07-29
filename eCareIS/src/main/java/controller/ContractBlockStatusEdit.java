@@ -17,7 +17,9 @@ import java.io.IOException;
 public class ContractBlockStatusEdit extends HttpServlet {
     ContractService contractService = ContractServiceImpl.getInstance();
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
         response.setContentType("text/html;charset=utf-8");
         Integer contractId = Integer.parseInt(request.getParameter("contractId"));
         String command = request.getParameter("command");

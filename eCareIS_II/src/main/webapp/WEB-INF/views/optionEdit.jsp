@@ -90,12 +90,12 @@
               </td>
 
               <td>
-                <form class="formButton" action="optionAddDependency.sec" method="post">
+                <form class="formButton" action="${pageContext.request.contextPath}/app/options/edit/optionAddDependency" method="post">
                   <input type="hidden" name="optionId" value="${currentOption.optionId}"/>
                   <input type="hidden" name="dependentOptionId" value="${option.optionId}"/>
                   <input type="submit" class="btn btn-link btn-xs" value="К зависимым"/>
                 </form>
-                <form class="formButton" action="optionAddInconsistency.sec" method="post">
+                <form class="formButton" action="${pageContext.request.contextPath}/app/options/edit/optionAddInconsistency" method="post">
                   <input type="hidden" name="optionId" value="${currentOption.optionId}"/>
                   <input type="hidden" name="inconsistentOptionId" value="${option.optionId}"/>
                   <input type="submit" class="btn btn-link btn-xs" value="К несовместимым"/>
@@ -138,7 +138,7 @@
                 </td>
 
                 <td>
-                  <form class="formButton" action="deleteOptionDependency.sec" method="post">
+                  <form class="formButton" action="${pageContext.request.contextPath}/app/options/edit/deleteOptionDependency" method="post">
                     <input type="hidden" name="optionId" value="${currentOption.optionId}"/>
                     <input type="hidden" name="dependentOptionId" value="${option.optionId}"/>
                     <input type="submit" class="btn btn-link btn-xs" value="Убрать"/>
@@ -181,7 +181,7 @@
                 </td>
 
                 <td>
-                  <form class="formButton" action="removeInconsistentOption.sec" method="post">
+                  <form class="formButton" action="${pageContext.request.contextPath}/app/options/edit/removeInconsistentOption" method="post">
                     <input type="hidden" name="optionId" value="${currentOption.optionId}"/>
                     <input type="hidden" name="inconsistentOptionId" value="${option.optionId}"/>
                     <input type="submit" class="btn btn-link btn-xs" value="Убрать"/>

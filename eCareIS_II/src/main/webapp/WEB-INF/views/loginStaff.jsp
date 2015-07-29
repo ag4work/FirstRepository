@@ -47,7 +47,7 @@
     <div class="col-md-4 col-md-offset-4">
       <div class="editing-form">
         <ul class="nav nav-tabs">
-          <li class="active"><a data-toggle="tab" href="#home">Вход для клиентов</a></li>
+          <li class="active"><a data-toggle="tab" href="#home">Вход для сотрудников</a></li>
         </ul>
 
         <br>

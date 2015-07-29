@@ -27,23 +27,23 @@
           <!--<li class="active"><a href="#">Users</a></li>-->
           <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Users <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="users.sec">All users</a></li>
+              <li><a href="${pageContext.request.contextPath}/app/users">All users</a></li>
               <li><a href="addUser.sec">Register new user</a></li>
             </ul>
           </li>
           <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Contracts <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="contracts.sec">All contracts</a></li>
+              <li><a href="${pageContext.request.contextPath}/app/contracts">All contracts</a></li>
             </ul>
           </li>
           <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Tariffs <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="allTariffs.sec">All tariffs</a></li>
+              <li><a href="${pageContext.request.contextPath}/app/tariffs">All tariffs</a></li>
             </ul>
           </li>
           <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Options <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="allOptions.sec">All options</a></li>
+              <li><a href="${pageContext.request.contextPath}/app/options">All options</a></li>
             </ul>
           </li>
 

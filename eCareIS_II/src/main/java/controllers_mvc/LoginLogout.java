@@ -34,7 +34,7 @@ public class LoginLogout {
     @Autowired
     ContractService contractService;
 
-    Logger logger = Logger.getLogger(OptionList.class);
+    Logger logger = Logger.getLogger(LoginLogout.class);
 
     @RequestMapping(value = "/loginClient", method = RequestMethod.GET)
     public String loginClient(Model model) {

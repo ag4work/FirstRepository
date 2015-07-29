@@ -39,14 +39,14 @@ public class UserController {
     }
 
     @RequestMapping(value = "{userId}/contracts", method = RequestMethod.GET)
-    public String optionEdit(@PathVariable("userId") Integer userId,
+    public String userContracts(@PathVariable("userId") Integer userId,
                              Model model, RedirectAttributes redirectAttributes ) {
         try {
             UserDTO userDTO = userService.getUserById(userId);
             Set<ContractDTO> contractDTOs = contractService.getContractsByUserId(userId);
             model.addAttribute("contractSet", contractDTOs);
             model.addAttribute("user", userDTO);
-            return "contracts";
+            return "clientContracts";
         } catch (EntityNotFoundException e) {
             logger.warn("EntityNotFoundException, userid:" + userId );
             logger.warn(e);

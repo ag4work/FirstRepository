@@ -75,7 +75,7 @@
               </td>
 
               <td>
-                <form class="formButton" action="ContractEditRemoveOption.sec" method="post">
+                <form class="formButton" action="${pageContext.request.contextPath}/app/RemoveOptionFromContract" method="post">
                   <input type="hidden" name="optionId" value="${option.optionId}"/>
                   <input type="hidden" name="contractId" value="${contract.contractId}"/>
                   <input type="hidden" name="tariffId" value="${tariffs.get(0).tariffId}"/>
@@ -110,7 +110,7 @@
           <h4> Всего к оплате: ${cart.getTotalPayment() } руб. </h4>
 
           <div>
-            <form role="form" method="post" action="contractEditPayForCart.sec">
+            <form role="form" method="post" action="${pageContext.request.contextPath}/app/PayForCart">
               <div class="control-buttons">
                 <button type="submit" class="btn btn-primary">Оплатить</button>
               </div>
@@ -141,7 +141,7 @@
       <div>
         <h3>Выберете тариф:</h3>
 
-        <form name=frmTest action="${pageContext.request.contextPath}/app/contract/edit" method=POST>
+        <form name=frmTest action="${pageContext.request.contextPath}/app/contractEdit" method=POST>
           <label for="sel1">Выберите тариф из списка:</label>
           <select class="form-control" name="tariffId" id="sel1" onChange="frmTest.submit();">
             <c:forEach var="tariff" items="${tariffs}">
@@ -200,12 +200,12 @@
               </td>
 
               <td>
-                <form class="formButton" action="ContractEditAddToCart.sec" method="post">
+                <form class="formButton" action="${pageContext.request.contextPath}/app/addTariffAndOptionToCart" method="post">
                   <input type="hidden" name="tariffId" value="${tariffs.get(0).tariffId}"/>
                   <input type="hidden" name="optionId" value="${option.optionId}"/>
                   <input type="hidden" name="contractId" value="${contract.contractId}"/>
                   <input type="hidden" name="command" value="remove"/>
-                  <input type="submit" class="btn btn-link btn-xs" value="В корзину"/>
+                  <input type="submit" class="btn btn-info btn-xs" value="В корзину"/>
                 </form>
               </td>
 

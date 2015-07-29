@@ -125,6 +125,7 @@ public final class OptionServiceImpl implements OptionService {
         optionDAO.delete(optionId);
     }
 
+    @Transactional
     @Override
     public void removeDependency(final Integer baseOptionId,
                                  final Integer dependentOptionId) {
@@ -133,7 +134,7 @@ public final class OptionServiceImpl implements OptionService {
         baseOption.getDependentOption().remove(dependentOption);
         optionDAO.update(baseOption);
     }
-
+    @Transactional
     @Override
     public void addInconsistency(final Integer optionId1,
                                  final Integer optionId2)
@@ -152,7 +153,7 @@ public final class OptionServiceImpl implements OptionService {
             throw new OptionInconsistencyImpossibleException();
         }
     }
-
+    @Transactional
     @Override
     public void removeInconsistency(final Integer optionId1,
                                     final Integer optionId2) {
@@ -170,6 +171,7 @@ public final class OptionServiceImpl implements OptionService {
      * @param dependentOptId dependent Option Id
      * @return bool
      */
+    @Transactional
     @Override
     public void addDependency(final Integer baseOptId, final Integer
             dependentOptId) throws InconsistentOptionDependency,
@@ -206,6 +208,7 @@ public final class OptionServiceImpl implements OptionService {
      * @param option2Id option2Id
      * @return bool
      */
+    @Transactional
     public boolean isInconsistencyPossible(final Integer option1Id,
                                            final Integer option2Id) {
         Option option1 = optionDAO.get(option1Id);
@@ -234,6 +237,7 @@ public final class OptionServiceImpl implements OptionService {
      * @param dependentOptId dependentOptionId
      * @return bool
      */
+    @Transactional
     private boolean isAddingDependencyCouseACycle(final Integer baseOptId,
                                                   final Integer
                                                           dependentOptId) {
@@ -255,6 +259,7 @@ public final class OptionServiceImpl implements OptionService {
      * @param dependentOptId dependentOptionId
      * @return bool
      */
+    @Transactional
     private boolean optionDependencySetChecked(
             final Integer baseOptId, final Integer dependentOptId) {
         Option baseOption = optionDAO.get(baseOptId);

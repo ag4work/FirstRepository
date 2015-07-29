@@ -9,6 +9,7 @@ import entity.User;
 import exceptions.BlockedByStaffException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import service.DTO.ContractDTO;
 import service.DTO.OptionDTO;
 import utils.Constants;
@@ -42,16 +43,6 @@ public class ContractServiceImpl implements ContractService{
     OptionService optionService;
 
 
-//    private ContractServiceImpl() {
-//    }
-//
-//    private static class LazyHolder{
-//        public static final ContractServiceImpl INSTANCE = new ContractServiceImpl();
-//    }
-//
-//    public static ContractServiceImpl getInstance(){
-//        return LazyHolder.INSTANCE;
-//    }
 
     @Override
     public ContractDTO getContract(Integer id) {
@@ -65,9 +56,8 @@ public class ContractServiceImpl implements ContractService{
     }
 
     @Override
+    @Transactional
     public void add(ContractDTO contractDto) {
-        //contractDto
-
        Contract contract = ContractMapper.DTOToEntity(contractDto);
        contract.setBlockedByStaff(false);
        contract.setBlocked(false);
@@ -96,6 +86,7 @@ public class ContractServiceImpl implements ContractService{
     }
 
     @Override
+    @Transactional
     public void blockByStaff(Integer contractId) {
         Contract contract = contractDAO.get(contractId);
         contract.setBlocked(true);
@@ -104,6 +95,7 @@ public class ContractServiceImpl implements ContractService{
     }
 
     @Override
+    @Transactional
     public void unblockByStaff(Integer contractId) {
         Contract contract = contractDAO.get(contractId);
         contract.setBlocked(false);
@@ -112,6 +104,7 @@ public class ContractServiceImpl implements ContractService{
     }
 
     @Override
+    @Transactional
     public void blockByClient(Integer contractId){
         Contract contract = contractDAO.get(contractId);
         contract.setBlocked(true);
@@ -119,6 +112,7 @@ public class ContractServiceImpl implements ContractService{
     }
 
     @Override
+    @Transactional
     public void unblockByClient(Integer contractId) throws BlockedByStaffException {
         Contract contract = contractDAO.get(contractId);
         if (contract.getBlockedByStaff()){
@@ -149,6 +143,7 @@ public class ContractServiceImpl implements ContractService{
     }
 
     @Override
+    @Transactional
     public void applyCart(Cart cart, Integer contractId) {
         if (cart==null || contractId==null) return;
         Contract contract = contractDAO.get(contractId);
@@ -163,6 +158,7 @@ public class ContractServiceImpl implements ContractService{
     }
 
     @Override
+    @Transactional
     public void removeOptionWithAllDependent(Integer optionId, Integer contractId) {
         Set<OptionDTO> allDepOptions = optionService.getDependentOptionTree(optionId);
         Set<Option> optionsToDelete = new HashSet<Option>();

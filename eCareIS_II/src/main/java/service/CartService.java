@@ -1,11 +1,10 @@
 package service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import service.DTO.OptionDTO;
 
-/**
- * Created by Alexey on 08.07.2015.
- */
+@Service
 public class CartService {
     @Autowired
     OptionService optionService;

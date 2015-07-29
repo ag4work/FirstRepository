@@ -5,7 +5,7 @@
 
     <display-name>eCare</display-name>
     <welcome-file-list>
-        <welcome-file>login.jsp</welcome-file>
+        <welcome-file>new.jsp</welcome-file>
     </welcome-file-list>
 
     <context-param>

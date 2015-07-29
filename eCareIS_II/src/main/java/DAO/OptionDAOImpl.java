@@ -48,43 +48,17 @@ public class OptionDAOImpl implements OptionDAO  {
 
     @Override
     public void delete(final Serializable id) {
-        logger.info("delete() with id:" + id);
-//        EntityTransaction transaction = null;
-//        try {
-            Option entity = em.find(Option.class, id);
-//            if (entity == null) {
-//                throw new EntityNotFoundException("Not found option for ID "
-//                        + id);
-//            }
-            em.remove(entity);
-//        } catch (PersistenceException pex) {
-//            logger.warn(pex);
-//            pex.printStackTrace();
-//        } finally {
-////            em.close();
-//        }
-
+        logger.info("delete option with id:" + id);
+        Option entity = em.find(Option.class, id);
+        em.remove(entity);
     }
 
     @Override
     public Option update(final Option entity) {
-        logger.info("update():" + entity);
-//        EntityManager em = emf.createEntityManager();
+        logger.info("update option: " + entity);
         EntityTransaction transaction = null;
         Option storedEntity = null;
-        try {
-            transaction = em.getTransaction();
-            transaction.begin();
-            storedEntity = em.merge(entity);
-            transaction.commit();
-        } catch (PersistenceException pex) {
-            logger.warn(pex);
-            pex.printStackTrace();
-            if (transaction != null)
-                transaction.rollback();
-        } finally {
-//            em.close();
-        }
+        storedEntity = em.merge(entity);
         return storedEntity;
     }
 

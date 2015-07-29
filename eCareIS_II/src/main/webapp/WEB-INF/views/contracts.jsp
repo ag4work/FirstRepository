@@ -87,25 +87,25 @@
 
                         <td>
                             <c:if test="${contract.blocked==false}">
-                                <form class="formButton" action="contractBlockStatusEdit.sec" method="post">
+                                <form class="formButton" action="${pageContext.request.contextPath}/app/contractBlockStatusEdit" method="post">
                                     <input type="hidden" name="contractId" value="${contract.contractId}"/>
                                     <input type="hidden" name="command" value="block"/>
-                                    <input type="submit" class="btn btn-link btn-xs" value="Блокировать"/>
+                                    <input type="submit" class="btn btn-danger btn-xs" value="Блокировать"/>
 
                                 </form>
                             </c:if>
                             <c:if test="${contract.blocked==true}">
-                                <form class="formButton" action="contractBlockStatusEdit.sec" method="post">
+                                <form class="formButton" action="${pageContext.request.contextPath}/app/contractBlockStatusEdit" method="post">
                                     <input type="hidden" name="contractId" value="${contract.contractId}"/>
                                     <input type="hidden" name="command" value="unblock"/>
-                                    <input type="submit" class="btn btn-link btn-xs" value="Разблокировать"/>
+                                    <input type="submit" class="btn btn-success btn-xs" value="Разблокировать"/>
                                 </form>
 
                             </c:if>
                             <form class="formButton" action="${pageContext.request.contextPath}/app/contractEdit" method="post">
                                 <input type="hidden" name="contractId" value="${contract.contractId}"/>
                                 <input type="hidden" name="tariffId" value="-1"/>
-                                <input type="submit" class="btn btn-link btn-xs" value="Редактировать контракт"/>
+                                <input type="submit" class="btn btn-info btn-xs" value="Редактировать контракт"/>
                             </form>
 
                         </td>

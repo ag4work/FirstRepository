@@ -47,16 +47,13 @@
     <div class="col-md-4 col-md-offset-4">
       <div class="editing-form">
         <ul class="nav nav-tabs">
-          <li class="active"><a data-toggle="tab" href="#home">Вход для сотрудников</a></li>
-          <li><a data-toggle="tab" href="#menu1">Вход для клиентов</a></li>
+          <li class="active"><a data-toggle="tab" href="#home">Вход для клиентов</a></li>
         </ul>
 
         <br>
         <div class="tab-content">
 
           <div id="home" class="tab-pane fade in active">
-
-          <div id="menu1" class="tab-pane fade">
             <sf:form role="form" method="post" action="${pageContext.request.contextPath}/clientLogin" modelAttribute="numberPasswForm">
               <div class="form-group">
                 <sf:label path="phoneNumber" for="phonenumber">Номер телефона:</sf:label>
