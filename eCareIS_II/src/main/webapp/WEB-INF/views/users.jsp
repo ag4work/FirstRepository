@@ -95,7 +95,7 @@
 
                         </td>
                         <td>
-                            <form class="formButton" action="phonenumber_choosenew.sec" method="post">
+                            <form class="formButton" action="${pageContext.request.contextPath}/app/users/newPhoneNumber/Choose" method="post">
                                 <input type="hidden" name="id" value="${user.userId}"/>
                                 <input type="submit" class="btn btn-link btn-xs" value="Добавить номер"/>
                             </form>

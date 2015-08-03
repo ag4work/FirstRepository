@@ -44,8 +44,8 @@ public class UserDTO {
     @Size(min = 3, max = 25, message="Длина пароля должна быть от 3 до 40 букв.")
     private String password;
 
-//    @NotNull(message= "Категория пользователя должна быть задана")
-//    @Size(min = 1, max = 1, message="Категория ползователя: либо 0, либо 1")
+    @NotNull(message= "Категория пользователя должна быть задана")
+    @Size(min = 0, max = 1, message="Категория ползователя: либо 0, либо 1")
     private int role;
 
     private Set<ContractDTO> contracts;

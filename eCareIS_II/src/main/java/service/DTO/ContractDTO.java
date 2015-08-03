@@ -1,10 +1,13 @@
 package service.DTO;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Set;
 
 /**
  * Created by Alexey on 02.07.2015.
  */
+@XmlRootElement(name = "contract")
 public class ContractDTO {
     private Integer contractId;
     private Long phoneNumber;
@@ -17,7 +20,7 @@ public class ContractDTO {
 
     public ContractDTO() {
     }
-
+    @XmlElement
     public Integer getContractId() {
         return contractId;
     }
@@ -25,7 +28,7 @@ public class ContractDTO {
     public void setContractId(Integer contractId) {
         this.contractId = contractId;
     }
-
+    @XmlElement
     public Long getPhoneNumber() {
         return phoneNumber;
     }
@@ -33,7 +36,7 @@ public class ContractDTO {
     public void setPhoneNumber(Long phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
-
+    @XmlElement
     public Boolean getBlocked() {
         return blocked;
     }
@@ -41,7 +44,7 @@ public class ContractDTO {
     public void setBlocked(Boolean blocked) {
         this.blocked = blocked;
     }
-
+    @XmlElement
     public Boolean getBlockedByStaff() {
         return blockedByStaff;
     }
@@ -49,7 +52,7 @@ public class ContractDTO {
     public void setBlockedByStaff(Boolean blockedByStaff) {
         this.blockedByStaff = blockedByStaff;
     }
-
+    @XmlElement
     public Integer getBalance() {
         return balance;
     }

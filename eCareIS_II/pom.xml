@@ -217,6 +217,22 @@
       <!--<scope>test</scope>-->
     <!--</dependency>-->
 
+    <!--<dependency>-->
+      <!--<groupId>org.jboss.spec.javax.ws.rs</groupId>-->
+      <!--<artifactId>jboss-jaxrs-api_2.0_spec</artifactId>-->
+      <!--<version>1.0.0.Final</version>-->
+      <!--<scope>provided</scope>-->
+    <!--</dependency>-->
+
+    <!--&lt;!&ndash; Import the Common Annotations API (JSR-250), we use provided scope-->
+    <!--as the API is included in JBoss EAP &ndash;&gt;-->
+    <!--<dependency>-->
+      <!--<groupId>org.jboss.spec.javax.annotation</groupId>-->
+      <!--<artifactId>jboss-annotations-api_1.2_spec</artifactId>-->
+      <!--<version>1.0.0.Final</version>-->
+      <!--<scope>provided</scope>-->
+    <!--</dependency>-->
+
 
 
   </dependencies>

@@ -3,6 +3,9 @@ package service.DTO;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Collections;
 import java.util.Set;
 
@@ -10,6 +13,7 @@ import java.util.Set;
 /**
  * Created by Alexey on 02.07.2015.
  */
+@XmlRootElement(name = "tariff")
 public class TariffDTO {
 
     private Integer tariffId;
@@ -23,6 +27,7 @@ public class TariffDTO {
     public TariffDTO() {
     }
 
+    @XmlAttribute
     public Integer getTariffId() {
         return tariffId;
     }
@@ -30,7 +35,7 @@ public class TariffDTO {
     public void setTariffId(Integer tariffId) {
         this.tariffId = tariffId;
     }
-
+    @XmlAttribute
     public String getTitle() {
         return title;
     }
@@ -38,7 +43,7 @@ public class TariffDTO {
     public void setTitle(String title) {
         this.title = title;
     }
-
+    @XmlAttribute
     public Integer getPrice() {
         return price;
     }

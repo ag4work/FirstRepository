@@ -7,6 +7,7 @@ import DAO.UserDAOImpl;
 import entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import service.DTO.UserDTO;
 //import utils.EntityManagerFactorySingleton;
 import utils.Mappers.UserMapper;
@@ -23,24 +24,12 @@ public class UserServiceGenericBasedImpl implements UserService{
     @Autowired
     UserDAO userDAO;
 
-//    UserDAO userDAO = new UserDAOImpl(EntityManagerFactorySingleton.getInstance());
-    private UserServiceGenericBasedImpl() {
-    }
-
-//    private static class LazyHolder{
-//        public static final UserServiceGenericBasedImpl INSTANCE = new UserServiceGenericBasedImpl();
-//    }
-//
-//    public static UserServiceGenericBasedImpl getInstance(){
-//        return LazyHolder.INSTANCE;
-//    }
-
-
-
+    @Transactional
     public UserDTO getUserById(Integer userId){
         return UserMapper.EntityToDTOWithSet(userDAO.get(userId));
     }
 
+    @Transactional
     public UserDTO findUserByEmail(String email){
         List<User> allUsers = userDAO.getAll();
         for (User user : allUsers){
@@ -52,6 +41,7 @@ public class UserServiceGenericBasedImpl implements UserService{
     }
 
     @Override
+    @Transactional
     public UserDTO userWithEmailAndPasswordExists(String email, String password) {
         UserDTO userDTO = findUserByEmail(email);
         if (userDTO!=null && userDTO.getPassword().equals(password)){
@@ -62,6 +52,7 @@ public class UserServiceGenericBasedImpl implements UserService{
     }
 
     @Override
+    @Transactional
     public List<UserDTO> getAllUsers() {
         List<UserDTO> userDTOs = new ArrayList<UserDTO>();
         for (User user : userDAO.getAll()){
@@ -71,6 +62,7 @@ public class UserServiceGenericBasedImpl implements UserService{
     }
 
     @Override
+    @Transactional
     public void addUser(UserDTO userDTO) {
         userDAO.add(UserMapper.DTOToEntity(userDTO));
     }

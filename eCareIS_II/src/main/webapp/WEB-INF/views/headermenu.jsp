@@ -28,7 +28,7 @@
           <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Users <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><a href="${pageContext.request.contextPath}/app/users">All users</a></li>
-              <li><a href="addUser.sec">Register new user</a></li>
+              <li><a href="${pageContext.request.contextPath}/app/users/add">Register new user</a></li>
             </ul>
           </li>
           <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Contracts <span class="caret"></span></a>

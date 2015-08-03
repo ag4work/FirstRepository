@@ -15,9 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
- * Created by Alexey on 02.07.2015.
- */
+
 @WebServlet(name = "ContractAddNew.sec", urlPatterns = "/addContract.sec")
 public class ContractAddNewsec extends HttpServlet {
 
