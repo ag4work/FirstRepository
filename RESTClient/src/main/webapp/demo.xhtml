@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+		>
+<h:head>
+	<h:outputStylesheet library="css" name="table-style.css"  />
+</h:head>
+
+<h:body>
+
+	<h1>eCare webservice client </h1>
+	<h:form>
+
+		<br /><br />
+
+		Tariff's list
+		<h:selectOneMenu value="#{user.chosenTariffId}" onchange="submit()"
+						 valueChangeListener="#{user.tariffChangeValue}">
+			<f:selectItems value="#{user.tariffs}" var="d"
+						   itemLabel="#{d.title}" itemValue="#{d.tariffId}" />
+		</h:selectOneMenu>
+
+		<h:form  onclick="this.form.target='_blank'">
+			<h:commandButton value="Download PDF" action="#{user.downloadPDF}" />
+		</h:form>
+
+		<h1>Contracts</h1>
+
+		<h:dataTable value="#{user.tariffContracts}" var="o"
+					 styleClass="order-table"
+					 headerClass="order-table-header"
+					 rowClasses="order-table-odd-row,order-table-even-row"
+				>
+
+			<h:column >
+				<!-- column header -->
+				<f:facet name="header">Номер</f:facet>
+				<!-- row record -->
+				#{o.phoneNumber}
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">ФИО</f:facet>
+				#{o.userDTO.lastname} #{o.userDTO.name}
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Баланс</f:facet>
+				#{o.balance}
+			</h:column>
+
+
+		</h:dataTable>
+
+	</h:form>
+
+</h:body>
+
+</html>
