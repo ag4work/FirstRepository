@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf8" pageEncoding="utf8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf" %>
 
 <!DOCTYPE html>
 
@@ -24,16 +25,17 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-11 main" style="position:relative; ">
-                <form role="form" action="ContractSearch.sec" method="post">
+                <sf:form role="form" action="${pageContext.request.contextPath}/app/contracts/search" modelAttribute="searchNumberForm" method="post">
                     <div class="form-group">
-                        <label for="phoneNumber">Найти контракт:</label>
-                        <input name="phoneNumber" type="text" class="form-control" id="phoneNumber" placeholder="Введите номер (10 цифр)">
+                        <sf:label path="number" for="phoneNumber">Найти контракт:</sf:label>
+                        <sf:input path="number" name="phoneNumber" type="text" class="form-control" id="phoneNumber" placeholder="Введите номер (10 цифр)"/>
+                        <sf:errors path="number" cssClass="errorlabel" />
                     </div>
 
                     <div class="control-buttons">
                         <button type="submit" class="btn btn-primary">Найти</button>
                     </div>
-                </form>
+                </sf:form>
         </div>
     </div>
 </div>
@@ -60,7 +62,7 @@
                 <c:forEach var="contract" items="${contractSet}">
                     <tr>
                         <td>
-                                ${contract.phoneNumber}
+                                +7 (${fn:substring(contract.phoneNumber,0 ,3)}) ${fn:substring(contract.phoneNumber,3 ,6)}-${fn:substring(contract.phoneNumber,6 ,8)}-${fn:substring(contract.phoneNumber,8 ,10)}
                         </td>
 
                         <td>

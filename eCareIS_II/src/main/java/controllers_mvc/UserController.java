@@ -1,5 +1,6 @@
 package controllers_mvc;
 
+import controllers_mvc.validationFormClasses.AddNumberToContractForm;
 import controllers_mvc.validationFormClasses.NewUserForm;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -123,6 +124,7 @@ public class UserController {
         model.addAttribute("phonenumbersList",
                 contractService.getFreeNumberSet(
                         Constants.DEFAULT_QUANTITY_OF_PHONESNUMBERS_FOR_CHOOSE));
+        model.addAttribute("addNumberToContractForm", new AddNumberToContractForm());
         return "phonenumber_choose";
 }
 

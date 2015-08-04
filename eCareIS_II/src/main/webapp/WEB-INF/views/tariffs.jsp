@@ -34,13 +34,13 @@
         <div class="form-group">
           <sf:label path="title" for="title">Название тарифа:</sf:label>
           <sf:input path="title" name="title" type="text" class="form-control" id="title" placeholder="Введите название тарифа"/>
-          <sf:errors path="title" cssClass="error" />
+          <sf:errors path="title" cssClass="errorlabel" />
         </div>
 
         <div class="form-group">
           <sf:label path="price" for="price">Абонентская плата:</sf:label>
           <sf:input path="price" name="price" type="text" class="form-control" id="price" placeholder="Абонентская плата"/>
-          <sf:errors path="price" cssClass="error" />
+          <sf:errors path="price" cssClass="errorlabel" />
         </div>
 
         <div class="control-buttons">

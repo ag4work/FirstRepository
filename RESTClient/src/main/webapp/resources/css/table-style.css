@@ -1,5 +1,6 @@
 .order-table{
     border-collapse:collapse;
+
 }
 
 .order-table-header{
@@ -10,13 +11,34 @@
 }
 
 .order-table-odd-row{
-    text-align:center;
+    /*text-align:left;*/
     background:none repeat scroll 0 0 #FFFFFF;
     border-top:1px solid #BBBBBB;
 }
 
 .order-table-even-row{
-    text-align:center;
+    /*text-align:left;*/
     background:none repeat scroll 0 0 #F9F9F9;
     border-top:1px solid #BBBBBB;
 }
+
+.column1 { width: 180px; padding-left: 20px; }
+.column2 { width: 180px; padding-left: 20px;}
+.column3 { width: 70px; padding-right: 50px; text-align: right}
+body {
+    font-family: Arial;
+    color: #333333
+}
+h1{
+    color: #008cb7;
+    font-family: Helvetica;
+}
+h2 {
+    color: #0067b7;
+
+}
+
+h3 {
+    color: #004787;
+}
+

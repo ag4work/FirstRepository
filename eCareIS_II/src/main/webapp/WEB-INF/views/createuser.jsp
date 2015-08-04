@@ -37,35 +37,35 @@
                 <div class="form-group">
                     <sf:label path="name" for="name">Имя:</sf:label>
                     <sf:input path="name" name="name" type="text" class="form-control" id="name" placeholder="Введите имя"/>
-                    <sf:errors path="name" cssClass="error" />
+                    <sf:errors path="name" cssClass="errorlabel" />
                 </div>
                 <div class="form-group">
                     <sf:label path="lastname" for="lastname">Фамилия:</sf:label>
                     <sf:input path="lastname" name="lastname" type="text" class="form-control" id="lastname" placeholder="Введите фамилию"/>
-                    <sf:errors path="lastname" cssClass="error" />
+                    <sf:errors path="lastname" cssClass="errorlabel" />
                 </div>
                 <div class="form-group">
                     <sf:label path="birthday" for="birthday">Дата рождения:</sf:label>
                     <sf:input path="birthday" name="birthday" type="text" class="form-control" id="birthday" placeholder="DD-MM-YYYY"/>
-                    <sf:errors path="birthday" cssClass="error" />
+                    <sf:errors path="birthday" cssClass="errorlabel" />
                 </div>
 
                 <div class="form-group">
                     <sf:label path="passport" for="passport">Паспортные данные:</sf:label>
                     <sf:input path="passport" name="passport" type="text" class="form-control" id="passport" placeholder="Введите паспортные данные"/>
-                    <sf:errors path="passport" cssClass="error" />
+                    <sf:errors path="passport" cssClass="errorlabel" />
                 </div>
 
                 <div class="form-group">
                     <sf:label path="address" for="address">Адрес:</sf:label>
                     <sf:input path="address" name="address" type="text" class="form-control" id="address" placeholder="Введите адрес"/>
-                    <sf:errors path="address" cssClass="error" />
+                    <sf:errors path="address" cssClass="errorlabel" />
                 </div>
 
                 <div class="form-group">
                     <sf:label path="email" for="email">Email:</sf:label>
                     <sf:input path="email" name="email" type="text" class="form-control" id="email" placeholder="Введите фамилию"/>
-                    <sf:errors path="email" cssClass="error" />
+                    <sf:errors path="email" cssClass="errorlabel" />
                 </div>
 
                 <label for="role">Категория пользователя:</label>
@@ -78,7 +78,7 @@
                 <div class="form-group">
                     <sf:label path="password" for="pwd">Password:</sf:label>
                     <sf:input path="password" name="password" type="password" class="form-control" id="pwd" placeholder="Enter password"/>
-                    <sf:errors path="password" cssClass="error" />
+                    <sf:errors path="password" cssClass="errorlabel" />
                 </div>
 
                 <div class="control-buttons">

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf8" pageEncoding="utf8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <!DOCTYPE html>
 
@@ -36,7 +37,7 @@
       <div>
         <h3> Контракт:</h3>
         <h4>${contract.userDTO.name} ${contract.userDTO.lastname} <br></h4>
-        <h4> Номер телефона: ${contract.phoneNumber} <br> </h4>
+        <h4> Номер телефона: +7 (${fn:substring(contract.phoneNumber,0 ,3)}) ${fn:substring(contract.phoneNumber,3 ,6)}-${fn:substring(contract.phoneNumber,6 ,8)}-${fn:substring(contract.phoneNumber,8 ,10)} <br> </h4>
         <h4> Баланс: ${contract.balance} руб. <br> </h4>
         <h4> Тариф: "${contract.tariffDTO.title}" <br> </h4>
 

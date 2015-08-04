@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf8" pageEncoding="utf8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf" %>
 
 <!DOCTYPE html>
 
@@ -30,25 +32,29 @@
 
         <div class="col-md-3">
             <h3>Выберете номер телефона</h3>
-            <form role="form" action="addContract.sec" method="post">
+            <sf:form role="form" action="${pageContext.request.contextPath}/app/contracts/add" modelAttribute="addNumberToContractForm" method="post">
                 <div class="form-group">
-                    <label for="sel1">Choose phonenumber from the list:</label>
-                    <select class="form-control" name="phoneNumber" id="sel1">
+                    <sf:label path="phoneNumber" for="sel1">Choose phonenumber from the list:</sf:label>
+                    <sf:select path="phoneNumber" class="form-control" name="phoneNumber" id="sel1">
                         <c:forEach var="phonenumber" items="${phonenumbersList}">
-                                    <option value="${phonenumber}">${phonenumber}</option>
+                                    <sf:option value="${phonenumber}">
+                                        +7 (${fn:substring(phonenumber,0 ,3)}) ${fn:substring(phonenumber,3 ,6)}-${fn:substring(phonenumber,6 ,8)}-${fn:substring(phonenumber,8 ,10)}
+                                    </sf:option>
                         </c:forEach>
-                    </select>
+                    </sf:select>
+                    <sf:errors  path="phoneNumber" cssClass="errorlabel" />
                 </div>
                 <div class="form-group">
-                        <label for="initialbalance">Первоначальный взнос на счет:</label>
-                        <input name="initialbalance" type="text" class="form-control" id="initialbalance" placeholder="Введите сумму">
+                        <sf:label path="initialBalance" for="initialbalance">Первоначальный взнос на счет:</sf:label>
+                        <sf:input path="initialBalance" name="initialbalance" type="text" class="form-control" id="initialbalance" placeholder="Введите сумму"/>
+                        <sf:errors path="initialBalance" cssClass="errorlabel" />
                 </div>
                 <input type="hidden" name="userId" value="${user.userId}"/>
 
                 <div class="control-buttons">
                     <button type="submit" class="btn btn-primary">Добавить данные</button>
                 </div>
-            </form>
+            </sf:form>
         </div>
 
         <div class="col-md-3" style="position:relative; ">

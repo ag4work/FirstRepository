@@ -4,19 +4,21 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	  xmlns:h="http://java.sun.com/jsf/html"
 	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:fn="http://java.sun.com/jsp/jstl/functions"
 		>
+
 <h:head>
 	<h:outputStylesheet library="css" name="table-style.css"  />
 </h:head>
 
 <h:body>
-
-	<h1>eCare webservice client </h1>
+	<h:panelGroup >
+	<h1>eCare REST client </h1>
 	<h:form>
 
 		<br /><br />
 
-		Tariff's list
+		<h3>Список тарифов </h3>
 		<h:selectOneMenu value="#{user.chosenTariffId}" onchange="submit()"
 						 valueChangeListener="#{user.tariffChangeValue}">
 			<f:selectItems value="#{user.tariffs}" var="d"
@@ -27,19 +29,20 @@
 			<h:commandButton value="Download PDF" action="#{user.downloadPDF}" />
 		</h:form>
 
-		<h1>Contracts</h1>
+		<h3>Список контрактов на выбранном тарифе</h3>
 
 		<h:dataTable value="#{user.tariffContracts}" var="o"
 					 styleClass="order-table"
 					 headerClass="order-table-header"
 					 rowClasses="order-table-odd-row,order-table-even-row"
+					 columnClasses="column1,column2,column3"
 				>
 
 			<h:column >
 				<!-- column header -->
 				<f:facet name="header">Номер</f:facet>
 				<!-- row record -->
-				#{o.phoneNumber}
+				+7 (${fn:substring(o.phoneNumber,0 ,3)}) ${fn:substring(o.phoneNumber,3 ,6)}-${fn:substring(o.phoneNumber,6 ,8)}-${fn:substring(o.phoneNumber,8 ,10)}
 			</h:column>
 
 			<h:column>
@@ -56,6 +59,8 @@
 		</h:dataTable>
 
 	</h:form>
+
+	</h:panelGroup>
 
 </h:body>
 

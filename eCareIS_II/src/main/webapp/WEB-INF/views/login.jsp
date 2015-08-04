@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css" media="all">
+  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style1.css" media="all">
 </head>
 
 
@@ -60,12 +60,12 @@
               <div class="form-group">
                 <sf:label path="email" for="email">Email:</sf:label>
                 <sf:input path="email" name="email" type="email" class="form-control" id="email" placeholder="Введите e-mail"/>
-                <sf:errors path="email" cssClass="error" />
+                <sf:errors path="email" cssClass="errorlabel" />
               </div>
               <div class="form-group">
                 <sf:label path="pass" for="pwd2">Password:</sf:label>
                 <sf:input path="pass" name="psw2" type="password" class="form-control" id="psw2" placeholder="Введите пароль"/>
-                <sf:errors path="pass" cssClass="error" />
+                <sf:errors path="pass" cssClass="errorlabel" />
               </div>
               <%--<input type="hidden" name="command" value="staffLogin"/>--%>
               <button type="submit" class="btn btn-default" id="dd">Submit</button>
@@ -78,13 +78,13 @@
               <div class="form-group">
                 <sf:label path="phoneNumber" for="phonenumber">Номер телефона:</sf:label>
                 <sf:input path="phoneNumber" name="phonenumber" type="phonenumber" class="form-control" id="phonenumber" placeholder="Введите номер телефона (10 цифр)"/>
-                <sf:errors path="phoneNumber" cssClass="error" />
+                <sf:errors path="phoneNumber" cssClass="errorlabel" />
               </div>
 
               <div class="form-group">
                 <sf:label path="password" for="pwd1">Password:</sf:label>
                 <sf:input path="password" name="pwd1" type="password" class="form-control" id="pwd1" placeholder="Введите пароль"/>
-                <sf:errors path="password" cssClass="error" />
+                <sf:errors path="password" cssClass="errorlabel" />
               </div>
               <%--<input type="hidden" name="command" value="clientLogin"/>--%>
               <button type="submit" class="btn btn-default" id="cc" >Submit</button>

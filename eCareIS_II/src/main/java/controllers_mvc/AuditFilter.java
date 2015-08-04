@@ -71,6 +71,11 @@ public class AuditFilter implements Filter {
                 logger.info("session is not null");
                 SessionUserInfo sessionUserInfo = (SessionUserInfo) session.
                         getAttribute(Constants.SESSION_USER_INFO_STR);
+                if (sessionUserInfo==null){
+                    logger.info("No sessionUserInfo in the session: access denied.");
+                    response.sendRedirect(request.getContextPath()+"/accdenied.jsp");
+                    return;
+                }
                 if (sessionUserInfo.getRole() == Constants.ADMIN) {
                     logger.info("Admin: passed");
                     chain.doFilter(req, resp);
@@ -139,6 +144,7 @@ public class AuditFilter implements Filter {
 
         } catch (Exception e) {
             logger.error("Something went wrong in authorization filter:" + e);
+            e.printStackTrace();
             response.sendRedirect(request.getContextPath()+"/error.jsp");
         }
     }

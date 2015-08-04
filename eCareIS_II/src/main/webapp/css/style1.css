@@ -1,6 +1,9 @@
 label.error {
 	color: red;
 }
+.errorlabel {
+	color: red;
+}
 
 input.error {
 	background-color: #ffcccc;

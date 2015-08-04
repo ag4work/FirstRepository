@@ -9,7 +9,7 @@ import javax.validation.constraints.Size;
  */
 public class NewTariff {
 
-    @Size(min = 1, max = 40, message = "Название тарифа должно состоять из от {1} до {2}  букв")
+    @Size(min = 1, max = 40, message = "Название тарифа должно состоять из от {2} до {1}  букв")
     @NotNull()
     String title;
 

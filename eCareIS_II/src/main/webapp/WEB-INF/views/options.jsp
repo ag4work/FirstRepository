@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css" media="all">
+  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style1.css" media="all">
 
 </head>
 
@@ -36,19 +36,19 @@
         <div class="form-group">
           <sf:label path="title">Название опции:</sf:label>
           <sf:input path="title" type="text" class="form-control"  id="title" placeholder="Введите название опции"/>
-          <sf:errors path="title" cssClass="error" />
+          <sf:errors path="title" cssClass="errorlabel" />
         </div>
 
         <div class="form-group">
           <sf:label path="monthlyCost">Абонентская плата:</sf:label>
           <sf:input path="monthlyCost" type="text" class="form-control"  id="monthlyCost" placeholder="Абонентская плата"/>
-          <sf:errors path="monthlyCost" cssClass="error" />
+          <sf:errors path="monthlyCost" cssClass="errorlabel" />
         </div>
 
         <div class="form-group">
           <sf:label path="activationCharge">Стоимость подключения:</sf:label>
           <sf:input path="activationCharge" type="text" class="form-control" id="activationCharge" placeholder="Стоимость подключения"/>
-          <sf:errors path="activationCharge" cssClass="error" />
+          <sf:errors path="activationCharge" cssClass="errorlabel" />
         </div>
 
         <div class="control-buttons">

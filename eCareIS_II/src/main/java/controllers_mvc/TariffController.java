@@ -27,7 +27,7 @@ public class TariffController {
     TariffService tariffService;
 
     @ModelAttribute("tariffs")
-    public Set<TariffDTO> registerContact() {
+    public Set<TariffDTO> addAllTariffToModel() {
         return tariffService.getAllTariffs();
     }
 

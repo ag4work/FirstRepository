@@ -18,6 +18,19 @@ public class ContractDAOImpl  implements ContractDAO  {
     @Autowired
     private EntityManager em;
 
+    @Override
+    public Contract getContractByPhonenumber(Long number){
+        Contract contract = null;
+        try {
+            Query jpqlQuery = em.createQuery("SELECT c FROM Contract c WHERE c.phoneNumber=:number");
+            jpqlQuery.setParameter("number", number);
+            contract = (Contract) jpqlQuery.getSingleResult();
+            logger.info("Contract with number " + number + "found");
+        } catch (Exception e) {
+            logger.info("Contract with number " + number + "not found");
+        }
+        return contract;
+    }
 
     @Override
     @SuppressWarnings("unchecked")

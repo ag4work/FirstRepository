@@ -72,14 +72,23 @@ public class ContractServiceImpl implements ContractService{
         return ContractMapper.EntitySetToDTOSet(contracts);
     }
 
-    private static Long getFreeNumber(){
-        //TODO: make a check that the number is unique
-        return Constants.DEFAULT_PHONE_CODE*10000000L+(long)(Math.random()*10000000);
+    private Long getFreeNumber(){
+        boolean exist;
+        Long number;
+        do {
+            exist = false;
+            number = Constants.DEFAULT_PHONE_CODE * 10000000L + (long) (Math.random() * 10000000);
+            if (getContractByPhonenumber(number)!=null){
+                exist = true;
+            }
+        } while (exist);
+        return number;
     }
 
     public Set<Long> getFreeNumberSet(int setSize){
         Set<Long> freeNumberSet = new HashSet<Long>();
         for (int i=0; i<setSize;i++){
+
             freeNumberSet.add(getFreeNumber());
         }
         return freeNumberSet;
@@ -124,12 +133,12 @@ public class ContractServiceImpl implements ContractService{
 
     @Override
     public ContractDTO getContractByPhonenumber(Long phonenumber) {
-        Set<Contract> contracts = new HashSet<Contract>(contractDAO.getAll());
-        for (Contract contract : contracts){
-            if (contract.getPhoneNumber().equals(phonenumber))
-                return ContractMapper.EntityToDTOWithSet(contract);
+        Contract contract = contractDAO.getContractByPhonenumber(phonenumber);
+        if (contract!=null) {
+            return ContractMapper.EntityToDTOWithSet(contract);
+        } else {
+            return null;
         }
-        return null;
     }
 
     @Override

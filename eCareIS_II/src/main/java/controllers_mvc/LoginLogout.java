@@ -60,7 +60,7 @@ public class LoginLogout {
 
         UserDTO userDTO = userService.userWithEmailAndPasswordExists(email, password);
         if (userDTO != null && userDTO.getRole() == Constants.ADMIN) {
-            SessionUserInfo sessionUserInfo = new SessionUserInfo(userDTO.getRole(), null);
+            SessionUserInfo sessionUserInfo = new SessionUserInfo(userDTO.getRole(), null, userDTO.getName());
             session.setAttribute(Constants.SESSION_USER_INFO_STR, sessionUserInfo);
             return "redirect:/app/users";
         } else {
@@ -86,8 +86,9 @@ public class LoginLogout {
                 clientContractDTO.getUserDTO().getRole() == Constants.CLIENT) {
             Integer contractId = clientContractDTO.getContractId();
             Integer userRole = clientContractDTO.getUserDTO().getRole();
+            String userName = clientContractDTO.getUserDTO().getName();
             SessionUserInfo sessionUserInfo = new SessionUserInfo(
-                    userRole, contractId);
+                    userRole, contractId, userName );
             session.setAttribute(Constants.SESSION_USER_INFO_STR, sessionUserInfo);
             return "redirect:/app/clientDashboard";
         } else {
@@ -103,6 +104,4 @@ public class LoginLogout {
             session.invalidate();
             return "redirect:/loginStaff";
         }
-
-
 }

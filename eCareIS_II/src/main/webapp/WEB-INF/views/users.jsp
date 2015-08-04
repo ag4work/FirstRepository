@@ -32,15 +32,15 @@
                 <h3> All users</h3>
                 <thead>
                 <tr>
-                    <th> Имя </td>
-                    <th> Фамилия</td>
-                    <th> Дата рождения</td>
-                    <th> Паспортные <br>данные</td>
-                    <th> Адрес</td>
-                    <th> email</td>
-                    <th> пароль</td>
-                    <th> Роль</td>
-                    <th> Кол-во <br> контрактов</td>
+                    <th> Имя </th>
+                    <th> Дата рождения</th>
+                    <th> Паспортные <br>данные</th>
+                    <th> Адрес</th>
+                    <th> email</th>
+                    <th> пароль</th>
+                    <th> Роль</th>
+                    <th> Кол-во <br> контрактов</th>
+                    <th> </th>
                 </tr>
 
                 </thead>
@@ -48,10 +48,7 @@
                 <c:forEach var="user" items="${userList}">
                     <tr>
                         <td>
-                                ${user.name}
-                        </td>
-                        <td>
-                                ${user.lastname}
+                                ${user.lastname} ${user.name}
                         </td>
                         <td>
                                 ${user.birthday}

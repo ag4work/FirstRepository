@@ -46,7 +46,7 @@ public class OptionController {
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String add(@Valid @ModelAttribute("newOption")OptionDTO optionDTO,
                       Errors errors,RedirectAttributes model ) {
-
+        //todo make a special class for validation
         if (errors.hasErrors()) {
             return "options";
         }
