@@ -20,14 +20,14 @@ public class Constants {
             "logout"};
     public static final String[] URLS_ALLOWED_FOR_CLIENT = {
             "contractEdit",
-            "ContractEditAddToCart.sec",
-            "contractEditPayForCart.sec",
-            "ContractEditRemoveOption.sec",
+            "addTariffAndOptionToCart",
+            "RemoveOptionFromContract",
+            "PayForCart",
             "clientDashboard",
-            "clientContractDashboardBlockUnblock.sec"};
+            "clientContractDashboardBlockUnblock"};
     public static final String[] URLS_ALLOWED_FOR_BLOCKED_CLIENT = {
             "contractEdit",
             "clientDashboard",
-            "clientContractDashboardBlockUnblock.sec"};
+            "clientContractDashboardBlockUnblock"};
 
 }

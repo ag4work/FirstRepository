@@ -32,7 +32,7 @@
 
         <div class="col-md-3">
             <h3>Выберете номер телефона</h3>
-            <sf:form role="form" action="${pageContext.request.contextPath}/app/contracts/add" modelAttribute="addNumberToContractForm" method="post">
+            <sf:form role="form" action="${pageContext.request.contextPath}/app/users/newPhoneNumber/add" modelAttribute="addNumberToContractForm" method="post">
                 <div class="form-group">
                     <sf:label path="phoneNumber" for="sel1">Choose phonenumber from the list:</sf:label>
                     <sf:select path="phoneNumber" class="form-control" name="phoneNumber" id="sel1">

@@ -14,6 +14,7 @@ import service.DTO.ContractDTO;
 import service.DTO.UserDTO;
 import service.UserService;
 import utils.Constants;
+import utils.NumberSplitter;
 
 import javax.persistence.EntityNotFoundException;
 import javax.validation.Valid;
@@ -30,6 +31,7 @@ import java.util.Set;
 
 @Controller
 @RequestMapping("/app/users")
+@SessionAttributes({"phonenumbersList","user"})
 public class UserController {
     Logger logger = Logger.getLogger(UserController.class);
     @Autowired
@@ -115,7 +117,7 @@ public class UserController {
 
 
     @RequestMapping(value = "/newPhoneNumber/Choose", method = RequestMethod.POST)
-    public String addNewUser(@RequestParam("id") Integer userId, Model model){
+    public String newPhoneNumberChoose(@RequestParam("id") Integer userId, Model model){
 
         UserDTO userDTO = userService.getUserById(userId);
 
@@ -127,5 +129,45 @@ public class UserController {
         model.addAttribute("addNumberToContractForm", new AddNumberToContractForm());
         return "phonenumber_choose";
 }
+
+    @RequestMapping(value = "/newPhoneNumber/add", method = RequestMethod.POST)
+    public String addContract(@Valid @ModelAttribute("addNumberToContractForm")
+                              AddNumberToContractForm addNumberToContractForm,
+                              Errors errors, Model model,
+                              @RequestParam Integer userId,
+                              RedirectAttributes redirectAttributes) {
+        if (errors.hasErrors()) {
+            return "phonenumber_choose";
+        }
+
+        Long phoneNum = null;
+        try {
+            ContractDTO contractDTO = new ContractDTO();
+            UserDTO userDTO = userService.getUserById(userId);
+            contractDTO.setUserDTO(userDTO);
+
+            Integer balance = Integer.parseInt(addNumberToContractForm.
+                    getInitialBalance());
+            contractDTO.setBalance(balance);
+
+            phoneNum = Long.parseLong(addNumberToContractForm.getPhoneNumber());
+            contractDTO.setPhoneNumber(phoneNum);
+
+            contractService.add(contractDTO);
+            String userFIO = userDTO.getName() + " " + userDTO.getLastname();
+            redirectAttributes.addFlashAttribute("successText",
+                    "Контракт с номером " + NumberSplitter.
+                            getBeautifulNumber(phoneNum.toString())
+                            + " успешно добавлен пользователю \""+ userFIO + "\".");
+        }   catch (Exception e) {
+            logger.error("При добавлении номера" + phoneNum
+                    + "для пользователя с id" + userId + "произошла ошибка: ",e);
+            redirectAttributes.addFlashAttribute("errorText",
+                    "При добавлении номера произошла ошибка.");
+
+        }
+        return "redirect:/app/users";
+    }
+
 
 }
