@@ -1,8 +1,6 @@
-package DAO;
+package dao;
 
 import entity.Contract;
-
-import javax.persistence.Query;
 
 /**
  * Created by Alexey on 01.07.2015.

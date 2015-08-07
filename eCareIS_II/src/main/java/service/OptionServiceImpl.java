@@ -1,6 +1,6 @@
 package service;
 
-import DAO.OptionDAO;
+import dao.OptionDAO;
 import entity.Option;
 import exceptions.CycleInOptionsDependencyException;
 import exceptions.InconsistentOptionDependency;

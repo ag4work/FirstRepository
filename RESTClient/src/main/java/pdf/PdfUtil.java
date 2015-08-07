@@ -19,6 +19,8 @@ import java.util.Set;
  */
 public class PdfUtil {
     private static final int DEFAULT_BUFFER_SIZE = 10240; // 10KB.
+
+    //todo move font to resources
     private static final String FONT_FILE_NAME = "C:/windows/fonts/calibri.ttf";
 
 //    public String getFileName(){

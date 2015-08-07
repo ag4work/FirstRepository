@@ -1,4 +1,4 @@
-package DAO;
+package dao;
 
 import entity.Contract;
 import org.apache.log4j.Logger;

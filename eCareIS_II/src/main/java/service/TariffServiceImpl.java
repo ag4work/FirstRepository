@@ -1,6 +1,6 @@
 package service;
 
-import DAO.*;
+import dao.*;
 import entity.Contract;
 import entity.Option;
 import entity.Tariff;

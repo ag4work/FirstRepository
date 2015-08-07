@@ -2,8 +2,7 @@ package service;
 
 
 
-import DAO.UserDAO;
-import DAO.UserDAOImpl;
+import dao.UserDAO;
 import entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

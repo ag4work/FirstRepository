@@ -9,6 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
+import java.util.List;
 
 /**
  * Created by Alexey on 23.06.2015.
@@ -17,13 +18,16 @@ public class PersistenceBasicTest {
     static EntityManagerFactory emf = Persistence.createEntityManagerFactory("EcarePU");
     static EntityManager em = emf.createEntityManager();
     public static void main(String[] args) {
-
-
-//        System.out.printf("JPQL query students:\n%s\n\n", getContractByPhonenumber(923497548L));
-        System.out.println(getFreeNumber());
+        Query query = em.createQuery("SELECT u FROM User u ORDER BY u.id ASC");
+        query.setFirstResult(3);
+        query.setMaxResults(5);
+        List<User> users = query.getResultList();
+        System.out.println(users);
 
 
     }
+
+
 
     public static Contract getContractByPhonenumber(Long number){
         Contract contract = null;
