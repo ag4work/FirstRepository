@@ -17,20 +17,6 @@ import java.util.Set;
 
 @Service
 public final class OptionServiceImpl implements OptionService {
-//    private OptionServiceImpl() {
-//    }
-
-//    private static class LazyHolder {
-//        /**
-//         * Instance of OptionServiceImpl.
-//         */
-//        public static final OptionServiceImpl INSTANCE = new OptionServiceImpl(
-//        );
-//    }
-
-//    public static OptionServiceImpl getInstance() {
-//        return LazyHolder.INSTANCE;
-//    }
 
     /**
      * OptionDAO instance.
@@ -84,6 +70,7 @@ public final class OptionServiceImpl implements OptionService {
      * @param optionId2 optionId2
      * @return bool
      */
+    @Override
     public boolean isOptionsConsistentIncludingAllRequired(
             final Integer optionId1, final Integer optionId2) {
         Option option1 = optionDAO.get(optionId1);
@@ -109,6 +96,7 @@ public final class OptionServiceImpl implements OptionService {
      * @param options options set
      * @return bool
      */
+    @Override
     public boolean isOptionIncludingAllRequiredConsistentWithSet(
             final Integer optionId, final Set<OptionDTO> options) {
         for (OptionDTO optionDTO: options) {
@@ -237,14 +225,14 @@ public final class OptionServiceImpl implements OptionService {
      * @param dependentOptId dependentOptionId
      * @return bool
      */
-    @Transactional
+    
     private boolean isAddingDependencyCouseACycle(final Integer baseOptId,
                                                   final Integer
                                                           dependentOptId) {
         OptionDTO baseOption = getOptionById(baseOptId);
         Set<OptionDTO> dependentOptionsTreeForDependentOption =
                 getDependentOptionTree(dependentOptId);
-        return (dependentOptionsTreeForDependentOption.contains(baseOption));
+        return dependentOptionsTreeForDependentOption.contains(baseOption);
     }
 
     /**
@@ -259,7 +247,7 @@ public final class OptionServiceImpl implements OptionService {
      * @param dependentOptId dependentOptionId
      * @return bool
      */
-    @Transactional
+
     private boolean optionDependencySetChecked(
             final Integer baseOptId, final Integer dependentOptId) {
         Option baseOption = optionDAO.get(baseOptId);
@@ -302,6 +290,10 @@ public final class OptionServiceImpl implements OptionService {
          * utility variable which stores allRequiredOptionTree.
          */
         private static Set<Option> allRequiredOptionTree;
+
+
+        private OptionServiceUtil() {
+        }
 
         /**
          * this method fills list above with all dependent options
@@ -350,14 +342,12 @@ public final class OptionServiceImpl implements OptionService {
             if (option == null) {
                 return;
             }
-//            logger.info(option.getOptionId());
             if (allRequiredOptionTree.contains(option)) {
                 logger.warn("Cycle on required options. We've come again to "
                         + "option with id:" + option.getOptionId());
                 return;
             }
             allRequiredOptionTree.add(option);
-//            logger.info(allDependentOptionTree);
 
             Set<Option> requiredOptionSet = option.getRequiredOption();
             if (requiredOptionSet == null || requiredOptionSet.isEmpty()) {

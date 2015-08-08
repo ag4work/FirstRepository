@@ -27,7 +27,7 @@ public class ContractDAOImpl  implements ContractDAO  {
             contract = (Contract) jpqlQuery.getSingleResult();
             logger.info("Contract with number " + number + "found");
         } catch (Exception e) {
-            logger.info("Contract with number " + number + "not found");
+            logger.info("Contract with number " + number + "not found", e);
         }
         return contract;
     }
@@ -35,8 +35,6 @@ public class ContractDAOImpl  implements ContractDAO  {
     @Override
     @SuppressWarnings("unchecked")
     public List<Contract> getAll() {
-//        EntityManager em = emf.createEntityManager();
-
         Query query = em.createQuery("SELECT a FROM Contract a");
         List<Contract> entities = query.getResultList();
 
@@ -47,8 +45,6 @@ public class ContractDAOImpl  implements ContractDAO  {
     @Override
     public Contract get(final Serializable id) {
         logger.info("get() with id:" + id);
-//        EntityManager em = emf.createEntityManager();
-
         Contract entity = em.find(Contract.class, id);
         if (entity == null) {
             throw new EntityNotFoundException("Not found Contract for ID "

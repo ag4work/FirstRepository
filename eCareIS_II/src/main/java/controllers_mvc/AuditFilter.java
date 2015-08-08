@@ -5,11 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import service.ContractService;
 import service.DTO.ContractDTO;
-import service.UserService;
 import utils.Constants;
 
 import javax.servlet.*;
-import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -23,17 +21,20 @@ public class AuditFilter implements Filter {
      */
     private String appName;
 
+    private static final String accdeniedJsp = "/accdenied.jsp";
+
     @Autowired
     ContractService contractService;
     /**
      * logger instance
      */
-    private final static Logger logger = Logger.getLogger(
+    private static final Logger logger = Logger.getLogger(
             AuditFilter.class);
 
     /**
      * Filter destroy method.
      */
+    @Override
     public void destroy() {
     }
 
@@ -45,6 +46,7 @@ public class AuditFilter implements Filter {
      * @throws javax.servlet.ServletException ServletException
      * @throws java.io.IOException IOException
      */
+    @Override
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain
             chain) throws ServletException, IOException {
 
@@ -65,7 +67,7 @@ public class AuditFilter implements Filter {
             HttpSession session = request.getSession(false);
             if (session == null) {
                 logger.info("Request denied: no session");
-                response.sendRedirect(request.getContextPath()+"/accdenied.jsp");
+                response.sendRedirect(request.getContextPath() + accdeniedJsp);
                 return;
             } else {
                 logger.info("session is not null");
@@ -73,7 +75,7 @@ public class AuditFilter implements Filter {
                         getAttribute(Constants.SESSION_USER_INFO_STR);
                 if (sessionUserInfo==null){
                     logger.info("No sessionUserInfo in the session: access denied.");
-                    response.sendRedirect(request.getContextPath()+"/accdenied.jsp");
+                    response.sendRedirect(request.getContextPath() + accdeniedJsp);
                     return;
                 }
                 if (sessionUserInfo.getRole() == Constants.ADMIN) {
@@ -85,7 +87,7 @@ public class AuditFilter implements Filter {
                     logger.info("Client");
                     if (!isUrlAllowed(uri)) {
                         logger.info(uri + " is not allowed for the client");
-                        response.sendRedirect(request.getContextPath() + "/accdenied.jsp");//                        response.sendRedirect("accdenied.jsp");
+                        response.sendRedirect(request.getContextPath() + accdeniedJsp);
                         return;
                     } else {
                         logger.info("Requested secure url is allowed");
@@ -96,7 +98,8 @@ public class AuditFilter implements Filter {
                                 + sessContractId);
                         if (sessContractId == null) {
                             logger.error("sessContractId is null");
-                            response.sendRedirect(request.getContextPath()+"/accdenied.jsp");                            return;
+                            response.sendRedirect(request.getContextPath() + accdeniedJsp);
+                            return;
                         }
 
                         String reqContractIdStr = request.
@@ -108,7 +111,8 @@ public class AuditFilter implements Filter {
                             if (!sessContractId.equals(reqContractId)) {
                                 logger.warn("Session and request contractId "
                                         + "are not the same");
-                                response.sendRedirect(request.getContextPath()+"/accdenied.jsp");                                return;
+                                response.sendRedirect(request.getContextPath() + accdeniedJsp);
+                                return;
                             }
                             logger.info("Session and request contractId are"
                                     + " the same");
@@ -127,14 +131,8 @@ public class AuditFilter implements Filter {
                             } else {
                                 logger.warn("Url is not allowed for blocked"
                                         + " client. Access denied.");
-                                response.sendRedirect(request.getContextPath()+"/accdenied.jsp");
+                                response.sendRedirect(request.getContextPath() + accdeniedJsp);
                                     //todo make a special jsp saying that you acc is blocked
-//                                request.setAttribute("errorText", "Ваш "
-//                                        + "контракт заблокирован. "
-//                                        + "Запрашиваемая операция "
-//                                        + "недоступна.");
-//                                request.getRequestDispatcher("accdenied.jsp").
-//                                        forward(request, response);
 
                             }
                         }
@@ -144,7 +142,6 @@ public class AuditFilter implements Filter {
 
         } catch (Exception e) {
             logger.error("Something went wrong in authorization filter:" + e);
-            e.printStackTrace();
             response.sendRedirect(request.getContextPath()+"/error.jsp");
         }
     }
@@ -154,6 +151,7 @@ public class AuditFilter implements Filter {
      * @param config FilterConfig
      * @throws javax.servlet.ServletException ServletException
      */
+    @Override
     public void init(FilterConfig config) throws ServletException {
         appName = config.getInitParameter("appName");
         logger.info("SessionFilter initialization");
@@ -197,25 +195,3 @@ public class AuditFilter implements Filter {
     }
 
 }
-
-/*
-    @Autowired
-    UserService userService;
-    Logger logger = Logger.getLogger(AuditFilter.class);
-
-
-    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-
-        logger.info("Auth filtes on duty!");
-        logger.info("User name "+ userService.getUserById(1).getName());
-        chain.doFilter(request, response);
-    }
-
-    public void init(FilterConfig filterConfig) throws ServletException {
-        appName = filterConfig.getInitParameter("appName");
-    }
-
-    public void destroy() {}
-}
-
-*/

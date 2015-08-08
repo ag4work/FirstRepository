@@ -8,8 +8,8 @@ import service.DTO.TariffDTO;
  */
 public class TariffMapper {
 
-//    private Set<Contract> contractHasThisTariff;
-//    private Set<Option> possibleOption;
+    private TariffMapper() {
+    }
 
     public static Tariff DTOToEntity(TariffDTO tariffDTO){
         if (tariffDTO ==null) return null;

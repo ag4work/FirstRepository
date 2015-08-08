@@ -15,7 +15,6 @@ import java.util.List;
 @Repository
 public class UserDAOImpl implements UserDAO {
 
-    //    private EntityManagerFactory emf;
     Logger logger = Logger.getLogger(UserDAOImpl.class);
 
     @Autowired
@@ -25,8 +24,6 @@ public class UserDAOImpl implements UserDAO {
     @Override
     @SuppressWarnings("unchecked")
     public List<User> getAll() {
-//        EntityManager em = emf.createEntityManager();
-
         Query query = em.createQuery("SELECT a FROM User a");
         List<User> entities = query.getResultList();
 
@@ -44,7 +41,6 @@ public class UserDAOImpl implements UserDAO {
     @Override
     public void delete(final Serializable id) {
         logger.info("delete() with id:" + id);
-        EntityTransaction transaction = null;
         User entity = em.find(User.class, id);
         em.remove(entity);
     }

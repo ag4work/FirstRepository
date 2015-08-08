@@ -106,23 +106,6 @@ public class Contract {
                 '}';
     }
 
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || getClass() != o.getClass()) return false;
-//
-//        Contract contract = (Contract) o;
-//
-//        if (!phoneNumber.equals(contract.phoneNumber)) return false;
-//
-//        return true;
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        return phoneNumber.hashCode();
-//    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

@@ -65,6 +65,7 @@ public class ContractServiceImpl implements ContractService{
        contractDAO.add(contract);
 
     }
+    @Override
     public Set<ContractDTO> getContractsByUserId(Integer userId){
         if (userId==null) return Collections.emptySet();
         User user = userDAO.get(userId);
@@ -84,7 +85,7 @@ public class ContractServiceImpl implements ContractService{
         } while (exist);
         return number;
     }
-
+    @Override
     public Set<Long> getFreeNumberSet(int setSize){
         Set<Long> freeNumberSet = new HashSet<Long>();
         for (int i=0; i<setSize;i++){

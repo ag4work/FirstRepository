@@ -5,9 +5,11 @@ package service.DTO;
 import org.springframework.format.annotation.NumberFormat;
 
 import javax.validation.constraints.*;
+import java.io.Serializable;
 import java.util.Set;
 
-public class OptionDTO {
+public class OptionDTO implements Serializable {
+    private static final long serialVersionUID = 1905134041951251207L;
 
     private Integer optionId;
 

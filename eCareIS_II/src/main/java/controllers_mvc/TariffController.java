@@ -34,15 +34,13 @@ public class TariffController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String showAll(Model model) {
-        Set<TariffDTO> tariffDTOs = tariffService.getAllTariffs();
-//        model.addAttribute("tariffs", tariffDTOs);
         model.addAttribute("newTariff", new NewTariff());
         return "tariffs";
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String addTariff(@Valid @ModelAttribute("newTariff")
-                                NewTariff newTariff,  Errors errors, Model model,
+                                NewTariff newTariff,  Errors errors,
                             RedirectAttributes redirectAttributes) {
         if (errors.hasErrors()) {
             return "tariffs";
@@ -56,7 +54,7 @@ public class TariffController {
             redirectAttributes.addFlashAttribute("successText", "Тариф \""+ tariffDTO.getTitle()+ "\" успешно добавлен.");
         }
         catch (Exception e) {
-            logger.error("something went wrong while trying to add the tariff " + newTariff.getTitle());
+            logger.error("something went wrong while trying to add the tariff " + newTariff.getTitle(), e);
             redirectAttributes.addFlashAttribute("errorText", "Во время добавления тарифа возникла неполадка.");
         }
         return "redirect:/app/tariffs";

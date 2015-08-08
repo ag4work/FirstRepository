@@ -3,14 +3,15 @@ package service;
 import service.DTO.OptionDTO;
 import service.DTO.TariffDTO;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
 /**
  * Created by Alexey on 08.07.2015.
  */
-public class Cart {
-
+public class Cart implements Serializable {
+    private static final long serialVersionUID = 1946122041951251207L;
     private TariffDTO tariffDTO;
     private Set<OptionDTO> optionDTOset = new HashSet<OptionDTO>();
     private Integer contractId;

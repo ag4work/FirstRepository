@@ -4,13 +4,15 @@ package service.DTO;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
 
 /**
  * Created by Alexey on 23.06.2015.
  */
-public class UserDTO {
+public class UserDTO implements Serializable {
+    private static final long serialVersionUID = 1905122041951251212L;
 
     private Integer userId;
 
@@ -157,28 +159,6 @@ public class UserDTO {
                 ", lastname='" + lastname + '\'' +
                 '}';
     }
-
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || getClass() != o.getClass()) return false;
-//
-//        UserDTO userDTO = (UserDTO) o;
-//
-//        if (!birthday.equals(userDTO.birthday)) return false;
-//        if (!lastname.equals(userDTO.lastname)) return false;
-//        if (!name.equals(userDTO.name)) return false;
-//
-//        return true;
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        int result = name.hashCode();
-//        result = 31 * result + lastname.hashCode();
-//        result = 31 * result + birthday.hashCode();
-//        return result;
-//    }
 
     @Override
     public boolean equals(Object o) {

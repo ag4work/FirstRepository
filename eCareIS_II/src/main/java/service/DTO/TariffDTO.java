@@ -6,6 +6,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
 import java.util.Collections;
 import java.util.Set;
 
@@ -14,8 +15,8 @@ import java.util.Set;
  * Created by Alexey on 02.07.2015.
  */
 @XmlRootElement(name = "tariff")
-public class TariffDTO {
-
+public class TariffDTO implements Serializable {
+    private static final long serialVersionUID = 1905122041951781207L;
     private Integer tariffId;
     @NotEmpty(message = "Название тарифа должно быть задано")
     @Length(min = 1, max = 50, message = "Длина названия тарифа должна составлять от 1 до 45 символов")

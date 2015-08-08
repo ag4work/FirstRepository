@@ -7,6 +7,8 @@ import service.DTO.UserDTO;
  * Created by Alexey on 26.06.2015.
  */
 public class UserMapper {
+    private UserMapper() {
+    }
 
     public static User DTOToEntity(UserDTO userDTO){
         if (userDTO==null) return null;

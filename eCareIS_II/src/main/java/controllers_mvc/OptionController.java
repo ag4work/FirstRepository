@@ -55,7 +55,7 @@ public class OptionController {
             model.addFlashAttribute("successText", "Опция \""+ optionDTO.getTitle()+ "\" успешно добавлена.");
         }
         catch (Exception e) {
-            logger.error("something went wrong while trying to add option id:" + optionDTO.getTitle());
+            logger.error("something went wrong while trying to add option id:" + optionDTO.getTitle(),e);
             model.addFlashAttribute("errorText", "Во время добавления опции возникла неполадка.");
         }
         return "redirect:/app/options";
@@ -77,7 +77,7 @@ public class OptionController {
                     + "Запрашиваемой опции уже не существует.");
             logger.warn(e);
         } catch (Exception e) {
-            logger.error("something went wrong while trying to delete option id:" + optionId);
+            logger.error("something went wrong while trying to delete option id:" + optionId, e);
             model.addFlashAttribute("errorText", "Во время удаления опции возникла неполадка.");
         }
         return "redirect:/app/options";
@@ -121,9 +121,10 @@ public class OptionController {
             model.addAttribute("errorText", "Зависимость не может быть добавлена в силу имеющихся установленных несовместимостей между опциями." +
                     "Проверяется несовместимость между 1. объединением множеств опций(зависимых и требующихся) для выбранной зависимой опции и 2." +
                     "множеством всех требующихся точек для базовой опции");
-            inconsistentOptionDependency.printStackTrace();
+            logger.warn("opt Ids:"+ baseOptionId + " " + dependentOptionId+ " ", inconsistentOptionDependency);
         } catch (CycleInOptionsDependencyException e) {
             model.addAttribute("errorText", "Зависимость не может быть добавлена. Это привело бы к зацикливанию зависимостей.");
+            logger.warn("opt Ids:"+ baseOptionId + " " + dependentOptionId+ " ", e);
         }
         return editOption(baseOptionId, model);
 
@@ -140,7 +141,7 @@ public class OptionController {
         catch (Exception e){
             logger.warn("Ошибка при удалении зависимости опции id("+
                     dependentOptionId+") для базовой опции id("+
-                    baseOptionId+")");
+                    baseOptionId+") ", e);
             model.addAttribute("errorText", "При удалении зависимости возникла"
                     +" ошибка. Скорее всего одна из опций уже удалена.");
         }
@@ -158,6 +159,8 @@ public class OptionController {
         } catch (OptionInconsistencyImpossibleException e) {
             model.addAttribute("errorText", "Выбранная несовместимость не может быть " +
                     "добавлена в силу существующих зависистей в дереве опций.");
+            logger.warn("Opt Ids:" + baseOptionId + " " + inconsistentOptionId
+                    + " ", e);
         }
         return editOption(baseOptionId, model);
 
@@ -174,6 +177,10 @@ public class OptionController {
             model.addAttribute("errorText", "Во время удаления несовместимости"
                     + " возникла ошибка :( Скорее всего одной из двух опций "
                     + "уже не существует");
+            logger.warn("Во время удаления несовместимости" +
+                    "возникла ошибка. Opt Ids:" + baseOptionId + " "
+                    + inconsistentOptionId + " ", e);
+
         }
         return editOption(baseOptionId, model);
 

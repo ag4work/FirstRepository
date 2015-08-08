@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import service.DTO.UserDTO;
-//import utils.EntityManagerFactorySingleton;
 import utils.Mappers.UserMapper;
 
 import java.util.ArrayList;
@@ -24,11 +23,13 @@ public class UserServiceGenericBasedImpl implements UserService{
     UserDAO userDAO;
 
     @Transactional
+    @Override
     public UserDTO getUserById(Integer userId){
         return UserMapper.EntityToDTOWithSet(userDAO.get(userId));
     }
 
     @Transactional
+    @Override
     public UserDTO findUserByEmail(String email){
         List<User> allUsers = userDAO.getAll();
         for (User user : allUsers){

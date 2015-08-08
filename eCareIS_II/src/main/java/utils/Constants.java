@@ -30,4 +30,6 @@ public class Constants {
             "clientDashboard",
             "clientContractDashboardBlockUnblock"};
 
+    private Constants() {
+    }
 }

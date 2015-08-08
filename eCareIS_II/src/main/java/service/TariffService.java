@@ -18,6 +18,4 @@ public interface TariffService {
     void removeTariffAndMoveContractsToBaseTariff(Integer tariffId);
     public void removeOptionAndAllDependentOptionsTreeAsPossibleForTariff(
             Integer tariffId, Integer optionId);
-//    public void removeTariff(Integer tariffId);
-
 }

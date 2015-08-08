@@ -12,6 +12,9 @@ import java.util.Set;
 
 public class ContractMapper {
 
+    private ContractMapper() {
+    }
+
     public static Contract DTOToEntity(ContractDTO contractDTO){
         if (contractDTO==null) return null;
 
@@ -27,7 +30,6 @@ public class ContractMapper {
                 contractDTO.getTariffDTO()));
 
         contract.setUser(UserMapper.DTOToEntity(contractDTO.getUserDTO()));
-//        private List<OptionDTO> chosenOption;
         return contract;
     }
 
@@ -44,7 +46,6 @@ public class ContractMapper {
         contractDTO.setUserDTO(UserMapper.EntityToDTO(contract.getUser()));
         contractDTO.setTariffDTO(
                 TariffMapper.EntityToDTO(contract.getTariff()));
-//        private List<OptionDTO> chosenOption;
          return contractDTO;
     }
 

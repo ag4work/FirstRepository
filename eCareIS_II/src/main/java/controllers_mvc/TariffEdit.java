@@ -52,7 +52,7 @@ public class TariffEdit {
             Set<ContractDTO> contractsByTariff = contractService.getContractsByTariff(tariffToDeleteId);
             TariffDTO tariffDTO = tariffService.getTariffById(tariffToDeleteId);
 
-            if (command != null && command.equals("deleteConfirmed")) {
+            if (command != null && "deleteConfirmed".equals(command)) {
                 tariffService.removeTariffAndMoveContractsToBaseTariff(tariffToDeleteId);
                 Set<ContractDTO> updatedContractDTOs = new HashSet<ContractDTO>();
                 for (ContractDTO contractDTO : contractsByTariff)
@@ -100,12 +100,12 @@ public class TariffEdit {
                                       @RequestParam("command") String command,
                                       Model model) {
         //todo check all params on existence
-        if (command.equals("add")) {
+        if ("add".equals(command)) {
             tariffService.addOptionAsPossibleForTariff(tariffId, optionId);
             model.addAttribute("successText", "Опция \"" +
                     optionService.getOptionById(optionId).getTitle() + "\" добавлена");
         }
-        if (command.equals("remove")) {
+        if ("remove".equals(command)) {
             tariffService.
                     removeOptionAndAllDependentOptionsTreeAsPossibleForTariff(
                             tariffId, optionId);

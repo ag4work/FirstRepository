@@ -24,8 +24,6 @@ public class OptionDAOImpl implements OptionDAO  {
     @Override
     @SuppressWarnings("unchecked")
     public List<Option> getAll() {
-//        EntityManager em = emf.createEntityManager();
-
         Query query = em.createQuery("SELECT a FROM Option a");
         List<Option> entities = query.getResultList();
 
@@ -36,8 +34,6 @@ public class OptionDAOImpl implements OptionDAO  {
     @Override
     public Option get(final Serializable id) {
         logger.info("get() with id:" + id);
-//        EntityManager em = emf.createEntityManager();
-
         Option entity = em.find(Option.class, id);
         if (entity == null) {
             throw new EntityNotFoundException("Not found Option for ID "
@@ -56,7 +52,6 @@ public class OptionDAOImpl implements OptionDAO  {
     @Override
     public Option update(final Option entity) {
         logger.info("update option: " + entity);
-        EntityTransaction transaction = null;
         Option storedEntity = null;
         storedEntity = em.merge(entity);
         return storedEntity;

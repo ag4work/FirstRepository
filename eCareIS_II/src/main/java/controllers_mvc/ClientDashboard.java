@@ -42,16 +42,19 @@ public class ClientDashboard {
             @RequestParam Integer contractId, @RequestParam String command,
             RedirectAttributes redirAttributes ) {
 
-        if (command.equals("block")){
+        if ("block".equals(command)){
             contractService.blockByClient(contractId);
             redirAttributes.addFlashAttribute("successText", "Контракт заблокирован пользователем.");
         }
         else
-        if (command.equals("unblock")) {
+        if ("unblock".equals(command)) {
             try {
                 contractService.unblockByClient(contractId);
                 redirAttributes.addFlashAttribute("successText", "Контракт разблокирован пользователем.");
             } catch (BlockedByStaffException e){
+                logger.warn("Контракт заблокирован " +
+                        "сотрудником и не может быть разблокирован" +
+                        " пользователем", e);
                 redirAttributes.addFlashAttribute("errorText", "Контракт заблокирован " +
                         "сотрудником и не может быть разблокирован пользователем");
             }

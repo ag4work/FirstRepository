@@ -16,10 +16,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
-//import javax.ws.rs.GET;
-//import javax.ws.rs.Produces;
-//import javax.ws.rs.Path;
-
 
 @RestController
 public class Rest{
@@ -50,38 +46,3 @@ public class Rest{
 
 }
 
-//    @RequestMapping("/rest/t")
-//    public TariffDTO gets(){
-//        return tariffService.getTariffById(2);
-//    }
-//    @RequestMapping(value = "/aa")
-//    public List<AA> getAA(){
-//        List<AA> list = new ArrayList<AA>();
-//        list.add(new AA("Far",new Integer(12)));
-//        list.add(new AA("Norton",new Integer(9)));
-//        return list;
-//    }
-
-
-//@Component
-//@Path("/xml/tariff")
-//public class TariffServ {
-//
-////    @Autowired
-////    TariffService tariffService;
-//
-////    @GET
-////    @Path("/get")
-////    @Produces("application/xml")
-////    public TariffDTO getTariff(){
-////        TariffDTO tariffDTO = tariffService.getTariffById(2);
-////        return tariffDTO;
-////    }
-//
-//    @Produces("text/plain")
-//    public String getClichedMessage() {
-//        // Return some cliched textual content
-//        return "Hello World";
-//    }
-//
-//}

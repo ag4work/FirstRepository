@@ -1,7 +1,10 @@
 package controllers_mvc;
 
 
-public class SessionUserInfo {
+import java.io.Serializable;
+
+public class SessionUserInfo implements Serializable {
+    private static final long serialVersionUID = 1355122041951251207L;
     private Integer role;
     private Integer contracId;
     private String name;

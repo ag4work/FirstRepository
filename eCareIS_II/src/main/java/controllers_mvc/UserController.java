@@ -71,7 +71,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
-    public String addUserForm(Model model, RedirectAttributes redirectAttributes ) {
+    public String addUserForm(Model model) {
         model.addAttribute("newUserForm", new NewUserForm());
         return "createuser";
     }
@@ -133,7 +133,7 @@ public class UserController {
     @RequestMapping(value = "/newPhoneNumber/add", method = RequestMethod.POST)
     public String addContract(@Valid @ModelAttribute("addNumberToContractForm")
                               AddNumberToContractForm addNumberToContractForm,
-                              Errors errors, Model model,
+                              Errors errors,
                               @RequestParam Integer userId,
                               RedirectAttributes redirectAttributes) {
         if (errors.hasErrors()) {

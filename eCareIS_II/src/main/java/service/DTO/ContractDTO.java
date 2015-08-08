@@ -2,13 +2,15 @@ package service.DTO;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
 import java.util.Set;
 
 /**
  * Created by Alexey on 02.07.2015.
  */
 @XmlRootElement(name = "contract")
-public class ContractDTO {
+public class ContractDTO implements Serializable {
+    private static final long serialVersionUID = 1905122041951251207L;
     private Integer contractId;
     private Long phoneNumber;
     private Boolean blocked;

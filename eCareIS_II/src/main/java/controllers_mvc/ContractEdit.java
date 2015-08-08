@@ -4,7 +4,6 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -15,7 +14,6 @@ import service.DTO.TariffDTO;
 import utils.Constants;
 
 import javax.servlet.http.HttpSession;
-import javax.validation.constraints.AssertTrue;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -24,7 +22,7 @@ import java.util.Set;
 
 @Controller
 public class ContractEdit {
-    Logger logger = Logger.getLogger(ContractEdit.class);
+    private static final Logger logger = Logger.getLogger(ContractEdit.class);
     @Autowired
     ContractService contractService;
 
@@ -57,17 +55,12 @@ public class ContractEdit {
 
         List<TariffDTO> tariffDTOs = new ArrayList<TariffDTO>(tariffService.getAllTariffs());
 
-        if (tariffDTOs.size()==0){
+        if (tariffDTOs.isEmpty()){
             //TODO redirect to error page
         }
 
 
         if (tariffId!=null && !tariffId.equals(Constants.NOT_CHOSEN_TARIFF_ID)){
-//            logger.info("tariffId:"+tariffId);
-//            logger.info("Constants.DEFAULT_TARIFF_ID:"+Constants.DEFAULT_TARIFF_ID);
-//            logger.info(tariffId.equals(Constants.DEFAULT_TARIFF_ID));
-
-
             //todo try catch here!
             Integer chosenTariffId = tariffId;
 
@@ -106,7 +99,6 @@ public class ContractEdit {
                                Model model) {
 
 
-        ContractDTO contractDTO = contractService.getContract(contractId);
         TariffDTO tariffDTO = tariffService.getTariffById(tariffId);
         OptionDTO optionDTO = optionService.getOptionById(optionId);
 
@@ -128,10 +120,6 @@ public class ContractEdit {
                         "option (with all dependencies), one of them are not" +
                         "consistent with options placed in the shopping cart " +
                         "already");
-//                request.setAttribute("errorText", "Выпытались добавить опцию " +
-//                        "(вместе с обязательными для нее другими опциями), одна" +
-//                        " из которых несовместима с опциями в корзине");
-
             }
         }
         return showContract(model, contractId, tariffId, session);

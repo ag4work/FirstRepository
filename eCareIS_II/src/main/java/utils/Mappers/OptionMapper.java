@@ -12,14 +12,13 @@ import java.util.Set;
  */
 public class OptionMapper {
 
-//private Set<OptionDTO> dependentOption;
-//private Set<Option> requiredOption;
-//private Set<OptionDTO> inconsistentOption;
-//private Set<TariffDTO> tariffHasThisOption;
-//private Set<ContractDTO> contracts;
 
+    private OptionMapper() {
+    }
 
     public static Option DTOToEntity(OptionDTO optionDTO) {
+
+
 
         if (optionDTO == null) return null;
 
@@ -59,11 +58,7 @@ public class OptionMapper {
 
     }
 
-//    public static Option DTOToEntityWithSets(OptionDTO optionDTO) {
-//        if (optionDTO == null) return null;
-//        Option option = DTOToEntity(optionDTO);
-//
-//    }
+
     public static Set<Option> DTOSetToEntitySet(Set<OptionDTO> optionDTOs){
         if (optionDTOs == null) return null;
         Set<Option> options = new HashSet<Option>();
