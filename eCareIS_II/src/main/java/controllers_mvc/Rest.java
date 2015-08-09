@@ -33,7 +33,7 @@ public class Rest{
         Set<TariffDTO> tariffs = tariffService.getAllTariffs();
         for (TariffDTO tariff : tariffs){
             tariff.setPossibleOption(Collections.EMPTY_SET);
-            tariff.setContractHasThisTariff(Collections.EMPTY_SET);
+//            tariff.setContractHasThisTariff(Collections.EMPTY_SET);
         }
         return tariffs;
     }

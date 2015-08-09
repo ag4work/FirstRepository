@@ -1,6 +1,7 @@
 package service;
 
 import org.springframework.stereotype.Service;
+import service.DTO.ContractDTO;
 import service.DTO.TariffDTO;
 
 import java.util.Set;

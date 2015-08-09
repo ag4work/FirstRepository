@@ -3,6 +3,7 @@ package utils.Mappers;
 import entity.Contract;
 import service.DTO.ContractDTO;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -68,4 +69,14 @@ public class ContractMapper {
         }
         return contractDTOs;
     }
+
+    public static Set<ContractDTO> EntitySetToDTOSetWithSets(Set<Contract> contracts) {
+        if (contracts==null) return null;
+        Set<ContractDTO> contractDTOs = new HashSet<ContractDTO>();
+        for (Contract contract : contracts){
+            contractDTOs.add(ContractMapper.EntityToDTOWithSet(contract));
+        }
+        return contractDTOs;
+    }
+
 }

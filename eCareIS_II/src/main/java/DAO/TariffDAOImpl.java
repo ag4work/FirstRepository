@@ -1,6 +1,7 @@
 package dao;
 
 
+import entity.Contract;
 import entity.Tariff;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +9,10 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by Alexey on 01.07.2015.
@@ -60,5 +64,21 @@ public class TariffDAOImpl  implements TariffDAO {
         logger.info("add tariff:" + entity);
         em.persist(entity);
     }
+
+    @Override
+    public Set<Contract> getContractsByTariff(Integer tariffId){
+        Contract contract = null;
+        try {
+            Tariff tariff = em.find(Tariff.class, tariffId);
+            Query jpqlQuery = em.createQuery("SELECT c FROM Contract c WHERE c.tariff=:tariff");
+            jpqlQuery.setParameter("tariff", tariff);
+            return new HashSet<Contract>(
+                    (List<Contract>)jpqlQuery.getResultList());
+        } catch (Exception e) {
+            logger.info("No contracts found for tariffId:" + tariffId, e);
+        }
+        return Collections.emptySet();
+    }
+
 
 }

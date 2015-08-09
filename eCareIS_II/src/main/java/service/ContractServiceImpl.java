@@ -145,12 +145,8 @@ public class ContractServiceImpl implements ContractService{
 
     @Override
     public Set<ContractDTO> getContractsByTariff(Integer tariffId) {
-        Set<Contract> contracts = tariffDAO.get(tariffId).
-                getContractHasThisTariff();
-        if (contracts==null){
-            return Collections.EMPTY_SET;
-        }
-        return ContractMapper.EntitySetToDTOSet(contracts);
+        Set<Contract> contracts = tariffDAO.getContractsByTariff(tariffId);
+        return ContractMapper.EntitySetToDTOSetWithSets(contracts);
     }
 
     @Override

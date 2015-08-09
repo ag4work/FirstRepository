@@ -8,12 +8,15 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import service.DTO.ContractDTO;
 import service.DTO.OptionDTO;
 import service.DTO.TariffDTO;
 import utils.Constants;
+import utils.Mappers.ContractMapper;
 import utils.Mappers.TariffMapper;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -88,8 +91,7 @@ public class TariffServiceImpl implements TariffService{
             logger.warn("Attempt to delete default tariff");
             return;
         }
-        Tariff tariff = tariffDAO.get(tariffId);
-        Set<Contract> contractsHasThisTariff = tariff.getContractHasThisTariff();
+        Set<Contract> contractsHasThisTariff = tariffDAO.getContractsByTariff(tariffId);
         tariffDAO.delete(tariffId);
         for (Contract contract : contractsHasThisTariff) {
             contract.setTariff(tariffDAO.get(Constants.DEFAULT_TARIFF_ID));
@@ -99,5 +101,6 @@ public class TariffServiceImpl implements TariffService{
             contractDAO.update(contract);
         }
     }
+
 
 }

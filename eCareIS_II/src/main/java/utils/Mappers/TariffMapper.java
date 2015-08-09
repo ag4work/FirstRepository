@@ -35,9 +35,9 @@ public class TariffMapper {
 
     public static TariffDTO EntityToDTOWithSets(Tariff tariff){
         TariffDTO tariffDTO = EntityToDTO(tariff);
-        tariffDTO.setContractHasThisTariff(
-                ContractMapper.EntitySetToDTOSet(
-                        tariff.getContractHasThisTariff()));
+//        tariffDTO.setContractHasThisTariff(
+//                ContractMapper.EntitySetToDTOSet(
+//                        tariff.getContractHasThisTariff()));
         tariffDTO.setPossibleOption(OptionMapper.EntitySetToDTOSet(
                 tariff.getPossibleOption()));
         return tariffDTO;

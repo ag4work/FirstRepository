@@ -22,7 +22,7 @@ public class TariffDTO implements Serializable {
     @Length(min = 1, max = 50, message = "Длина названия тарифа должна составлять от 1 до 45 символов")
     private String title;
     private Integer price;
-    private Set<ContractDTO> contractHasThisTariff;
+//    private Set<ContractDTO> contractHasThisTariff;
     private Set<OptionDTO> possibleOption;
 
     public TariffDTO() {
@@ -53,13 +53,13 @@ public class TariffDTO implements Serializable {
         this.price = price;
     }
 
-    public Set<ContractDTO> getContractHasThisTariff() {
-        return contractHasThisTariff;
-    }
+//    public Set<ContractDTO> getContractHasThisTariff() {
+//        return contractHasThisTariff;
+//    }
 
-    public void setContractHasThisTariff(Set<ContractDTO> contractHasThisTariff) {
-        this.contractHasThisTariff = contractHasThisTariff;
-    }
+//    public void setContractHasThisTariff(Set<ContractDTO> contractHasThisTariff) {
+//        this.contractHasThisTariff = contractHasThisTariff;
+//    }
 
     public Set<OptionDTO> getPossibleOption() {
         if (possibleOption==null) return Collections.EMPTY_SET;

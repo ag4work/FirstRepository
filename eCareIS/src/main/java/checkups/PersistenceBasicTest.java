@@ -2,6 +2,7 @@ package checkups;
 
 
 import entity.Contract;
+import entity.Tariff;
 import entity.User;
 import utils.Constants;
 
@@ -9,6 +10,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -18,15 +20,27 @@ public class PersistenceBasicTest {
     static EntityManagerFactory emf = Persistence.createEntityManagerFactory("EcarePU");
     static EntityManager em = emf.createEntityManager();
     public static void main(String[] args) {
-        Query query = em.createQuery("SELECT u FROM User u ORDER BY u.id ASC");
-        query.setFirstResult(3);
-        query.setMaxResults(5);
-        List<User> users = query.getResultList();
-        System.out.println(users);
-
-
+        System.out.println(getContractByTariff(1123));
     }
 
+//    Query query = em.createQuery("SELECT u FROM User u ORDER BY u.id ASC");
+//    query.setFirstResult(3);
+//    query.setMaxResults(5);
+//    List<User> users = query.getResultList();
+//    System.out.println(users);
+
+    public static List<Contract> getContractByTariff(Integer tariffId){
+        Contract contract = null;
+        try {
+            Tariff tariff = em.find(Tariff.class, tariffId);
+            Query jpqlQuery = em.createQuery("SELECT c FROM Contract c WHERE c.tariff=:tariff");
+            jpqlQuery.setParameter("tariff", tariff);
+            return (List<Contract>)jpqlQuery.getResultList();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return Collections.emptyList();
+    }
 
 
     public static Contract getContractByPhonenumber(Long number){

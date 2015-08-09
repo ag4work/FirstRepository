@@ -13,7 +13,7 @@ public class Tariff {
     private Integer tariffId;
     private String title;
     private Integer price;
-    private Set<Contract> contractHasThisTariff;
+//    private Set<Contract> contractHasThisTariff;
     private Set<Option> possibleOption;
 
     @Id
@@ -47,14 +47,14 @@ public class Tariff {
         this.price = price;
     }
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "tariff")
-    public Set<Contract> getContractHasThisTariff() {
-        return contractHasThisTariff;
-    }
+//    @OneToMany(fetch = FetchType.EAGER, mappedBy = "tariff")
+//    public Set<Contract> getContractHasThisTariff() {
+//        return contractHasThisTariff;
+//    }
 
-    public void setContractHasThisTariff(Set<Contract> contractHasThisTariff) {
-        this.contractHasThisTariff = contractHasThisTariff;
-    }
+//    public void setContractHasThisTariff(Set<Contract> contractHasThisTariff) {
+//        this.contractHasThisTariff = contractHasThisTariff;
+//    }
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "tariff_possible_option", catalog = "ecareis", schema = "", joinColumns = @JoinColumn(name = "tariff_id", referencedColumnName = "tariff_id"), inverseJoinColumns = @JoinColumn(name = "possible_option_id", referencedColumnName = "option_id"))

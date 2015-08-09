@@ -31,7 +31,7 @@ public class OptionDTO implements Serializable {
     private Set<OptionDTO> requiredOption;
     private Set<OptionDTO> inconsistentOption;
     private Set<TariffDTO> tariffHasThisOption;
-    private Set<ContractDTO> contracts;
+//    private Set<ContractDTO> contracts;
 
     public OptionDTO() {
     }
@@ -100,13 +100,13 @@ public class OptionDTO implements Serializable {
         this.tariffHasThisOption = tariffHasThisOption;
     }
 
-    public Set<ContractDTO> getContracts() {
-        return contracts;
-    }
+//    public Set<ContractDTO> getContracts() {
+//        return contracts;
+//    }
 
-    public void setContracts(Set<ContractDTO> contracts) {
-        this.contracts = contracts;
-    }
+//    public void setContracts(Set<ContractDTO> contracts) {
+//        this.contracts = contracts;
+//    }
 
     @Override
     public String toString() {

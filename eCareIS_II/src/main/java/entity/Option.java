@@ -19,7 +19,7 @@ public class Option {
     private Set<Option> requiredOption;
     private Set<Option> inconsistentOption;
     private Set<Tariff> tariffHasThisOption;
-    private Set<Contract> contracts;
+//    private Set<Contract> contracts;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -105,14 +105,14 @@ public class Option {
         this.tariffHasThisOption = tariffHasThisOption;
     }
 
-    @ManyToMany(mappedBy = "chosenOption")
-    public Set<Contract> getContracts() {
-        return contracts;
-    }
+//    @ManyToMany(mappedBy = "chosenOption")
+//    public Set<Contract> getContracts() {
+//        return contracts;
+//    }
 
-    public void setContracts(Set<Contract> contracts) {
-        this.contracts = contracts;
-    }
+//    public void setContracts(Set<Contract> contracts) {
+//        this.contracts = contracts;
+//    }
 
     @Override
     public String toString() {
