@@ -85,6 +85,7 @@ public class ContractServiceImpl implements ContractService{
         } while (exist);
         return number;
     }
+
     @Override
     public Set<Long> getFreeNumberSet(int setSize){
         Set<Long> freeNumberSet = new HashSet<Long>();

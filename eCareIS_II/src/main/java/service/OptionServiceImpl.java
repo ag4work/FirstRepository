@@ -196,8 +196,8 @@ public final class OptionServiceImpl implements OptionService {
      * @param option2Id option2Id
      * @return bool
      */
-    @Transactional
-    public boolean isInconsistencyPossible(final Integer option1Id,
+
+    private boolean isInconsistencyPossible(final Integer option1Id,
                                            final Integer option2Id) {
         Option option1 = optionDAO.get(option1Id);
         Option option2 = optionDAO.get(option2Id);
