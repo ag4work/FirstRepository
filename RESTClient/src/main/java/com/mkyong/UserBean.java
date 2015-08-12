@@ -36,27 +36,37 @@ public class UserBean implements Serializable{
 
 	public Set<TariffDTO> getTariffs(){
 		//todo make a constant
-		Set<TariffDTO> tariffs = client.target("http://localhost:8080/eCareIS/rest/tariffs").
-				request(MediaType.APPLICATION_JSON_TYPE).
-				get(new GenericType<Set<TariffDTO>>() {});
-		if (chosenTariffId==null) {
-			for (TariffDTO tariffDTO : tariffs) {
-				setChosenTariffId(tariffDTO.getTariffId());
-				chosetTariffTitle = tariffDTO.getTitle();
-				break;
+		Set<TariffDTO> tariffs = Collections.emptySet();
+		try {
+			 tariffs = client.target("http://localhost:8080/eCareIS/rest/tariffs").
+					request(MediaType.APPLICATION_JSON_TYPE).
+					get(new GenericType<Set<TariffDTO>>() {
+					});
+			if (chosenTariffId == null) {
+				for (TariffDTO tariffDTO : tariffs) {
+					setChosenTariffId(tariffDTO.getTariffId());
+					chosetTariffTitle = tariffDTO.getTitle();
+					break;
+				}
 			}
-		}
+		} catch (Exception e){
 
+		}
 		return tariffs;
 	}
 
 	public Set<ContractDTO> getTariffContracts(){
 		//todo make a constant
-		Set<ContractDTO> contractDTOs = client.target("http://localhost:8080/"
-				+ "eCareIS/rest/contractsByTariff/tariff/"+getChosenTariffId()).
-				request(MediaType.APPLICATION_JSON_TYPE).
-				get(new GenericType<Set<ContractDTO>>() {
-				});
+		Set<ContractDTO> contractDTOs = Collections.emptySet();
+		try {
+			contractDTOs = client.target("http://localhost:8080/"
+					+ "eCareIS/rest/contractsByTariff/tariff/" + getChosenTariffId()).
+					request(MediaType.APPLICATION_JSON_TYPE).
+					get(new GenericType<Set<ContractDTO>>() {
+					});
+		} catch (Exception e) {
+
+		}
 		return contractDTOs;
 	}
 

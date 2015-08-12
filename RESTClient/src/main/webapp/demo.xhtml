@@ -11,10 +11,11 @@
 	<h:outputStylesheet library="css" name="table-style.css"  />
 </h:head>
 
-<h:body>
+<h:body >
 	<h:panelGroup >
 	<h1>eCare REST client </h1>
-	<h:form>
+	<h:outputText value="Rest service is unreachable. Please try again later." rendered="#{empty user.tariffs}"/>
+	<h:form rendered="#{not empty user.tariffs}">
 
 		<br /><br />
 
