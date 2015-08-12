@@ -7,6 +7,7 @@ import entity.Option;
 import entity.Tariff;
 import entity.User;
 import exceptions.BlockedByStaffException;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,6 +17,7 @@ import utils.Constants;
 import utils.Mappers.ContractMapper;
 import utils.Mappers.OptionMapper;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
@@ -26,6 +28,8 @@ import java.util.Set;
  */
 @Service
 public class ContractServiceImpl implements ContractService{
+
+    Logger logger = Logger.getLogger(ContractServiceImpl.class);
 
     @Autowired
     ContractDAO contractDAO;
@@ -152,9 +156,14 @@ public class ContractServiceImpl implements ContractService{
     @Override
     @Transactional
     public void applyCart(Cart cart, Integer contractId) {
+        logger.info("trying to apply cart to contract with id "+ contractId);
         if (cart==null || contractId==null) return;
         Contract contract = contractDAO.get(contractId);
         Tariff newTariff = tariffDAO.get(cart.getTariffDTO().getTariffId());
+        if (newTariff==null) {
+            logger.info("It looks like tariff have already deleted");
+            throw new EntityNotFoundException();
+        }
         contract.setTariff(newTariff);
         contract.setBalance(contract.getBalance() - cart.getTotalPayment());
         Set<Option> newContractOptions = new HashSet<Option>();
@@ -162,6 +171,7 @@ public class ContractServiceImpl implements ContractService{
             newContractOptions.add(optionDAO.get(optionDTO.getOptionId()));
         contract.setChosenOption(newContractOptions);
         contractDAO.update(contract);
+        logger.info("cart applied to contract with id "+ contractId);
     }
 
     @Override

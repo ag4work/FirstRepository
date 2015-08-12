@@ -128,10 +128,10 @@ public class ContractEdit {
     public String addTariffAndOptionToCart(@RequestParam("contractId") Integer contractId,
                                            HttpSession session, Model model) {
 
-        Cart cart = (Cart) session.getAttribute("cart");
-        contractService.applyCart(cart, contractId);
-        session.removeAttribute("cart");
-        return showContract(model, contractId, cart.getTariffDTO().getTariffId(), session);
+            Cart cart = (Cart) session.getAttribute("cart");
+            contractService.applyCart(cart, contractId);
+            session.removeAttribute("cart");
+            return showContract(model, contractId, cart.getTariffDTO().getTariffId(), session);
     }
 
 
