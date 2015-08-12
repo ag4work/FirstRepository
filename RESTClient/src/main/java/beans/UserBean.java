@@ -1,8 +1,9 @@
-package com.mkyong;
+package beans;
 
-import com.mkyong.DTO.ContractDTO;
-import com.mkyong.DTO.TariffDTO;
-import pdf.PdfUtil;
+import dto.ContractDTO;
+import dto.TariffDTO;
+import org.apache.log4j.Logger;
+import util.pdf.PdfUtil;
 
 import java.io.*;
 import java.util.*;
@@ -13,22 +14,22 @@ import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
-import javax.faces.context.ExternalContext;
-import javax.faces.context.FacesContext;
-import javax.servlet.http.HttpServletResponse;
 
 @ManagedBean(name="user")
 @SessionScoped
 public class UserBean implements Serializable{
+	Logger logger = Logger.getLogger(UserBean.class);
 
 	private Client client = ClientBuilder.newClient();
 
 	private Integer chosenTariffId;
-	private String chosetTariffTitle;
+
+	private Map<Integer, String> tariffTitleMap = new HashMap<Integer, String>();
 
 	public Integer getChosenTariffId() {
 		return chosenTariffId;
 	}
+
 
 	public void setChosenTariffId(Integer chosenTariffId) {
 		this.chosenTariffId = chosenTariffId;
@@ -45,9 +46,12 @@ public class UserBean implements Serializable{
 			if (chosenTariffId == null) {
 				for (TariffDTO tariffDTO : tariffs) {
 					setChosenTariffId(tariffDTO.getTariffId());
-					chosetTariffTitle = tariffDTO.getTitle();
 					break;
 				}
+			}
+			tariffTitleMap.clear();
+			for (TariffDTO tariffDTO : tariffs) {
+				tariffTitleMap.put(tariffDTO.getTariffId(), tariffDTO.getTitle());
 			}
 		} catch (Exception e){
 
@@ -73,6 +77,7 @@ public class UserBean implements Serializable{
 	public void tariffChangeValue(ValueChangeEvent e){
 		System.out.println(e.getNewValue());
 		setChosenTariffId((Integer) e.getNewValue());
+
 	}
 
 	public void printId(){
@@ -80,8 +85,14 @@ public class UserBean implements Serializable{
 	}
 
 	public void downloadPDF() throws IOException {
-		File pdfFile = PdfUtil.createPDF(getTariffContracts(), chosetTariffTitle );
+		File pdfFile = PdfUtil.createPDF(getTariffContracts(), tariffTitleMap.get(chosenTariffId) );
 		PdfUtil.uploadPDFToClient(pdfFile);
+		try {
+			pdfFile.delete();
+		} catch (Exception e) {
+			logger.warn("Error while deleting file" + pdfFile, e);
+		}
+
 	}
 
 

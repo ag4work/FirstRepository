@@ -1,11 +1,11 @@
-package pdf;
+package util.pdf;
 
 import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.BaseFont;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
-import com.mkyong.DTO.ContractDTO;
+import dto.ContractDTO;
 import util.NumberSplitter;
 
 import javax.faces.context.ExternalContext;
@@ -86,7 +86,7 @@ public class PdfUtil {
 
 
     public static File createPDF(Set<ContractDTO> contracts, String tariffTitle) {
-        String pdfFileName = "table.pdf";
+        String pdfFileName = "table"+(int)(1000000*Math.random()) + ".pdf";
         File pdfFile = new File(pdfFileName);
 
         try {

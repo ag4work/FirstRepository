@@ -1,4 +1,4 @@
-package com.mkyong.DTO;
+package dto;
 
 
 import javax.validation.constraints.*;
