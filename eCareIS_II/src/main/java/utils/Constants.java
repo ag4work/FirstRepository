@@ -34,5 +34,6 @@ public class Constants {
     }
 
     public static final int USERS_PER_PAGE = 6;
-
+    public static final int CONTRACTS_PER_PAGE = 6;
+    public static final String CONTRACTS_VIEW = "contractsByPages";
 }

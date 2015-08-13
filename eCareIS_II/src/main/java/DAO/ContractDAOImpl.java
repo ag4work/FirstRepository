@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -76,4 +77,21 @@ public class ContractDAOImpl  implements ContractDAO  {
         logger.info("contract with with phonenumber:" + entity.getPhoneNumber() + " added");
     }
 
+    @Override
+    public List<Contract> getContracts(Integer page, Integer contractsPerPage){
+        try {
+            Query query = em.createQuery("SELECT c FROM Contract c ORDER BY c.id ASC");
+            query.setFirstResult((page - 1) * contractsPerPage);
+            query.setMaxResults(contractsPerPage);
+            return query.getResultList();
+        } catch (Exception e) {
+            return Collections.emptyList();
+        }
+    }
+
+    @Override
+    public Long getContractCount(){
+        Query query = em.createQuery("SELECT COUNT(c) FROM Contract c");
+        return (Long)query.getSingleResult();
+    }
 }

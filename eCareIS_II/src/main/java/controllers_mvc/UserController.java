@@ -50,7 +50,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "page/{pageNum}",method = RequestMethod.GET)
-    public String showAll(@PathVariable Integer pageNum, Model model) {
+    public String showAllByPages(@PathVariable Integer pageNum, Model model) {
         List<UserDTO> userDTOList = userService.getUsers(pageNum, Constants.USERS_PER_PAGE);
         model.addAttribute("numOfPages",  userService.getUserCount() / Constants.USERS_PER_PAGE + 1);
         model.addAttribute("currentPage", pageNum);

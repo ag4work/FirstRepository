@@ -115,4 +115,18 @@ public interface ContractService {
      */
     public Set<OptionDTO> getContractOptionsWithSets(Integer contractId);
 
+    /**
+     * Returns the amount of all contracts
+     * @return amount of all contracts
+     */
+    public Long getContractCount();
+
+    /**
+     * Returns bunches of Contracts. Made for pagination.
+     * @param page page
+     * @param contractsPerPage  number of contracts per page
+     * @return list of ContractDTO
+     */
+    public List<ContractDTO> getContracts(Integer page, Integer contractsPerPage);
+
 }

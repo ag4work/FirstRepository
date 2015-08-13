@@ -18,9 +18,7 @@ import utils.Mappers.ContractMapper;
 import utils.Mappers.OptionMapper;
 
 import javax.persistence.EntityNotFoundException;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 
 /**
@@ -271,4 +269,18 @@ public class ContractServiceImpl implements ContractService{
                 contract.getChosenOption());
     }
 
+    @Override
+    public List<ContractDTO> getContracts(Integer page, Integer contractsPerPage) {
+
+        List<ContractDTO> contractDTOs = new ArrayList<ContractDTO>();
+        for (Contract contract : contractDAO.getContracts(page, contractsPerPage)){
+            contractDTOs.add(ContractMapper.EntityToDTOWithSet(contract));
+        }
+        return contractDTOs;
+    }
+
+    @Override
+    public Long getContractCount(){
+        return contractDAO.getContractCount();
+    }
 }
