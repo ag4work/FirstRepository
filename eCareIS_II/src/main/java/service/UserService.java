@@ -17,5 +17,7 @@ public interface UserService {
     public UserDTO userWithEmailAndPasswordExists(String email, String password);
     public List<UserDTO> getAllUsers();
     public void addUser(UserDTO userDTO);
+    public List<UserDTO> getUsers(Integer page, Integer usersPerPage);
+    public Long getUserCount();
 
 }

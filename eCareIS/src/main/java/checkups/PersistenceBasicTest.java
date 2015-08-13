@@ -20,7 +20,22 @@ public class PersistenceBasicTest {
     static EntityManagerFactory emf = Persistence.createEntityManagerFactory("EcarePU");
     static EntityManager em = emf.createEntityManager();
     public static void main(String[] args) {
-        System.out.println(getContractByTariff(1123));
+//        for (User user : getUsers(4,6)) {
+//            System.out.println(user);
+//        }
+        Integer usersPerPage = 23;
+        Integer userCount = (int) (long) getUserCount();
+        Integer pageCount = userCount / usersPerPage+1;
+        for (int page = 1; page <= pageCount; page++ ){
+            for (User user : getUsers(page,usersPerPage)) {
+                System.out.println(user);
+            }
+            System.out.println();
+        }
+
+
+        em.close();
+        emf.close();
     }
 
 //    Query query = em.createQuery("SELECT u FROM User u ORDER BY u.id ASC");
@@ -28,6 +43,22 @@ public class PersistenceBasicTest {
 //    query.setMaxResults(5);
 //    List<User> users = query.getResultList();
 //    System.out.println(users);
+
+    public static List<User> getUsers(Integer page, Integer usersPerPage){
+        try {
+            Query query = em.createQuery("SELECT u FROM User u ORDER BY u.id ASC");
+            query.setFirstResult((page - 1) * usersPerPage);
+            query.setMaxResults(usersPerPage);
+            return query.getResultList();
+        } catch (Exception e) {
+            return Collections.emptyList();
+        }
+    }
+
+    public static Long getUserCount(){
+        Query query = em.createQuery("SELECT COUNT(u) FROM User u");
+        return (Long)query.getSingleResult();
+    }
 
     public static List<Contract> getContractByTariff(Integer tariffId){
         Contract contract = null;

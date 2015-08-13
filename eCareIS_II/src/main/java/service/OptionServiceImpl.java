@@ -129,10 +129,12 @@ public final class OptionServiceImpl implements OptionService {
             throws OptionInconsistencyImpossibleException {
         logger.info("addInconsistency, opt Ids:" + optionId1 + " " + optionId2);
         if (isInconsistencyPossible(optionId1, optionId2)) {
+            //each option should be mark as inconsistent for another
             Option option1 = optionDAO.get(optionId1);
             Option option2 = optionDAO.get(optionId2);
             option1.getInconsistentOption().add(option2);
             option2.getInconsistentOption().add(option1);
+            //update each of them
             optionDAO.update(option1);
             optionDAO.update(option2);
         } else {
@@ -166,7 +168,10 @@ public final class OptionServiceImpl implements OptionService {
             CycleInOptionsDependencyException {
         logger.info("addDependency, opt Ids:" + baseOptId + " "
                 + dependentOptId);
+        // firstly check if dependency adding cause a cycle
         if (!isAddingDependencyCouseACycle(baseOptId, dependentOptId)) {
+            // pretty complex checking method latter - please have a look at method
+            // description
             if (optionDependencySetChecked(baseOptId,
                     dependentOptId)) {
                 Option baseOption = optionDAO.get(baseOptId);
@@ -201,16 +206,20 @@ public final class OptionServiceImpl implements OptionService {
                                            final Integer option2Id) {
         Option option1 = optionDAO.get(option1Id);
         Option option2 = optionDAO.get(option2Id);
+        //getting dependency tree for the first option
         Set<Option> opt1DependencyTree = OptionServiceUtil.
                 getAllDependentOptionTree(option1);
+        //getting dependency tree for the second option
         Set<Option> opt2DependencyTree = OptionServiceUtil.
                 getAllDependentOptionTree(option2);
-
+        // is these trees have common optios?
         for (Option opt1: opt1DependencyTree) {
             if (opt2DependencyTree.contains(opt1)) {
+                // yes, so setting of inconsistency impossible
                 return false;
             }
         }
+        // no common options, so setting of inconsistency impossible
         return true;
     }
 

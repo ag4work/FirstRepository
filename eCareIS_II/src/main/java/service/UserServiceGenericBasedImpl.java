@@ -12,6 +12,7 @@ import utils.Mappers.UserMapper;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 
 /**
@@ -65,5 +66,20 @@ public class UserServiceGenericBasedImpl implements UserService{
     @Transactional
     public void addUser(UserDTO userDTO) {
         userDAO.add(UserMapper.DTOToEntity(userDTO));
+    }
+
+    @Override
+    public List<UserDTO> getUsers(Integer page, Integer usersPerPage) {
+
+        List<UserDTO> userDTOs = new ArrayList<UserDTO>();
+        for (User user : userDAO.getUsers(page, usersPerPage)){
+            userDTOs.add(UserMapper.EntityToDTOWithSet(user));
+        }
+        return userDTOs;
+    }
+
+    @Override
+    public Long getUserCount(){
+        return userDAO.getUserCount();
     }
 }

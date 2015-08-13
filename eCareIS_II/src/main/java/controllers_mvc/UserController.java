@@ -44,9 +44,18 @@ public class UserController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String showAll(Model model) {
-        List<UserDTO> userDTOList = userService.getAllUsers();
+//        List<UserDTO> userDTOList = userService.getAllUsers();
+//        model.addAttribute("userList", userDTOList);
+        return "redirect:/app/users/page/1";
+    }
+
+    @RequestMapping(value = "page/{pageNum}",method = RequestMethod.GET)
+    public String showAll(@PathVariable Integer pageNum, Model model) {
+        List<UserDTO> userDTOList = userService.getUsers(pageNum, Constants.USERS_PER_PAGE);
+        model.addAttribute("numOfPages",  userService.getUserCount() / Constants.USERS_PER_PAGE + 1);
+        model.addAttribute("currentPage", pageNum);
         model.addAttribute("userList", userDTOList);
-        return "users";
+        return "usersByPages";
     }
 
     @RequestMapping(value = "{userId}/contracts", method = RequestMethod.GET)
