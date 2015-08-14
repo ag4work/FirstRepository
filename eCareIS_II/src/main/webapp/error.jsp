@@ -39,7 +39,7 @@
 
     <br><br><br><br><br><br>
 
-  <%@ include file="WEB-INF/pages/message.jsp" %>
+  <%@ include file="WEB-INF/views/message.jsp" %>
   <div class = "row">
     <div class="col-md-4 col-md-offset-4">
       <h2> Что-то пошло не так :( Вскоре проблема будет устранена. </h2>

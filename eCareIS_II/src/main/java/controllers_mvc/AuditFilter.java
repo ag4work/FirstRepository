@@ -142,6 +142,7 @@ public class AuditFilter implements Filter {
 
         } catch (Exception e) {
             logger.error("Something went wrong in authorization filter:" + e);
+            e.printStackTrace();
             response.sendRedirect(request.getContextPath()+"/error.jsp");
         }
     }

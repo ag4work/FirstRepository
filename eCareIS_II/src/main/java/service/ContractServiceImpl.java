@@ -46,6 +46,8 @@ public class ContractServiceImpl implements ContractService{
     @Autowired
     OptionService optionService;
 
+    @Autowired
+    CartService cartService;
 
     /**
      * This method return ContractDTO object by ContractId
@@ -227,7 +229,7 @@ public class ContractServiceImpl implements ContractService{
             throw new EntityNotFoundException();
         }
         contract.setTariff(newTariff);
-        contract.setBalance(contract.getBalance() - cart.getTotalPayment());
+        contract.setBalance(contract.getBalance() - cartService.getTotalPaymentForCart(cart));
         Set<Option> newContractOptions = new HashSet<Option>();
         for (OptionDTO optionDTO : cart.getOptionDTOset())
             newContractOptions.add(optionDAO.get(optionDTO.getOptionId()));

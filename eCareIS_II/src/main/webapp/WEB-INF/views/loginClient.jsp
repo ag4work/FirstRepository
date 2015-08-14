@@ -41,7 +41,7 @@
 
     <br><br><br><br><br><br>
 
-  <%@ include file="../pages/message.jsp" %>
+  <%@ include file="../views/message.jsp" %>
   <div class = "row">
 
     <div class="col-md-4 col-md-offset-4">

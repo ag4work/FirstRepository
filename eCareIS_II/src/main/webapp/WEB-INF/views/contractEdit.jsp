@@ -108,7 +108,7 @@
             </c:forEach>
           </ul>
 
-          <h4> Всего к оплате: ${cart.getTotalPayment() } руб. </h4>
+          <h4> Всего к оплате: ${totalPaymentForCart} руб. </h4>
 
           <div>
             <form role="form" method="post" action="${pageContext.request.contextPath}/app/PayForCart">
@@ -152,71 +152,78 @@
           <input type="hidden" name="contractId" value="${contract.contractId}"/>
         </form>
 
-
-        <%--<div class="control-buttons">--%>
-        <%--<button type="submit" class="btn btn-primary">Применить</button>--%>
-        <%--</div>--%>
       </div>
+      <c:if test="${not empty chosenTariffOptions}">
 
-      <div>
-        <table class="table table-striped">
-          <h3> Опции, возможные для подключения на тарифе</h3>
-          <thead>
-          <tr>
-            <th> Название опции </th>
-            <th> Ежемесячная плата </th>
-            <th> Стоимость подключения </th>
-            <th> Требующиеся опции </th>
-            <th> Несовместимые опции </th>
-            <th> Операция </th>
-          </tr>
-          </thead>
-
-          <tbody>
-          <c:forEach  var="option" items="${chosenTariffOptions}">
+        <div>
+          <table class="table table-striped">
+            <h3> Опции, возможные для подключения на тарифе</h3>
+            <thead>
             <tr>
-
-              <td>
-                  ${option.title}
-              </td>
-
-              <td>
-                  ${option.monthlyCost}
-              </td>
-
-              <td>
-                  ${option.activationCharge}
-              </td>
-
-              <td>
-                <c:forEach  var="reqOption" items="${option.requiredOption}">
-                  ${reqOption.title} <br>
-                </c:forEach>
-              </td>
-
-              <td>
-                <c:forEach  var="inconsistOption" items="${option.inconsistentOption}">
-                  ${inconsistOption.title} <br>
-                </c:forEach>
-              </td>
-
-              <td>
-                <form class="formButton" action="${pageContext.request.contextPath}/app/addTariffAndOptionToCart" method="post">
-                  <input type="hidden" name="tariffId" value="${tariffs.get(0).tariffId}"/>
-                  <input type="hidden" name="optionId" value="${option.optionId}"/>
-                  <input type="hidden" name="contractId" value="${contract.contractId}"/>
-                  <input type="hidden" name="command" value="remove"/>
-                  <input type="submit" class="btn btn-info btn-xs" value="В корзину"/>
-                </form>
-              </td>
-
+              <th> Название опции </th>
+              <th> Ежемесячная плата </th>
+              <th> Стоимость подключения </th>
+              <th> Требующиеся опции </th>
+              <th> Несовместимые опции </th>
+              <th> Операция </th>
             </tr>
-          </c:forEach>
-          </tbody>
+            </thead>
 
-        </table>
-      </div>
+            <tbody>
+            <c:forEach  var="option" items="${chosenTariffOptions}">
+              <tr>
 
+                <td>
+                    ${option.title}
+                </td>
+
+                <td>
+                    ${option.monthlyCost}
+                </td>
+
+                <td>
+                    ${option.activationCharge}
+                </td>
+
+                <td>
+                  <c:forEach  var="reqOption" items="${option.requiredOption}">
+                    ${reqOption.title} <br>
+                  </c:forEach>
+                </td>
+
+                <td>
+                  <c:forEach  var="inconsistOption" items="${option.inconsistentOption}">
+                    ${inconsistOption.title} <br>
+                  </c:forEach>
+                </td>
+
+                <td>
+                  <form class="formButton" action="${pageContext.request.contextPath}/app/addTariffAndOptionToCart" method="post">
+                    <input type="hidden" name="tariffId" value="${tariffs.get(0).tariffId}"/>
+                    <input type="hidden" name="optionId" value="${option.optionId}"/>
+                    <input type="hidden" name="contractId" value="${contract.contractId}"/>
+                    <input type="hidden" name="command" value="remove"/>
+                    <input type="submit" class="btn btn-info btn-xs" value="В корзину"/>
+                  </form>
+                </td>
+
+              </tr>
+            </c:forEach>
+            </tbody>
+
+          </table>
+        </div>
+
+      </c:if>
+      <c:if test="${empty chosenTariffOptions}">
+        <h4> На данном тарифе опций не предусмотрено</h4>
+        <form class="formButton" action="${pageContext.request.contextPath}/app/addTariffOnlyToCart" method="post">
+          <input type="hidden" name="tariffId" value="${tariffs.get(0).tariffId}"/>
+          <input type="hidden" name="contractId" value="${contract.contractId}"/>
+          <input type="submit" class="btn btn-info btn-xs" value="Добавить тариф в корзину"/>
+        </form>
+
+      </c:if>
     </div>
   </div>
 </div>

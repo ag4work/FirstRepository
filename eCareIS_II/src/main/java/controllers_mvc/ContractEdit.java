@@ -14,10 +14,7 @@ import service.DTO.TariffDTO;
 import utils.Constants;
 
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 
 @Controller
@@ -88,11 +85,32 @@ public class ContractEdit {
         Cart cart = (Cart)session.getAttribute("cart");
         if (cart!=null && !cart.getContractId().equals(contractId)){
             session.removeAttribute("cart");
+        } else {
+            model.addAttribute("totalPaymentForCart", cartService.getTotalPaymentForCart(cart));
         }
+
         return "contractEdit";
     }
 
-    @RequestMapping(value="/app/addTariffAndOptionToCart", method = RequestMethod.POST)
+    @RequestMapping(value="/app/addTariffOnlyToCart", method = RequestMethod.POST)
+    public String addTariffOnlyToCart(@RequestParam("contractId") Integer contractId,
+                                      @RequestParam("tariffId") Integer tariffId,
+                                      HttpSession session,
+                                           Model model) {
+
+        TariffDTO tariffDTO = tariffService.getTariffById(tariffId);
+
+        Cart cart = new Cart();
+        cart.setTariffDTO(tariffDTO);
+        cart.setContractId(contractId);
+        cart.setOptionDTOset(new HashSet<OptionDTO>());
+        session.setAttribute("cart", cart);
+
+        return showContract(model, contractId, tariffId, session);
+    }
+
+
+        @RequestMapping(value="/app/addTariffAndOptionToCart", method = RequestMethod.POST)
     public String addTariffAndOptionToCart(@RequestParam("contractId") Integer contractId,
                                @RequestParam("tariffId") Integer tariffId,
                                @RequestParam("optionId") Integer optionId, HttpSession session,
@@ -101,31 +119,71 @@ public class ContractEdit {
 
         TariffDTO tariffDTO = tariffService.getTariffById(tariffId);
         OptionDTO optionDTO = optionService.getOptionById(optionId);
+        ContractDTO contractDTO = contractService.getContract(contractId);
 
         Cart cart = (Cart)session.getAttribute("cart");
-        if (cart==null || !cart.getContractId().equals(contractId) ||
-                !cart.getTariffDTO().equals(tariffDTO)){
-            cart = new Cart();
-            cartService.addOptionWithAllRequired(optionDTO,cart);
-            cart.setTariffDTO(tariffDTO);
-            cart.setContractId(contractId);
+//        if ( cart==null || !cart.getContractId().equals(contractId) || !cart.getTariffDTO().equals(tariffDTO)){
+        if ( cart==null) {
+            if (contractDTO.getTariffDTO().equals(tariffDTO)){
+                cart = new Cart();
+                ifOptionConsistentToContractThenCreateNewCart(contractId, session, model, tariffDTO, optionDTO, cart);
+            }
+            else {
+                cart = new Cart();
+                cartService.fillWithNewOrder(optionDTO, tariffDTO, contractId, cart);
+                session.setAttribute("cart", cart);
+            }
+        } else {
+            if (cart.getContractId().equals(contractId)){
+                if (cart.getTariffDTO().equals(tariffDTO)){
+                    if (cartService.isOptionConsistentWithOptionsInCart(optionDTO,cart)) {
+                        ifOptionConsistentToContractThenCreateNewCart(contractId, session, model, tariffDTO, optionDTO, cart);
+                    }
+                    else {
+                        model.addAttribute("errorText", "You are trying to add the " +
+                                "option " + "\"" + optionDTO.getTitle() + "\"" +
+                                " (with all dependencies), one of them are not" +
+                                " consistent with options placed in the shopping cart " +
+                                "already");
+                    }
+                }
+                else {
+                    cart = new Cart();
+                    ifOptionConsistentToContractThenCreateNewCart(contractId, session, model, tariffDTO, optionDTO, cart);
+                }
+            }
+            else {
+                cart = new Cart();
+                ifOptionConsistentToContractThenCreateNewCart(contractId, session, model, tariffDTO, optionDTO, cart);
+            }
+
+        }
+
+        return showContract(model, contractId, tariffId, session);
+
+    }
+
+    private void ifOptionConsistentToContractThenCreateNewCart(Integer contractId,
+                                                               HttpSession session,
+                                                               Model model,
+                                                               TariffDTO tariffDTO,
+                                                               OptionDTO optionDTO,
+                                                               Cart cart) {
+        if (!optionService.isOptionIncludingAllRequiredConsistentWithSet(
+                optionDTO.getOptionId(),
+                contractService.getContract(contractId).getChosenOption())) {
+            model.addAttribute("errorText", "You are trying to add the " +
+                    "option " + "\"" + optionDTO.getTitle() + "\"" +
+                    "(with all dependencies), one of them are not " +
+                    "consistent with options connected to the contract already.");
+        } else {
+            cartService.fillWithNewOrder(optionDTO, tariffDTO, contractId, cart);
             session.setAttribute("cart", cart);
         }
-        else {
-            if (cartService.isOptionConsistentWithOptionsInCart(optionDTO,cart))
-                cartService.addOptionWithAllRequired(optionDTO,cart);
-            else
-            {
-                model.addAttribute("errorText", "You are trying to add an " +
-                        "option (with all dependencies), one of them are not" +
-                        "consistent with options placed in the shopping cart " +
-                        "already");
-            }
-        }
-        return showContract(model, contractId, tariffId, session);
     }
+
     @RequestMapping(value="/app/PayForCart", method = RequestMethod.POST)
-    public String addTariffAndOptionToCart(@RequestParam("contractId") Integer contractId,
+    public String applyCart(@RequestParam("contractId") Integer contractId,
                                            HttpSession session, Model model) {
 
             Cart cart = (Cart) session.getAttribute("cart");

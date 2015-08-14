@@ -1,5 +1,7 @@
 package service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import service.DTO.OptionDTO;
 import service.DTO.TariffDTO;
 
@@ -16,12 +18,13 @@ public class Cart implements Serializable {
     private Set<OptionDTO> optionDTOset = new HashSet<OptionDTO>();
     private Integer contractId;
 
-    public Integer getTotalPayment(){
-        Integer sumPayment = 0;
-        for(OptionDTO optionDTO : optionDTOset)
-            sumPayment=sumPayment+optionDTO.getActivationCharge();
-        return sumPayment;
-    }
+//    @Autowired
+//    CartService cartService;
+//    CartService cartService = new CartService();
+
+//    public Integer getTotalPayment(){
+//        return cartService.getTotalPaymentForCart(this);
+//    }
 
     public TariffDTO getTariffDTO() {
         return tariffDTO;

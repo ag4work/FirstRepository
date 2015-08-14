@@ -49,7 +49,7 @@
 
             <c:if test="${contract.blockedByStaff== false}">
               Заблокирован клиентом
-              <form class="formButton" action="clientContractDashboardBlockUnblock.sec" method="post">
+              <form class="formButton" action="clientContractDashboardBlockUnblock" method="post">
                 <input type="hidden" name="contractId" value="${contract.contractId}"/>
                 <input type="hidden" name="command" value="unblock"/>
                 <input type="submit" class="btn btn-link btn-xs" value="Разблокировать"/>
@@ -60,7 +60,7 @@
 
           <c:if test="${contract.blocked == false}">
             Online
-            <form class="formButton" action="clientContractDashboardBlockUnblock.sec" method="post">
+            <form class="formButton" action="clientContractDashboardBlockUnblock" method="post">
               <input type="hidden" name="contractId" value="${contract.contractId}"/>
               <input type="hidden" name="command" value="block"/>
               <input type="submit" class="btn btn-link btn-xs" value="Блокировать"/>
@@ -69,7 +69,7 @@
 
         </div>
 
-        <form class="formButton" action="contractEdit.sec" method="post">
+        <form class="formButton" action="contractEdit" method="post">
           <input type="hidden" name="contractId" value="${contract.contractId}"/>
           <input type="hidden" name="tariffId" value="-1"/>
           <input type="submit" class="btn btn-link btn-xs" value="Редактировать контракт"/>
