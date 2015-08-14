@@ -9,7 +9,7 @@ import javax.validation.constraints.Size;
 public class ClientNumberPassw {
 
 
-    @Size(min = 10, max = 10, message = "Длина номера должна быть {1} цифр")
+    @Size(min = 10, max = 10, message = "Номер должен состоть из {1} цифр")
     @NotNull
     String phoneNumber;
 

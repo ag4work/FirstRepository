@@ -64,6 +64,9 @@ public class Contracts {
             }
         }
      //   Integer userId = contractService.
+        if (page==null) {
+            page=1;
+        }
         return "redirect:/app/contracts/page/"+page;
     }
 

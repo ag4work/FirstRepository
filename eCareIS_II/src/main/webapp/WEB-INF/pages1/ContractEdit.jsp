@@ -35,10 +35,10 @@
     <div class="col-md-4 main" style="position:relative; ">
       <div>
         <h3> Контракт:</h3>
-        <h4>${contract.userDTO.name} ${contract.userDTO.lastname} <br></h4>
-        <h4> Номер телефона: ${contract.phoneNumber} <br> </h4>
-        <h4> Баланс: ${contract.balance} руб. <br> </h4>
-        <h4> Тариф: "${contract.tariffDTO.title}" <br> </h4>
+        <h4 class="grey">${contract.userDTO.name} ${contract.userDTO.lastname} <br></h4>
+        <h4> Номер телефона: <span class="grey"> ${contract.phoneNumber}</span> </h4>
+        <h4> Баланс: <span class="grey"> ${contract.balance} руб. </span>  </h4>
+        <h4> Тариф: <span class="grey"> "${contract.tariffDTO.title}" </span> </h4>
 
         <%--<ul class="list-group">--%>
         <%--<c:forEach  var="contractOption" items="${contract.chosenOption}">--%>

@@ -59,9 +59,9 @@
 
     <div class="col-md-12 main" style="position:relative; ">
       <%@ include file="message.jsp" %>
-      <H2> Изменение зависимых и несовместимых опций для опции "${currentOption.title}" </H2>
+      <H2> Изменение зависимых и несовместимых опций для опции <span class="darkgrey">"${currentOption.title}"</span> </H2>
       <div class="col-md-6 main" style="position:relative; ">
-        <H3> Список, которые не являются ни зависимымы, ни несовместимыми для "${currentOption.title}":</H3>
+        <H3> Все опции:</H3>
         <table class="table table-striped">
           <%--<h3> All users</h3>--%>
           <thead>
@@ -109,7 +109,7 @@
       </div>
       <div class="col-md-6 main" style="position:relative; ">
         <div>
-          <H3> Опции, для  которых требуется "${currentOption.title}" (зависимые от нее):</H3>
+          <H3> Опции, для  которых требуется <span class="darkgrey">"${currentOption.title}" </span> (зависимые от нее):</H3>
           <table class="table table-striped">
             <%--<h3> All users</h3>--%>
             <thead>
@@ -151,8 +151,9 @@
           </table>
 
         </div>
+        <br>
         <div>
-          <H3> Опции, несовместимые с "${currentOption.title}":</H3>
+          <H3> Опции, несовместимые с <span class="darkgrey"> "${currentOption.title}": </span></H3>
           <table class="table table-striped">
             <%--<h3> All users</h3>--%>
             <thead>

@@ -27,7 +27,8 @@
         <div class="col-md-11 main" style="position:relative; ">
                 <sf:form role="form" action="${pageContext.request.contextPath}/app/contracts/search" modelAttribute="searchNumberForm" method="post">
                     <div class="form-group">
-                        <sf:label path="number" for="phoneNumber">Найти контракт:</sf:label>
+                        <h3> Поиск контракта по номеру</h3>
+                        <%--<sf:label path="number" for="phoneNumber">Найти контракт:</sf:label>--%>
                         <sf:input path="number" name="phoneNumber" type="text" class="form-control" id="phoneNumber" placeholder="Введите номер (10 цифр)"/>
                         <sf:errors path="number" cssClass="errorlabel" />
                     </div>
@@ -51,7 +52,7 @@
                 <c:forEach begin="1" end="${numOfPages}" var="i">
                     <c:choose>
                         <c:when test="${currentPage eq i}">
-                            <li class="disabled"><a href="#">${i}</a></li>
+                            <li class="active"><a href="#">${i}</a></li>
                         </c:when>
                         <c:otherwise>
                             <li><a href="${pageContext.request.contextPath}/app/contracts/page/${i}">${i}</a></li>

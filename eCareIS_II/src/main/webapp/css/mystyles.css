@@ -5,7 +5,8 @@ table thead {
     background-color: #faebcc;
 }
 table thead th {
-
+    text-align: center;
+    vertical-align: middle;
 }
 
 .circle {
@@ -31,4 +32,12 @@ table thead th {
 
 li a span {
     font-size: 22px;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    color: #0087a6;
+}
+
+.darkgrey{
+    color: rgba(168, 39, 8, 0.80);
 }

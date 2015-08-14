@@ -37,7 +37,7 @@
                     <th> Паспортные <br>данные</th>
                     <th> Адрес</th>
                     <th> email</th>
-                    <th> пароль</th>
+                    <%--<th> пароль</th>--%>
                     <th> Роль</th>
                     <th> Кол-во <br> контрактов</th>
                     <th> </th>
@@ -63,9 +63,9 @@
                                 ${user.email}
                         </td>
 
-                        <td>
-                                ${user.password}
-                        </td>
+                        <%--<td>--%>
+                                <%--${user.password}--%>
+                        <%--</td>--%>
 
                         <td>
                             <c:if test="${user.role == 0}">

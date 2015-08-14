@@ -35,11 +35,12 @@
     <%@ include file="message.jsp" %>
     <div class="col-md-4 main" style="position:relative; ">
       <div>
-        <h3> Контракт:</h3>
-        <h4>${contract.userDTO.name} ${contract.userDTO.lastname} <br></h4>
-        <h4> Номер телефона: +7 (${fn:substring(contract.phoneNumber,0 ,3)}) ${fn:substring(contract.phoneNumber,3 ,6)}-${fn:substring(contract.phoneNumber,6 ,8)}-${fn:substring(contract.phoneNumber,8 ,10)} <br> </h4>
-        <h4> Баланс: ${contract.balance} руб. <br> </h4>
-        <h4> Тариф: "${contract.tariffDTO.title}" <br> </h4>
+        <h2> Контракт:</h2>
+
+        <h4 class="darkgrey">${contract.userDTO.name} ${contract.userDTO.lastname} <br></h4>
+        <h4> Номер телефона: <span class="darkgrey"> +7 (${fn:substring(contract.phoneNumber,0 ,3)}) ${fn:substring(contract.phoneNumber,3 ,6)}-${fn:substring(contract.phoneNumber,6 ,8)}-${fn:substring(contract.phoneNumber,8 ,10)} </span><br> </h4>
+        <h4> Баланс: <span class="darkgrey"> ${contract.balance} руб.</span> <br> </h4>
+        <h4> Тариф: <span class="darkgrey"> "${contract.tariffDTO.title}"</span> <br> </h4>
 
         <%--<ul class="list-group">--%>
         <%--<c:forEach  var="contractOption" items="${contract.chosenOption}">--%>
@@ -94,12 +95,12 @@
       </div>
 
 
-
+      <br>
 
       <div>
-        <h3> Корзина:</h3>
+        <h2> Корзина:</h2>
         <c:if test="${!empty cart}">
-          <h4> Тариф: "${cart.tariffDTO.title}" <br> </h4>
+          <h4> Тариф: <span class="darkgrey">${cart.tariffDTO.title} </span> </h4>
           <h4> Список опций: </h4>
 
           <ul class="list-group">
@@ -108,7 +109,7 @@
             </c:forEach>
           </ul>
 
-          <h4> Всего к оплате: ${totalPaymentForCart} руб. </h4>
+          <h4> Всего к оплате: <span class = "darkgrey">${totalPaymentForCart} руб. </span> </h4>
 
           <div>
             <form role="form" method="post" action="${pageContext.request.contextPath}/app/PayForCart">
@@ -129,7 +130,7 @@
 
         </c:if>
         <c:if test="${empty cart}">
-          <h4> -- пусто --</h4>
+          <h4 class="darkgrey">    -- пусто --</h4>
         </c:if>
 
 
@@ -143,7 +144,7 @@
         <h3>Выберете тариф:</h3>
 
         <form name=frmTest action="${pageContext.request.contextPath}/app/contractEdit" method=POST>
-          <label for="sel1">Выберите тариф из списка:</label>
+          <%--<label for="sel1">Выберите тариф из списка:</label>--%>
           <select class="form-control" name="tariffId" id="sel1" onChange="frmTest.submit();">
             <c:forEach var="tariff" items="${tariffs}">
               <option value="${tariff.tariffId}"> ${tariff.title}, ${tariff.price} руб. </option>
@@ -153,6 +154,7 @@
         </form>
 
       </div>
+      <br>
       <c:if test="${not empty chosenTariffOptions}">
 
         <div>

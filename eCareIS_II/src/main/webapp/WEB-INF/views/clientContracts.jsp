@@ -29,7 +29,7 @@
         <div class="col-md-11 main" style="position:relative; ">
             <table class="table table-striped">
                 <h3> Пользователь</h3>
-                ${user.name} ${user.lastname} ${user.birthday}
+                <h4 class="darkgrey"> ${user.name} ${user.lastname},  ${user.birthday} </h4>
                 <h3> Контракты пользователя</h3>
                 <thead>
                 <tr>
@@ -37,6 +37,7 @@
                     <th> Баланс </th>
                     <th> Тариф</th>
                     <th> Статус</th>
+                    <th> </th>
                 </tr>
 
                 </thead>
