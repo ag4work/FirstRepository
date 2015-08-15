@@ -24,7 +24,9 @@ public class Constants {
             "RemoveOptionFromContract",
             "PayForCart",
             "clientDashboard",
-            "clientContractDashboardBlockUnblock"};
+            "clientContractDashboardBlockUnblock",
+            "addTariffOnlyToCart",
+            "resetCart"};
     public static final String[] URLS_ALLOWED_FOR_BLOCKED_CLIENT = {
             "contractEdit",
             "clientDashboard",

@@ -109,12 +109,21 @@ public class ContractEdit {
         return showContract(model, contractId, tariffId, session);
     }
 
+    @RequestMapping(value="/app/resetCart", method = RequestMethod.POST)
+    public String resetCart(@RequestParam("contractId") Integer contractId,
+                                      @RequestParam("tariffId") Integer tariffId,
+                                      HttpSession session,
+                                      Model model) {
+        session.removeAttribute("cart");
+        return showContract(model, contractId, tariffId, session);
+    }
 
-        @RequestMapping(value="/app/addTariffAndOptionToCart", method = RequestMethod.POST)
+
+    @RequestMapping(value="/app/addTariffAndOptionToCart", method = RequestMethod.POST)
     public String addTariffAndOptionToCart(@RequestParam("contractId") Integer contractId,
-                               @RequestParam("tariffId") Integer tariffId,
-                               @RequestParam("optionId") Integer optionId, HttpSession session,
-                               Model model) {
+                                           @RequestParam("tariffId") Integer tariffId,
+                                           @RequestParam("optionId") Integer optionId, HttpSession session,
+                                           Model model) {
 
 
         TariffDTO tariffDTO = tariffService.getTariffById(tariffId);
@@ -122,46 +131,81 @@ public class ContractEdit {
         ContractDTO contractDTO = contractService.getContract(contractId);
 
         Cart cart = (Cart)session.getAttribute("cart");
-//        if ( cart==null || !cart.getContractId().equals(contractId) || !cart.getTariffDTO().equals(tariffDTO)){
-        if ( cart==null) {
-            if (contractDTO.getTariffDTO().equals(tariffDTO)){
-                cart = new Cart();
-                ifOptionConsistentToContractThenCreateNewCart(contractId, session, model, tariffDTO, optionDTO, cart);
-            }
-            else {
-                cart = new Cart();
-                cartService.fillWithNewOrder(optionDTO, tariffDTO, contractId, cart);
-                session.setAttribute("cart", cart);
-            }
-        } else {
-            if (cart.getContractId().equals(contractId)){
-                if (cart.getTariffDTO().equals(tariffDTO)){
-                    if (cartService.isOptionConsistentWithOptionsInCart(optionDTO,cart)) {
-                        ifOptionConsistentToContractThenCreateNewCart(contractId, session, model, tariffDTO, optionDTO, cart);
-                    }
-                    else {
+
+        boolean fillTheCart = true;
+
+        if (cart!=null && cart.getContractId().equals(contractId)
+                && cart.getTariffDTO().equals(tariffDTO) ){
+
+                    if (!cartService.isOptionConsistentWithOptionsInCart(optionDTO,cart)) {
                         model.addAttribute("errorText", "You are trying to add the " +
                                 "option " + "\"" + optionDTO.getTitle() + "\"" +
                                 " (with all dependencies), one of them are not" +
                                 " consistent with options placed in the shopping cart " +
                                 "already");
+                        fillTheCart = false;
                     }
-                }
-                else {
-                    cart = new Cart();
-                    ifOptionConsistentToContractThenCreateNewCart(contractId, session, model, tariffDTO, optionDTO, cart);
-                }
-            }
-            else {
-                cart = new Cart();
-                ifOptionConsistentToContractThenCreateNewCart(contractId, session, model, tariffDTO, optionDTO, cart);
-            }
+        } else {
+            cart = new Cart();
+        }
 
+        if (contractDTO.getTariffDTO().equals(tariffDTO)){
+            if (!optionService.isOptionIncludingAllRequiredConsistentWithSet(
+                    optionDTO.getOptionId(),
+                    contractService.getContract(contractId).getChosenOption())) {
+                model.addAttribute("errorText", "You are trying to add the " +
+                        "option " + "\"" + optionDTO.getTitle() + "\"" +
+                        "(with all dependencies), one of them are not " +
+                        "consistent with options connected to the contract already.");
+                fillTheCart = false;
+            }
+        }
+        if ( fillTheCart ) {
+            session.setAttribute("cart", cart);
+            cartService.fillWithNewOrder(optionDTO, tariffDTO, contractId, cart);
         }
 
         return showContract(model, contractId, tariffId, session);
 
     }
+//        if ( cart==null || !cart.getContractId().equals(contractId) || !cart.getTariffDTO().equals(tariffDTO)){
+//        if ( cart==null) {
+//            if (contractDTO.getTariffDTO().equals(tariffDTO)){
+//                cart = new Cart();
+//                ifOptionConsistentToContractThenCreateNewCart(contractId, session, model, tariffDTO, optionDTO, cart);
+//            }
+//            else {
+//                cart = new Cart();
+//                cartService.fillWithNewOrder(optionDTO, tariffDTO, contractId, cart);
+//                session.setAttribute("cart", cart);
+//            }
+//        } else {
+//            if (cart.getContractId().equals(contractId)){
+//                if (cart.getTariffDTO().equals(tariffDTO)){
+//                    if (cartService.isOptionConsistentWithOptionsInCart(optionDTO,cart)) {
+//                        ifOptionConsistentToContractThenCreateNewCart(contractId, session, model, tariffDTO, optionDTO, cart);
+//                    }
+//                    else {
+//                        model.addAttribute("errorText", "You are trying to add the " +
+//                                "option " + "\"" + optionDTO.getTitle() + "\"" +
+//                                " (with all dependencies), one of them are not" +
+//                                " consistent with options placed in the shopping cart " +
+//                                "already");
+//                    }
+//                }
+//                else {
+//                    cart = new Cart();
+//                    ifOptionConsistentToContractThenCreateNewCart(contractId, session, model, tariffDTO, optionDTO, cart);
+//                }
+//            }
+//            else {
+//                cart = new Cart();
+//                ifOptionConsistentToContractThenCreateNewCart(contractId, session, model, tariffDTO, optionDTO, cart);
+//            }
+//
+//        }
+
+
 
     private void ifOptionConsistentToContractThenCreateNewCart(Integer contractId,
                                                                HttpSession session,

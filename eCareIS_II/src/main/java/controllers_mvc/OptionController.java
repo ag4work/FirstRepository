@@ -158,7 +158,7 @@ public class OptionController {
             model.addAttribute("successText", "Несовместимость успешно добавлена.");
         } catch (OptionInconsistencyImpossibleException e) {
             model.addAttribute("errorText", "Выбранная несовместимость не может быть " +
-                    "добавлена в силу существующих зависистей в дереве опций.");
+                    "добавлена в силу существующих зависимостей в дереве опций.");
             logger.warn("Opt Ids:" + baseOptionId + " " + inconsistentOptionId
                     + " ", e);
         }

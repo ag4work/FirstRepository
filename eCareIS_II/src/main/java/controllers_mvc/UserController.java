@@ -100,7 +100,7 @@ public class UserController {
             userDTO.setLastname(newUserForm.getLastname());
 
             DateFormat dateFormatter;
-            dateFormatter = new SimpleDateFormat("yyyy-mm-DD");
+            dateFormatter = new SimpleDateFormat("DD-mm-yyyy");
             Date userBirthday = (Date) dateFormatter.parse(newUserForm.getBirthday());
             userDTO.setBirthday(userBirthday);
             userDTO.setPassport(newUserForm.getPassport());

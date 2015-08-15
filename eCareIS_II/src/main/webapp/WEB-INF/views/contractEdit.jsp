@@ -40,7 +40,7 @@
         <h4 class="darkgrey">${contract.userDTO.name} ${contract.userDTO.lastname} <br></h4>
         <h4> Номер телефона: <span class="darkgrey"> +7 (${fn:substring(contract.phoneNumber,0 ,3)}) ${fn:substring(contract.phoneNumber,3 ,6)}-${fn:substring(contract.phoneNumber,6 ,8)}-${fn:substring(contract.phoneNumber,8 ,10)} </span><br> </h4>
         <h4> Баланс: <span class="darkgrey"> ${contract.balance} руб.</span> <br> </h4>
-        <h4> Тариф: <span class="darkgrey"> "${contract.tariffDTO.title}"</span> <br> </h4>
+        <h4> Тариф: <span class="darkgrey"> ${contract.tariffDTO.title}</span> <br> </h4>
 
         <%--<ul class="list-group">--%>
         <%--<c:forEach  var="contractOption" items="${contract.chosenOption}">--%>
@@ -52,46 +52,54 @@
       </div>
 
       <div>
-        <table class="table table-striped">
-          <h4> Список подключенных к контракту опций: </h4>
-          <thead>
-          <tr>
-            <th> Опция </th>
-            <th> Зависимые опции </th>
-            <th> Операция </th>
-          </tr>
-          </thead>
 
-          <tbody>
-          <c:forEach  var="option" items="${contractOptions}">
+
+        <c:if test="${not empty contractOptions}">
+
+          <table class="table table-striped">
+            <h4> Список подключенных к контракту опций: </h4>
+            <thead>
             <tr>
-
-              <td>
-                  ${option.title}
-              </td>
-
-              <td>
-                <c:forEach  var="depOption" items="${option.dependentOption}">
-                  ${depOption.title} <br>
-                </c:forEach>
-              </td>
-
-              <td>
-                <form class="formButton" action="${pageContext.request.contextPath}/app/RemoveOptionFromContract" method="post">
-                  <input type="hidden" name="optionId" value="${option.optionId}"/>
-                  <input type="hidden" name="contractId" value="${contract.contractId}"/>
-                  <input type="hidden" name="tariffId" value="${tariffs.get(0).tariffId}"/>
-                  <input type="hidden" name="command" value="remove"/>
-                  <input type="submit" class="btn btn-link btn-xs" value="Отключить"/>
-                </form>
-              </td>
-
+              <th> Опция </th>
+              <th> Зависимые опции </th>
+              <th> Операция </th>
             </tr>
-          </c:forEach>
-          </tbody>
+            </thead>
 
-        </table>
+            <tbody>
+            <c:forEach  var="option" items="${contractOptions}">
+              <tr>
 
+                <td>
+                    ${option.title}
+                </td>
+
+                <td>
+                  <c:forEach  var="depOption" items="${option.dependentOption}">
+                    ${depOption.title} <br>
+                  </c:forEach>
+                </td>
+
+                <td>
+                  <form class="formButton" action="${pageContext.request.contextPath}/app/RemoveOptionFromContract" method="post">
+                    <input type="hidden" name="optionId" value="${option.optionId}"/>
+                    <input type="hidden" name="contractId" value="${contract.contractId}"/>
+                    <input type="hidden" name="tariffId" value="${tariffs.get(0).tariffId}"/>
+                    <input type="hidden" name="command" value="remove"/>
+                    <input type="submit" class="btn btn-link btn-xs" value="Отключить"/>
+                  </form>
+                </td>
+
+              </tr>
+            </c:forEach>
+            </tbody>
+
+          </table>
+
+        </c:if>
+        <c:if test="${empty contractOptions}">
+          <h4> Опции: <span class="darkgrey">не подключены</span>  </h4>
+        </c:if>
       </div>
 
 
@@ -101,17 +109,19 @@
         <h2> Корзина:</h2>
         <c:if test="${!empty cart}">
           <h4> Тариф: <span class="darkgrey">${cart.tariffDTO.title} </span> </h4>
-          <h4> Список опций: </h4>
 
-          <ul class="list-group">
-            <c:forEach  var="optionInCart" items="${cart.optionDTOset}">
-              <li class="list-group-item">${optionInCart.title}, ${optionInCart.activationCharge} руб.</li>
-            </c:forEach>
-          </ul>
+          <c:if test="${!empty cart.optionDTOset}">
+            <h4> Список опций: </h4>
+            <ul class="list-group">
+              <c:forEach  var="optionInCart" items="${cart.optionDTOset}">
+                <li class="list-group-item">${optionInCart.title}, <span class="darkgrey"> ${optionInCart.activationCharge} руб. </span> </li>
+              </c:forEach>
+            </ul>
+          </c:if>
 
           <h4> Всего к оплате: <span class = "darkgrey">${totalPaymentForCart} руб. </span> </h4>
 
-          <div>
+          <span>
             <form role="form" method="post" action="${pageContext.request.contextPath}/app/PayForCart">
               <div class="control-buttons">
                 <button type="submit" class="btn btn-primary">Оплатить</button>
@@ -119,14 +129,16 @@
               <input type="hidden" name="contractId" value="${contract.contractId}"/>
             </form>
 
-            <form role="form" method="post" action="">
+            <form role="form" method="post" action="${pageContext.request.contextPath}/app/resetCart">
               <div class="control-buttons">
-                <button type="submit" class="btn btn-primary">Сохранить договор</button>
+                <button type="submit" class="btn btn-primary">Очистить</button>
               </div>
               <input type="hidden" name="contractId" value="${contract.contractId}"/>
+              <input type="hidden" name="tariffId" value="${tariffs.get(0).tariffId}"/>
+
             </form>
 
-          </div>
+          </span>
 
         </c:if>
         <c:if test="${empty cart}">
@@ -141,7 +153,7 @@
 
     <div class="col-md-8 main" style="position:relative; ">
       <div>
-        <h3>Выберете тариф:</h3>
+        <h3>Выберите тариф:</h3>
 
         <form name=frmTest action="${pageContext.request.contextPath}/app/contractEdit" method=POST>
           <%--<label for="sel1">Выберите тариф из списка:</label>--%>
@@ -155,6 +167,13 @@
 
       </div>
       <br>
+      <form class="formButton" action="${pageContext.request.contextPath}/app/addTariffOnlyToCart" method="post">
+        <input type="hidden" name="tariffId" value="${tariffs.get(0).tariffId}"/>
+        <input type="hidden" name="contractId" value="${contract.contractId}"/>
+        <input type="submit" class="btn btn-info btn-xs" value="Добавить тариф в корзину"/>
+      </form>
+
+      <br>
       <c:if test="${not empty chosenTariffOptions}">
 
         <div>
@@ -167,7 +186,7 @@
               <th> Стоимость подключения </th>
               <th> Требующиеся опции </th>
               <th> Несовместимые опции </th>
-              <th> Операция </th>
+              <th>  </th>
             </tr>
             </thead>
 
@@ -218,12 +237,7 @@
 
       </c:if>
       <c:if test="${empty chosenTariffOptions}">
-        <h4> На данном тарифе опций не предусмотрено</h4>
-        <form class="formButton" action="${pageContext.request.contextPath}/app/addTariffOnlyToCart" method="post">
-          <input type="hidden" name="tariffId" value="${tariffs.get(0).tariffId}"/>
-          <input type="hidden" name="contractId" value="${contract.contractId}"/>
-          <input type="submit" class="btn btn-info btn-xs" value="Добавить тариф в корзину"/>
-        </form>
+        <h5> На данном тарифе опций не предусмотрено</h5>
 
       </c:if>
     </div>

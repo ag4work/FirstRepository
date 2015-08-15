@@ -41,3 +41,11 @@ h1,h2,h3,h4,h5,h6 {
 .darkgrey{
     color: rgba(168, 39, 8, 0.80);
 }
+
+.redtext {
+    color:red;
+}
+
+.greentext {
+    color:green;
+}

@@ -8,7 +8,7 @@ import javax.validation.constraints.Size;
  */
 public class SearchedPhonenumberForm {
 
-    @Size(min = 10, max = 10, message = "Длина номера должна быть {1} цифр")
+    @Size(min = 10, max = 10, message = "Номер должен состоять из {1} цифр")
     @NotNull
     private String number;
 

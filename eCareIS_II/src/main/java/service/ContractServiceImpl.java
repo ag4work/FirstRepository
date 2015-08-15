@@ -16,6 +16,7 @@ import service.DTO.OptionDTO;
 import utils.Constants;
 import utils.Mappers.ContractMapper;
 import utils.Mappers.OptionMapper;
+import utils.Mappers.TariffMapper;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.*;
@@ -228,12 +229,20 @@ public class ContractServiceImpl implements ContractService{
             logger.info("It looks like tariff have already deleted");
             throw new EntityNotFoundException();
         }
-        contract.setTariff(newTariff);
-        contract.setBalance(contract.getBalance() - cartService.getTotalPaymentForCart(cart));
         Set<Option> newContractOptions = new HashSet<Option>();
         for (OptionDTO optionDTO : cart.getOptionDTOset())
             newContractOptions.add(optionDAO.get(optionDTO.getOptionId()));
-        contract.setChosenOption(newContractOptions);
+
+        contract.setBalance(contract.getBalance() - cartService.getTotalPaymentForCart(cart));
+
+        if (contract.getTariff().equals(newTariff)) {  // if the tariff does not change
+            contract.getChosenOption().addAll(newContractOptions);
+        } else { // tariff was changed. So options will be overwritten with new ones
+            contract.setChosenOption(newContractOptions);
+        }
+
+        contract.setTariff(newTariff);
+
         contractDAO.update(contract);
         logger.info("cart applied to contract with id "+ contractId);
     }

@@ -45,7 +45,8 @@
                 <c:forEach var="contract" items="${contractSet}">
                     <tr>
                         <td>
-                                ${contract.phoneNumber}
+                            +7 (${fn:substring(contract.phoneNumber,0 ,3)}) ${fn:substring(contract.phoneNumber,3 ,6)}-${fn:substring(contract.phoneNumber,6 ,8)}-${fn:substring(contract.phoneNumber,8 ,10)}
+                                <%--${contract.phoneNumber}--%>
                         </td>
                         <td>
                                 ${contract.balance}

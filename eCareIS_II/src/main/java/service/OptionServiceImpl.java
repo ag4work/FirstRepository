@@ -334,7 +334,7 @@ public final class OptionServiceImpl implements OptionService {
          * @param option option
          * @return bool
          */
-        public static synchronized Set<Option> getAllDependentOptionTree(final Option option) {
+        public static Set<Option> getAllDependentOptionTree(final Option option) {
             logger.info("getting AllDependentOptionTree for optionId"
                     + option.getOptionId());
             allDependentOptionTree = new HashSet<Option>();
@@ -372,7 +372,7 @@ public final class OptionServiceImpl implements OptionService {
          * @param option option
          * @return set of options
          */
-        public static synchronized Set<Option> getAllRequiredOptionTree(final Option option){
+        public static  Set<Option> getAllRequiredOptionTree(final Option option){
             logger.info("getting AllRequiredOptionTree for optionId"
                     + option.getOptionId());
             allRequiredOptionTree = new HashSet<Option>();

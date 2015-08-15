@@ -19,7 +19,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Controller
-@SessionAttributes({"contractSet"})
+@SessionAttributes({"contractSet","numOfPages","currentPage"})
 public class Contracts {
 
     private static final Logger logger = Logger.getLogger(Contracts.class);
@@ -54,7 +54,7 @@ public class Contracts {
     @RequestMapping(value="/app/contractBlockStatusEdit", method = RequestMethod.POST)
     public String contractBlockStatusEdit(@RequestParam("contractId") Integer contractId,
                                           @RequestParam("command") String command,
-                                          @RequestParam Integer page) {
+                                          @RequestParam(required = false) Integer page) {
         if ("block".equals(command)){
             contractService.blockByStaff(contractId);
         }
@@ -75,7 +75,7 @@ public class Contracts {
                                  Errors errors, Model model) {
 
         if (errors.hasErrors()) {
-            return "contracts";
+            return Constants.CONTRACTS_VIEW;
         }
         ContractDTO foundContractDTO = null;
         try {
@@ -95,7 +95,7 @@ public class Contracts {
         }
         model.addAttribute("contractSet", contractDTOs);
 
-        return Constants.CONTRACTS_VIEW;
+        return "contracts";
     }
 
 
