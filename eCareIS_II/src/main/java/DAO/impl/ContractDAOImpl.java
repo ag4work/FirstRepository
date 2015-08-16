@@ -1,5 +1,6 @@
-package dao;
+package dao.impl;
 
+import dao.ContractDAO;
 import entity.Contract;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,7 @@ import java.util.List;
 
 
 @Repository
-public class ContractDAOImpl  implements ContractDAO  {
+public class ContractDAOImpl  implements ContractDAO {
 
     Logger logger = Logger.getLogger(ContractDAOImpl.class);
 

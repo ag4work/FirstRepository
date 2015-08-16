@@ -9,6 +9,11 @@ table thead th {
     vertical-align: middle;
 }
 
+table tr td {
+    text-align: center;
+    vertical-align: middle;
+}
+
 .circle {
     color: #ffffff;
     padding: 7px;

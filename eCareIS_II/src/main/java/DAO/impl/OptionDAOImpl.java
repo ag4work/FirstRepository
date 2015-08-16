@@ -1,5 +1,6 @@
-package dao;
+package dao.impl;
 
+import dao.OptionDAO;
 import entity.Option;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,7 @@ import java.util.List;
  */
 
 @Repository
-public class OptionDAOImpl implements OptionDAO  {
+public class OptionDAOImpl implements OptionDAO {
     Logger logger = Logger.getLogger(OptionDAOImpl.class);
 
     @Autowired

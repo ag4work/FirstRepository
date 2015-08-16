@@ -56,13 +56,54 @@ public interface OptionService {
      */
     boolean isOptionsConsistentIncludingAllRequired(Integer optionId1,
                                                            Integer optionId2);
+    /**
+     * is Option Including All Required Consistent With Set of options.
+     * @param optionId optionId
+     * @param options options set
+     * @return bool
+     */
     boolean isOptionIncludingAllRequiredConsistentWithSet(
             Integer optionId, Set<OptionDTO> options);
+
+    /**
+     * remove an option
+     * @param optionId optionId
+     */
     void delete(Integer optionId);
+
+    /**
+     * adds dependent option for the base option
+     * does quite complex checks before adding
+     * @param baseOptId base Option Id
+     * @param dependentOptId dependent Option Id
+     * @throws InconsistentOptionDependency
+     * @throws CycleInOptionsDependencyException
+     */
     void addDependency(Integer baseOptId, Integer dependentOptId) throws
             InconsistentOptionDependency, CycleInOptionsDependencyException;
+
+    /**
+     * removes dependency of dependent option from base option
+     * @param baseOptionId base Option Id
+     * @param dependentOptionId dependent Option Id
+     */
     void removeDependency(Integer baseOptionId, Integer dependentOptionId);
-    void addInconsistency(Integer optionId1, Integer optionId2) throws OptionInconsistencyImpossibleException;
+
+    /**
+     * add inconsistency between two options
+     * does quite hard checks inside
+     * @param optionId1 option1 Id
+     * @param optionId2 option2 Id
+     * @throws OptionInconsistencyImpossibleException
+     */
+    void addInconsistency(Integer optionId1, Integer optionId2) throws
+            OptionInconsistencyImpossibleException;
+
+    /**
+     * removes inconsistency between two options
+     * @param optionId1 option1 Id
+     * @param optionId2 option2 Id
+     */
     void removeInconsistency(Integer optionId1, Integer optionId2);
 
 }

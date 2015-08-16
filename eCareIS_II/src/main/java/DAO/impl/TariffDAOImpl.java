@@ -1,6 +1,7 @@
-package dao;
+package dao.impl;
 
 
+import dao.TariffDAO;
 import entity.Contract;
 import entity.Tariff;
 import org.apache.log4j.Logger;

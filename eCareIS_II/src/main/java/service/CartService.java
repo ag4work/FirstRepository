@@ -21,7 +21,8 @@ public class CartService {
 
     public Integer getTotalPaymentForCart(Cart cart) {
         if (cart == null) return 0;
-        ContractDTO contractDTO = contractService.getContract(cart.getContractId());
+        ContractDTO contractDTO = contractService.getContract(cart.
+                getContractId());
         Set<OptionDTO> contractOptions = contractDTO.getChosenOption();
         Set<OptionDTO> cartOptions = cart.getOptionDTOset();
         Integer sumPayment = 0;
@@ -38,12 +39,14 @@ public class CartService {
                 optionDTO.getOptionId()));
     }
 
-    public boolean isOptionConsistentWithOptionsInCart(OptionDTO optionDTO, Cart cart){
+    public boolean isOptionConsistentWithOptionsInCart(OptionDTO optionDTO,
+                                                       Cart cart){
         return optionService.isOptionIncludingAllRequiredConsistentWithSet(
                 optionDTO.getOptionId(), cart.getOptionDTOset());
     }
 
-    public void fillWithNewOrder(OptionDTO optionDTO, TariffDTO tariffDTO, Integer contractId, Cart cart) {
+    public void fillWithNewOrder(OptionDTO optionDTO, TariffDTO tariffDTO,
+                                 Integer contractId, Cart cart) {
             addOptionWithAllRequired(optionDTO, cart);
             cart.setTariffDTO(tariffDTO);
             cart.setContractId(contractId);

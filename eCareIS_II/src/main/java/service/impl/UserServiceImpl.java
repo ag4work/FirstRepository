@@ -1,4 +1,4 @@
-package service;
+package service.impl;
 
 
 
@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import service.DTO.UserDTO;
+import service.UserService;
 import utils.Mappers.UserMapper;
 
 import java.util.ArrayList;
@@ -19,21 +20,21 @@ import java.util.Set;
  * Created by Alexey on 24.06.2015.
  */
 @Service
-public class UserServiceGenericBasedImpl implements UserService{
+public class UserServiceImpl implements UserService {
     @Autowired
-    UserDAO userDAO;
+    private UserDAO userDAO;
 
     @Transactional
     @Override
-    public UserDTO getUserById(Integer userId){
+    public UserDTO getUserById(final Integer userId) {
         return UserMapper.EntityToDTOWithSet(userDAO.get(userId));
     }
 
     @Transactional
     @Override
-    public UserDTO findUserByEmail(String email){
+    public UserDTO findUserByEmail(final String email) {
         List<User> allUsers = userDAO.getAll();
-        for (User user : allUsers){
+        for (User user : allUsers) {
             if (user.getEmail().equals(email)) {
                 return UserMapper.EntityToDTOWithSet(user);
             }
@@ -43,9 +44,10 @@ public class UserServiceGenericBasedImpl implements UserService{
 
     @Override
     @Transactional
-    public UserDTO userWithEmailAndPasswordExists(String email, String password) {
+    public UserDTO userWithEmailAndPasswordExists(final String email,
+                                                  final String password) {
         UserDTO userDTO = findUserByEmail(email);
-        if (userDTO!=null && userDTO.getPassword().equals(password)){
+        if (userDTO != null && userDTO.getPassword().equals(password)) {
             return userDTO;
         } else {
             return null;
@@ -56,7 +58,7 @@ public class UserServiceGenericBasedImpl implements UserService{
     @Transactional
     public List<UserDTO> getAllUsers() {
         List<UserDTO> userDTOs = new ArrayList<UserDTO>();
-        for (User user : userDAO.getAll()){
+        for (User user : userDAO.getAll()) {
             userDTOs.add(UserMapper.EntityToDTOWithSet(user));
         }
         return userDTOs;
@@ -64,22 +66,23 @@ public class UserServiceGenericBasedImpl implements UserService{
 
     @Override
     @Transactional
-    public void addUser(UserDTO userDTO) {
+    public void addUser(final UserDTO userDTO) {
         userDAO.add(UserMapper.DTOToEntity(userDTO));
     }
 
     @Override
-    public List<UserDTO> getUsers(Integer page, Integer usersPerPage) {
+    public List<UserDTO> getUsers(final Integer page, final Integer
+            usersPerPage) {
 
         List<UserDTO> userDTOs = new ArrayList<UserDTO>();
-        for (User user : userDAO.getUsers(page, usersPerPage)){
+        for (User user : userDAO.getUsers(page, usersPerPage)) {
             userDTOs.add(UserMapper.EntityToDTOWithSet(user));
         }
         return userDTOs;
     }
 
     @Override
-    public Long getUserCount(){
+    public Long getUserCount() {
         return userDAO.getUserCount();
     }
 }

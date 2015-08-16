@@ -15,14 +15,13 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
 import service.DTO.UserDTO;
+import service.impl.UserServiceImpl;
 import utils.Mappers.UserMapper;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Set;
 
-import static org.mockito.Matchers.anyShort;
 import static org.mockito.Mockito.*;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -135,7 +134,7 @@ public class UserServiceTest {
 
         @Bean
         public UserService userService() {
-            return new UserServiceGenericBasedImpl();
+            return new UserServiceImpl();
         }
 
         @Bean

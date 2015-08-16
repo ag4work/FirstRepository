@@ -1,4 +1,4 @@
-package service;
+package service.impl;
 
 
 import dao.*;
@@ -11,12 +11,15 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import service.Cart;
+import service.CartService;
+import service.ContractService;
 import service.DTO.ContractDTO;
 import service.DTO.OptionDTO;
+import service.OptionService;
 import utils.Constants;
 import utils.Mappers.ContractMapper;
 import utils.Mappers.OptionMapper;
-import utils.Mappers.TariffMapper;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.*;
@@ -28,27 +31,27 @@ import java.util.*;
  * and return a DTOs to presentation.
  */
 @Service
-public class ContractServiceImpl implements ContractService{
+public class ContractServiceImpl implements ContractService {
 
-    Logger logger = Logger.getLogger(ContractServiceImpl.class);
-
-    @Autowired
-    ContractDAO contractDAO;
+    private Logger logger = Logger.getLogger(ContractServiceImpl.class);
 
     @Autowired
-    TariffDAO tariffDAO;
+    private ContractDAO contractDAO;
 
     @Autowired
-    UserDAO userDAO;
+    private TariffDAO tariffDAO;
 
     @Autowired
-    OptionDAO optionDAO;
+    private UserDAO userDAO;
 
     @Autowired
-    OptionService optionService;
+    private OptionDAO optionDAO;
 
     @Autowired
-    CartService cartService;
+    private OptionService optionService;
+
+    @Autowired
+    private CartService cartService;
 
     /**
      * This method return ContractDTO object by ContractId
@@ -109,7 +112,8 @@ public class ContractServiceImpl implements ContractService{
         Long number;
         do {
             exist = false;
-            number = Constants.DEFAULT_PHONE_CODE * 10000000L + (long) (Math.random() * 10000000);
+            number = Constants.DEFAULT_PHONE_CODE * 10000000L + (long) (Math.
+                    random() * 10000000);
             if (getContractByPhonenumber(number)!=null){
                 exist = true;
             }
@@ -280,6 +284,12 @@ public class ContractServiceImpl implements ContractService{
                 contract.getChosenOption());
     }
 
+    /**
+     * get contracts by page. for pagination
+     * @param page page
+     * @param contractsPerPage  number of contracts per page
+     * @return
+     */
     @Override
     public List<ContractDTO> getContracts(Integer page, Integer contractsPerPage) {
 
@@ -290,6 +300,10 @@ public class ContractServiceImpl implements ContractService{
         return contractDTOs;
     }
 
+    /**
+     * get all contracts count
+     * @return Long
+     */
     @Override
     public Long getContractCount(){
         return contractDAO.getContractCount();

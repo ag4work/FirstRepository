@@ -1,4 +1,4 @@
-package service;
+package service.impl;
 
 import dao.*;
 import entity.Contract;
@@ -8,32 +8,31 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import service.DTO.ContractDTO;
 import service.DTO.OptionDTO;
 import service.DTO.TariffDTO;
+import service.OptionService;
+import service.TariffService;
 import utils.Constants;
-import utils.Mappers.ContractMapper;
 import utils.Mappers.TariffMapper;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 /**
  * Created by Alexey on 04.07.2015.
  */
 @Service
-public class TariffServiceImpl implements TariffService{
+public class TariffServiceImpl implements TariffService {
     @Autowired
-    TariffDAO tariffDAO;
+    private TariffDAO tariffDAO;
     @Autowired
-    OptionDAO optionDAO;
+    private OptionDAO optionDAO;
     @Autowired
-    ContractDAO contractDAO;
+    private ContractDAO contractDAO;
     @Autowired
-    OptionService optionService;
+    private OptionService optionService;
 
-    Logger logger = Logger.getLogger(TariffServiceImpl.class);
+    private Logger logger = Logger.getLogger(TariffServiceImpl.class);
 
     @Override
     @Transactional

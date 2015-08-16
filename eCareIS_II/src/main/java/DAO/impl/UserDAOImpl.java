@@ -1,5 +1,6 @@
-package dao;
+package dao.impl;
 
+import dao.UserDAO;
 import entity.User;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
