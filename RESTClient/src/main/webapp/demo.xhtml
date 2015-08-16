@@ -14,25 +14,25 @@
 <h:body >
 	<h:panelGroup >
 	<h1>eCare REST client </h1>
-	<h:outputText value="Rest service is unreachable. Please try again later." rendered="#{empty user.tariffs}"/>
-	<h:form rendered="#{not empty user.tariffs}">
+	<h:outputText value="Rest service is unreachable. Please try again later." rendered="#{empty userBean.tariffs}"/>
+	<h:form rendered="#{not empty userBean.tariffs}">
 
 		<br /><br />
 
 		<h3>Список тарифов </h3>
-		<h:selectOneMenu value="#{user.chosenTariffId}" onchange="submit()"
-						 valueChangeListener="#{user.tariffChangeValue}">
-			<f:selectItems value="#{user.tariffs}" var="d"
+		<h:selectOneMenu value="#{userBean.chosenTariffId}" onchange="submit()"
+						 valueChangeListener="#{userBean.tariffChangeValue}">
+			<f:selectItems value="#{userBean.tariffs}" var="d"
 						   itemLabel="#{d.title}" itemValue="#{d.tariffId}" />
 		</h:selectOneMenu>
 
 		<h:form  onclick="this.form.target='_blank'">
-			<h:commandButton value="Download PDF" action="#{user.downloadPDF}" />
+			<h:commandButton value="Download PDF" action="#{userBean.downloadPDF}" />
 		</h:form>
 
 		<h3>Список контрактов на выбранном тарифе</h3>
 
-		<h:dataTable value="#{user.tariffContracts}" var="o"
+		<h:dataTable value="#{userBean.tariffContracts}" var="o"
 					 styleClass="order-table"
 					 headerClass="order-table-header"
 					 rowClasses="order-table-odd-row,order-table-even-row"

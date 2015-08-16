@@ -8,6 +8,8 @@ import com.itextpdf.text.pdf.PdfWriter;
 import dto.ContractDTO;
 import util.NumberSplitter;
 
+import javax.ejb.Stateful;
+import javax.ejb.Stateless;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletResponse;
@@ -17,6 +19,7 @@ import java.util.Set;
 /**
  * Created by Alexey on 03.08.2015.
  */
+@Stateless
 public class PdfUtil {
     private static final int DEFAULT_BUFFER_SIZE = 10240; // 10KB.
 
@@ -31,7 +34,7 @@ public class PdfUtil {
 //        return "E:\\Java_Dev\\jsf\\JSF-2-Dropdown-Box-Example\\";
 //    }
 
-    public static void uploadPDFToClient(File pdfFile) throws IOException {
+    public void uploadPDFToClient(File pdfFile) throws IOException {
         // Prepare.
         FacesContext facesContext = FacesContext.getCurrentInstance();
         ExternalContext externalContext = facesContext.getExternalContext();
@@ -74,7 +77,7 @@ public class PdfUtil {
         facesContext.responseComplete();
     }
 
-    private static void close(Closeable resource) {
+    private void close(Closeable resource) {
         if (resource != null) {
             try {
                 resource.close();
@@ -85,7 +88,7 @@ public class PdfUtil {
     }
 
 
-    public static File createPDF(Set<ContractDTO> contracts, String tariffTitle) {
+    public File createPDF(Set<ContractDTO> contracts, String tariffTitle) {
         String pdfFileName = "table"+(int)(1000000*Math.random()) + ".pdf";
         File pdfFile = new File(pdfFileName);
 
@@ -111,7 +114,7 @@ public class PdfUtil {
             // set Column span "1 cell = 6 cells width"
             cell.setColspan(4);
             // set style
-            Style.headerCellStyle(cell);
+            headerCellStyle(cell);
             // add to table
             table.addCell(cell);
 
@@ -144,7 +147,7 @@ public class PdfUtil {
     }
 
     // create cells
-    private static PdfPCell createWhiteCell(String text) throws IOException, DocumentException {
+    private PdfPCell createWhiteCell(String text) throws IOException, DocumentException {
         // font
         BaseFont bf = BaseFont.createFont(FONT_FILE_NAME, BaseFont.IDENTITY_H , BaseFont.EMBEDDED);
 
@@ -154,12 +157,12 @@ public class PdfUtil {
         PdfPCell cell = new PdfPCell(new Phrase(text,font));
 
         // set style
-        Style.labelCellStyle(cell);
+        labelCellStyle(cell);
         return cell;
     }
 
     // create cells
-    private static PdfPCell createGreyCell(String text) throws IOException, DocumentException {
+    private PdfPCell createGreyCell(String text) throws IOException, DocumentException {
 
             BaseFont bf = BaseFont.createFont(FONT_FILE_NAME, BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
             Font font = new Font(bf, 10, Font.NORMAL, BaseColor.BLACK);
@@ -168,12 +171,12 @@ public class PdfUtil {
             PdfPCell cell = new PdfPCell(new Phrase(text, font));
 
             // set style
-            Style.valueCellStyle(cell);
+            valueCellStyle(cell);
             return cell;
     }
     // create cells
 
-    private static PdfPCell createColumnNameCell(String text) throws IOException, DocumentException {
+    private PdfPCell createColumnNameCell(String text) throws IOException, DocumentException {
 
         BaseFont bf = BaseFont.createFont(FONT_FILE_NAME, BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
         Font font = new Font(bf, 12, Font.NORMAL, new BaseColor(60,60,60));
@@ -182,9 +185,90 @@ public class PdfUtil {
         PdfPCell cell = new PdfPCell(new Phrase(text, font));
 
         // set style
-        Style.columnNameCellStyle(cell);
+        columnNameCellStyle(cell);
         return cell;
     }
 
+    private void headerCellStyle(PdfPCell cell){
 
+        // alignment
+        cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+        cell.setVerticalAlignment(Element.ALIGN_MIDDLE);
+
+        // padding
+        cell.setPaddingTop(0f);
+        cell.setPaddingBottom(7f);
+
+
+        // background color
+        cell.setBackgroundColor(new BaseColor(0,121,182));
+
+        // border
+        cell.setBorder(0);
+        cell.setBorderWidthBottom(2f);
+
+    }
+
+    private void columnNameCellStyle(PdfPCell cell){
+
+        // alignment
+        cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+        cell.setVerticalAlignment(Element.ALIGN_MIDDLE);
+
+        // padding
+        cell.setPaddingTop(0f);
+        cell.setPaddingBottom(7f);
+
+
+        // background color
+        cell.setBackgroundColor(new BaseColor(166,201,215));
+
+        // border
+        cell.setBorder(0);
+        cell.setBorderWidthBottom(1f);
+
+    }
+
+
+    private void labelCellStyle(PdfPCell cell){
+        // alignment
+        cell.setHorizontalAlignment(Element.ALIGN_LEFT);
+        cell.setVerticalAlignment(Element.ALIGN_MIDDLE);
+
+        // padding
+        cell.setPaddingLeft(8f);
+        cell.setPaddingTop(0f);
+        cell.setPaddingBottom(4f);
+        // background color
+        cell.setBackgroundColor(new BaseColor(201,240,240));
+
+        // border
+        cell.setBorder(0);
+        cell.setBorderWidthBottom(0.5f);
+        cell.setBorderColorBottom(BaseColor.GRAY);
+
+        // height
+        cell.setMinimumHeight(18f);
+    }
+
+    private void valueCellStyle(PdfPCell cell){
+        // alignment
+        cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+        cell.setVerticalAlignment(Element.ALIGN_MIDDLE);
+
+        // padding
+        cell.setPaddingTop(0f);
+        cell.setPaddingBottom(4f);
+
+        // border
+        cell.setBorder(0);
+        cell.setBorderWidthBottom(0.5f);
+        cell.setBorderColorBottom(BaseColor.GRAY);
+
+        // height
+        cell.setMinimumHeight(18f);
+    }
 }
+
+
+
