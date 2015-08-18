@@ -4,11 +4,17 @@
   http://maven.apache.org/maven-v4_0_0.xsd">
   
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.mkyong.common</groupId>
+
+  <parent>
+      <artifactId>eCare-parent</artifactId>
+      <groupId>com.ag</groupId>
+      <version>1.0-SNAPSHOT</version>
+  </parent>
+
   <artifactId>eCare_client</artifactId>
   <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
-  <name>JavaServerFaces Maven Webapp</name>
+  <name>eCare_client</name>
   <url>http://maven.apache.org</url>
 
     <properties>

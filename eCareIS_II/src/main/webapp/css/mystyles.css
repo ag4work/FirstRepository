@@ -54,3 +54,16 @@ h1,h2,h3,h4,h5,h6 {
 .greentext {
     color:green;
 }
+
+.divCenterleft {
+    position: absolute;
+    top: 40%;
+    left: 35%;
+}​
+
+
+.divRight{
+    position: absolute;
+    top: 40%;
+    left: 60%;
+}​

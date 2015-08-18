@@ -1,6 +1,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+      <artifactId>eCare-parent</artifactId>
+      <groupId>com.ag</groupId>
+      <version>1.0-SNAPSHOT</version>
+  </parent>
+
   <groupId>com.ag</groupId>
   <artifactId>eCareIS</artifactId>
   <packaging>war</packaging>
@@ -71,9 +78,9 @@
     </dependency>
 
     <!--<dependency>-->
-    <!--<groupId>org.hibernate</groupId>-->
-    <!--<artifactId>hibernate-entitymanager</artifactId>-->
-    <!--<version>4.3.10.Final</version>-->
+      <!--<groupId>org.hibernate</groupId>-->
+      <!--<artifactId>hibernate-entitymanager</artifactId>-->
+      <!--<version>4.3.10.Final</version>-->
     <!--</dependency>-->
     <!--  -->
 
@@ -91,9 +98,9 @@
     </dependency>
 
     <!--<dependency>-->
-    <!--<groupId>javax.servlet</groupId>-->
-    <!--<artifactId>jstl</artifactId>-->
-    <!--<version>1.1.2</version>-->
+      <!--<groupId>javax.servlet</groupId>-->
+      <!--<artifactId>jstl</artifactId>-->
+      <!--<version>1.1.2</version>-->
     <!--</dependency>-->
 
     <dependency>
@@ -210,7 +217,7 @@
       <version>4.1.6.RELEASE</version>
     </dependency>
 
-    <!--others-->
+<!--others-->
     <dependency>
       <groupId>aopalliance</groupId>
       <artifactId>aopalliance</artifactId>
@@ -224,74 +231,85 @@
 
 
     <!--<dependency>-->
-    <!--<groupId>org.hibernate</groupId>-->
-    <!--<artifactId>hibernate-entitymanager</artifactId>-->
-    <!--<version>4.3.10.Final</version>-->
-    <!--<scope>test</scope>-->
+      <!--<groupId>org.hibernate</groupId>-->
+      <!--<artifactId>hibernate-entitymanager</artifactId>-->
+      <!--<version>4.3.10.Final</version>-->
+      <!--<scope>test</scope>-->
     <!--</dependency>-->
 
     <!--<dependency>-->
-    <!--<groupId>org.jboss.spec.javax.ws.rs</groupId>-->
-    <!--<artifactId>jboss-jaxrs-api_2.0_spec</artifactId>-->
-    <!--<version>1.0.0.Final</version>-->
-    <!--<scope>provided</scope>-->
+      <!--<groupId>org.jboss.spec.javax.ws.rs</groupId>-->
+      <!--<artifactId>jboss-jaxrs-api_2.0_spec</artifactId>-->
+      <!--<version>1.0.0.Final</version>-->
+      <!--<scope>provided</scope>-->
     <!--</dependency>-->
 
     <!--&lt;!&ndash; Import the Common Annotations API (JSR-250), we use provided scope-->
     <!--as the API is included in JBoss EAP &ndash;&gt;-->
     <!--<dependency>-->
-    <!--<groupId>org.jboss.spec.javax.annotation</groupId>-->
-    <!--<artifactId>jboss-annotations-api_1.2_spec</artifactId>-->
-    <!--<version>1.0.0.Final</version>-->
-    <!--<scope>provided</scope>-->
+      <!--<groupId>org.jboss.spec.javax.annotation</groupId>-->
+      <!--<artifactId>jboss-annotations-api_1.2_spec</artifactId>-->
+      <!--<version>1.0.0.Final</version>-->
+      <!--<scope>provided</scope>-->
     <!--</dependency>-->
 
 
 
   </dependencies>
+
+
+
+
+
+
+
+
+
+
+
   <build>
     <finalName>eCareIS</finalName>
-    <pluginManagement>
-      <plugins>
-        <plugin>
-          <groupId>org.wildfly.plugins</groupId>
-          <artifactId>wildfly-maven-plugin</artifactId>
-          <version>1.0.2.Final</version>
-          <configuration>
-            <skip>true</skip>
-          </configuration>
-        </plugin>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.tomcat.maven</groupId>
+        <artifactId>tomcat7-maven-plugin</artifactId>
+        <version>2.2</version>
+        <configuration>
+          <url>http://localhost:8080/manager/text</url>
+          <server>TomcatServer</server>
+          <path>\eCareIS</path>
+        </configuration>
+      </plugin>
 
-        <plugin>
-          <groupId>org.codehaus.mojo</groupId>
-          <artifactId>cobertura-maven-plugin</artifactId>
-          <version>2.7</version>
-          <configuration>
-            <formats>
-              <format>html</format>
-              <format>xml</format>
-            </formats>
-            <instrumentation>
-            </instrumentation>
-            <check>
-              <regex>
-                <pattern>service.*</pattern>
-                <branchRate>100</branchRate>
-                <lineRate>100</lineRate>
-              </regex>
-            </check>
-          </configuration>
-          <executions>
-            <execution>
-              <goals>
-                <goal>clean</goal>
-                <goal>check</goal>
-              </goals>
-            </execution>
-          </executions>
-        </plugin>
-      </plugins>
-    </pluginManagement>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>cobertura-maven-plugin</artifactId>
+        <version>2.7</version>
+        <configuration>
+          <formats>
+            <format>html</format>
+            <format>xml</format>
+          </formats>
+          <instrumentation>
+          </instrumentation>
+          <check>
+            <regex>
+              <pattern>service.*</pattern>
+              <branchRate>100</branchRate>
+              <lineRate>100</lineRate>
+            </regex>
+          </check>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>clean</goal>
+              <goal>check</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
   </build>
 
 
